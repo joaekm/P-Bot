@@ -17,7 +17,7 @@ from google import genai
 from dotenv import load_dotenv
 
 from .components import ExtractorComponent, PlannerComponent, HunterComponent, SynthesizerComponent
-from .validators import normalize_entities
+from .validators import normalize_entities, validate_entities
 
 # --- CONFIG LOADER ---
 def load_config():
@@ -127,12 +127,69 @@ class AddaSearchEngine:
         current_intent = current_state.get('current_intent', 'INSPIRATION')
         extracted_entities = current_state.get('extracted_entities', {})
         
-        # 0.6 VALIDATE & NORMALIZE
+        # 0.6 NORMALIZE
         extracted_entities = normalize_entities(extracted_entities)
         current_state['extracted_entities'] = extracted_entities
         
         logger.info(f"Merged State Resources: {len(extracted_entities.get('resources', []))}")
         logger.info(f"Current Intent: {current_intent}, Missing: {current_state.get('missing_info')}")
+        
+        # --- STEP 0.7: VALIDATION (Constraint Check) ---
+        # Skyddar systemet mot orimliga värden eller otillåtna val
+        validated_entities, validation_issues = validate_entities(extracted_entities)
+        current_state['extracted_entities'] = validated_entities
+        
+        # 1. Hantera BLOCK (Avbryt direkt)
+        block_issues = [i for i in validation_issues if i.get("type") == "BLOCK"]
+        if block_issues:
+            block_msg = block_issues[0].get('message', "Begäran stoppad av regelverk.")
+            logger.warning(f"🚫 Request BLOCKED by Validator: {block_msg}")
+            
+            # Logga även BLOCK-svar
+            self._log_trace(
+                query=query,
+                current_intent=current_intent,
+                extracted_entities=extracted_entities,
+                current_state=current_state,
+                plan={"reasoning": "BLOCKED by Validator", "target_step": "validation", "target_type": "BLOCK"},
+                target_step="validation",
+                target_type="BLOCK",
+                hunter_hits={},
+                vector_hits={},
+                sources=[i.get('source') for i in block_issues if i.get('source')],
+                answer=f"🛑 BLOCKED: {block_msg}"
+            )
+            
+            # Returnera direkt utan att köra Planner/LLM
+            return {
+                "response": f"🛑 **Åtgärd krävs:** {block_msg}",
+                "sources": [i.get('source') for i in block_issues if i.get('source')],
+                "thoughts": {
+                    "reasoning": "Validator triggered BLOCK action.",
+                    "violation": validation_issues
+                },
+                "current_state": current_state,
+                "ui_directives": {
+                    "current_intent": "FACT",
+                    "missing_info": [],
+                    "validation_blocked": True
+                }
+            }
+        
+        # 2. Hantera STRATEGY_FORCE (Tvinga FKU etc)
+        strategy_notices = []
+        force_fku = False
+        
+        for issue in validation_issues:
+            if issue.get("type") == "STRATEGY_FORCE":
+                strategy_notices.append(f"⚠️ **Notis:** {issue.get('message')}")
+                if issue.get("action") == "TRIGGER_STRATEGY_FKU":
+                    force_fku = True
+        
+        # Om validatorn tvingar FKU, skriv över strategin i state
+        if force_fku:
+            current_state["forced_strategy"] = "FKU"
+            logger.info("📋 Strategy forced to FKU by Validator")
         
         # KILLSWITCH LOGIC: Determine allowed authority levels based on intent
         if current_intent == "FACT":
@@ -188,6 +245,11 @@ class AddaSearchEngine:
             
         # 5. SYNTHESIZE
         answer = self.synthesizer.synthesize(query, context_docs, extracted_entities, target_step)
+        
+        # Injicera strategy_notices i svaret om de finns
+        if strategy_notices:
+            prefix = "\n\n".join(strategy_notices) + "\n\n"
+            answer = prefix + answer
         
         # --- BLACK BOX RECORDER ---
         self._log_trace(query, current_intent, extracted_entities, current_state, 

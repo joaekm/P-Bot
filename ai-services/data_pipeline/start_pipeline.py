@@ -242,7 +242,7 @@ def save_full_document_reference(text, original_filename, zone):
     
     full_content = yaml_header + text
     safe_name = Path(original_filename).stem[:30].replace(" ", "_")
-    filename = f"general_FULL_DOCUMENT_{safe_name}_{block_id[:4]}.md"
+    filename = f"general_FULL_DOCUMENT_{zone.upper()}_{safe_name}_{block_id[:4]}.md"
     
     output_path = PROJECT_ROOT / PIPELINE_CONFIG['paths']['dir_converted']
     output_path.mkdir(parents=True, exist_ok=True)
@@ -278,11 +278,15 @@ def save_smart_block(block_data, original_filename, zone):
     
     if "graph_relations" in meta:
         yaml_header += f"graph_relations: {json.dumps(meta['graph_relations'])}\n"
+    if "constraints" in meta:
+        yaml_header += f"constraints: {json.dumps(meta['constraints'])}\n"
     yaml_header += "---\n\n"
     
     full_content = yaml_header + content_raw
     safe_step = steps[0] if steps else "general"
-    filename = f"{safe_step}_{block_type}_{block_id[:8]}.md"
+    # Extrahera bara siffran från step (t.ex. "step_1_intake" -> "1_intake")
+    step_short = safe_step.replace("step_", "") if safe_step.startswith("step_") else safe_step
+    filename = f"{step_short}_{block_type}_{zone.upper()}_{block_id[:8]}.md"
     
     output_path = PROJECT_ROOT / PIPELINE_CONFIG['paths']['dir_converted']
     output_path.mkdir(parents=True, exist_ok=True)
@@ -340,14 +344,18 @@ async def analyze_document_async(text, zone, filename, throttler):
     model_name = PIPELINE_CONFIG['system']['models']['model_pro']
     
     prompt = f"""
-    {CONTEXT_PROTOCOL}
-    --- DOKUMENT FÖR ANALYS ---
-    FILNAMN: {filename}
-    ZON: {zone}
-    INSTRUKTION: Returnera strikt JSON-lista där varje objekt har 'content_markdown'.
-    TEXT INPUT:
-    {text[:60000]}
-    """
+{CONTEXT_PROTOCOL}
+
+--- ANALYSINSTRUKTION ---
+FILNAMN: {filename}
+ZON: {zone}
+
+DU SKA: Returnera en strikt JSON-lista med smarta block.
+VIKTIGT: Om texten innehåller mätbara regler (volym, tid, pengar, regioner) MÅSTE du fylla i 'constraints'-listan i metadata enligt protokollet (Sektion 8).
+
+TEXT INPUT:
+{text[:60000]}
+"""
     
     while True:
         await throttler.wait_for_slot()
