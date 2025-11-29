@@ -1,5 +1,5 @@
 """
-Adda Search Engine v5 - Modular Architecture
+Adda Search Engine v5.1 - Modular Architecture
 """
 from .engine import AddaSearchEngine, engine
 

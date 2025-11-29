@@ -1,4 +1,4 @@
-# P-Bot Summary (v5.1)
+# P-Bot Summary (v5.2)
 
 Detta dokument beskriver "Vad" – den slutgiltiga processen, designen och arkitekturstrategin.
 
@@ -104,7 +104,7 @@ ai-services/
 │   └── validators/           # Business rules
 │       └── normalizer.py     # Entity normalization
 ├── _archive/                 # Legacy-kod (v1-v4)
-├── adda_chat.py              # CLI Interface
+├── adda_chat.py              # CLI Wrapper (→ app/cli.py)
 ├── data_pipeline/            # Turbo Mode Ingest (v6.5)
 ├── storage/
 │   ├── lake/                 # Normaliserade Markdown-filer
@@ -322,6 +322,6 @@ Separat bulk-ingest processor för dokumentkonvertering:
 
 ---
 
-*Version: 5.1*  
+*Version: 5.2*  
 *Status: Modular Architecture + Entity Extraction + UI Directives + Multi-Resource Support*  
 *Senast uppdaterad: November 2024*

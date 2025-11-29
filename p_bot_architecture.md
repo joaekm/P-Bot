@@ -1,4 +1,4 @@
-# P-Bot Arkitektur (v5.1)
+# P-Bot Arkitektur (v5.2)
 
 Detta dokument beskriver "Hur" – den tekniska implementationen av prototypen och målbilden, nu mappad mot Addas strategi.
 
@@ -629,5 +629,5 @@ from app.main import app, main
 
 ---
 
-*Version: 5.1*  
+*Version: 5.2*  
 *Senast uppdaterad: November 2024*

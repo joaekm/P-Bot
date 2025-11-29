@@ -1,17 +1,13 @@
 """
-Adda P-Bot API Server v5
+Adda P-Bot API Server v5.1
 Main entrypoint for the Flask API.
 """
 import os
-import sys
 import logging
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-# Add parent directory to path to allow imports
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from app.engine import AddaSearchEngine
+from .engine import AddaSearchEngine
 
 # Configure Logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - SERVER - %(levelname)s - %(message)s')
@@ -112,13 +108,13 @@ def analyze_document():
 @app.route('/api/health', methods=['GET'])
 def health():
     """Health check endpoint."""
-    return jsonify({"status": "ok", "version": "5.0"})
+    return jsonify({"status": "ok", "version": "5.1"})
 
 
 def main():
     """Main entry point."""
     port = int(os.environ.get('PORT', 5000))
-    logger.info(f"Starting Adda P-Bot API v5 on port {port}")
+    logger.info(f"Starting Adda P-Bot API v5.1 on port {port}")
     app.run(host='0.0.0.0', port=port, debug=True)
 
 
