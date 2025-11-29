@@ -1,0 +1,40 @@
+# Adda P-Bot Konfiguration (adda_config.yaml)
+
+# --- SYSTEM ---
+system:
+  timezone: "Europe/Stockholm"
+  app_name: "Adda P-Bot API"
+  version: "4.1"
+
+# --- SÖKVÄGAR ---
+paths:
+  storage_root: "storage"
+  assets: "storage/assets"
+  lake: "storage/lake"
+  index_root: "storage/index"
+  chroma_db: "storage/index/chroma"
+  kuzu_db: "storage/index/kuzu"
+  taxonomy: "config/adda_taxonomy.json"
+  logs: "logs/adda_system.log"
+  prompts_services: "config/services_prompts.yaml"
+  prompts_chat: "config/assistant_prompts.yaml"
+
+# --- AI MOTOR ---
+ai_engine:
+  # Modeller definierade i my_mem_config.yaml
+  models:
+    model_pro: "models/gemini-pro-latest"       # För syntes (Smart)
+    model_fast: "models/gemini-flash-latest"    # För dokumentanalys (Snabb)
+    model_lite: "models/gemini-flash-lite-latest" # För planering/logik (Snabbast)
+    embeddings: "all-MiniLM-L6-v2"              # Lokal modell
+
+# --- PROCESSNING ---
+processing:
+  max_text_length: 50000
+  allowed_extensions:
+    - .pdf
+    - .docx
+    - .txt
+    - .md
+    - .xlsx
+    - .csv

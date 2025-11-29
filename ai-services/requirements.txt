@@ -1,0 +1,22 @@
+# Core Framework
+flask==3.0.0
+flask-cors==4.0.0
+python-dotenv==1.0.0
+
+# File & Config
+watchdog
+pyyaml
+
+# Data Processing (Strict Mode)
+pandas
+openpyxl
+tabulate
+pypdf
+python-docx
+
+# AI & Database (MyMem Stack)
+google-genai
+kuzu
+chromadb
+sentence-transformers
+rich

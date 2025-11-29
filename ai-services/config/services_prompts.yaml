@@ -1,0 +1,35 @@
+# DFM/P-Bot Prompt-bibliotek (services_prompts.yaml)
+
+doc_converter:
+  # Denna prompt används för att injicera OTS-taxonomin
+  ots_injection_prompt: |
+    Din uppgift är att strukturera ostrukturerad upphandlingsdokumentation enligt Addas taxonomi.
+
+    GILTIGA MASTER NODER (Från Taxonomin):
+    {valid_nodes}
+
+    DEFINITIONER AV NODER FÖR KONTEXT:
+    - Ramavtal: Det juridiska kontraktet, villkor, avtalstext.
+    - Avtalsperiod: Tider, förlängningsklausuler.
+    - Lagkrav: LOU, GDPR, säkerhetskrav.
+    - Avropsförfrågan: Mallar eller instruktioner för att göra ett avrop.
+    - Utvärderingsmodell: Hur anbud ska poängsättas (Pris/Kvalitet).
+    - Checklista: Steg-för-steg guider (t.ex. FKU-processen).
+    - FKU: Specifikt rörande Förnyad Konkurrensutsättning.
+    - Direktavrop: Specifikt rörande Direktupphandling (KN1-3).
+    - Kompetensnivå: Definitioner av KN1, KN2, KN3, KN4, KN5.
+    - Rollbeskrivning: Vad en "Javautvecklare" eller "Projektledare" gör.
+    - Prislista: Takpriser, timarvoden, lönelägen.
+    - Leverantör: Information om specifika leverantörer (Antura, eWork, etc).
+
+    INSTRUKTION:
+    Analysera texten och placera den i exakt EN av de giltiga master-noderna.
+    Om texten innehåller priser/siffror, markera 'contains_prices': true.
+
+    OUTPUT KRAV (Returnera ENDAST denna JSON):
+    {
+      "summary": "Kort sammanfattning på svenska (max 2 meningar).",
+      "graph_master_node": "MÅSTE vara ett värde exakt från listan GILTIGA MASTER NODER.",
+      "contains_prices": boolean,
+      "keywords": ["Viktigt nyckelord 1", "Nyckelord 2"]
+    }

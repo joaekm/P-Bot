@@ -1,0 +1,47 @@
+# Adda Ingest Pipeline Configuration (v4.4)
+# Synkroniserad med adda_config.yaml
+
+system:
+# --- AI MOTOR ---
+  models:
+    model_pro: "models/gemini-pro-latest"       # För syntes (Smart)
+    model_fast: "models/gemini-flash-latest"    # För dokumentanalys (Snabb)
+    model_lite: "models/gemini-flash-lite-latest" # För planering/logik (Snabbast)
+    embeddings: "all-MiniLM-L6-v2"              # Lokal modell
+  
+paths:
+  dir_master_context: "ai-services/data_pipeline/config/master_context_protocol.md"
+  # Input (Zon-indelade inkorgar)
+  dir_primary_raw: "ai-services/data_pipeline/input/primary" # Addas huvudkällor (Primary)
+  dir_secondary_raw: "ai-services/data_pipeline/input/secondary" # Övrig relevant information (Secondary)
+  
+  # Output (Mellanlandning innan Lake)
+  dir_converted: "ai-services/data_pipeline/output" 
+  
+  # Arkiv (För bearbetade originalfiler)
+  dir_archive: "ai-services/data_pipeline/output_archive"
+
+processing:
+  chunk_size: 30000 # Gemini klarar mycket stora kontexter
+  language: "sv"
+  allowed_extensions:
+    - .pdf
+    - .docx
+    - .txt
+    - .md
+    - .xlsx
+    - .xls
+    - .csv
+
+taxonomy:
+  # Måste matcha master_context_protocol.md
+  allowed_steps:
+    - step_1_intake
+    - step_2_level
+    - step_3_volume
+    - step_4_strategy
+  allowed_types:
+    - RULE
+    - INSTRUCTION
+    - DEFINITION
+    - DATA_POINTER

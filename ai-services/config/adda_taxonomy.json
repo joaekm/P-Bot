@@ -1,0 +1,22 @@
+{
+  "process_steps": {
+    "description": "Var i avropsprocessen befinner vi oss?",
+    "nodes": [
+      "step_1_intake", 
+      "step_2_level", 
+      "step_3_volume", 
+      "step_4_strategy", 
+      "general"
+    ]
+  },
+  "block_types": {
+    "description": "Vilken typ av information är detta?",
+    "nodes": [
+      "RULE", 
+      "INSTRUCTION", 
+      "DEFINITION", 
+      "DATA_POINTER", 
+      "FULL_DOCUMENT"
+    ]
+  }
+}

@@ -1,0 +1,515 @@
+{
+  "meta": {
+    "source": "https://www.adda.se",
+    "pages_scanned": [
+      "https://www.adda.se/event-webbinarier",
+      "https://www.adda.se/upphandling-och-ramavtal/planerade-och-pagaende-upphandlingar/upphandlingsplan2026",
+      "https://www.adda.se/webbutik/bocker/arbetsratten-i-kommuner-regioner",
+      "https://www.adda.se/upphandling-och-ramavtal",
+      "https://www.adda.se/utbildningar/kurslista",
+      "https://www.adda.se",
+      "https://www.adda.se/larande-och-verksamhetsstod/bokaoss/uppdragsforfragan",
+      "https://www.adda.se/webbutik/bocker"
+    ],
+    "target_pages": [
+      "https://www.adda.se/",
+      "https://www.adda.se/upphandling-och-ramavtal/",
+      "https://www.adda.se/upphandling-och-ramavtal/planerade-och-pagaende-upphandlingar/upphandlingsplan2026/",
+      "https://www.adda.se/webbutik/bocker/",
+      "https://www.adda.se/webbutik/bocker/arbetsratten-i-kommuner-regioner/",
+      "https://www.adda.se/event-webbinarier/",
+      "https://www.adda.se/utbildningar/kurslista/",
+      "https://www.adda.se/larande-och-verksamhetsstod/bokaoss/uppdragsforfragan/"
+    ],
+    "scan_timestamp": "2025-11-21 11:55:54",
+    "version": "2.0-enhanced-handpicked"
+  },
+  "palette_candidates": [
+    "#005B59",
+    "#2B2825",
+    "#D32F00",
+    "#DFF3F2",
+    "#B9EAE9",
+    "#FBF4EA",
+    "#FFFAD0",
+    "#FEFBF6",
+    "#FFF0ED",
+    "#D4D3CD",
+    "#F8F8F6",
+    "#333333",
+    "#DFD1C1",
+    "#706F6B"
+  ],
+  "typography_candidates": [
+    {
+      "family_weight": "Avenir Next, sans-serif (400)",
+      "sizes_found": [
+        "0px",
+        "12px",
+        "13.3333px",
+        "14px",
+        "15px"
+      ]
+    },
+    {
+      "family_weight": "Material Symbols Outlined (400)",
+      "sizes_found": [
+        "16px",
+        "20px",
+        "22px",
+        "24px",
+        "30px"
+      ]
+    },
+    {
+      "family_weight": "Avenir Next, sans-serif (500)",
+      "sizes_found": [
+        "16px",
+        "19.008px",
+        "20px",
+        "22px",
+        "32px"
+      ]
+    },
+    {
+      "family_weight": "Avenir Next, Helvetica, sans-serif (400)",
+      "sizes_found": [
+        "13.3333px",
+        "16px",
+        "20px"
+      ]
+    },
+    {
+      "family_weight": "Avenir Next, sans-serif (300)",
+      "sizes_found": [
+        "16px",
+        "37px"
+      ]
+    },
+    {
+      "family_weight": "Avenir Next, sans-serif (700)",
+      "sizes_found": [
+        "50px"
+      ]
+    },
+    {
+      "family_weight": "Avenir Next, sans-serif (600)",
+      "sizes_found": [
+        "12px",
+        "14px",
+        "16px",
+        "22px",
+        "24px"
+      ]
+    },
+    {
+      "family_weight": "Material Symbols Outlined (700)",
+      "sizes_found": [
+        "20px"
+      ]
+    },
+    {
+      "family_weight": "Avenir Nex, sans-serif (400)",
+      "sizes_found": [
+        "20px"
+      ]
+    },
+    {
+      "family_weight": "Avenir Next, sans-serif, Helvetica (400)",
+      "sizes_found": [
+        "16px"
+      ]
+    },
+    {
+      "family_weight": "Material Symbols Outlined (500)",
+      "sizes_found": [
+        "32px"
+      ]
+    },
+    {
+      "family_weight": "Avenir Next, sans-serif, Helvetica (600)",
+      "sizes_found": [
+        "16px"
+      ]
+    },
+    {
+      "family_weight": "Avenir Next, Helvetica, sans-serif (700)",
+      "sizes_found": [
+        "16px"
+      ]
+    },
+    {
+      "family_weight": "Avenir Next, Helvetica, sans-serif (600)",
+      "sizes_found": [
+        "16px"
+      ]
+    },
+    {
+      "family_weight": "Avenir Next, Helvetica, sans-serif (500)",
+      "sizes_found": [
+        "16px"
+      ]
+    },
+    {
+      "family_weight": "Avenir Next (400)",
+      "sizes_found": [
+        "22px"
+      ]
+    }
+  ],
+  "spacing_system": {
+    "common_values": [
+      "16px",
+      "8px",
+      "24px",
+      "10px",
+      "12px",
+      "20px",
+      "4px",
+      "32px",
+      "40px",
+      "6px"
+    ],
+    "distribution": {
+      "16.0": 363,
+      "8.0": 213,
+      "24.0": 210,
+      "10.0": 186,
+      "12.0": 123,
+      "20.0": 122,
+      "4.0": 80,
+      "32.0": 60,
+      "40.0": 48,
+      "6.0": 48,
+      "1.0": 40,
+      "2.0": 32,
+      "352.0": 31,
+      "3.0": 31,
+      "11.0": 29
+    }
+  },
+  "border_radius": {
+    "common_values": [
+      "100px",
+      "10px",
+      "20px",
+      "50px",
+      "6px"
+    ],
+    "distribution": {
+      "100.0": 42,
+      "10.0": 38,
+      "20.0": 26,
+      "50.0": 25,
+      "6.0": 14,
+      "9.0": 8,
+      "2.0": 4,
+      "24.0": 4,
+      "4.0": 4,
+      "30.0": 1
+    }
+  },
+  "shadows": [
+    "rgba(0, 0, 0, 0.08) 0px 3px 10px 0px",
+    "rgb(128, 128, 128) 0px 0px 5px 0px",
+    "rgb(255, 252, 223) 0px 0px 0px 2px inset",
+    "rgba(0, 0, 0, 0.12) 0px 0px 3px 0px",
+    "rgb(0, 0, 0) 0px 11px 40px 0px"
+  ],
+  "components": {
+    "buttons": [
+      {
+        "text_sample": "Hoppa till huvudinnehållet",
+        "bg_color": "#D32F00",
+        "text_color": "#FFFFFF",
+        "border_color": "#FFFFFF",
+        "padding": "0px",
+        "border_radius": "100px",
+        "font_weight": "400",
+        "font_size": "16px",
+        "box_shadow": "none",
+        "class_names": "adda-skip-links__link adda-button adda-button--cta",
+        "found_on": "https://www.adda.se"
+      },
+      {
+        "text_sample": "Vilka cookies vill du tillåta?",
+        "bg_color": "#000000",
+        "text_color": "#000000",
+        "border_color": "#000000",
+        "padding": "0px",
+        "border_radius": "0px",
+        "font_weight": "500",
+        "font_size": "16px",
+        "box_shadow": "none",
+        "class_names": "adda-dialog__inner-content-btntitle",
+        "found_on": "https://www.adda.se"
+      },
+      {
+        "text_sample": "Endast nödvändiga\nTillåt alla",
+        "bg_color": "#000000",
+        "text_color": "#000000",
+        "border_color": "#000000",
+        "padding": "0px",
+        "border_radius": "0px",
+        "font_weight": "400",
+        "font_size": "16px",
+        "box_shadow": "none",
+        "class_names": "adda-dialog__inner-content-buttons",
+        "found_on": "https://www.adda.se"
+      },
+      {
+        "text_sample": "Endast nödvändiga",
+        "bg_color": "#B9EAE9",
+        "text_color": "#005B59",
+        "border_color": "#005B59",
+        "padding": "10px 14px",
+        "border_radius": "10px",
+        "font_weight": "400",
+        "font_size": "16px",
+        "box_shadow": "rgb(255, 252, 223) 0px 0px 0px 2px inset",
+        "class_names": "adda-button__cookie",
+        "found_on": "https://www.adda.se"
+      },
+      {
+        "text_sample": "Tillåt alla",
+        "bg_color": "#B9EAE9",
+        "text_color": "#005B59",
+        "border_color": "#005B59",
+        "padding": "10px 14px",
+        "border_radius": "20px",
+        "font_weight": "400",
+        "font_size": "16px",
+        "box_shadow": "none",
+        "class_names": "adda-button__cookie",
+        "found_on": "https://www.adda.se"
+      }
+    ],
+    "inputs": [
+      {
+        "type": "text",
+        "border": "1px solid rgb(212, 211, 205)",
+        "border_radius": "6px",
+        "padding": "10px 16px",
+        "font_size": "16px",
+        "font_family": "Avenir Next, sans-serif",
+        "background_color": "#FFFFFF",
+        "color": "#2B2825",
+        "box_shadow": "none",
+        "placeholder": "",
+        "found_on": "https://www.adda.se/upphandling-och-ramavtal"
+      }
+    ],
+    "selects": [
+      {
+        "border": "1px solid rgb(212, 211, 205)",
+        "border_radius": "4px",
+        "padding": "10px 28px 10px 16px",
+        "font_size": "14px",
+        "background_color": "#FFFFFF",
+        "color": "#000000",
+        "found_on": "https://www.adda.se/utbildningar/kurslista"
+      }
+    ],
+    "headings": [
+      {
+        "tag": "h2",
+        "font_family": "Avenir Next, sans-serif",
+        "font_size": "24px",
+        "font_weight": "600",
+        "color": "#000000",
+        "line_height": "32px",
+        "letter_spacing": "normal",
+        "text_sample": "I fokus",
+        "found_on": "https://www.adda.se"
+      },
+      {
+        "tag": "h3",
+        "font_family": "Avenir Next, sans-serif",
+        "font_size": "22px",
+        "font_weight": "500",
+        "color": "#000000",
+        "line_height": "28px",
+        "letter_spacing": "normal",
+        "text_sample": "Vi använder cookies",
+        "found_on": "https://www.adda.se"
+      },
+      {
+        "tag": "h3",
+        "font_family": "Avenir Nex, sans-serif",
+        "font_size": "20px",
+        "font_weight": "400",
+        "color": "#FFFFFF",
+        "line_height": "26px",
+        "letter_spacing": "normal",
+        "text_sample": "Adda AB",
+        "found_on": "https://www.adda.se"
+      },
+      {
+        "tag": "h1",
+        "font_family": "Avenir Next, sans-serif",
+        "font_size": "34px",
+        "font_weight": "600",
+        "color": "#D32F00",
+        "line_height": "40px",
+        "letter_spacing": "normal",
+        "text_sample": "Upphandling och ramavtal",
+        "found_on": "https://www.adda.se/upphandling-och-ramavtal"
+      },
+      {
+        "tag": "h1",
+        "font_family": "Avenir Next, sans-serif",
+        "font_size": "32px",
+        "font_weight": "600",
+        "color": "#000000",
+        "line_height": "40px",
+        "letter_spacing": "normal",
+        "text_sample": "Böcker",
+        "found_on": "https://www.adda.se/webbutik/bocker"
+      },
+      {
+        "tag": "h2",
+        "font_family": "Avenir Next",
+        "font_size": "22px",
+        "font_weight": "400",
+        "color": "#000000",
+        "line_height": "30px",
+        "letter_spacing": "normal",
+        "text_sample": "Formulär: Förfrågan om uppdragsutbildning",
+        "found_on": "https://www.adda.se/larande-och-verksamhetsstod/bokaoss/uppdragsforfragan"
+      }
+    ],
+    "cards": [],
+    "logos": [
+      {
+        "src": "",
+        "alt": "",
+        "width": "142.656px",
+        "height": "68px",
+        "max_width": "none",
+        "found_on": "https://www.adda.se"
+      },
+      {
+        "src": "https://www.adda.se/images/adda/adda-header-logo-white.svg",
+        "alt": "",
+        "width": "112.656px",
+        "height": "48px",
+        "max_width": "115px",
+        "found_on": "https://www.adda.se"
+      },
+      {
+        "src": "",
+        "alt": "",
+        "width": "256px",
+        "height": "65px",
+        "max_width": "none",
+        "found_on": "https://www.adda.se"
+      },
+      {
+        "src": "",
+        "alt": "",
+        "width": "142.656px",
+        "height": "68px",
+        "max_width": "none",
+        "found_on": "https://www.adda.se/upphandling-och-ramavtal"
+      },
+      {
+        "src": "https://www.adda.se/images/adda/adda-header-logo-white.svg",
+        "alt": "",
+        "width": "112.656px",
+        "height": "48px",
+        "max_width": "115px",
+        "found_on": "https://www.adda.se/upphandling-och-ramavtal"
+      }
+    ],
+    "links": []
+  },
+  "layout": {
+    "grids": [
+      {
+        "type": "grid",
+        "columns": "78px 78px 78px 78px 78px 78px 78px 78px 78px 78px 78px 78px",
+        "gap": "24px",
+        "rows": "",
+        "padding": "0px",
+        "max_width": "none",
+        "class_names": "adda-grid mt_section mb_section",
+        "found_on": "https://www.adda.se"
+      },
+      {
+        "type": "grid",
+        "columns": "52.5px 52.5px 52.5px 52.5px 52.5px 52.5px 52.5px 52.5px 52.5px 52.5px 52.5px 52.5px",
+        "gap": "24px",
+        "rows": "",
+        "padding": "0px",
+        "max_width": "none",
+        "class_names": "adda-grid",
+        "found_on": "https://www.adda.se"
+      },
+      {
+        "type": "grid",
+        "columns": "1px 1px 1px 1px 1px 1px 1px 1px 1px 1px 1px 1px",
+        "gap": "24px",
+        "rows": "",
+        "padding": "0px",
+        "max_width": "none",
+        "class_names": "adda-grid",
+        "found_on": "https://www.adda.se/upphandling-och-ramavtal/planerade-och-pagaende-upphandlingar/upphandlingsplan2026"
+      },
+      {
+        "type": "grid",
+        "columns": "4.32812px 4.32812px 4.32812px 4.32812px 4.32812px 4.32812px 4.32812px 4.32812px 4.32812px 4.32812px 4.32812px 4.32812px",
+        "gap": "24px",
+        "rows": "",
+        "padding": "0px",
+        "max_width": "none",
+        "class_names": "adda-grid",
+        "found_on": "https://www.adda.se/utbildningar/kurslista"
+      },
+      {
+        "type": "grid",
+        "columns": "10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px 10px",
+        "gap": "24px",
+        "rows": "",
+        "padding": "0px",
+        "max_width": "none",
+        "class_names": "adda-grid",
+        "found_on": "https://www.adda.se/larande-och-verksamhetsstod/bokaoss/uppdragsforfragan"
+      }
+    ],
+    "containers": [
+      {
+        "max_width": "1200px",
+        "padding": "0px",
+        "margin": "0px 352.5px",
+        "class_names": "adda-container adda-header__container",
+        "found_on": "https://www.adda.se"
+      }
+    ],
+    "headers": [
+      {
+        "background_color": "#000000",
+        "height": "142px",
+        "padding": "0px",
+        "box_shadow": "none",
+        "class_names": "",
+        "found_on": "https://www.adda.se"
+      }
+    ],
+    "footers": [
+      {
+        "background_color": "#000000",
+        "padding": "0px",
+        "color": "#000000",
+        "class_names": "adda-footer",
+        "found_on": "https://www.adda.se"
+      },
+      {
+        "background_color": "#005B59",
+        "padding": "0px",
+        "color": "#FFFFFF",
+        "class_names": "adda-footer__main-container",
+        "found_on": "https://www.adda.se"
+      }
+    ]
+  }
+}
