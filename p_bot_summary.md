@@ -1,4 +1,4 @@
-# P-Bot Summary (v5.0)
+# P-Bot Summary (v5.1)
 
 Detta dokument beskriver "Vad" – den slutgiltiga processen, designen och arkitekturstrategin.
 
@@ -89,31 +89,42 @@ procurement_bot/src/
 - `SystemNotice` - Info/Success/Warning-notiser
 - `AIAnswerContainer` / `UserAnswerContainer` - Pratbubblor med Markdown
 
-### 3.3 Adda Intelligence Engine (Backend)
+### 3.3 Adda Intelligence Engine (Backend v5.1)
 
 ```
 ai-services/
-├── search_engine.py      # 5-stegs Pipeline (Retrieval)
-├── adda_indexer.py       # [DEPRECATED] Ersatt av data_pipeline/
-├── adda_chat.py          # CLI Interface
-├── data_pipeline/        # Turbo Mode Ingest (v6.5)
-│   ├── start_pipeline.py # Async document processor
-│   ├── config/
-│   │   ├── pipeline_config.yaml
-│   │   └── master_context_protocol.md
-│   ├── input/
-│   │   ├── primary/      # Addas huvudkällor (ZON 1)
-│   │   └── secondary/    # Övrig information (ZON 2)
-│   └── output/           # Smart Blocks
+├── app/                      # Modulär arkitektur (v5.1)
+│   ├── engine.py             # Huvudorchestrator
+│   ├── main.py               # Flask API entrypoint
+│   ├── components/           # Pipeline-komponenter
+│   │   ├── extractor.py      # Entity extraction & state merge
+│   │   ├── planner.py        # Query analysis & search strategy
+│   │   ├── hunter.py         # Lake & Vector search
+│   │   └── synthesizer.py    # Response generation with personas
+│   └── validators/           # Business rules
+│       └── normalizer.py     # Entity normalization
+├── _archive/                 # Legacy-kod (v1-v4)
+├── adda_chat.py              # CLI Interface
+├── data_pipeline/            # Turbo Mode Ingest (v6.5)
 ├── storage/
-│   ├── assets/           # Råfiler (PDF, XLSX, etc.)
-│   ├── lake/             # Normaliserade Markdown-filer (441 st)
-│   └── index/            # ChromaDB + Kuzu Graph
-└── config/
-    ├── adda_config.yaml      # Systemkonfiguration
-    ├── adda_taxonomy.json    # OTS-taxonomi
-    └── assistant_prompts.yaml # Pipeline-promptar
+│   ├── lake/                 # Normaliserade Markdown-filer
+│   └── index/                # ChromaDB + Kuzu Graph
+├── config/
+│   ├── adda_config.yaml
+│   └── assistant_prompts.yaml
+├── server.py                 # Wrapper (bakåtkompatibilitet)
+└── search_engine.py          # Wrapper (bakåtkompatibilitet)
 ```
+
+**Komponentansvar:**
+
+| Komponent | Ansvar |
+|-----------|--------|
+| **ExtractorComponent** | Entity extraction, state merge (anti-purge) |
+| **PlannerComponent** | Query analysis, search strategy |
+| **HunterComponent** | Lake search (exakt), Vector search (semantisk) |
+| **SynthesizerComponent** | Response generation med fas-specifika personas |
+| **Normalizer** | Entity normalization, region-mappning, KN5-validering |
 
 **API Endpoints:**
 | Endpoint | Metod | Beskrivning |
@@ -311,6 +322,6 @@ Separat bulk-ingest processor för dokumentkonvertering:
 
 ---
 
-*Version: 5.0*  
-*Status: Entity Extraction + UI Directives + Multi-Resource Support*  
+*Version: 5.1*  
+*Status: Modular Architecture + Entity Extraction + UI Directives + Multi-Resource Support*  
 *Senast uppdaterad: November 2024*

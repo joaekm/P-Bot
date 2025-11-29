@@ -305,6 +305,53 @@ Under testerna upptäcktes två kritiska brister i Pipeline-arkitekturen (Fas 8)
 
 ---
 
+## Fas 10: Modular Architecture (v5.1)
+
+### 10.1 Insikt: Monolitisk kod
+
+`search_engine.py` hade vuxit till 500+ rader med all logik i en klass. Detta gjorde det svårt att:
+- Testa enskilda komponenter
+- Förstå dataflödet
+- Lägga till nya funktioner utan sidoeffekter
+
+### 10.2 Lösning: Separation of Concerns
+
+**Beslut:** Bryta ut metoderna till specialiserade komponenter:
+
+| Komponent | Ansvar |
+|-----------|--------|
+| **ExtractorComponent** | Entity extraction, state merge (anti-purge) |
+| **PlannerComponent** | Query analysis, search strategy |
+| **HunterComponent** | Lake search (exakt), Vector search (semantisk) |
+| **SynthesizerComponent** | Response generation med fas-specifika personas |
+| **Normalizer** | Entity normalization, region-mappning, KN5-validering |
+
+### 10.3 Ny struktur
+
+```
+ai-services/
+├── app/
+│   ├── engine.py           # Orchestrator
+│   ├── main.py             # Flask API
+│   ├── components/         # Pipeline-komponenter
+│   └── validators/         # Business rules
+├── _archive/               # Legacy (v1-v4)
+├── server.py               # Wrapper
+└── search_engine.py        # Wrapper
+```
+
+### 10.4 Bakåtkompatibilitet
+
+Wrapper-filer i roten delegerar till `app/`:
+```python
+# search_engine.py
+from app.engine import AddaSearchEngine, engine
+```
+
+**Resultat:** Ren separation av ansvar, testbar kod, och enkel onboarding för nya utvecklare.
+
+---
+
 ## Lärdomar & Insikter
 
 1. **Separation of Concerns:** Motor/Manus-separation löste render-buggar
@@ -320,8 +367,10 @@ Under testerna upptäcktes två kritiska brister i Pipeline-arkitekturen (Fas 8)
 11. **Intent Classification:** FACT/INSPIRATION styr källfiltrering
 12. **Killswitch (Ghost Mode):** Hårdkodade spärrar för ZON 2 vid faktafrågor
 13. **UI Directives:** Backend styr frontend explicit – ingen gissning
+14. **Modular Architecture:** Komponenter med tydligt ansvar förenklar underhåll
+15. **State Merge (Anti-Purge):** Behåll gamla resurser även om de inte nämns igen
 
 ---
 
-*Version: 5.0*  
+*Version: 5.1*  
 *Senast uppdaterad: November 2024*

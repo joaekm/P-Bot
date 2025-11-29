@@ -1,4 +1,4 @@
-# P-Bot Backlog (v5.0)
+# P-Bot Backlog (v5.1)
 
 Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade på projektets faser.
 
@@ -81,6 +81,17 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 | **EPIC-370** | Entity Extraction (Shadow State) | ✅ DONE | Steg 0 i pipeline. Stödjer nu resource-array. |
 | **EPIC-371** | Intent & Killswitch | ✅ DONE | FACT/INSPIRATION-logik för att blockera ZON 2-data. |
 | **EPIC-372** | UI Directives Protocol | ✅ DONE | API-kontrakt för update_sticky_header och entity_summary. |
+
+### 3b-v5. Modular Architecture (v5.1) ✅
+
+| Epic-ID | Titel | Status | Kommentar |
+|:--------|:------|:-------|:----------|
+| **EPIC-380** | Separation of Concerns | ✅ DONE | Uppdelning i komponenter (Extractor, Planner, Hunter, Synthesizer). |
+| **EPIC-381** | Validator Layer | ✅ DONE | Normalizer för entity-validering och region-mappning. |
+| **EPIC-382** | Black Box Recorder | ✅ DONE | Session trace logging (JSONL). |
+| **EPIC-383** | State Merge (Anti-Purge) | ✅ DONE | Förhindrar minnesförlust av resurser. |
+| **EPIC-384** | Persona Switching | ✅ DONE | Fas-specifika synthesizer-promptar (intake/protocol/strategy). |
+| **EPIC-385** | Legacy Archival | ✅ DONE | Gammal kod flyttad till `_archive/`. |
 
 ### 3c. Pågående / Nästa Steg 🚩
 

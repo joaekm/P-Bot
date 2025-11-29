@@ -1,4 +1,4 @@
-# P-Bot Arkitektur (v4.0)
+# P-Bot Arkitektur (v5.1)
 
 Detta dokument beskriver "Hur" – den tekniska implementationen av prototypen och målbilden, nu mappad mot Addas strategi.
 
@@ -12,6 +12,7 @@ Arkitekturen är vald för att agera som en konkret implementation av Addas Mål
 - Hantering av affärsregler (KN5-regeln)
 - AI-driven dokumentanalys och aggressiv förifyllning
 - **Reasoning Engine** – dynamisk sökstrategi istället för hårdkodade faser
+- **Modular Architecture** – Separation of Concerns med komponenter
 
 ---
 
@@ -33,28 +34,25 @@ Adda P Bot/
 │       │   └── pages/        # Sidkomponenter
 │       └── utils/            # Hjälpfunktioner
 │
-├── ai-services/              # Adda Intelligence Engine
-│   ├── search_engine.py      # 5-stegs Pipeline (Retrieval)
-│   ├── adda_indexer.py       # [DEPRECATED] Ersatt av data_pipeline/
-│   ├── adda_chat.py          # CLI Interface
+├── ai-services/              # Adda Intelligence Engine v5
+│   ├── app/                  # Modulär arkitektur (v5.1)
+│   │   ├── engine.py         # Huvudorchestrator
+│   │   ├── main.py           # Flask API entrypoint
+│   │   ├── components/       # Pipeline-komponenter
+│   │   │   ├── extractor.py  # Entity extraction & state merge
+│   │   │   ├── planner.py    # Query analysis & search strategy
+│   │   │   ├── hunter.py     # Lake & Vector search
+│   │   │   └── synthesizer.py # Response generation with personas
+│   │   └── validators/       # Business rules
+│   │       └── normalizer.py # Entity normalization
+│   ├── _archive/             # Legacy-kod (v1-v4)
+│   ├── config/               # Konfiguration
+│   │   ├── adda_config.yaml
+│   │   └── assistant_prompts.yaml
 │   ├── data_pipeline/        # Turbo Mode Ingest (v6.5)
-│   │   ├── start_pipeline.py # Async document processor
-│   │   ├── config/
-│   │   │   ├── pipeline_config.yaml
-│   │   │   └── master_context_protocol.md
-│   │   ├── input/
-│   │   │   ├── primary/      # Addas huvudkällor (ZON 1)
-│   │   │   └── secondary/    # Övrig information (ZON 2)
-│   │   └── output/           # Smart Blocks
-│   ├── storage/
-│   │   ├── assets/           # Råfiler (PDF, XLSX, etc.)
-│   │   ├── lake/             # Normaliserade Markdown-filer (441 st)
-│   │   └── index/            # ChromaDB + Kuzu Graph
-│   └── config/
-│       ├── adda_config.yaml      # Systemkonfiguration
-│       ├── adda_taxonomy.json    # OTS-taxonomi
-│       ├── assistant_prompts.yaml # Pipeline-promptar
-│       └── services_prompts.yaml  # Indexer-promptar
+│   ├── storage/              # Lake, ChromaDB, Kuzu
+│   ├── server.py             # Wrapper (bakåtkompatibilitet)
+│   └── search_engine.py      # Wrapper (bakåtkompatibilitet)
 │
 └── docs/                     # Projektdokumentation
     └── p_bot_*.md
@@ -591,5 +589,45 @@ För användaruppladdade dokument:
 
 ---
 
-*Version: 5.0*  
+## 9. Modular Architecture (v5.1)
+
+### 9.1 Komponentstruktur
+
+Backend är nu uppdelad i specialiserade komponenter enligt "Separation of Concerns":
+
+| Komponent | Fil | Ansvar |
+|-----------|-----|--------|
+| **ExtractorComponent** | `app/components/extractor.py` | Entity extraction, state merge |
+| **PlannerComponent** | `app/components/planner.py` | Query analysis, search strategy |
+| **HunterComponent** | `app/components/hunter.py` | Lake search, Vector search |
+| **SynthesizerComponent** | `app/components/synthesizer.py` | Response generation, personas |
+| **Normalizer** | `app/validators/normalizer.py` | Entity normalization, business rules |
+
+### 9.2 Pipeline-flöde
+
+```
+[0] Extractor.extract()     → Delta från senaste meddelandet
+[0.5] Extractor.merge()     → Slå ihop med befintlig state
+[0.6] normalize_entities()  → Normalisera och validera
+[1] Planner.plan()          → Sökstrategi (step, type)
+[2] Hunter.search_lake()    → Exakt filsökning
+[3] Hunter.search_vector()  → Semantisk sökning
+[4] Synthesizer.synthesize() → Generera svar med persona
+```
+
+### 9.3 Bakåtkompatibilitet
+
+Wrapper-filer i roten säkerställer att befintlig kod fungerar:
+
+```python
+# search_engine.py (wrapper)
+from app.engine import AddaSearchEngine, engine
+
+# server.py (wrapper)
+from app.main import app, main
+```
+
+---
+
+*Version: 5.1*  
 *Senast uppdaterad: November 2024*
