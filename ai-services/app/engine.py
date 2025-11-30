@@ -1,6 +1,12 @@
 """
-Adda Search Engine v5.2 - Main Orchestrator
+Adda Search Engine v5.3 - Main Orchestrator
 Coordinates the pipeline: IntentAnalyzer -> ContextBuilder -> Planner -> Synthesizer
+
+v5.3 Changes:
+- Removed normalizer.py - normalization absorbed into IntentAnalyzer
+- Removed validate_entities - validation absorbed into Planner
+- IntentTarget now contains normalized_entities
+- ReasoningPlan now contains validation_warnings and forced_strategy
 
 v5.2 Changes:
 - New pipeline flow with Planner (Logic Layer) between Context and Synthesis
@@ -29,7 +35,8 @@ from .components import (
     SynthesizerComponent
 )
 from .models import ReasoningPlan
-from .validators import normalize_entities, validate_entities
+# NOTE: normalize_entities and validate_entities removed in v5.3
+# Normalization is now in IntentAnalyzer, validation in Planner
 
 # --- CONFIG LOADER ---
 def load_config():
@@ -165,36 +172,32 @@ class AddaSearchEngine:
         # Sync intent from IntentAnalyzer to state
         current_state['current_intent'] = intent_target.intent_category
         
+        # Use normalized entities from IntentAnalyzer (v5.3: absorbed from normalizer.py)
+        # Merge with session state entities
         extracted_entities = current_state.get('extracted_entities', {})
+        normalized = intent_target.normalized_entities
         
-        # Normalize entities
-        extracted_entities = normalize_entities(extracted_entities)
+        # Merge normalized location/volume if not already set
+        if normalized.get('location') and not extracted_entities.get('location'):
+            extracted_entities['location'] = normalized['location']
+        if normalized.get('volume') and not extracted_entities.get('volume'):
+            extracted_entities['volume'] = normalized['volume']
+        
+        # Merge normalized resources
+        for new_res in normalized.get('resources', []):
+            existing_roles = [r.get('role', '').lower() for r in extracted_entities.get('resources', [])]
+            if new_res.get('role', '').lower() not in existing_roles:
+                if 'resources' not in extracted_entities:
+                    extracted_entities['resources'] = []
+                extracted_entities['resources'].append(new_res)
+        
         current_state['extracted_entities'] = extracted_entities
         
         logger.info(f"Session State: {len(extracted_entities.get('resources', []))} resources, "
                    f"missing: {current_state.get('missing_info')}")
         
-        # =====================================================================
-        # STEP 3: VALIDATION (Constraint Check)
-        # =====================================================================
-        validated_entities, validation_issues = validate_entities(extracted_entities)
-        current_state['extracted_entities'] = validated_entities
-        
-        # Handle BLOCK (abort immediately)
-        block_issues = [i for i in validation_issues if i.get("type") == "BLOCK"]
-        if block_issues:
-            return self._handle_blocked_request(
-                query, intent_target, current_state, block_issues, validation_issues
-            )
-        
-        # Handle STRATEGY_FORCE
-        strategy_notices = []
-        for issue in validation_issues:
-            if issue.get("type") == "STRATEGY_FORCE":
-                strategy_notices.append(f"⚠️ **Notis:** {issue.get('message')}")
-                if issue.get("action") == "TRIGGER_STRATEGY_FKU":
-                    current_state["forced_strategy"] = "FKU"
-                    logger.info("📋 Strategy forced to FKU by Validator")
+        # NOTE: Validation is now done in Planner (v5.3)
+        # No more BLOCK handling here - Planner returns warnings/forced_strategy in ReasoningPlan
         
         # =====================================================================
         # STEP 4: CONTEXT BUILD (Retrieve)
@@ -215,13 +218,19 @@ class AddaSearchEngine:
         logger.info(f"Context: {len(topic_hits)} topic, {len(vector_hits)} vector, {len(graph_hits)} graph")
         
         # =====================================================================
-        # STEP 5: REASONING (Plan)
+        # STEP 5: REASONING (Plan) - includes validation (v5.3)
         # =====================================================================
         reasoning_plan = self.planner.create_plan(intent_target, context)
         
+        # Handle forced strategy from Planner (v5.3: absorbed from validator)
+        if reasoning_plan.forced_strategy:
+            current_state["forced_strategy"] = reasoning_plan.forced_strategy
+            logger.info(f"📋 Strategy forced to {reasoning_plan.forced_strategy} by Planner")
+        
         logger.info(f"Plan: tone={reasoning_plan.tone_instruction}, "
                    f"step={reasoning_plan.target_step}, "
-                   f"warning={reasoning_plan.requires_warning()}")
+                   f"warning={reasoning_plan.requires_warning()}, "
+                   f"validation_warnings={len(reasoning_plan.validation_warnings)}")
         
         # =====================================================================
         # STEP 6: SYNTHESIS (Generate Response)
@@ -233,9 +242,9 @@ class AddaSearchEngine:
             extracted_entities=extracted_entities
         )
         
-        # Inject strategy notices if any
-        if strategy_notices:
-            prefix = "\n\n".join(strategy_notices) + "\n\n"
+        # Inject validation warnings from Planner (v5.3: absorbed from validator)
+        if reasoning_plan.validation_warnings:
+            prefix = "\n\n".join([f"⚠️ **Notis:** {w}" for w in reasoning_plan.validation_warnings]) + "\n\n"
             answer = prefix + answer
         
         # =====================================================================
@@ -264,7 +273,10 @@ class AddaSearchEngine:
                 "policy": reasoning_plan.policy_check,
                 "tone": reasoning_plan.tone_instruction,
                 "conflicts": reasoning_plan.conflict_resolution,
-                "validation": reasoning_plan.data_validation
+                "validation": reasoning_plan.data_validation,
+                "validation_warnings": reasoning_plan.validation_warnings,
+                "forced_strategy": reasoning_plan.forced_strategy,
+                "target_step": reasoning_plan.target_step
             },
             "current_state": current_state,
             "ui_directives": ui_directives

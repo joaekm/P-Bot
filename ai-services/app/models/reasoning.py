@@ -13,6 +13,8 @@ class ReasoningPlan(BaseModel):
     This represents the "thinking" that happens between context retrieval
     and response generation. The Planner analyzes the context and creates
     a strategy for how the Synthesizer should respond.
+    
+    v5.3: Added validation_warnings and forced_strategy (absorbed from normalizer.py)
     """
     
     # Core reasoning
@@ -44,10 +46,22 @@ class ReasoningPlan(BaseModel):
         description="Om källor motsäger varandra - hur löstes konflikten?"
     )
     
-    # Validation
+    # Validation (legacy field, kept for backward compatibility)
     data_validation: Optional[str] = Field(
         default=None, 
         description="Om begäran var orimlig - varför? (t.ex. 'Volymen överstiger 320h-gränsen')"
+    )
+    
+    # NEW: Validation warnings (absorbed from normalizer.py)
+    validation_warnings: List[str] = Field(
+        default_factory=list,
+        description="Valideringsvarningar från regelkontroll (t.ex. '320h-regel triggad')"
+    )
+    
+    # NEW: Forced strategy (absorbed from normalizer.py)
+    forced_strategy: Optional[str] = Field(
+        default=None,
+        description="Strategi som tvingats av regelvalidering (t.ex. 'FKU' vid >320h)"
     )
     
     # Derived step for persona selection
@@ -77,7 +91,15 @@ class ReasoningPlan(BaseModel):
     
     def requires_warning(self) -> bool:
         """Check if response should include a warning."""
-        return self.tone_instruction == "Strict/Warning" or self.data_validation is not None
+        return (
+            self.tone_instruction == "Strict/Warning" 
+            or self.data_validation is not None
+            or len(self.validation_warnings) > 0
+        )
+    
+    def has_forced_strategy(self) -> bool:
+        """Check if a strategy was forced by validation."""
+        return self.forced_strategy is not None
 
 
 class ReasoningContext(BaseModel):

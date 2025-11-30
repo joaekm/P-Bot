@@ -103,6 +103,12 @@ class IntentTarget(BaseModel):
         description="Named entities found in query (e.g., 'Nivå 4', 'Stockholm')"
     )
     
+    # Normalized Entities (cleaned and standardized data)
+    normalized_entities: dict = Field(
+        default_factory=dict,
+        description="Normalized entities extracted from query (location, role, level, volume)"
+    )
+    
     # Search Preferences
     scope_preference: List[ScopeContext] = Field(
         default_factory=lambda: [ScopeContext.FRAMEWORK_SPECIFIC],

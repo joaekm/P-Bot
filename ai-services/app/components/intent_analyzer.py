@@ -4,11 +4,13 @@ Maps user queries to IntentTarget with taxonomy coordinates.
 Uses VocabularyService for concept matching.
 
 All keywords and prompts are loaded from config/assistant_prompts.yaml
+
+v5.3: Added entity normalization (absorbed from normalizer.py)
 """
 import json
 import logging
 import re
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Any
 
 from google.genai import types
 
@@ -22,6 +24,44 @@ from ..models import (
 from ..services import VocabularyService
 
 logger = logging.getLogger("ADDA_ENGINE")
+
+
+# =============================================================================
+# NORMALIZATION MAPPINGS (moved from normalizer.py)
+# =============================================================================
+
+LOCATION_MAPPING = {
+    # Stockholm-varianter
+    "sthlm": "Stockholm",
+    "stockholm": "Stockholm",
+    "stokholm": "Stockholm",
+    # Göteborg-varianter
+    "gbg": "Göteborg",
+    "göteborg": "Göteborg",
+    "goteborg": "Göteborg",
+    # Malmö-varianter
+    "malmö": "Malmö",
+    "malmo": "Malmö",
+    # Regioner
+    "region stockholm": "Region Stockholm",
+    "region västra götaland": "Region Västra Götaland",
+    "region skåne": "Region Skåne",
+}
+
+ROLE_MAPPING = {
+    "pl": "Projektledare",
+    "pm": "Projektledare",
+    "projektledare": "Projektledare",
+    "dev": "Utvecklare",
+    "utvecklare": "Utvecklare",
+    "arkitekt": "Lösningsarkitekt",
+    "testare": "Testledare",
+    "testledare": "Testledare",
+    "ux": "UX-designer",
+    "ux-designer": "UX-designer",
+    "scrum master": "Scrum Master",
+    "devops": "DevOps-ingenjör",
+}
 
 
 class IntentAnalyzerComponent:
@@ -98,19 +138,24 @@ class IntentAnalyzerComponent:
             detected_topics, detected_entities, detected_branches
         )
         
+        # 8. Normalize entities (absorbed from normalizer.py)
+        normalized_entities = self._normalize_entities(query, detected_entities)
+        
         intent_target = IntentTarget(
             original_query=query,
             taxonomy_roots=taxonomy_roots,
             taxonomy_branches=detected_branches,
             detected_topics=detected_topics,
             detected_entities=detected_entities,
+            normalized_entities=normalized_entities,
             scope_preference=scope_preference,
             intent_category=intent_category,
             confidence=confidence
         )
         
         logger.info(f"Intent Analysis: {intent_category}, branches={[b.value for b in detected_branches]}, "
-                   f"topics={len(detected_topics)}, entities={len(detected_entities)}, confidence={confidence:.2f}")
+                   f"topics={len(detected_topics)}, entities={len(detected_entities)}, "
+                   f"normalized={bool(normalized_entities.get('resources'))}, confidence={confidence:.2f}")
         
         return intent_target
     
@@ -279,6 +324,81 @@ class IntentAnalyzerComponent:
             score += 0.1
         
         return min(1.0, score)
+    
+    # =========================================================================
+    # ENTITY NORMALIZATION (moved from normalizer.py)
+    # =========================================================================
+    
+    def _normalize_entities(self, query: str, detected_entities: List[str]) -> Dict[str, Any]:
+        """
+        Normalize and clean extracted entities from query.
+        
+        This replaces the old normalizer.py functionality:
+        - Maps location aliases (sthlm → Stockholm)
+        - Normalizes role names (pl → Projektledare)
+        - Clamps level to 1-5
+        - Parses volume ("100 timmar" → 100)
+        
+        Returns:
+            Dict with normalized entities: location, role, level, volume, resources
+        """
+        normalized = {
+            "location": None,
+            "volume": None,
+            "resources": [],
+        }
+        
+        query_lower = query.lower()
+        
+        # 1. Normalize location
+        for alias, standard in LOCATION_MAPPING.items():
+            if alias in query_lower:
+                normalized["location"] = standard
+                break
+        
+        # 2. Normalize roles and extract level
+        resources = []
+        
+        # Look for role mentions
+        for alias, standard_role in ROLE_MAPPING.items():
+            if alias in query_lower:
+                resource = {
+                    "role": standard_role,
+                    "level": None,
+                    "quantity": 1,
+                    "status": "PENDING"
+                }
+                resources.append(resource)
+        
+        # 3. Extract and normalize levels (1-5)
+        level_match = re.search(r'nivå\s*(\d+)', query_lower)
+        if level_match:
+            raw_level = int(level_match.group(1))
+            clamped_level = max(1, min(5, raw_level))  # Clamp to 1-5
+            
+            # Apply level to first resource without a level
+            for resource in resources:
+                if resource["level"] is None:
+                    resource["level"] = clamped_level
+                    resource["status"] = "DONE"
+                    break
+        
+        # 4. Parse volume ("100 timmar" → 100)
+        volume_match = re.search(r'(\d+)\s*(timmar|tim|h)', query_lower)
+        if volume_match:
+            normalized["volume"] = int(volume_match.group(1))
+        
+        # 5. Also check for volume in detected entities
+        for entity in detected_entities:
+            entity_lower = entity.lower()
+            if "timmar" in entity_lower or "tim" in entity_lower:
+                vol_match = re.search(r'(\d+)', entity_lower)
+                if vol_match and normalized["volume"] is None:
+                    normalized["volume"] = int(vol_match.group(1))
+        
+        normalized["resources"] = resources
+        
+        return normalized
     
     def _llm_enhance(self, query: str, base_intent: IntentTarget) -> IntentTarget:
         """Use LLM to enhance intent analysis for ambiguous queries."""
