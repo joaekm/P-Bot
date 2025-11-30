@@ -47,17 +47,81 @@ För att taggar ska fungera i kunskapsbanken måste de följa strikta formatregl
 * `INSTRUCTION`: Steg-för-steg processer. "Gör A, sen B".
 * `DEFINITION`: Fakta, begreppsförklaringar (t.ex. vad Nivå 3 innebär) eller listor på godkända värden (Regioner).
 * `DATA_POINTER`: Referens till extern data (Excel/CSV).
+* `EXAMPLE`: Exempel/Case studies från tidigare avrop.
+
+## 6b. STRIKT TAXONOMI-KLASSIFICERING (MANDATORY)
+
+Du MÅSTE klassificera varje block enligt följande hierarki. Välj EXAKT ETT värde från varje nivå.
+
+### TAXONOMY ROOT (Välj EN)
+| Värde | Beskrivning |
+|-------|-------------|
+| `DOMAIN_OBJECTS` | Det fysiska/konkreta (roller, dokument, platser) |
+| `BUSINESS_CONCEPTS` | Det abstrakta/logiska (pris, regler, strategi) |
+| `PROCESS` | Tiden/Flödet (faser, steg i processen) |
+
+### TAXONOMY BRANCH (Välj EN - måste matcha ROOT)
+| Root | Giltiga Branches |
+|------|------------------|
+| `DOMAIN_OBJECTS` | `ROLES` (roller, kompetens), `ARTIFACTS` (CV, avtal, bilagor), `LOCATIONS` (regioner, geografi) |
+| `BUSINESS_CONCEPTS` | `FINANCIALS` (pris, volym, budget), `GOVERNANCE` (lagar, regler, GDPR), `STRATEGY` (avropsformer, affärsregler) |
+| `PROCESS` | `PHASES` (intake, evaluation, contract, management) |
+
+## 6c. SCOPE CONTEXT (KRITISKT FÖR SÖKNING)
+
+Du MÅSTE avgöra textens räckvidd. Detta styr hur AI:n prioriterar information vid svar.
+
+| Scope | Beskrivning | Exempel |
+|-------|-------------|---------|
+| `FRAMEWORK_SPECIFIC` | Specifikt för Adda Ramavtal IT-konsulttjänster 2021 | 320-timmarsregeln, KN5-regeln, specifika pristak, Addas roller |
+| `GENERAL_LEGAL` | Allmänna lagar och praxis | LOU, GDPR, Sekretesslagen, Upphandlingsregler |
+| `DOMAIN_KNOWLEDGE` | Allmän branschkunskap | "Vad gör en Javautvecklare?", "Vad är agil metodik?" |
+
+**DETEKTIONSREGLER:**
+- Om texten nämner specifika gränsvärden för Adda (320h, takpris 1450 SEK, KN5) → `FRAMEWORK_SPECIFIC`
+- Om texten nämner specifika roller i avtalet (Bilaga A-roller) → `FRAMEWORK_SPECIFIC`
+- Om texten refererar till LOU, GDPR, Sekretesslagen → `GENERAL_LEGAL`
+- Om texten beskriver generella IT-koncept utan Adda-koppling → `DOMAIN_KNOWLEDGE`
+
+## 6d. ANTI-POLLUTION (TOPIC EXTRACTION)
+
+**KRITISKT:** Du ska extrahera BEGREPP, inte VÄRDEN.
+
+### topic_tags (Renodlade koncept)
+| FEL ❌ | RÄTT ✅ |
+|--------|---------|
+| "1200 kr" | "Takpris" |
+| "2024-01-01" | "Avtalsstart" |
+| "5 år" | "Erfarenhetskrav" |
+| "320 timmar" | "Volymgräns" |
+| "10 MSEK" | "Maxbelopp" |
+
+### entities (Namngivna objekt - dessa FÅR innehålla värden)
+Entities är specifika namngivna objekt som refereras i texten:
+- "320-timmarsregeln"
+- "Nivå 5"
+- "Bilaga A"
+- "IT-konsulttjänster 2021"
+- "Anbudsområde Stockholm"
 
 ## 7. FEW-SHOT EXAMPLES (JSON OUTPUT)
 
---- EXEMPEL 1: REGEL (Input: PDF text) ---
+**VIKTIGT:** Alla metadata-fält är OBLIGATORISKA. Fyll alltid i: `block_type`, `taxonomy_root`, `taxonomy_branch`, `scope_context`, `topic_tags`, `entities`, `suggested_phase`, `tags`.
+
+--- EXEMPEL 1: REGEL (FRAMEWORK_SPECIFIC) ---
 **Input:** "Från och med 2024 gäller nya regler. Vid val av kompetensnivå 5 måste alltid förnyad konkurrensutsättning genomföras."
 **Output JSON:**
+```json
 {
   "content_markdown": "# Regel: Krav på FKU vid Nivå 5\n**OM** vald nivå är 5 (Expert):\n**DÅ** MÅSTE strategin vara FKU.\n**ÅTGÄRD:** Blockera val av Dynamisk Rangordning.",
   "metadata": {
     "block_type": "RULE",
-    "process_step": ["step_2_level", "step_4_strategy"],
+    "taxonomy_root": "BUSINESS_CONCEPTS",
+    "taxonomy_branch": "STRATEGY",
+    "scope_context": "FRAMEWORK_SPECIFIC",
+    "topic_tags": ["Kompetensnivå", "Avropsform", "FKU-krav"],
+    "entities": ["Nivå 5", "Förnyad Konkurrensutsättning"],
+    "suggested_phase": ["step_2_level", "step_4_strategy"],
     "tags": ["kn5", "expert", "fku", "tvingande", "år_2024"],
     "constraints": [
       { "param": "competence_level", "operator": "EQUALS", "value": 5, "action": "TRIGGER_STRATEGY_FKU", "error_msg": "Nivå 5 kräver FKU." }
@@ -65,18 +129,64 @@ För att taggar ska fungera i kunskapsbanken måste de följa strikta formatregl
     "graph_relations": [{"type": "TRIGGERS", "target": "strategy_fku"}]
   }
 }
+```
 
---- EXEMPEL 2: DATUM (Input: PDF text) ---
-**Input:** "Prisjustering sker den 1 maj varje år."
+--- EXEMPEL 2: INSTRUKTION (FRAMEWORK_SPECIFIC) ---
+**Input:** "Prisjustering sker den 1 maj varje år enligt avtalet."
 **Output JSON:**
+```json
 {
   "content_markdown": "# Instruktion: Årlig Prisjustering\nPriserna i ramavtalet justeras årligen.\n**Datum:** 1 maj.",
   "metadata": {
     "block_type": "INSTRUCTION",
-    "process_step": ["step_3_volume"],
-    "tags": ["år_2026", "januari", "maj_01", "prisjustering"]
+    "taxonomy_root": "BUSINESS_CONCEPTS",
+    "taxonomy_branch": "FINANCIALS",
+    "scope_context": "FRAMEWORK_SPECIFIC",
+    "topic_tags": ["Prisjustering", "Avtalsvillkor"],
+    "entities": ["1 maj"],
+    "suggested_phase": ["step_3_volume"],
+    "tags": ["prisjustering", "maj_01"]
   }
 }
+```
+
+--- EXEMPEL 3: DEFINITION (DOMAIN_KNOWLEDGE) ---
+**Input:** "En senior systemutvecklare ska kunna arbeta självständigt med komplexa tekniska lösningar."
+**Output JSON:**
+```json
+{
+  "content_markdown": "# Definition: Senior Systemutvecklare\nEn senior systemutvecklare arbetar självständigt med komplexa tekniska lösningar.",
+  "metadata": {
+    "block_type": "DEFINITION",
+    "taxonomy_root": "DOMAIN_OBJECTS",
+    "taxonomy_branch": "ROLES",
+    "scope_context": "DOMAIN_KNOWLEDGE",
+    "topic_tags": ["Rollbeskrivning", "Självständighet", "Teknisk kompetens"],
+    "entities": ["Senior Systemutvecklare"],
+    "suggested_phase": ["step_1_intake", "step_2_level"],
+    "tags": ["senior", "systemutvecklare", "självständig"]
+  }
+}
+```
+
+--- EXEMPEL 4: REGEL (GENERAL_LEGAL) ---
+**Input:** "Enligt LOU ska upphandlande myndighet behandla leverantörer på ett likvärdigt sätt."
+**Output JSON:**
+```json
+{
+  "content_markdown": "# Regel: Likabehandlingsprincipen (LOU)\nUpphandlande myndighet ska behandla alla leverantörer likvärdigt enligt LOU.",
+  "metadata": {
+    "block_type": "RULE",
+    "taxonomy_root": "BUSINESS_CONCEPTS",
+    "taxonomy_branch": "GOVERNANCE",
+    "scope_context": "GENERAL_LEGAL",
+    "topic_tags": ["Likabehandling", "Upphandlingsprinciper"],
+    "entities": ["LOU", "Upphandlande myndighet"],
+    "suggested_phase": ["step_4_strategy"],
+    "tags": ["lou", "likabehandling", "upphandling"]
+  }
+}
+```
 
 ## 8. CONSTRAINTS EXTRACTION (VIKTIGT FÖR VALIDERING)
 Om texten innehåller **mätbara regler** (siffror, tidsgränser, tvingande val, whitelist av regioner), MÅSTE du extrahera dem till YAML-fältet `constraints` i metadata. Detta används av systemet för automatisk validering.

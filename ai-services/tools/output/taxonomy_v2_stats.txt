@@ -1,0 +1,113 @@
+======================================================================
+TAXONOMY DISCOVERY v2 - SCOPE-AWARE ANALYSIS
+Generated: 2025-11-30T16:34:52.359020
+Total files processed: 334
+Validation corrections: 0
+Errors: 0
+======================================================================
+
+DISTRIBUTION BY ROOT CATEGORY:
+--------------------------------------------------
+  DOMAIN_OBJECTS: 119 files
+  BUSINESS_CONCEPTS: 200 files
+  PROCESS: 15 files
+
+DISTRIBUTION BY BRANCH + SCOPE:
+--------------------------------------------------
+
+[DOMAIN_OBJECTS]
+  ROLES: 86 total
+    - FRAMEWORK_SPECIFIC: 44 files, 254 topics
+    - GENERAL_LEGAL: 1 files, 1 topics
+    - DOMAIN_KNOWLEDGE: 41 files, 294 topics
+  ARTIFACTS: 13 total
+    - FRAMEWORK_SPECIFIC: 10 files, 56 topics
+    - GENERAL_LEGAL: 2 files, 9 topics
+    - DOMAIN_KNOWLEDGE: 1 files, 4 topics
+  LOCATIONS: 20 total
+    - FRAMEWORK_SPECIFIC: 17 files, 55 topics
+    - DOMAIN_KNOWLEDGE: 3 files, 8 topics
+
+[BUSINESS_CONCEPTS]
+  FINANCIALS: 54 total
+    - FRAMEWORK_SPECIFIC: 43 files, 189 topics
+    - GENERAL_LEGAL: 2 files, 18 topics
+    - DOMAIN_KNOWLEDGE: 9 files, 53 topics
+  GOVERNANCE: 46 total
+    - FRAMEWORK_SPECIFIC: 25 files, 182 topics
+    - GENERAL_LEGAL: 19 files, 96 topics
+    - DOMAIN_KNOWLEDGE: 2 files, 14 topics
+  STRATEGY: 100 total
+    - FRAMEWORK_SPECIFIC: 98 files, 504 topics
+    - GENERAL_LEGAL: 1 files, 10 topics
+    - DOMAIN_KNOWLEDGE: 1 files, 10 topics
+
+[PROCESS]
+  PHASES: 15 total
+    - FRAMEWORK_SPECIFIC: 11 files, 87 topics
+    - GENERAL_LEGAL: 2 files, 15 topics
+    - DOMAIN_KNOWLEDGE: 2 files, 15 topics
+
+======================================================================
+SCOPE CONTEXT SUMMARY (Critical for Strategy)
+======================================================================
+  FRAMEWORK_SPECIFIC: 248 files (74.3%) █████████████████████████████████████
+  DOMAIN_KNOWLEDGE: 59 files (17.7%) ████████
+  GENERAL_LEGAL: 27 files (8.1%) ████
+
+TOP TOPICS BY SCOPE:
+--------------------------------------------------
+
+[FRAMEWORK_SPECIFIC] (1137 unique topics)
+    - AI
+    - API-kunskap (Microsoft Graph API)
+    - Acceptanstest
+    - Adda Inköpscentral
+    - Adekvat Skyddsnivå
+    - Administrativa anbudsvillkor
+    - Administrativa kostnader
+    - Aktiva underleverantörer
+    - All-inclusive-principen
+    - Allmänna kontraktsvillkor
+    - Alternativa anbud
+    - Alternativa anbud (Förbud)
+    - Alternativa anbud/Sidoanbud
+    - Anbud
+    - Anbudets förkastande
+    ... and 1122 more
+
+[GENERAL_LEGAL] (138 unique topics)
+    - Administrera upphandlingen
+    - Allmänna villkor
+    - Alternativa Anbud
+    - Alternativa anbud
+    - Anbudets giltighetstid
+    - Anbudsdeadline
+    - Anbudsområden
+    - Anbudsprocess
+    - Anbudssystem
+    - Anbudstid
+    - Anbudsöverensstämmelse
+    - Anpassning av avtal
+    - Ansvarsbegränsning
+    - Avrop
+    - Avropande myndighet
+    ... and 123 more
+
+[DOMAIN_KNOWLEDGE] (396 unique topics)
+    - Acceptanstest
+    - Affärsförståelse
+    - Agil Coachning
+    - Agil coachning
+    - Agil metodik utanför IT
+    - Analys
+    - Analytisk förmåga
+    - Anbudshanteringssystem
+    - Antal Konsulter
+    - Användarbehörigheter
+    - Användarutbildning
+    - Användbarhet
+    - Användning av material i verksamheten
+    - Arbetsuppgifter
+    - Arkitektroller
+    ... and 381 more

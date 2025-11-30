@@ -16,6 +16,30 @@ import docx
 from dotenv import load_dotenv
 import warnings
 
+# Import Pydantic models for strict typing
+try:
+    # When running from ai-services/ directory
+    from data_pipeline.models import (
+        SmartBlock, 
+        SmartBlockMetadata, 
+        BlockType, 
+        TaxonomyRoot, 
+        TaxonomyBranch, 
+        ScopeContext,
+        parse_llm_response_to_block
+    )
+except ModuleNotFoundError:
+    # When running from data_pipeline/ directory
+    from models import (
+        SmartBlock, 
+        SmartBlockMetadata, 
+        BlockType, 
+        TaxonomyRoot, 
+        TaxonomyBranch, 
+        ScopeContext,
+        parse_llm_response_to_block
+    )
+
 # --- KONFIGURATION FÖR TURBO MODE ---
 INITIAL_CONCURRENCY = 5
 MAX_CONCURRENCY = 50
@@ -225,20 +249,25 @@ def save_full_document_reference(text, original_filename, zone):
     auto_tags = generate_tags_from_filename(original_filename)
     auto_tags.append("full_document")
     
-    clean_tags = []
-    for t in auto_tags:
-        safe_tag = sanitize_tag_for_obsidian(t)
-        if safe_tag: clean_tags.append(safe_tag)
+    clean_tags = [sanitize_tag_for_obsidian(t) for t in auto_tags if sanitize_tag_for_obsidian(t)]
     
-    yaml_header = "---\n"
-    yaml_header += f"uuid: \"{block_id}\"\n"
-    yaml_header += f"doc_type: \"smart_block\"\n"
-    yaml_header += f"source_file: \"{original_filename}\"\n"
-    yaml_header += f"authority_level: \"{zone}\"\n"
-    yaml_header += f"block_type: \"FULL_DOCUMENT\"\n"
-    yaml_header += f"process_step: [\"general\"]\n"
-    yaml_header += f"tags: {json.dumps(clean_tags)}\n"
-    yaml_header += "---\n\n"
+    # Build data dict for yaml.safe_dump
+    yaml_data = {
+        "uuid": block_id,
+        "doc_type": "smart_block",
+        "source_file": original_filename,
+        "authority_level": zone,
+        "block_type": "FULL_DOCUMENT",
+        "taxonomy_root": "DOMAIN_OBJECTS",
+        "taxonomy_branch": "ARTIFACTS",
+        "scope_context": "FRAMEWORK_SPECIFIC" if zone == "PRIMARY" else "GENERAL_LEGAL",
+        "suggested_phase": ["general"],
+        "topic_tags": [],
+        "entities": [],
+        "tags": clean_tags,
+    }
+    
+    yaml_header = f"---\n{yaml.safe_dump(yaml_data, allow_unicode=True, default_flow_style=False, sort_keys=False)}---\n\n"
     
     full_content = yaml_header + text
     safe_name = Path(original_filename).stem[:30].replace(" ", "_")
@@ -251,6 +280,10 @@ def save_full_document_reference(text, original_filename, zone):
         f.write(full_content)
 
 def save_smart_block(block_data, original_filename, zone):
+    """
+    Save a Smart Block to markdown file with YAML frontmatter.
+    Uses yaml.safe_dump to handle special characters correctly.
+    """
     block_id = str(uuid.uuid4())
     meta = block_data.get("metadata", {})
     
@@ -259,32 +292,46 @@ def save_smart_block(block_data, original_filename, zone):
         return 
     
     block_type = meta.get('block_type', 'DEFINITION')
-    steps = meta.get('process_step', ['general'])
+    
+    # Support both old (process_step) and new (suggested_phase) field names
+    steps = meta.get('suggested_phase', meta.get('process_step', ['general']))
+    
+    # Extract new taxonomy fields with defaults
+    taxonomy_root = meta.get('taxonomy_root', 'DOMAIN_OBJECTS')
+    taxonomy_branch = meta.get('taxonomy_branch', 'ROLES')
+    scope_context = meta.get('scope_context', 'FRAMEWORK_SPECIFIC')
+    topic_tags = meta.get('topic_tags', [])
+    entities = meta.get('entities', [])
     
     raw_tags = meta.get('tags', [])
-    clean_tags = []
-    for t in raw_tags:
-        safe_tag = sanitize_tag_for_obsidian(t)
-        if safe_tag: clean_tags.append(safe_tag)
+    clean_tags = [sanitize_tag_for_obsidian(t) for t in raw_tags if sanitize_tag_for_obsidian(t)]
 
-    yaml_header = "---\n"
-    yaml_header += f"uuid: \"{block_id}\"\n"
-    yaml_header += f"doc_type: \"smart_block\"\n"
-    yaml_header += f"source_file: \"{original_filename}\"\n"
-    yaml_header += f"authority_level: \"{zone}\"\n"
-    yaml_header += f"block_type: \"{block_type}\"\n"
-    yaml_header += f"process_step: {json.dumps(steps)}\n"
-    yaml_header += f"tags: {json.dumps(clean_tags)}\n"
+    # Build data dict for yaml.safe_dump (handles special characters correctly)
+    yaml_data = {
+        "uuid": block_id,
+        "doc_type": "smart_block",
+        "source_file": original_filename,
+        "authority_level": zone,
+        "block_type": block_type,
+        "taxonomy_root": taxonomy_root,
+        "taxonomy_branch": taxonomy_branch,
+        "scope_context": scope_context,
+        "suggested_phase": steps,
+        "topic_tags": topic_tags,
+        "entities": entities,
+        "tags": clean_tags,
+    }
     
     if "graph_relations" in meta:
-        yaml_header += f"graph_relations: {json.dumps(meta['graph_relations'])}\n"
+        yaml_data["graph_relations"] = meta['graph_relations']
     if "constraints" in meta:
-        yaml_header += f"constraints: {json.dumps(meta['constraints'])}\n"
-    yaml_header += "---\n\n"
+        yaml_data["constraints"] = meta['constraints']
+    
+    # Use yaml.safe_dump to properly escape special characters
+    yaml_header = f"---\n{yaml.safe_dump(yaml_data, allow_unicode=True, default_flow_style=False, sort_keys=False)}---\n\n"
     
     full_content = yaml_header + content_raw
     safe_step = steps[0] if steps else "general"
-    # Extrahera bara siffran från step (t.ex. "step_1_intake" -> "1_intake")
     step_short = safe_step.replace("step_", "") if safe_step.startswith("step_") else safe_step
     filename = f"{step_short}_{block_type}_{zone.upper()}_{block_id[:8]}.md"
     
@@ -343,6 +390,12 @@ async def wash_text_async(raw_text, filename, throttler):
 async def analyze_document_async(text, zone, filename, throttler):
     model_name = PIPELINE_CONFIG['system']['models']['model_pro']
     
+    # Zone-specific hints for scope detection
+    if zone == "PRIMARY":
+        scope_hint = "PRIORITERA scope_context='FRAMEWORK_SPECIFIC' om du är osäker. Detta är Addas officiella dokumentation."
+    else:
+        scope_hint = "Detta är sannolikt 'GENERAL_LEGAL' (lagar/praxis) eller 'DOMAIN_KNOWLEDGE' (branschkunskap). Sätt scope_context därefter."
+    
     prompt = f"""
 {CONTEXT_PROTOCOL}
 
@@ -351,7 +404,22 @@ FILNAMN: {filename}
 ZON: {zone}
 
 DU SKA: Returnera en strikt JSON-lista med smarta block.
-VIKTIGT: Om texten innehåller mätbara regler (volym, tid, pengar, regioner) MÅSTE du fylla i 'constraints'-listan i metadata enligt protokollet (Sektion 8).
+
+OBLIGATORISKA METADATA-FÄLT (ALLA måste finnas):
+- block_type: RULE, DEFINITION, INSTRUCTION, DATA_POINTER, eller EXAMPLE
+- taxonomy_root: DOMAIN_OBJECTS, BUSINESS_CONCEPTS, eller PROCESS
+- taxonomy_branch: ROLES, ARTIFACTS, LOCATIONS, FINANCIALS, GOVERNANCE, STRATEGY, eller PHASES
+- scope_context: FRAMEWORK_SPECIFIC, GENERAL_LEGAL, eller DOMAIN_KNOWLEDGE
+- topic_tags: Lista med begrepp (INGA värden!)
+- entities: Lista med namngivna objekt
+- suggested_phase: Lista med process-steg (t.ex. ["step_1_intake"])
+- tags: Lista med Obsidian-kompatibla taggar
+
+SCOPE-HINT: {scope_hint}
+
+VIKTIGT: 
+- Om texten innehåller mätbara regler (volym, tid, pengar, regioner) MÅSTE du fylla i 'constraints'-listan.
+- topic_tags ska innehålla BEGREPP (t.ex. "Takpris"), INTE värden (t.ex. "1200 kr").
 
 TEXT INPUT:
 {text[:60000]}

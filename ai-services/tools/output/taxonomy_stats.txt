@@ -1,0 +1,170 @@
+============================================================
+TAXONOMY DISCOVERY STATISTICS
+Generated: 2025-11-30T16:15:23.183531
+Total files processed: 334
+Errors: 0
+============================================================
+
+TOP ROOT CATEGORIES (by file count):
+----------------------------------------
+  Affärsregler: 100 files, 98 branches
+  Kompetens: 70 files, 55 branches
+  Avtalsvillkor: 27 files, 25 branches
+  Juridik: 23 files, 23 branches
+  Process: 8 files, 8 branches
+  Upphandlingsprocess: 8 files, 7 branches
+  Kravspecifikation: 4 files, 4 branches
+  Kravställning: 3 files, 3 branches
+  Avtalsstyrning: 3 files, 3 branches
+  Avtalsstruktur: 3 files, 3 branches
+  Avtalsförvaltning: 3 files, 3 branches
+  Kompetens och Resurser: 2 files, 2 branches
+  Juridik & Compliance: 2 files, 2 branches
+  Avtalshantering: 2 files, 2 branches
+  Juridik och Avtal: 2 files, 2 branches
+  Ekonomi: 2 files, 2 branches
+  Kvalificeringskrav: 2 files, 2 branches
+  Upphandlingsvillkor: 2 files, 2 branches
+  Juridik och Efterlevnad: 2 files, 2 branches
+  Affärsregler och Ramverk: 2 files, 2 branches
+  Tekniska Krav och Standarder: 1 files, 1 branches
+  Affärs- och Avtalsregler: 1 files, 1 branches
+  Upphandlingsjuridik: 1 files, 1 branches
+  Krav och Kvalifikation: 1 files, 1 branches
+  Affärsregler och Styrning: 1 files, 1 branches
+  Process & Juridik: 1 files, 1 branches
+  Upphandlingsprocess och Styrning: 1 files, 1 branches
+  Upphandlingens Omfattning: 1 files, 1 branches
+  Data/Informationsobjekt: 1 files, 1 branches
+  Kompetens och Roller: 1 files, 1 branches
+  Juridik och Kontrakt: 1 files, 1 branches
+  Juridik och Compliance: 1 files, 1 branches
+  Affärsregler och Compliance: 1 files, 1 branches
+  Kontraktsvillkor: 1 files, 1 branches
+  Juridik och Regelverk: 1 files, 1 branches
+  Prissättning och Ersättning: 1 files, 1 branches
+  Juridik och Upphandlingskrav: 1 files, 1 branches
+  Avtalsvillkor och Juridik: 1 files, 1 branches
+  Ekonomi & Administration: 1 files, 1 branches
+  Kvalitetsstyrning: 1 files, 1 branches
+  Juridik och Avtalshantering: 1 files, 1 branches
+  Informationssäkerhet och Dataskydd: 1 files, 1 branches
+  Kvalificering: 1 files, 1 branches
+  Utvärdering: 1 files, 1 branches
+  Administrativa Krav: 1 files, 1 branches
+  Process och Juridik: 1 files, 1 branches
+  Kompetens och Rollspecifikation: 1 files, 1 branches
+  Process och Avtal: 1 files, 1 branches
+  Affärsregler & Upphandlingsvillkor: 1 files, 1 branches
+  Ekonomi och Prissättning: 1 files, 1 branches
+  Formalia: 1 files, 1 branches
+  Upphandlingsregler: 1 files, 1 branches
+  Upphandlingsstruktur: 1 files, 1 branches
+  Juridik & Kontraktsstruktur: 1 files, 1 branches
+  Operativa Villkor: 1 files, 1 branches
+  Kompetens och Kvalifikation: 1 files, 1 branches
+  Regelverk och Förfarande: 1 files, 1 branches
+  Upphandlingsstyrning: 1 files, 1 branches
+  Kompetens och Kvalifikationer: 1 files, 1 branches
+  Upphandling och Avrop: 1 files, 1 branches
+  Affärsregler och Juridik: 1 files, 1 branches
+  Kontraktsstyrning: 1 files, 1 branches
+  Utvärderingsprocessen: 1 files, 1 branches
+  Juridik och Upphandlingsprocess: 1 files, 1 branches
+  Avtalsstruktur och Förfarande: 1 files, 1 branches
+  Upphandlingsprocess och Juridik: 1 files, 1 branches
+  Avtalets Omfattning: 1 files, 1 branches
+  Anbudsprocess: 1 files, 1 branches
+  Ekonomi och Finans: 1 files, 1 branches
+  Kompetens och Resurskrav: 1 files, 1 branches
+  Utvärdering och Kriterier: 1 files, 1 branches
+  Affärsregler & Avtalsstruktur: 1 files, 1 branches
+  Ramverk och Styrning: 1 files, 1 branches
+  Juridik och Affärsregler: 1 files, 1 branches
+  Affärsregler och Metodik: 1 files, 1 branches
+  Kommersiella Villkor: 1 files, 1 branches
+  Styrning: 1 files, 1 branches
+  Affärsregler och Scope: 1 files, 1 branches
+  Process och Affärsregler: 1 files, 1 branches
+  Juridik och Avtalsstruktur: 1 files, 1 branches
+  Tjänstekatalog och Uppdragsregler: 1 files, 1 branches
+  Kravhantering: 1 files, 1 branches
+  Ramverkets Parter: 1 files, 1 branches
+  Affärsregler och Ramavtal: 1 files, 1 branches
+
+TOP BRANCHES (by file count):
+----------------------------------------
+  [Kompetens] Rollbeskrivningar: 12 files, 87 topics
+  [Kompetens] Rollbeskrivning: 4 files, 31 topics
+  [Avtalsvillkor] Kontraktstid och Förlängningsvillkor: 3 files, 20 topics
+  [Kompetens] Roll- och Kompetenskrav: 2 files, 10 topics
+  [Affärsregler] Avropsspecifikationer: 2 files, 14 topics
+  [Affärsregler] Utvärderingsmodeller och Prissättning: 2 files, 14 topics
+  [Upphandlingsprocess] Formella Anbudskrav: 2 files, 12 topics
+  [Kompetens] Kompetensnivåkrav: 1 files, 5 topics
+  [Kompetens] Kompetenskrav och Roller: 1 files, 5 topics
+  [Kompetens] Obligatoriska Kompetenskrav: 1 files, 13 topics
+  [Kompetens] Rollspecifikation och obligatoriska erfarenhetskrav: 1 files, 10 topics
+  [Kompetens] Senioritetsnivåer: 1 files, 7 topics
+  [Kompetens] Kravprofil Huvudarkitekt PKI: 1 files, 10 topics
+  [Kompetens] Kompetensnivåer och krav: 1 files, 7 topics
+  [Kompetens] Rollbeskrivningar - Arkitektur: 1 files, 8 topics
+  [Kompetens] Tekniska kompetenskrav: 1 files, 12 topics
+  [Kompetens] Rollbeskrivningar och ansvar: 1 files, 8 topics
+  [Kompetens] Kompetenskrav per Roll: 1 files, 5 topics
+  [Kompetens] Kompetens- och kvalifikationskrav: 1 files, 13 topics
+  [Kompetens] Kvalifikationskrav: 1 files, 6 topics
+
+ALL TOPICS (unique):
+----------------------------------------
+  - 'Bilaga 01 - Avropsberättigade parter'
+  - .Net Framework/.Net Core
+  - 0 poäng
+  - 0-3 poäng per bedömningsgrund
+  - 0-3 poängsättning per bedömningsgrund
+  - 1 700 000 SEK
+  - 1 resurskonsult
+  - 1 år (minimum)
+  - 1 år från faktisk leveransdag
+  - 1% av kontraktets ersättning per påbörjad vecka
+  - 1+ år React och FluentUI
+  - 10 MSEK per skada (Person-/sakskada)
+  - 10 arbetsdagar
+  - 10 månader
+  - 10+ år
+  - 100% (Heltid)
+  - 10539
+  - 12 månader
+  - 120 timmar per månad
+  - 1200 SEK (maximalt timpris)
+  - 1250 SEK
+  - 1250 SEK/tim
+  - 1300 SEK
+  - 1300 SEK/tim
+  - 1450 SEK/tim
+  - 150 timmar (Nätverksarkitekt)
+  - 1500 SEK
+  - 18 månader
+  - 18 månaders erfarenhet av integration
+  - 18+ månader (1.5 år): Integration mot SCCM och Intune/Entra
+  - 18+ månader (1.5 år): Klientplattformskomponenter (specifikt Sysman)
+  - 18+ månader (1.5 år): Visual Studio, Azure DevOps, Git, REST-baserade WebAPI:er
+  - 2 000 000 SEK (Uppskattat årsbelopp)
+  - 2 700 000 SEK
+  - 2 arbetsdagar
+  - 2 års erfarenhet av SAFe
+  - 2 års erfarenhet av arbete i offentlig verksamhet (senaste tre åren)
+  - 20 MSEK per år (Person-/sakskada)
+  - 2022-03-28
+  - 2022-09-26
+  - 2022-09-26 till 2026-09-25
+  - 2023-04-28
+  - 2023-08-21
+  - 2023-11-02
+  - 2023-11-13
+  - 2023-12-31
+  - 2023-12-31 (Initialt slutdatum)
+  - 2024-01-01
+  - 2024-01-01 till 2024-10-31
+  - 2024-01-02 till 2024-09-30
+  ... and 1869 more

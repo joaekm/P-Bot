@@ -11,10 +11,14 @@
             "id": "09e3a3292c994275",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "2_level_RULE_PRIMARY_a786de28.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "2_level_RULE_PRIMARY_a786de28"
             }
           }
         ]
@@ -178,31 +182,32 @@
   },
   "active": "09e3a3292c994275",
   "lastOpenFiles": [
-    "3_volume_RULE_PRIMARY_6eebeb4f.md",
-    "1_intake_DEFINITION_PRIMARY_effdfd7b.md",
-    "1_intake_DEFINITION_PRIMARY_4cb80918.md",
-    "1_intake_DATA_POINTER_PRIMARY_7b46d2f9.md",
-    "1_intake_DEFINITION_PRIMARY_8da6a96b.md",
-    "3_volume_RULE_PRIMARY_fe9a4dae.md",
-    "3_volume_RULE_PRIMARY_69d27b49.md",
-    "3_volume_RULE_PRIMARY_3d50f4e0.md",
-    "4_strategy_RULE_PRIMARY_3dde7201.md",
-    "4_strategy_RULE_PRIMARY_428a5710.md",
-    "4_strategy_RULE_PRIMARY_f8b37982.md",
-    "general_FULL_DOCUMENT_PRIMARY_avropsberattigade-parter---it-_7a4f.md",
-    "general_FULL_DOCUMENT_PRIMARY_Upphandlingsdokument_(GDPR)_f38b.md",
-    "1_intake_DEFINITION_PRIMARY_fa2e0450.md",
-    "4_strategy_DATA_POINTER_PRIMARY_6296b675.md",
-    "3_volume_DATA_POINTER_PRIMARY_e36ac343.md",
-    "3_volume_INSTRUCTION_PRIMARY_c4ee2387.md",
-    "1_intake_DEFINITION_PRIMARY_c79e0947.md",
-    "2_level_RULE_PRIMARY_8493500e.md",
-    "1_intake_RULE_SECONDARY_84692ca4.md",
-    "4_strategy_RULE_SECONDARY_54997cac.md",
-    "4_strategy_INSTRUCTION_SECONDARY_327a6d4b.md",
-    "1_intake_RULE_SECONDARY_0716ee05.md",
-    "2_level_RULE_SECONDARY_fb24fa15.md",
-    "2_level_DEFINITION_SECONDARY_5ca7de0f.md",
-    "2_level_DEFINITION_SECONDARY_a1a14253.md"
+    "vocabulary_stats.txt",
+    "vocabulary.json",
+    "1_intake_DATA_POINTER_PRIMARY_66993fae.md",
+    "1_intake_RULE_PRIMARY_14222708.md",
+    "4_strategy_EXAMPLE_PRIMARY_8b162f0e.md",
+    "4_strategy_RULE_PRIMARY_a7cd1062.md",
+    "1_intake_DEFINITION_PRIMARY_8173c631.md",
+    "4_strategy_RULE_PRIMARY_bb281469.md",
+    "1_intake_RULE_PRIMARY_b6d290b2.md",
+    "1_intake_DATA_POINTER_PRIMARY_2185f9e7.md",
+    "3_volume_RULE_PRIMARY_869b0197.md",
+    "1_intake_RULE_PRIMARY_d1c24bb1.md",
+    "2_level_RULE_PRIMARY_2e553ef7.md",
+    "3_volume_RULE_PRIMARY_effb573d.md",
+    "general_FULL_DOCUMENT_PRIMARY_avropsberattigade-parter---it-_f3d2.md",
+    "1_intake_RULE_SECONDARY_81ed058f.md",
+    "3_volume_RULE_SECONDARY_f4909e8e.md",
+    "1_intake_RULE_SECONDARY_79ce4607.md",
+    "1_intake_RULE_SECONDARY_afd8971b.md",
+    "4_strategy_DEFINITION_SECONDARY_a029f582.md",
+    "4_strategy_RULE_SECONDARY_71c19715.md",
+    "3_volume_RULE_SECONDARY_13107a5d.md",
+    "1_intake_RULE_SECONDARY_a14c4fec.md",
+    "2_level_RULE_SECONDARY_03ddddd1.md",
+    "2_level_RULE_SECONDARY_cd5b30cf.md",
+    "1_intake_DEFINITION_SECONDARY_9814bca9.md",
+    "1_intake_DEFINITION_SECONDARY_6e80ba36.md"
   ]
 }

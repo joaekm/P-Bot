@@ -1,0 +1,5217 @@
+{
+  "Kompetens": {
+    "Rollbeskrivning": {
+      "topics": [
+        "Databaser",
+        "Databashantering",
+        "DevOps",
+        "Felavhjälpning",
+        "Grafisk form",
+        "Grafisk formgivare",
+        "Grafisk profil",
+        "Gränssnitt med hög användbarhet",
+        "IT-infrastruktur",
+        "Implementationsprojekt",
+        "Installationer",
+        "Integration av system",
+        "Interaktionsdesigner",
+        "Mjuk- och hårdvara",
+        "Mobilitet",
+        "Nätverk",
+        "Operativsystem",
+        "Optimering av trådlöst nätverk",
+        "Programmering",
+        "RPA (Robotic Process Automation)",
+        "SCRUM",
+        "System",
+        "Systemering",
+        "Systemutvecklare/Systemintegratör",
+        "Systemutveckling",
+        "Tekniker (Roll)",
+        "Teknisk projektledare",
+        "Utvecklare",
+        "Utvecklingsplattformar",
+        "Utvecklingsuppdrag",
+        "Versionshantering"
+      ],
+      "file_count": 4,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_606d56b1.md",
+        "1_intake_DEFINITION_PRIMARY_3bfb9cf3.md",
+        "1_intake_DEFINITION_PRIMARY_4432c63b.md",
+        "1_intake_DEFINITION_PRIMARY_cfd36432.md"
+      ]
+    },
+    "Roll- och Kompetenskrav": {
+      "topics": [
+        "Bifogas anbudet",
+        "Dokumentation som bevisar kravuppfyllnad",
+        "Kompetensnivå 5 (expert)",
+        "Krav på Kompetensnivå 5",
+        "Nivå 5",
+        "Ramavtalet",
+        "Senior Enterprisearkitekt",
+        "Transformationsledare",
+        "en (1) konsult",
+        "ramavtalet"
+      ],
+      "file_count": 2,
+      "files": [
+        "2_level_RULE_SECONDARY_c752cbbd.md",
+        "2_level_DEFINITION_SECONDARY_ca38d4bd.md"
+      ]
+    },
+    "Kompetensnivåkrav": {
+      "topics": [
+        "Kompetensnivå 5",
+        "Krav på bifogad dokumentation",
+        "Senior IT arkitekt infrastruktur",
+        "Senior Nätverksarkitekt",
+        "ramavtalet"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_4f4f51d4.md"
+      ]
+    },
+    "Rollbeskrivningar": {
+      "topics": [
+        "Anpassning",
+        "Användarutbildning",
+        "Arkitekturgranskningar",
+        "Automatiserade tester",
+        "Avhjälpande av IT-relaterade problem på plats",
+        "Behovsanalyser",
+        "Designmönster",
+        "Driftsalternativ",
+        "Ekonomisk redovisning",
+        "Fast takpris",
+        "Framtidssäkra teknikval",
+        "Funktionella krav",
+        "Förvaltning",
+        "Förvaltningsmodeller",
+        "Förvaltningsplaner",
+        "GDPR",
+        "Helhetssyn",
+        "Hårdvara",
+        "IT-controller/Compliance manager",
+        "Informationsmodellering",
+        "Informationssäkerhet",
+        "Infrastrukturarkitekt",
+        "Införande",
+        "Interaktionsdesign",
+        "Interndebitering",
+        "Internrevision",
+        "Investeringskalkylering",
+        "KLASSA-workshop",
+        "Kapacitetsberäkning",
+        "Kravframtagning",
+        "Kravmetodik",
+        "Kvalitetsegenskaper",
+        "Lagstiftning om upphandling",
+        "Ledaregenskaper",
+        "Livscykel",
+        "Lösningsarkitekt",
+        "Mjukvaruarkitekt",
+        "Modelleringsledare/Kravanalytiker",
+        "Molntjänster",
+        "Målarkitektur",
+        "Nulägesbeskrivningar",
+        "Nätverk",
+        "On-premises",
+        "Prestanda",
+        "Proaktivt kvalitetsarbete",
+        "Problemlösningsförmåga",
+        "Processkartläggning",
+        "Processmodellering",
+        "Produktionssättning",
+        "Prognostisering av IT-investeringar",
+        "Realisering av IT-lösningar",
+        "Regelefterlevnad",
+        "Registrera ärenden",
+        "Risk Manager (Roll)",
+        "Roll: Metodstöd",
+        "Roll: Testare",
+        "Schemalagd närvaro eller beredskap",
+        "Skalbarhet",
+        "Systemförvaltare",
+        "Systemkravspecifikationer",
+        "Systemstandarder",
+        "Sökmotoroptimering (SEO)",
+        "Teknikstöd – på plats",
+        "Tekniska lösningar",
+        "Tekniska webbverktyg",
+        "Testfall",
+        "Testplaner",
+        "Testverktyg",
+        "Tillgänglighet",
+        "Underhåll och drift",
+        "Uppföljning av IT-investeringar",
+        "Uppföljning av IT-kostnader",
+        "Utbildning i metodik och modeller",
+        "Utveckla befintliga rutiner och instruktioner",
+        "Utvecklingsspråk",
+        "Verksamhets- och nyttoperspektiv",
+        "Verksamhetsarkitekt",
+        "Verksamhetsarkitektur",
+        "Verksamhetsmodellering",
+        "Webbstrateg",
+        "Webbstrategi",
+        "klassificering av informationstillgångar",
+        "pm3",
+        "regler och standarder för offentlig sektor",
+        "riskanalyser",
+        "riskpolicy",
+        "sårbarhetsanalyser"
+      ],
+      "file_count": 12,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_8681e983.md",
+        "1_intake_DEFINITION_PRIMARY_aa7a7eb8.md",
+        "1_intake_DEFINITION_PRIMARY_dc46982d.md",
+        "1_intake_DEFINITION_PRIMARY_5fcbe596.md",
+        "1_intake_DEFINITION_PRIMARY_0e9631b4.md",
+        "1_intake_DEFINITION_PRIMARY_f1aef94f.md",
+        "1_intake_DEFINITION_PRIMARY_a2a24f29.md",
+        "1_intake_DEFINITION_PRIMARY_3119a50d.md",
+        "1_intake_DEFINITION_PRIMARY_6c54d0e3.md",
+        "1_intake_DEFINITION_PRIMARY_f01a4527.md",
+        "1_intake_DEFINITION_PRIMARY_ae6e7311.md",
+        "1_intake_DEFINITION_PRIMARY_e6ed0e28.md"
+      ]
+    },
+    "Kompetenskrav och Roller": {
+      "topics": [
+        "Dokumentationskrav (Kompetensbevis)",
+        "Kompetensnivå 5",
+        "Krav på Kompetensnivå 5",
+        "Ramavtalet",
+        "Rollen Senior Systemutvecklare"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_4b42aca8.md"
+      ]
+    },
+    "Obligatoriska Kompetenskrav": {
+      "topics": [
+        "18 månaders erfarenhet av integration",
+        "7 års erfarenhet av fullstackutveckling",
+        "Azure DevOps",
+        "C#",
+        "Engelska (flytande i tal och skrift)",
+        "Git",
+        "JavaScript",
+        "Microsoft System Center Configuration Manager (SCCM)",
+        "Obligatoriska krav (ska-krav)",
+        "SQL",
+        "Svenska (flytande i tal och skrift)",
+        "Visual Studio",
+        "iQuery/React/Preact/Vue"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_5e2e712e.md"
+      ]
+    },
+    "Rollspecifikation och obligatoriska erfarenhetskrav": {
+      "topics": [
+        "Containerlösningar (Kubernetes) & Mikrotjänster, Minst 5 års erfarenhet",
+        "Hybridlösningar (On-prem, IaaS, PaaS, SaaS), Minst 2 års erfarenhet",
+        "IT-arkitektur (infrastruktur/IT-drift), Minst 5 års erfarenhet",
+        "Moderna plattformar (ansvar), Minst 2 uppdrag",
+        "Nivå 5",
+        "Nulägesanalys (framtagande), Minst 2 uppdrag",
+        "Offentlig sektor (arkitektur), Minst 1 projekt",
+        "Senior Infrastrukturarkitekt",
+        "Säkerhetslösningar (teknisk roll), Minst 2 uppdrag",
+        "Transformationskarta (framtagande), Minst 1 uppdrag"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_33fe3859.md"
+      ]
+    },
+    "Senioritetsnivåer": {
+      "topics": [
+        "Deltagit i stora uppdrag",
+        "Genomfört uppdrag med mycket hög kvalitet",
+        "Huvudansvar för ledning av större grupp",
+        "Hög generalistkompetens",
+        "Kompetensnivå 4 (KN4)",
+        "Mycket hög kompetens inom området",
+        "Mycket stor självständighet"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_PRIMARY_7d020faf.md"
+      ]
+    },
+    "Kravprofil Huvudarkitekt PKI": {
+      "topics": [
+        "CA-mjukvara (Insta)",
+        "CA-mjukvara (Nexus)",
+        "HSM (Entrust)",
+        "HSM (Thales)",
+        "Huvudarkitekt PKI",
+        "kryptografiska hårdvarumoduler (HSM)",
+        "nyckelceremonier för e-legitimationer",
+        "regelverk för Svensk e-legitimation (DIGG)",
+        "tillitsnivå 3",
+        "tillitsramverk för PKI-lösningar"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_a1a14253.md"
+      ]
+    },
+    "Kompetensnivåer och krav": {
+      "topics": [
+        "Arbeta självständigt",
+        "Genomfört flertal uppdrag",
+        "Hög kompetens",
+        "Hög kvalitet (uppdrag)",
+        "Kompetensnivå 3",
+        "Leda en mindre grupp",
+        "Tar ansvar för delområde"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_PRIMARY_dd98c915.md"
+      ]
+    },
+    "Rollbeskrivningar - Arkitektur": {
+      "topics": [
+        "Ansvar för samspelet mellan olika arkitektroller",
+        "Krav: Djup affärsförståelse",
+        "Krav: Kommunikationskunskaper",
+        "Krav: Ledarskap",
+        "Roll: Enterprisearkitekt (EA)",
+        "Säkerställer att IT stödjer myndighetens uppdrag",
+        "Uppdrag: Implementera styrmodell för arkitekturarbete",
+        "Uppdrag: Ta fram strategier och beslutsunderlag"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_f3bd31de.md"
+      ]
+    },
+    "Tekniska kompetenskrav": {
+      "topics": [
+        "C# / .Net Core",
+        "GIT som versionshanterare",
+        "Integration med REST-baserade WebAPI:er",
+        "Konsulten (Nivå 5)",
+        "Microsoft Graph API",
+        "Minst 1 år",
+        "Minst 3 år",
+        "Minst 5 år",
+        "React / Fluent UI",
+        "SQL",
+        "TypeScript",
+        "Visual Studio"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_45b39290.md"
+      ]
+    },
+    "Rollbeskrivningar och ansvar": {
+      "topics": [
+        "Delprojektledare",
+        "Dialog med intressenter",
+        "Följa upp och rapportera",
+        "Operativt leda",
+        "Planera bemanning",
+        "Projektledare",
+        "Tids- och omfångsavgränsat uppdrag",
+        "Utarbeta projektmål och tidplaner"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_13e8db6b.md"
+      ]
+    },
+    "Kompetenskrav per Roll": {
+      "topics": [
+        "Anbud som inte uppfyller detta kommer att förkastas",
+        "Biträdande Migreringsledare",
+        "Dokumentation",
+        "Nivå 3",
+        "Ramavtalet"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_e330f6e2.md"
+      ]
+    },
+    "Kompetens- och kvalifikationskrav": {
+      "topics": [
+        "Azure DevOps",
+        "Git",
+        "JavaScript",
+        "Krav på tre referensuppdrag",
+        "Minst 18 månaders erfarenhet av integration mot Microsoft System Center Configuration Manager",
+        "Minst 7 års erfarenhet av fullstackutveckling i C#",
+        "Obligatoriska 'ska-krav'",
+        "REST-baserade WebAPI:er",
+        "Referensuppdrag får inte vara äldre än 3 år",
+        "SQL",
+        "Senior Fullstackutvecklare (Inera)",
+        "Visual Studio",
+        "iQuery/React/Preact/Vue"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_ea753b55.md"
+      ]
+    },
+    "Kvalifikationskrav": {
+      "topics": [
+        "Expert",
+        "Integrationsarkitekt",
+        "Kompetensnivå 5",
+        "Krav på dokumentation",
+        "Projektledare",
+        "Ramavtalet"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_b787e687.md"
+      ]
+    },
+    "Rollbeskrivningar & Kompetenskrav": {
+      "topics": [
+        "IT- eller Digitaliseringsstrateg",
+        "IT-strategier och digitaliseringsplaner (utveckling/analys)",
+        "Krav på pedagogisk förmåga",
+        "RPA (Robotic Process Automation) implementering",
+        "Utbildning av ledningsgrupper"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_68084cde.md"
+      ]
+    },
+    "Kvalifikationskrav och Erfarenhet": {
+      "topics": [
+        "IdP Lösning (Minst 6 års erfarenhet)",
+        "Nivå 5 (Ramavtal)",
+        "OAuth2.0",
+        "OIDC",
+        "RIV Tekniska anvisningar (Minst 3 års erfarenhet)",
+        "Ref. Ark. IAM (Minst 3 års erfarenhet)",
+        "Ref. Ark. e-sign (Minst 2 års erfarenhet)",
+        "SAML2",
+        "Säkerhetsstrateg/Säkerhetsanalytiker",
+        "Teamledning (Minst 6 års erfarenhet)"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_b1d205f4.md"
+      ]
+    },
+    "Erfarenhetskrav för Konsultroller": {
+      "topics": [
+        "Driva nationella projekt inom hälso- och sjukvård",
+        "Erfarenhet av RIV-TA",
+        "Koppling till kundavtal och personuppgiftshantering",
+        "Minst 3 års erfarenhet av hantering och implementation av avtal",
+        "Minst 3 års erfarenhet av uppföljning och kravställning av offentliga avtal",
+        "Verksamhetsarkitekt, Nivå 5"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_783dadae.md"
+      ]
+    },
+    "Krav på Specifika Certifieringar": {
+      "topics": [
+        "ADKAR/PROSCI",
+        "Förändringsledare (Kravområde)",
+        "PSM",
+        "SAFe",
+        "SAFe SM (Ej likvärdig)",
+        "Scrum Master (Kravområde)",
+        "ScrumAlliance"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_60c325fa.md"
+      ]
+    },
+    "Kompetenskrav och Nivåer": {
+      "topics": [
+        "Arkitektur (kompetensområde)",
+        "Krav på Kompetensnivå",
+        "Nivå 5",
+        "ramavtalets definition"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_dbe5cc2a.md"
+      ]
+    },
+    "Definition av Kompetensområde och Leveranser": {
+      "topics": [
+        "AI",
+        "Behovsanalyser",
+        "Blockchain",
+        "Digitalisering",
+        "E-tjänster",
+        "Förstudier",
+        "GDPR",
+        "Kompetensområde 1",
+        "Kravspecificering",
+        "LOU",
+        "Metodarbete",
+        "Robotisering",
+        "Strategi",
+        "Strategiutveckling",
+        "Utredningar",
+        "Verksamhetsutveckling"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_20e9a221.md"
+      ]
+    },
+    "Kompetensbeskrivning (UX/UI)": {
+      "topics": [
+        "Användargränssnitt",
+        "Användbarhet",
+        "Hög tillgänglighet",
+        "Interaktionsdesigner",
+        "Prototyper",
+        "Tillgänglighetsexpert",
+        "Webbdirektivet"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_7cbed64e.md"
+      ]
+    },
+    "Arkitektroller och Kompetensramar": {
+      "topics": [
+        "IASA Swedens definitioner",
+        "Kompetensområde 4",
+        "arkitektrollerna",
+        "it-konsulttjanster 2021-2025",
+        "år 2020"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DATA_POINTER_PRIMARY_bbcba13d.md"
+      ]
+    },
+    "Kompetensprofiler och Erfarenhetsnivåer": {
+      "topics": [
+        "18+ månader (1.5 år): Integration mot SCCM och Intune/Entra",
+        "18+ månader (1.5 år): Klientplattformskomponenter (specifikt Sysman)",
+        "18+ månader (1.5 år): Visual Studio, Azure DevOps, Git, REST-baserade WebAPI:er",
+        "5+ år: Arbete med Microsoft infrastruktur",
+        "5+ år: Arbete med Windows 10 eller senare",
+        "7+ år: Utveckling i C#",
+        "Erfarenhetskrav Senior Utvecklare (Nivå 5)",
+        "Krav på CV-dokumentation"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_37dc47d2.md"
+      ]
+    },
+    "Krav på Bemanning och Roller": {
+      "topics": [
+        "Ansvarig projektledare",
+        "Huvudkonsult",
+        "Max två konsulter",
+        "Minst 70% (Arbetsfördelning)",
+        "Minst Nivå 3",
+        "Nivå 4"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_ee131dca.md"
+      ]
+    },
+    "Kompetensområde Säkerhet": {
+      "topics": [
+        "GDPR",
+        "KLASSA",
+        "Kompetensområde 5",
+        "NIS",
+        "PKI",
+        "Penetrationstester",
+        "Schrems II"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_d57ddc3d.md"
+      ]
+    },
+    "Kompetensområden och Exempelroller": {
+      "topics": [
+        "Avropsvägledning",
+        "Bilaga A – Kompetensområden och exempelroller",
+        "Enterprisearkitekt",
+        "Förändringsledare",
+        "IT- eller Digitaliseringsstrateg",
+        "IT-controller/Compliance manager",
+        "IT-hållbarhetsstrateg",
+        "IT-konsulttjänster 2021",
+        "Infrastrukturarkitekt",
+        "Interaktionsdesigner",
+        "Kompetensområde 1 – Verksamhetsutveckling och strategi",
+        "Kompetensområde 2 – Ledning och styrning",
+        "Kompetensområde 3 – Systemutveckling/Systemförvaltning och infrastruktur",
+        "Kompetensområde 4 – Arkitektur",
+        "Kompetensområde 5 – IT-, Informations - och Cybersäkerhet",
+        "Kompetensområde 6 – Tillgänglighet och webb",
+        "Lösningsarkitekt",
+        "Mjukvaruarkitekt",
+        "Modelleringsledare/Kravanalytiker",
+        "Projektledare",
+        "Risk Manager",
+        "Systemförvaltare",
+        "Systemutvecklare/Systemintegratör",
+        "Säkerhetsstrateg/Säkerhetsanalytiker",
+        "Säkerhetstekniker",
+        "Teknisk projektledare",
+        "Testare",
+        "Verksamhetsarkitekt",
+        "Webbstrateg"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_PRIMARY_kompetensomraden-och-exempelro_b665.md"
+      ]
+    },
+    "Erfarenhetskrav och Tekniska Kompetenser": {
+      "topics": [
+        ".Net Framework/.Net Core",
+        "1 år (minimum)",
+        "3 år (minimum)",
+        "5 år (minimum)",
+        "7 år (minimum)",
+        "C#",
+        "C++",
+        "FluentUI",
+        "Fullstackutveckling",
+        "GIT",
+        "JavaScript",
+        "Microsoft Azure DevOps",
+        "Microsoft Endpoint/Configuration Manager",
+        "React",
+        "SQL",
+        "Sysman",
+        "Utveckling i C# och C++ för klienthantering",
+        "integration mot SCCM",
+        "jQuery",
+        "klientinfrastruktur för regioner/kommuner",
+        "klientplattformskomponenter"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_7b70cb31.md"
+      ]
+    },
+    "Kompetenskrav": {
+      "topics": [
+        "IT och informationssäkerhet",
+        "Kompetensnivå",
+        "nivå 5"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_10924a12.md"
+      ]
+    },
+    "Definition av Kompetensområde": {
+      "topics": [
+        "Arkitektroller",
+        "Arkitektur",
+        "IASA Swedens definitioner från 2020",
+        "IT-perspektiv",
+        "Kompetensområde 4",
+        "Linjearbete",
+        "Projektarbete"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_528e0eed.md"
+      ]
+    },
+    "Obligatoriska Erfarenhetskrav": {
+      "topics": [
+        "IT-arkitekt/IT-processledare (offentlig sektor)",
+        "Konsult (Nivå 5)",
+        "Minst 1 år erfarenhet",
+        "Minst 2 år erfarenhet",
+        "NTJP/motsvarande plattform",
+        "Patientdatalagen",
+        "Samverkansarkitektur (SOAP, Tjänstekontrakt)",
+        "Ska-krav",
+        "Styrkas med CV",
+        "Utbildning/Ledarskap (offentlig sektor)"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_17c08029.md"
+      ]
+    },
+    "Obligatoriska Erfarenhetskrav Konsult": {
+      "topics": [
+        "Aktiv teknisk roll i minst 1 projekt med komplex migrering under drift",
+        "Ansvarig för framtagande av pedagogiska/tekniska presentationer i minst 2 olika projekt",
+        "Arbetat i minst 1 projekt som omfattat hantering av personuppgifter och GDPR",
+        "CV måste tydligt påvisa uppfyllnad",
+        "DirX",
+        "Minst 1 års erfarenhet av databasverktyg",
+        "Minst 1 års erfarenhet av ritverktyg för flöden (ex. Lucid charts)",
+        "Minst 2 års erfarenhet av Jira/Confluence",
+        "Minst 2 års erfarenhet av planering av migreringsaktiviteter mot externa intressenter",
+        "Minst 2 års erfarenhet med planering och administration av data (Excel)",
+        "MongoDB"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_14479c01.md"
+      ]
+    },
+    "Tekniska kompetenser och metoder": {
+      "topics": [
+        "AI",
+        "BI",
+        "Big Data",
+        "DevOps",
+        "ITIL",
+        "Infrastruktur (lokal, moln, hybrid)",
+        "IoT",
+        "Kompetensområde 3",
+        "Licens- och hårdvarukostnader",
+        "SCRUM",
+        "Systemförvaltning",
+        "Systemintegration",
+        "Systemutveckling"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_a1293991.md"
+      ]
+    },
+    "Definiering och Verifiering av Konsultkrav": {
+      "topics": [
+        "Kompetensnivå (Nivå 1 till 5)",
+        "Krav på erfarenhet",
+        "Krav på kompetens",
+        "Krav på referenser",
+        "Roll",
+        "Styrkas med CV",
+        "Uppdrag (Arbetsuppgifter)"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_INSTRUCTION_PRIMARY_3e9e2433.md"
+      ]
+    },
+    "Ledning och Styrning (Kompetensområde 2)": {
+      "topics": [
+        "Förvaltningsstyrningsmodeller",
+        "ITIL",
+        "ITIL-manager roller",
+        "Kvalitetsarbete",
+        "Metoder för kostnads- och nyttoberäkning",
+        "Processledning",
+        "Projektledning",
+        "Projektstyrningsmodeller"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_83987c3e.md"
+      ]
+    },
+    "Erfarenhets- och Teknikkrav": {
+      "topics": [
+        ".Net Framework/.Net Core",
+        "1+ år React och FluentUI",
+        "3+ år Microsoft Azure DevOps och GIT",
+        "5+ år Microsoft infrastrukturplattform",
+        "5+ år klientinfrastruktur för region/kommun",
+        "5+ år utvecklingsprojekt Microsoft Endpoint/Configuration Manager",
+        "7+ år Fullstackutveckling",
+        "C#, JavaScript, SQL, jQuery",
+        "Erfarenhetskrav Mjukvaruarkitekt (Nivå 5)",
+        "REST-baserade WebAPI:er",
+        "Visual Studio",
+        "Windows/SCCM/AD/Azure"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_c53247ec.md"
+      ]
+    },
+    "Språkkrav för Konsulter": {
+      "topics": [
+        "All kommunikation och dokumentation ska vara på svenska",
+        "Avropsförfrågan",
+        "CV ska vara på svenska",
+        "Konsulter SKA kommunicera obehindrat på svenska",
+        "Krav på Språk",
+        "Upphandlande myndigheten kan frångå krav"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_8da6a96b.md"
+      ]
+    },
+    "Kompetensprofiler": {
+      "topics": [
+        "Hållbarhetskrav vid inköp",
+        "IT-hållbarhetsstrateg",
+        "IT-produkters miljöpåverkan",
+        "Minska klimatavtryck",
+        "Policyer",
+        "Strategier för uttjänta IT-produkter"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_d19d994a.md"
+      ]
+    },
+    "Kompetensområden (KO)": {
+      "topics": [
+        "KO1: Verksamhetsutveckling och strategi",
+        "KO2: Ledning och styrning",
+        "KO3: Systemutveckling/-förvaltning och infrastruktur",
+        "KO4: Arkitektur",
+        "KO5: IT-, informations- och cybersäkerhet",
+        "KO6: Tillgänglighet och webb",
+        "KO7: Användarsupport",
+        "Ramavtalet (avropsbara roller)"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_fa2e0450.md"
+      ]
+    },
+    "Kompetensnivåer och Senioritet": {
+      "topics": [
+        "Deltagit i flera stora uppdrag",
+        "Expert/Guru på marknaden",
+        "Högsta rang (kunskap)",
+        "KN5",
+        "Kompetensnivå 5 (Expert)",
+        "Ledande befattning (vana)",
+        "Mycket hög kvalitet (leveransstandard)",
+        "Mycket stor (självständighet)"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_PRIMARY_e308e74f.md"
+      ]
+    },
+    "Rollbeskrivning IT-Säkerhet": {
+      "topics": [
+        "PKI",
+        "Säkerhetstekniker",
+        "behörighetskontroll",
+        "brandväggar",
+        "intrångsskydd",
+        "kryptering",
+        "patchhantering",
+        "penetrationstest"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_818474e7.md"
+      ]
+    },
+    "Rollspecifika Kompetenskrav": {
+      "topics": [
+        "Antal konsulter (2)",
+        "Erfarenhetskrav Senior Lösningsarkitekt (Nivå 5)",
+        "Klientinfrastruktur och verktygsstöd för region/kommun",
+        "Klientplattformskomponenten Sysman",
+        "Kundnära implementation inom offentlig sektor",
+        "Microsoft Configuration Manager",
+        "Microsoft infrastrukturplattform",
+        "Minimikrav på erfarenhet (5+ år)",
+        "Windows/SCCM/MIM/AD/Azure"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_3b618134.md"
+      ]
+    },
+    "Kompetenskrav och Erfarenhetsnivåer": {
+      "topics": [
+        "C# / .Net Core: 3 år",
+        "GIT som versionshanterare: 3 år",
+        "Microsoft Graph API: 6 månader",
+        "Microsoft SQL: 3 år",
+        "Nivå 4",
+        "React / Fluent UI",
+        "Senior Systemutvecklare",
+        "integration av REST-baserade WebAPI:er: 3 år"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_2036253c.md"
+      ]
+    },
+    "Kompetens- och Rolldefinitioner": {
+      "topics": [
+        "24 exempelroller",
+        "Bilaga A",
+        "IT-konsulttjänster 2021",
+        "Ramavtalets",
+        "sju kompetensområden"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DATA_POINTER_PRIMARY_78767434.md"
+      ]
+    },
+    "Rollkrav och Kompetensprofiler": {
+      "topics": [
+        "10+ år",
+        "5+ år",
+        "Klientplattformskomponenter (Sysman)",
+        "Krav Infrastrukturarkitekt (Nivå 5)",
+        "Leda utveckling/förändringsprojekt",
+        "MVP (Most Valuable Professional) inom Enterprise Mobility",
+        "Microsoft Certified Trainer (MCT)",
+        "Microsoft Endpoint/Configuration Manager",
+        "Microsoft infrastrukturplattform (Windows/SCCM/MIM/AD/Azure)",
+        "Utvecklingsprojekt för stödverktyg"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_4dd8b182.md"
+      ]
+    },
+    "Kompetens- och Erfarenhetskrav": {
+      "topics": [
+        "Agil Coachning (Minst 3 år)",
+        "Bevis (CV och certifikat)",
+        "Certified SAFe 6.0 Practice Consultant",
+        "En (1) konsult",
+        "ITIL (Minst 5 år)",
+        "ITIL 4 Managing Professional Transition",
+        "Offentlig Verksamhet (Minst 2 år)",
+        "SAFe (Minst 2 år)",
+        "Transformationsledare (Nivå 5)"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_4dd4adaf.md"
+      ]
+    },
+    "Specifika Erfarenhetskrav": {
+      "topics": [
+        "2 års erfarenhet av SAFe",
+        "2 års erfarenhet av arbete i offentlig verksamhet (senaste tre åren)",
+        "3 års erfarenhet som scrum master",
+        "4 års erfarenhet av agil coachning",
+        "Erfarenhet av agil metodik utanför IT",
+        "Genomförd coachutbildning",
+        "Ska-krav"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_23c0e19a.md"
+      ]
+    },
+    "Erfarenhets- och Kompetenskrav för specifik roll": {
+      "topics": [
+        "Ansvarat för framtagande av nulägesanalys i minst 2 uppdrag",
+        "Ansvarat för hantering av moderna plattformar i minst 2 uppdrag",
+        "Haft teknisk roll i minst 2 uppdrag inom säkerhetslösningar för säker IT-drift",
+        "Minst 1 projekt med erfarenhet från offentlig sektor",
+        "Minst 1 uppdrag omfattande framtagande av transformationskarta",
+        "Minst 2 års arbete med Hybridlösningar (Onprem, IaaS, PaaS, SaaS, XaaS)",
+        "Minst 5 års erfarenhet av IT-arkitektur/systemlösningar inom infrastruktur/IT-drift",
+        "Minst 5 års erfarenhet av containerlösningar (kubernetes) och mikrotjänster",
+        "Senior IT-arkitekt infrastruktur (Nivå 5)"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_00abfdbb.md"
+      ]
+    },
+    "Kvalifikationsnivåer": {
+      "topics": [
+        "Heltal mellan 1 och 5",
+        "Kompetensnivå",
+        "Resursuppdrag",
+        "kn1",
+        "kn2",
+        "kn3",
+        "kn4",
+        "kn5"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_PRIMARY_5ba97da6.md"
+      ]
+    },
+    "Kompetensområdesbeskrivningar": {
+      "topics": [
+        "Användbarhet",
+        "Grafiska profiler",
+        "Kompetensområde 6",
+        "Tillgänglighetsanpassningar",
+        "WCAG",
+        "Webbdirektivet",
+        "Webbstrategi"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_5ab3f160.md"
+      ]
+    },
+    "Obligatoriska Kompetens- och Erfarenhetskrav": {
+      "topics": [
+        "Azure DevOps",
+        "Git",
+        "IAM",
+        "IT-processer",
+        "Klientplattformskomponenter",
+        "Kravfångst",
+        "Minst 3 års erfarenhet",
+        "Minst 5 års erfarenhet",
+        "REST-API:er",
+        "SCRUM Master certifikat",
+        "Specifika Kompetenskrav (Ska-krav)",
+        "Visual Studio",
+        "Zero Trust"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_35113bbf.md"
+      ]
+    },
+    "Kompetensnivådefinitioner": {
+      "topics": [
+        "Deltagit i eller utfört ett flertal liknande uppdrag",
+        "Erfarenhet som konsult",
+        "Kompetensnivå 2",
+        "Kräver arbetsledning",
+        "Kunskapskrav",
+        "Självständigt utföra avgränsade arbetsuppgifter",
+        "Viss svårighetsgrad",
+        "junior",
+        "kn2"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_PRIMARY_b9af5461.md"
+      ]
+    },
+    "Kompetensnivåer": {
+      "topics": [
+        "Ej vana som konsult",
+        "Kan självständigt utföra enklare uppgifter",
+        "Kompetensnivå 1",
+        "Kortare arbetserfarenhet",
+        "Kräver arbetsledning",
+        "Nyss genomförd utbildning inom aktuellt område"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_PRIMARY_18582ceb.md"
+      ]
+    },
+    "Rollbeskrivningar (IT- och informationssäkerhet)": {
+      "topics": [
+        "Analys av informationstillgångar",
+        "Katastrof- och kontinuitetsplanering",
+        "Ledning och styrning av IT- och informationssäkerhet",
+        "Policyer och regelverk för säkerhet",
+        "Roll: Säkerhetsstrateg/Säkerhetsanalytiker",
+        "Styrning av användarbehörigheter"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_a1f08d19.md"
+      ]
+    }
+  },
+  "Tekniska Krav och Standarder": {
+    "E-handelsformat": {
+      "topics": [
+        "E-post",
+        "Godkända format för E-handel",
+        "Manuell hantering i leverantörsportal",
+        "Order",
+        "Ordersvar",
+        "Peppol BIS Ordering",
+        "SFTI ESAP 6"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_PRIMARY_8842daea.md"
+      ]
+    }
+  },
+  "Affärsregler": {
+    "Utvärderings- och Prissättningsmodell": {
+      "topics": [
+        "Avdragsfaktor (50 SEK från timpriset)",
+        "Fiktivt Avdrag",
+        "Formel för utvärderingspris (Anbudspris - Fiktivt avdrag)",
+        "Kvalificering (uppfyller alla ska-krav)",
+        "Maximalt avdrag (600 SEK)",
+        "Poängskala (0-3 poäng)",
+        "Uteslutningsregel (0 poäng på bedömningsgrund)"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_INSTRUCTION_SECONDARY_a174f9af.md"
+      ]
+    },
+    "Uppdragstyper och Ansvarsfördelning": {
+      "topics": [
+        "Ansvar för att leverera ett bestämt resultat",
+        "Konsulten agerar som en resurs",
+        "Projektuppdrag",
+        "Resursuppdrag",
+        "Uppdraget leds av beställaren",
+        "Uppdraget leds av leverantören",
+        "Uppdragstyper"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_6566f524.md"
+      ]
+    },
+    "Anbudskrav och Formalia": {
+      "topics": [
+        "Bilaga 01 - Priser",
+        "Giltighetskrav",
+        "Komplett Anbud",
+        "MÅSTE (Obligatoriskt krav)"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_PRIMARY_4ebae28a.md"
+      ]
+    },
+    "Utvärderings- och prismodeller": {
+      "topics": [
+        "75 kr per poäng",
+        "Bedömning via intervju",
+        "Förkastas vid totalpoäng 4 eller lägre",
+        "Kombination av pris och kvalitet",
+        "Max 900 kr avdrag",
+        "Mervärdesavdrag på timpriset",
+        "Poäng 0-3 per kategori",
+        "Utvärderingsmodell (Pris & Kvalitet)"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_SECONDARY_40e40dbf.md"
+      ]
+    },
+    "Avropsregler för Kompetens och Roll": {
+      "topics": [
+        "Egenformulerad roll",
+        "Expert",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Kompetensnivå 5",
+        "TRIGGER_STRATEGY_FKU",
+        "Tvingande",
+        "it-konsulttjanster-2021-2025-11-21.pdf"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_PRIMARY_140a75c0.md"
+      ]
+    },
+    "Prisreglering och nivåer": {
+      "topics": [
+        "Bilaga B – Efterfrågat resursbehov",
+        "Bindande takpriser",
+        "IT-konsulttjänster 2021",
+        "Kompetensnivå 1-4"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DATA_POINTER_PRIMARY_0c587cb8.md"
+      ]
+    },
+    "Avropsstruktur och Ramavtal": {
+      "topics": [
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Inera AB",
+        "Integrationsarkitekt",
+        "Projektnummer 10539",
+        "Ramavtalet 'IT-konsulttjänster 2021'"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_efd2caf6.md"
+      ]
+    },
+    "Utvärderingsmodell och Poängsättning": {
+      "topics": [
+        "0-3 poäng per bedömningsgrund",
+        "30-minuters intervju",
+        "75 SEK i avdrag på det offererade timpriset",
+        "Ekonomiskt mest fördelaktiga anbudet",
+        "Kvalificering",
+        "Lägst utvärderingspris vinner",
+        "Mervärdesavdrag",
+        "Ska-krav",
+        "Timpris - (Total poäng * 75 SEK) = Utvärderingspris",
+        "Utvärderingspris"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_INSTRUCTION_SECONDARY_abd0f083.md"
+      ]
+    },
+    "Prismodeller & Avropsregler": {
+      "topics": [
+        "Dynamisk Rangordning (DR)",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Maximalt timpris",
+        "Prissättning efter avropsform",
+        "Ramavtalets priser som takpris",
+        "Takpriser",
+        "fasta priser (Dynamisk Rangordning)"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_69d27b49.md"
+      ]
+    },
+    "Kontraktstid och Optioner": {
+      "topics": [
+        "12 månader",
+        "24 månader",
+        "36 månader",
+        "Avropskontrakt",
+        "Ensidig optionsrätt",
+        "fyra veckor"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_15c48097.md"
+      ]
+    },
+    "Avropsstrategi och Volymgränser": {
+      "topics": [
+        "320 timmar",
+        "320-timmarsregeln",
+        "Avropsstrategi",
+        "Dynamisk Rangordning",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Volymgräns"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_6eebeb4f.md"
+      ]
+    },
+    "Avtalstid och giltighet": {
+      "topics": [
+        "Avtalsperiod",
+        "Fyra års giltighet",
+        "Maximal avtalstid: 48 månader",
+        "Ramavtalet IT-konsulttjänster 2021",
+        "Slutdatum: 2026-09-25",
+        "Startdatum: 2022-09-26",
+        "Tillhandahållande av tjänster efter ramavtalets upphörande"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_PRIMARY_64787378.md"
+      ]
+    },
+    "Prisjusteringsmekanismer": {
+      "topics": [
+        "Fast pris i 11 månader",
+        "Första justering: Månad 12 efter sista anbudsdag",
+        "Labour Cost Index för tjänstemän (LCI tjm, kod J)",
+        "Priser får inte justeras under ett pågående kontrakt (Dynamisk Rangordning)",
+        "SCB",
+        "Uppdaterade priser publiceras 1 maj varje år",
+        "Årlig prisjustering"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_INSTRUCTION_PRIMARY_e8cb9804.md"
+      ]
+    },
+    "Utvärderingsmodeller och Tilldelningskriterier": {
+      "topics": [
+        "Alternativa anbud eller sidoanbud accepteras ej",
+        "Avdrag baseras på poäng från fiktivt uppdrag och intervju",
+        "Fiktivt mervärdesavdrag i SEK",
+        "Formel: Utvärderingspris = Timpris - Mervärdesavdrag",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Lägst fiktivt utvärderingspris antas",
+        "Offererat timpris",
+        "Utvärdering baseras på bästa förhållandet mellan pris och kvalitet",
+        "Utvärderingspris"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_SECONDARY_18bfe2ed.md"
+      ]
+    },
+    "Avtalsstruktur och Styrning": {
+      "topics": [
+        "Fackmässigt utförande",
+        "Förnyad konkurrensutsättning",
+        "Kontraktshandlingar och dess inbördes ordning",
+        "Krav på lagar, förordningar och myndighetskrav",
+        "Leverantörens odelade ansvar",
+        "Ramavtal IT-konsulttjänster 2021",
+        "Upphandlande myndigheten (Roll)",
+        "Villkor markerade med kursiv text och hakparenteser (Rätt att avvika)"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_PRIMARY_allmanna-kontraktsvillkor-forn_e3ff.md"
+      ]
+    },
+    "Avropsspecifikationer": {
+      "topics": [
+        "Addas ramavtal 'IT-konsulttjänster 2021'",
+        "Addas ramavtal IT-konsulttjänster 2021",
+        "Avropsförfrågan",
+        "Avropsområde D. Ledning och styrning",
+        "Avropssvarsområde D (Stockholms län, Uppsala län, Gotlands län)",
+        "Biträdande Migreringsledare",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Geografisk omfattning: Stockholm, Uppsala och Gotlands län",
+        "Inera AB",
+        "Inga garanterade volymer",
+        "Projektnummer 10539",
+        "Roll: Processledare",
+        "Upp till 50% av en heltidsekvivalent",
+        "Uppskattat värde 1 500 000 SEK"
+      ],
+      "file_count": 2,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_ef306f02.md",
+        "1_intake_DEFINITION_SECONDARY_5584cbe1.md"
+      ]
+    },
+    "Prissättning och Ersättningsregler": {
+      "topics": [
+        "1250 SEK",
+        "Inkludera samtliga kringkostnader",
+        "Resor, traktamente och logi",
+        "SEK exklusive moms",
+        "Takpris för Timarvode",
+        "Timpris per timme"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_18d6fcc6.md"
+      ]
+    },
+    "Prissättning och Nivåstruktur": {
+      "topics": [
+        "Dynamisk Rangordning",
+        "Fasta timpriser",
+        "KN1",
+        "KN2",
+        "KN3",
+        "KN4",
+        "Kompetensnivå 1-4",
+        "Ramavtalets prisbilaga",
+        "Takpriser"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DATA_POINTER_PRIMARY_24a0a3b8.md"
+      ]
+    },
+    "Avtalstid och Prisvillkor": {
+      "topics": [
+        "Angivet timpris är fast",
+        "Ensidig rätt för Inera att förlänga",
+        "Inga tillägg för resor, logi eller traktamente",
+        "Initial avtalstid: 1 år (12 månader)",
+        "Maximalt 24 månader (förlängningsoption)",
+        "Takpris: Maximalt timpris 1200 SEK",
+        "Timpris ska inkludera samtliga kostnader",
+        "Total max avtalstid: 36 månader"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_c4bf58b4.md"
+      ]
+    },
+    "Kvalificeringskrav": {
+      "topics": [
+        "Ansvarig projektledare (roll)",
+        "Erfarenhet av införandestöd för regioner/kommuner",
+        "Erfarenhet av metodik för införandestöd",
+        "Maximal ålder på referensuppdrag (3 år)",
+        "Minsta antal referensuppdrag (2 st)",
+        "Pågående referensuppdrag (tillåtet)",
+        "Sista anbudsdag (referensdatum)"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_4a700c46.md"
+      ]
+    },
+    "Avtalstid & Giltighet": {
+      "topics": [
+        "Max avtalstid enskilt uppdrag 48 månader",
+        "Ramavtalet IT-konsulttjänster 2021",
+        "Slutdatum 2026-09-25",
+        "Startdatum 2022-09-26",
+        "Total avtalstid 48 månader"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_PRIMARY_c6fc1db4.md"
+      ]
+    },
+    "OB-ersättning och Tidstillägg": {
+      "topics": [
+        "Normal arbetstid 07:00 – 19:00 (helgfria vardagar)",
+        "OB-ersättning: Multiplikator 1,5 (06:00-07:00 och 19:00-21:00)",
+        "OB-ersättning: Multiplikator 2,0 (21:00-06:00 vardagar & helger)",
+        "Villkor för OB-ersättning: På beställarens begäran"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_fee5253a.md"
+      ]
+    },
+    "Prissättnings- och Faktureringskrav": {
+      "topics": [
+        "Diarienummer (2024020041)",
+        "Elektroniskt (e-faktura)",
+        "Fast timpris",
+        "Inga övriga kostnader (t.ex. resor, administration, logi)",
+        "Konsultnivå 4",
+        "Kostnadsställe (9015)",
+        "PEPPOL-nätverket",
+        "SEK exklusive moms"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_f5cfe4a0.md"
+      ]
+    },
+    "Utvärderingsmodell och Scoringregler": {
+      "topics": [
+        "4 bedömningsgrunder",
+        "Formel: Utvärderingspris = Anbudspris - Mervärdesavdrag",
+        "Intervju (20-minuters duration)",
+        "Kvalificering via ska-krav",
+        "Max 350 SEK (Tak för avdrag)",
+        "Mervärdesavdrag (Fiktivt prisavdrag)",
+        "Poängsättning (Skala 0-5)",
+        "SPÄRR: Minst 1 poäng per bedömningsgrund",
+        "Utvärderingsmodell (Pris vs Kvalitet)"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_SECONDARY_bb255d9a.md"
+      ]
+    },
+    "Kvalitetsutvärdering och Prisjustering": {
+      "topics": [
+        "0 poäng",
+        "Avdrag på 100 SEK",
+        "Minimikrav vid Intervju",
+        "Poäng (1-3) per kriterium",
+        "Timpris",
+        "förkastas anbudet",
+        "maximalt avdrag på 900 SEK",
+        "ska-kraven",
+        "tre kvalitetskriterier"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_SECONDARY_47b297fa.md"
+      ]
+    },
+    "Avtalstid och Omfattning": {
+      "topics": [
+        "2024-01-02 till 2024-09-30",
+        "3 900 000 SEK",
+        "Avrop Inera Transformationsledare",
+        "Cirka 100% av en heltidstjänst",
+        "Grundläggande Kontraktstid",
+        "Option",
+        "Total Maximal Kontraktstid",
+        "Uppskattat Värde",
+        "ca 160 timmar/månad",
+        "ca 21 månader",
+        "ca 9 månader",
+        "ensidig rätt att förlänga avtalet",
+        "inget volymtak",
+        "maximalt tolv (12) månader"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_5fd26ff0.md"
+      ]
+    },
+    "Pris- och Faktureringskrav": {
+      "topics": [
+        "Elektroniska fakturor (krav)",
+        "Exklusive mervärdesskatt",
+        "Fakturaformat Ej PDF",
+        "Fasta priser under kontraktsperioden",
+        "Inga tilläggskostnader",
+        "Nätverket PEPPOL",
+        "Svenska kronor (SEK)"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_183794ea.md"
+      ]
+    },
+    "Ramavtalsadministration: Leverantörsstatus": {
+      "topics": [
+        "Aktiva Underleverantörer (Lista)",
+        "Datum för godkännande",
+        "IT-konsulttjänster 2021 (Ramavtal)",
+        "Organisationsnummer",
+        "Ramavtalsleverantör",
+        "Status Fusion",
+        "Status Konkurs",
+        "Status Namnbyte",
+        "Underleverantör"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DATA_POINTER_PRIMARY_52f7aa40.md"
+      ]
+    },
+    "Takvolymsstruktur": {
+      "topics": [
+        "Inte uppdelad per anbudsområde",
+        "Takvolym",
+        "Totalsumma",
+        "Upphandlande myndigheters behov"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_PRIMARY_55a9e3d6.md"
+      ]
+    },
+    "Geografiska Krav och Jurisdiktion": {
+      "topics": [
+        "EU/EES",
+        "Geografiskt Krav (Placering)",
+        "MÅSTE",
+        "konsulten",
+        "säkerhetstekniska skäl"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_SECONDARY_ca216c42.md"
+      ]
+    },
+    "Konkurrensutsättningsregler": {
+      "topics": [
+        "Egenformulerad Roll",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Krav på FKU vid Egenformulerade Roller",
+        "Prissättning",
+        "Standardiserad Exempelroll"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_PRIMARY_d197f8e1.md"
+      ]
+    },
+    "Regler för Tvingande Avropsmetod": {
+      "topics": [
+        "DR-avrop (inga leverantörer kan leverera)",
+        "Egenformulerade roller",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Kompetensnivå 5 (Expert)",
+        "Komplett projektåtagande",
+        "Tvingande användning",
+        "Volymgräns 320 timmar"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_428a5710.md"
+      ]
+    },
+    "Regler för Avropsmetod": {
+      "topics": [
+        "320 timmar",
+        "Dynamisk Rangordning (DR)",
+        "Fördefinierade exempelroller",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Kompetensnivå 1, 2, 3, 4",
+        "Optioner",
+        "Ramavtalet",
+        "Volym"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_f8b37982.md"
+      ]
+    },
+    "Avropsberättigade parter": {
+      "topics": [
+        "PRIMARY (Authority Level)",
+        "avropsberättigad",
+        "behörighet",
+        "it_konsulttjänster_2021",
+        "organization_number",
+        "ramavtal_år_2021",
+        "whitelist"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_effdfd7b.md"
+      ]
+    },
+    "Ramavtalsstruktur och Avropsregler": {
+      "topics": [
+        "2022-09-26 till 2026-09-25",
+        "Exempelroller nivå 1-4",
+        "Förnyad konkurrensutsättning (>320 timmar)",
+        "Nivå 5 prissätts vid FKU",
+        "Projektuppdrag (uppdraget leds av leverantör)",
+        "Rangordning (<320 timmar)",
+        "Resursuppdrag (uppdraget leds av beställare)",
+        "Timpriser i ramavtalet",
+        "Åtta geografiska områden",
+        "Åtta leverantörer i varje geografisk område"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_PRIMARY_avtalskort---it-konsulttjanste_f359.md"
+      ]
+    },
+    "Prisutvärderingsmodell": {
+      "topics": [
+        "90 000 SEK",
+        "Applicering avdrag på samtliga anbudsområden",
+        "Geografiskt anbudsområde",
+        "Identiskt arbetssätt",
+        "Jämförelsesumma",
+        "Maximalt prisavdrag",
+        "Prisavdrag för mervärde",
+        "Total anbudssumma"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_INSTRUCTION_PRIMARY_342d1ab4.md"
+      ]
+    },
+    "Volymspecifikationer": {
+      "topics": [
+        "120 timmar per månad",
+        "30 timmar per vecka",
+        "70% av en heltidsekvivalent",
+        "Justering av omfattning",
+        "Kontraktstiden"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_0447fb1c.md"
+      ]
+    },
+    "Prisvillkor": {
+      "topics": [
+        "Regel: Inga Rörliga Kostnader",
+        "administration (kostnad)",
+        "fasta timpriser",
+        "inga tilläggskostnader",
+        "inkludera samtliga kostnader",
+        "kost (kostnad)",
+        "logi (kostnad)",
+        "resor (kostnad)",
+        "traktamente"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_57f94cdc.md"
+      ]
+    },
+    "Kontraktsvärdering och Omfattning": {
+      "topics": [
+        "1 700 000 SEK",
+        "Garanterar inga volymer",
+        "Inera",
+        "Optioner",
+        "Uppskattat Kontraktsvärde"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_8235c20f.md"
+      ]
+    },
+    "Formella krav på anbud": {
+      "topics": [
+        "Alternativa anbud",
+        "Engelska (tillåtet för intyg/certifikat)",
+        "Förbehåll eller reservationer (mot villkor)",
+        "Mervärdesskatt (exklusive prisangivelse)",
+        "Sidoanbud",
+        "Svenska (språkkrav)",
+        "Svenska kronor (SEK)"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_SECONDARY_0ac2df7e.md"
+      ]
+    },
+    "Språkkrav": {
+      "topics": [
+        "Anbud skrivet på svenska",
+        "Offererad konsult",
+        "Tal och skrift",
+        "Uttrycka sig obehindrat på svenska"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_SECONDARY_3eb39d04.md"
+      ]
+    },
+    "Volym och Kontraktsvärde": {
+      "topics": [
+        "2 700 000 SEK",
+        "50% av en heltidstjänst per månad",
+        "Garanterar inga volymer",
+        "Inklusive eventuella optioner",
+        "Uppskattat kontraktsvärde"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_631de602.md"
+      ]
+    },
+    "Arbetsplats och Resevillkor": {
+      "topics": [
+        "Arbeta självständigt och i team",
+        "Inera står för kostnader för tjänsteresor",
+        "Ineras kontor i Lund",
+        "Konsulten (roll)",
+        "Kostnader för resor till och från kontoret i Lund (ej ersatta)",
+        "Minst tre (3) dagar i veckan (närvarokrav)"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_INSTRUCTION_SECONDARY_2c42e919.md"
+      ]
+    },
+    "Prisregler och Takprissättning": {
+      "topics": [
+        "Förnyad Konkurrensutsättning (FKU)",
+        "IT-konsulttjänster 2021",
+        "Takpris",
+        "Timpris",
+        "anbudspris ≤ ramavtalets takpris",
+        "hourly_rate MAX"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_9f4abe80.md"
+      ]
+    },
+    "Svarstider och Tidsramar (Avrop)": {
+      "topics": [
+        "10 arbetsdagar",
+        "2 arbetsdagar",
+        "Dynamisk Rangordning",
+        "Förnyad Konkurrensutsättning",
+        "Regel: Svarstider vid avrop"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_3dde7201.md"
+      ]
+    },
+    "Utvärderingsregler": {
+      "topics": [
+        "Diskvalificering vid Intervju",
+        "Förkastande av anbud",
+        "Kvalitetspoäng",
+        "Tröskelvärde (4 poäng)"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_SECONDARY_54997cac.md"
+      ]
+    },
+    "Utvärderingsmodeller och Prissättning": {
+      "topics": [
+        "Avdragsfaktor (50 SEK per poäng)",
+        "Avrop",
+        "Ekonomiskt mest fördelaktiga anbudet",
+        "Fiktivt Mervärdesavdrag",
+        "Formel: Anbudspris - Fiktivt Mervärdesavdrag = Utvärderingspris",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Max 700 SEK för Mervärdesavdrag",
+        "Maximalt mervärdesavdrag (600 SEK)",
+        "Poängbaserad kvalitetsbedömning (Fiktivt uppdrag och intervju)",
+        "Poängskala för kvalitet (0-3 per område)",
+        "Spärr för utvärdering (4 poäng eller färre totalt)",
+        "Utvärderingsformel (Anbudspris - Fiktivt mervärdesavdrag)",
+        "Utvärderingsgrunden: Bästa förhållandet mellan pris och kvalitet",
+        "Utvärderingsmodell med Fiktivt Avdrag"
+      ],
+      "file_count": 2,
+      "files": [
+        "4_strategy_DEFINITION_SECONDARY_e1f21f10.md",
+        "4_strategy_DEFINITION_SECONDARY_adca25f7.md"
+      ]
+    },
+    "Prisvillkor och format": {
+      "topics": [
+        "Angivet timpris",
+        "Exklusive mervärdesskatt",
+        "Fast under hela kontraktsperioden",
+        "Inga tilläggskostnader accepteras",
+        "Inkludera samtliga kostnader",
+        "Svenska kronor (SEK)"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_INSTRUCTION_SECONDARY_76372fb2.md"
+      ]
+    },
+    "Utvärderingskriterier och Modeller": {
+      "topics": [
+        "Formel: Anbudspris - Mervärdesavdrag = Utvärderingspris",
+        "Förkastandetröskel (4 poäng eller lägre totalt i intervju)",
+        "Lägst utvärderingspris",
+        "Maximalt mervärdesavdrag (600 kr)",
+        "Mervärdesavdrag baserat på poäng (0-3)",
+        "Utvärderingsmodell (Pris och Kvalitet)"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_SECONDARY_2e59f221.md"
+      ]
+    },
+    "Prissättning och Betalningsvillkor": {
+      "topics": [
+        "Betalningsvillkor",
+        "Delleveranser",
+        "Ersättningsform",
+        "Fakturering",
+        "Fast pris",
+        "Löpande räkning",
+        "Totala ersättningen"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_INSTRUCTION_PRIMARY_61507a9c.md"
+      ]
+    },
+    "Prissättning och Ersättningsvillkor": {
+      "topics": [
+        "All-inclusive principen",
+        "Kringkostnader",
+        "Logi eller material",
+        "Restid och traktamente",
+        "Svenska Kronor (SEK)",
+        "Timpris",
+        "exklusive moms"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_c4570699.md"
+      ]
+    },
+    "Pris- och Volymvillkor": {
+      "topics": [
+        "25% av en heltidstjänst (Volymestimat)",
+        "Inga volymer garanteras",
+        "Takpris för timarvode: 1350 SEK exkl. moms",
+        "Uppskattat värde per avtalsår: 600 000 SEK"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_956b88f3.md"
+      ]
+    },
+    "Utvärderingsmodell & Viktningsregler": {
+      "topics": [
+        "0-3 poängsättning per bedömningsgrund",
+        "30-minuters intervju via Teams",
+        "Fiktivt avdrag 50 SEK per poäng",
+        "Formel: Utvärderingspris = Timpris - (Totala intervjupoäng * 50 SEK)",
+        "Maximalt avdrag 600 SEK",
+        "Minst 1 poäng på varje bedömningsgrund (Förkastningsnivå)",
+        "Ska-krav (erfarenhet, certifieringar)",
+        "Tilldelning baserat på lägst utvärderingspris"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_INSTRUCTION_SECONDARY_de342df2.md"
+      ]
+    },
+    "Utvärderingsmodeller": {
+      "topics": [
+        "Anbudspris",
+        "Fiktivt mervärdesavdrag",
+        "Intervjupoäng",
+        "Krav: Minst 1 poäng per bedömningsgrund (Avvisningsgrund)",
+        "Multiplikator 50 SEK",
+        "Utvärderingsmodell (Pris & Kvalitet)",
+        "Utvärderingspris"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_SECONDARY_d65b4029.md"
+      ]
+    },
+    "Viktning och Utvärderingsformler": {
+      "topics": [
+        "75 kr i avdrag per kvalitetspoäng",
+        "Ekonomiskt mest fördelaktiga anbudet",
+        "Kvalitetspoäng",
+        "Maximalt mervärdesavdrag 900 kronor",
+        "Mervärdesavdrag",
+        "Pris per timme",
+        "Utvärdering via intervju",
+        "Utvärderingspris"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_INSTRUCTION_SECONDARY_327a6d4b.md"
+      ]
+    },
+    "Prisjusteringsvillkor": {
+      "topics": [
+        "2023-04-28",
+        "2024-04-30",
+        "2025-04-30",
+        "Faktor 1.004",
+        "Faktor 1.03412",
+        "Faktor 1.06502",
+        "Index 100.4",
+        "Index 103.412",
+        "Index 106.502",
+        "Multiplicera ursprungspriset",
+        "Årlig Prisjustering via Index"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_INSTRUCTION_PRIMARY_c4ee2387.md"
+      ]
+    },
+    "Krav baserade på Kompetensnivå": {
+      "topics": [
+        "Expert (Kompetensroll)",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Kompetensnivå 5",
+        "Prissättning",
+        "Tvingande avropskrav"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_PRIMARY_2a50036f.md"
+      ]
+    },
+    "Prissättningsvillkor": {
+      "topics": [
+        "Fri prissättning",
+        "Kompetensnivå 5 (KN5)",
+        "Prisbilagan",
+        "Ramavtalet",
+        "Takpris",
+        "Undantag"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_5b2c5e97.md"
+      ]
+    },
+    "Avropsvillkor och ramverk": {
+      "topics": [
+        "Avbryta avropet om avropssvaren överskrider avsatt budget",
+        "Avropssvarsområde G: Skåne län, Blekinge län och Kronobergs län",
+        "Heltids (100 %) resurskonsult",
+        "Inga sidoanbud eller alternativa anbud tillåts",
+        "Kontraktstid inledningsvis tolv (12) månader",
+        "Maximal optionsrätt tjugofyra (24) månader",
+        "Meddelande om förlängning senast fyra (4) veckor innan avtalet löper ut",
+        "Ramavtal IT-konsulttjänster 2021, projektnummer 10539",
+        "Senior Systemutvecklare (Roll)",
+        "Upp till 2 000 000 SEK per avtalsår (uppskattat värde)"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(31)_c171.md"
+      ]
+    },
+    "Geografisk Omfattning och Indelning": {
+      "topics": [
+        "Avropsförfrågan",
+        "Avropssvarsområde D",
+        "Geografisk omfattning för avrop",
+        "Gotlands län",
+        "Leverantörer (på ramavtal)",
+        "Ramavtalet",
+        "Stockholms län",
+        "Uppsala län"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_f062710d.md"
+      ]
+    },
+    "Prisstruktur och Klassificering": {
+      "topics": [
+        "Anbudsområde (Region A-G)",
+        "Dynamisk Rangordning",
+        "Exempelroll",
+        "Kompetensnivå (KN1-KN4)",
+        "Prislista 2025-05-01",
+        "Ramavtalsleverantör",
+        "Takpris",
+        "it-konsulttjanster-2021-v4.0-2022-11-21.xlsx"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DATA_POINTER_PRIMARY_e36ac343.md"
+      ]
+    },
+    "Betalningsvillkor och Fakturering": {
+      "topics": [
+        "30 kalenderdagar",
+        "Betalningsvillkor",
+        "Faktura",
+        "Förfallodag",
+        "payment_due_days"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_9692448c.md"
+      ]
+    },
+    "Uppdrags- och Ramverksspecifikationer": {
+      "topics": [
+        "60% av en heltidsekvivalent per månad",
+        "Adda Inköpscentrals ramavtal IT-konsulttjänster 2021",
+        "Avropssvarsområde D, Stockholms län, Uppsala län, Gotlands län",
+        "ESPD-krav",
+        "Förnyad konkurrensutsättning",
+        "Mercell's upphandlingssystem TendSign",
+        "Organisationsnummer: 556559-4230",
+        "RIV (regelverk för interoperabilitet inom vård och omsorg)",
+        "Sista anbudsdag: 2023-11-13 23:59",
+        "optionsrätt till förlängning (maximalt nio månader)",
+        "projektnummer 10539",
+        "rollen som verksamhetsarkitekt"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(20)_fe94.md"
+      ]
+    },
+    "Regler för Mervärdesutvärdering": {
+      "topics": [
+        "Anbudstidens utgång",
+        "Avsnitt 5.2 och 5.3 (Kravdokumentation)",
+        "Kompletteringsförbud",
+        "Konsekvens (Mervärdet blir noll)",
+        "Mervärdespoäng"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_f05927c9.md"
+      ]
+    },
+    "Avropsregler och Tidsramar": {
+      "topics": [
+        "Avropssvarsområde D",
+        "Ramavtal IT-konsulttjänster 2021",
+        "beräknas uppgå till 1 500 000 SEK",
+        "ensidigt optionsrätt till förlängning",
+        "förnyad konkurrensutsättning",
+        "kontraktstid till och med 2024-12-31",
+        "maximalt sex (6) månaders förlängning",
+        "meddela förlängning senast fyra (4) veckor",
+        "rätten att avbryta avropet",
+        "sidoanbud eller alternativa anbud",
+        "upp till 50% av en heltidsekvivalent"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(29)_a6f0.md"
+      ]
+    },
+    "Avropsförfarande och Fallback": {
+      "topics": [
+        "Avbryta rangordningsförfarandet",
+        "De tre högst rangordnade leverantörerna",
+        "Dynamisk Rangordning",
+        "Fallback till FKU vid misslyckad rangordning",
+        "Förnyad Konkurrensutsättning (FKU)"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_de532844.md"
+      ]
+    },
+    "Ekonomiska Avtalsvillkor": {
+      "topics": [
+        "Beställaren (Roll)",
+        "Fakturering",
+        "Leverantören (Roll)",
+        "Max 1 månad efter leveransdatum",
+        "Tidsfrist för Fakturering"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_b4df05d7.md"
+      ]
+    },
+    "Avropsregler och Prismodeller": {
+      "topics": [
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Teknikstöd – på plats",
+        "beredskapsuppdrag",
+        "kompetensområde_7",
+        "service-desk",
+        "takpris"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_d79c93c5.md"
+      ]
+    },
+    "Prisbegränsningar": {
+      "topics": [
+        "1300 SEK",
+        "Maximalt tillåtna timpriset",
+        "Regel: Anbud med högre timpris kommer att förkastas",
+        "Takpris för Timarvode"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_ba51eec8.md"
+      ]
+    },
+    "Avropsregler baserade på Kompetensnivå": {
+      "topics": [
+        "Dynamisk Rangordning (Blockering)",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Kompetensnivå 5 (KN5)",
+        "Tvingande avropsstrategi",
+        "competence_level: 5"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_PRIMARY_8493500e.md"
+      ]
+    },
+    "Prisstruktur och Ersättningsregler": {
+      "topics": [
+        "1300 SEK",
+        "Exklusive moms",
+        "Inga andra avgifter eller kostnader accepteras",
+        "Offererat timpris",
+        "Resor, logi, traktamente",
+        "SEK",
+        "Takpris för Timarvode"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_642ca8b6.md"
+      ]
+    },
+    "Prismodeller och Nivåer": {
+      "topics": [
+        "Exempelroll",
+        "Kompetensnivå 1",
+        "Kompetensnivå 2",
+        "Kompetensnivå 3",
+        "Kompetensnivå 4",
+        "Kompetensområde",
+        "Ramavtalets prisbilaga (Bilaga B)",
+        "Takpris",
+        "Timpris"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_29707704.md"
+      ]
+    },
+    "Avtalets Struktur och Förfarande": {
+      "topics": [
+        "Avropssvarsområde G; Skåne län, Blekinge län och Kronobergs län",
+        "ESPD-krav",
+        "Ensidig optionsrätt",
+        "Förnyad konkurrensutsättning",
+        "Inera AB",
+        "Maximalt tjugofyra (24) månader",
+        "Organisationsnummer: 556559-4230",
+        "Ramavtal IT-konsulttjänster 2021, projektnummer 10539",
+        "Senior Fullstackutvecklare",
+        "Sidoanbud eller alternativa anbud"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(16)_00f0.md"
+      ]
+    },
+    "Avropsstruktur och Ramavtalstillämpning": {
+      "topics": [
+        "556559-4230 (Organisationsnummer)",
+        "Avbrytande av avrop",
+        "Avropssvarsområde G; Skåne län, Blekinge län och Kronobergs län",
+        "Bilaga 1: Referensuppdrag",
+        "Fyra veckor (meddelandefrist för förlängning)",
+        "Förnyad konkurrensutsättning",
+        "Inera AB (Upphandlande myndighet)",
+        "Kontraktstid ett (1) år",
+        "Maximal optionsrätt tjugofyra (24) månader",
+        "Mercell's upphandlingssystem TendSign",
+        "Ramavtal IT-konsulttjänster 2021, projektnummer 10539",
+        "Senior fullstackutvecklare",
+        "Sidoanbud eller alternativa anbud (förbjudet)",
+        "Upp till 100% ekvivalent resurskonsult"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(17)_e4b9.md"
+      ]
+    },
+    "Avropsvillkor och ramavtalsförfarande": {
+      "topics": [
+        "Adda Inköpscentrals ramavtal IT-konsulttjänster 2021",
+        "Avropsområde Ledning och styrning",
+        "Ensidigt optionsrätt (Inera)",
+        "Förnyad konkurrensutsättning",
+        "Inera AB (Upphandlande organisation)",
+        "Kontraktstid till 2023-12-31",
+        "Maximalt sex (6) månader (Optionslängd)",
+        "Meddelande om förlängning senast två (2) veckor innan avtalet löper ut",
+        "Projektledare/införandearkitekt (Roll)",
+        "Projektnummer 10539",
+        "Reservation eller alternativa anbud (Förbud)",
+        "Sista anbudsdag: 2023-08-21 23:59",
+        "Upp till 400 timmar (Initial omfattning)",
+        "Ytterligare 550 timmar (Optionsomfattning)"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(11)_650f.md"
+      ]
+    },
+    "Generella Avtalsvillkor": {
+      "topics": [
+        "Alternativa anbud",
+        "Elektroniskt anbud",
+        "Immateriella rättigheter",
+        "Inera AB",
+        "Marknadsföringsförbud",
+        "Mercell TendSign",
+        "Mervärdesskatt (exklusive)",
+        "Priser i SEK",
+        "Referenskund",
+        "Sidoanbud",
+        "Ägande- och nyttjanderätt"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_SECONDARY_84692ca4.md"
+      ]
+    },
+    "Tilläggsersättning och OAT-faktorer": {
+      "topics": [
+        "Ersättning för Obekväm Arbetstid (OAT) Regel",
+        "Multiplikationsfaktor 1.5 (Vardagar 06:00-07:00 och 19:00-21:00)",
+        "Multiplikationsfaktor 2.0 (Vardagar 21:00-06:00 samt Helger)",
+        "Normal arbetstid (07:00-19:00 helgfria vardagar)",
+        "kontrakterat timpris"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_df77f8b6.md"
+      ]
+    },
+    "Prismodeller och Utvärderingskriterier": {
+      "topics": [
+        "4 poäng eller lägre",
+        "Anbud förkastas",
+        "EJ ÖVERSTIGA 1150 SEK per timme",
+        "Kvalitetsgräns",
+        "Takpris",
+        "Utvärdering på pris och kvalitet (intervju)"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_f6720d18.md"
+      ]
+    },
+    "Utvärderingsmetodik och Poängsättning": {
+      "topics": [
+        "50 SEK i mervärdesavdrag per poäng",
+        "Bästa förhållande mellan pris och kvalitet",
+        "Ekonomiskt mest fördelaktiga anbudet (EMF)",
+        "Fiktivt mervärdesavdrag",
+        "Jämförelsepris",
+        "Kvalitetsintervju (30 min)",
+        "Maximalt mervärdesavdrag: 600 SEK",
+        "Poäng (0-3) i fyra kategorier",
+        "Spärr: 0 poäng i en kategori",
+        "Spärr: totalpoäng 4 eller lägre",
+        "Utvärderingsmodell FKU (Inera)"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_SECONDARY_c6855827.md"
+      ]
+    },
+    "Prisbegränsningar vid avrop": {
+      "topics": [
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Kompetensnivå 1-4",
+        "Offererat timpris",
+        "Ramavtalets takpris",
+        "Takpris"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_6f33c21b.md"
+      ]
+    },
+    "Avropsområden & Geografisk Omfattning": {
+      "topics": [
+        "Avropsförfrågan",
+        "Avropssvarsområde D",
+        "Geografiskt Avropsområde",
+        "Gotlands län",
+        "Ramavtalet",
+        "Stockholms län",
+        "Uppsala län"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_edcf9f9e.md"
+      ]
+    },
+    "Tvingande Avropsregler": {
+      "topics": [
+        "320 timmarsregeln",
+        "Dynamisk Rangordning",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Tvingande FKU",
+        "Volym (timmar)"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_f294e056.md"
+      ]
+    },
+    "Prissättning & Finansiella Gränser": {
+      "topics": [
+        "1500 SEK",
+        "Anbud med högre timpris förkastas",
+        "Maximalt tillåtet timpris",
+        "Takpris för Anbud",
+        "exklusive moms"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_01bf6edf.md"
+      ]
+    },
+    "Takpriser per roll": {
+      "topics": [
+        "1250 SEK/tim",
+        "1300 SEK/tim",
+        "1450 SEK/tim",
+        "Absoluta takpriser",
+        "SEK exklusive moms",
+        "Senior Infrastrukturarkitekt",
+        "Senior Lösningsarkitekt (1 & 2)",
+        "Senior Mjukvaruarkitekt",
+        "Senior Utvecklare"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_cca85f5c.md"
+      ]
+    },
+    "Ersättningsvillkor och Tilläggsregler": {
+      "topics": [
+        "All tid under helger",
+        "Ersättning för Obekväm Arbetstid (OB)",
+        "Multiplikator x1.5",
+        "Multiplikator x2.0",
+        "Normal arbetstid (helgfria vardagar 07:00 - 19:00)",
+        "OB-Tillägg 1",
+        "OB-Tillägg 2",
+        "Vardagar 06:00-07:00",
+        "Vardagar 19:00-21:00",
+        "Vardagar 21:00-06:00"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_fe9a4dae.md"
+      ]
+    },
+    "Ramavtalsindelning och Leverantörsstruktur": {
+      "topics": [
+        "rangordning",
+        "åtta geografiska områden",
+        "åtta rangordnade ramavtalsleverantörer",
+        "över 600 underleverantörer"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_c72b8922.md"
+      ]
+    },
+    "Geografiska Avropsbegränsningar": {
+      "topics": [
+        "Avropssvarsområde G",
+        "Blekinge län",
+        "Geografiskt Avropsområde (Definition)",
+        "Kronobergs län",
+        "Skåne län"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_6826b000.md"
+      ]
+    },
+    "Pris- och Utvärderingskriterier": {
+      "topics": [
+        "1200 SEK (maximalt timpris)",
+        "4 poäng (tröskelvärde för förkastande)",
+        "50 SEK i avdrag per poäng",
+        "Ekonomiskt mest fördelaktiga anbudet",
+        "Kvalitetsgräns",
+        "Kvalitetsutvärdering (via intervju)",
+        "Max 12 poäng",
+        "Max avdrag 600 SEK",
+        "Mervärdesavdrag",
+        "Takpris",
+        "Utvärderingsformel"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_decc6ea1.md"
+      ]
+    },
+    "Regler för Prissättning vid Avrop": {
+      "topics": [
+        "Egenformulerad roll",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Kompetensnivå 5 (KN5)",
+        "Prissättning",
+        "Ramavtal",
+        "Takpris"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_f06d6585.md"
+      ]
+    },
+    "Avropsmetodik och Rangordning": {
+      "topics": [
+        "Bilaga B",
+        "Dynamisk Rangordning",
+        "Efterfrågad volym per roll och nivå",
+        "Korrekta rangordningen mellan leverantörer",
+        "Obligatoriskt verktyg (SKA)",
+        "Rangordningsverktyg",
+        "Totalpriset"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DATA_POINTER_PRIMARY_9a3feaa0.md"
+      ]
+    },
+    "Utvärderingsmetoder och formler": {
+      "topics": [
+        "Fiktivt mervärdesavdrag",
+        "Lägst utvärderingspris",
+        "Poäng från en intervju",
+        "Timpris - Fiktivt mervärdesavdrag",
+        "Utvärderingsmodell Pris och Kvalitet",
+        "Utvärderingspris"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_SECONDARY_4af1f036.md"
+      ]
+    },
+    "Avropsstrategi och Geografisk Omfattning": {
+      "topics": [
+        "Avropssvarsområde D",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Gotlands län",
+        "Ramavtalet",
+        "Stockholms län",
+        "Uppsala län"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_SECONDARY_84a6cb3e.md"
+      ]
+    },
+    "Ersättningsregler": {
+      "topics": [
+        "Avslag på ersättning för offererad högre kompetensnivå",
+        "Ersättning enligt efterfrågad kompetensnivå (Prisbas)",
+        "Kompetensnivå (Efterfrågad vs Offererad)",
+        "Regel: Betalning för överkvalificerad konsult"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_PRIMARY_171cc68a.md"
+      ]
+    },
+    "Geografisk Avtalsstruktur": {
+      "topics": [
+        "Addas ramavtal",
+        "Geografiska Anbudsområden",
+        "Krav på avrop baserat på leveransplats",
+        "Område A: Norrbotten och Västerbotten",
+        "Ramavtalets indelning i sju områden (A-G)"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_regions.md"
+      ]
+    },
+    "Omfattning och Volymreglering": {
+      "topics": [
+        "Avropets totala värde (650 000 SEK)",
+        "Avropskontraktet",
+        "Förnyad konkurrensutsättning",
+        "Omfattning kan utökas eller minskas",
+        "Ramavtal IT-konsulttjänster 2021",
+        "Senior IT-arkitekt Infrastruktur (350 timmar)",
+        "Senior Nätverksarkitekt (150 timmar)",
+        "Total omfattning (cirka 500 timmar)",
+        "Volymgaranti (garanterar inte några volymer)"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(30)_dab4.md"
+      ]
+    },
+    "Ramavtalsspecifik Leverantörsdata och Kontaktuppgifter": {
+      "topics": [
+        "556448-0282",
+        "Atea Sverige AB",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "IT-konsulttjänster 2021 (ITK 2021)",
+        "Norrbottens län",
+        "SKA användas",
+        "Stockholms län",
+        "Sändlista",
+        "Urvalet av leverantörer baseras på geografisk region (län)",
+        "konsulttjanster2021@atea.se"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DATA_POINTER_PRIMARY_510716ad.md"
+      ]
+    },
+    "Utvärderingsmodeller och prisformler": {
+      "topics": [
+        "Formel: Offererat timpris – Summan av prisavdrag för mervärden = Utvärderingspris",
+        "Hantering av lika pris",
+        "Kvalificering (Steg 1)",
+        "Lottning ska ske (vid oavgjort)",
+        "Mervärdesmodell",
+        "Offererat timpris",
+        "Summan av prisavdrag för mervärden",
+        "Utvärderingsgrunden 'ekonomiskt mest fördelaktiga anbudet'",
+        "Utvärderingspris"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_INSTRUCTION_PRIMARY_1c77b3b2.md"
+      ]
+    },
+    "Prismodeller och Avropsstruktur": {
+      "topics": [
+        "Anbudsumma för anbudsområdet",
+        "Avrop IT-konsulttjänster 2021",
+        "Avropsmottagare",
+        "Efterfrågat resursbehov",
+        "Geografiskt område (Region A, B, C)",
+        "IT- eller Digitaliseringsstrateg",
+        "Index Prissättning",
+        "Indexvärden (e.g., 103.412)",
+        "Modelleringsledare/Kravanalytiker",
+        "Nivåer (KN1-KN8)",
+        "Organisationsnummer",
+        "Projektnr: 10539",
+        "ROLL/TIMPRIS",
+        "ROLL/TOTALT PRIS",
+        "Ramavtalsleverantör",
+        "Start Datum (indexering)",
+        "it-konsulttjanster-2021-v4.0-2022-11-21.xlsx"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_PRIMARY_efterfragat-resursbehov-bilaga_5319.md"
+      ]
+    }
+  },
+  "Affärs- och Avtalsregler": {
+    "Specifika Avropsvillkor och Leveransomfattning": {
+      "topics": [
+        "650 000 SEK (Uppskattat värde)",
+        "Ensidig optionsrätt (Max 3 månader)",
+        "Förbud mot sidoanbud eller alternativa anbud",
+        "Förnyad konkurrensutsättning (FKU)",
+        "Inera AB (Upphandlande myndighet)",
+        "Kontraktstid till 2024-09-30",
+        "Mercell/TendSign (Elektronisk anbudsgivning)",
+        "Organisationsnummer: 556559-4230",
+        "Ramavtal IT-konsulttjänster 2021, projektnummer 10539",
+        "Senior Infrastrukturarkitekt (Roll)",
+        "Upp till 500 timmar (Volym)",
+        "linux baserade containerlösningar (kubernetes)"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(32)_8094.md"
+      ]
+    }
+  },
+  "Upphandlingsjuridik": {
+    "Formella Anbudskrav": {
+      "topics": [
+        "Alternativa anbud",
+        "Anbudsförkastande",
+        "Anbudsspråk (Svenska)",
+        "Reservationer mot villkor",
+        "Sidoanbud"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_SECONDARY_fea690da.md"
+      ]
+    }
+  },
+  "Process": {
+    "Regler för Dokumentation och Inlämning": {
+      "topics": [
+        "Anbudssteg 1",
+        "Anbudssteg 2",
+        "Förbud mot Korsreferenser",
+        "Utvärdering av mervärde",
+        "Återanvända text"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_aa319e50.md"
+      ]
+    },
+    "Avropsspecifikation": {
+      "topics": [
+        "10539",
+        "2023-08-21",
+        "Adda IT-konsulttjänster 2021",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Inera AB",
+        "Integrationsarkitekt",
+        "Ledning och styrning",
+        "Nationella Tjänsteplattformen",
+        "Projektledare",
+        "Zon 2"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_831731fa.md"
+      ]
+    },
+    "Leveranskontroll och Godkännande": {
+      "topics": [
+        "30 kalenderdagar (standardperiod för kontroll)",
+        "5 arbetsdagar (minsta tid leverantör ska göra resultatet tillgängligt före perioden inleds)",
+        "Avtalad leveransdag (referenspunkt)",
+        "Leveranskontroll ska genomföras",
+        "Skriftligt meddelande (för godkännande)"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_INSTRUCTION_PRIMARY_88f0551c.md"
+      ]
+    },
+    "Procedurregler för anbudsinlämning": {
+      "topics": [
+        "Giltighetstid för anbud",
+        "Metod för anbudsinlämning",
+        "Sista anbudsdag",
+        "Sista datum för frågor",
+        "Sätt att ställa frågor",
+        "Tid för anbudsdeadline"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_INSTRUCTION_PRIMARY_a7c78e4b.md"
+      ]
+    },
+    "Tidsplanering och kommunikationsinstruktioner": {
+      "topics": [
+        "Hantering av anbud och frågor elektroniskt",
+        "Intervjuer vecka 23",
+        "Mercell TendSign",
+        "Sista dag för frågor: 2023-05-29"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_INSTRUCTION_SECONDARY_8cd148dd.md"
+      ]
+    },
+    "Tidskrav vid Avrop": {
+      "topics": [
+        "Avropsförfrågan",
+        "Dynamisk Rangordning",
+        "Krav att lämna svar även om tjänsten inte kan tillhandahållas",
+        "Svarstid vid Dynamisk Rangordning",
+        "två (2) arbetsdagar"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_bc0805fb.md"
+      ]
+    },
+    "Avropsgenomförande och Administrativa Kriterier": {
+      "topics": [
+        "50 % av en heltidsekvivalent",
+        "Adda Inköpscentrals ramavtal IT-konsulttjänster 2021",
+        "Avropsområde IT och informationssäkerhet, nivå 5",
+        "Ensidig optionsrätt upp till maximalt sex (6) månader",
+        "Förnyad konkurrensutsättning (FKU)",
+        "Inera AB (Upphandlande myndighet)",
+        "Kontraktstid: sex (6) månader initialt",
+        "Meddelande om förlängning senast fyra veckor",
+        "Mercell's upphandlingssystem TendSign",
+        "OAuth2-konsult (Roll)",
+        "Organisationsnummer: 556559-4230",
+        "Projektnummer 10539"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(15)_8c6e.md"
+      ]
+    },
+    "Tidsfrister för anbud": {
+      "topics": [
+        "10 arbetsdagar",
+        "Anbudstid",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Svarstid",
+        "Tre till fem veckor",
+        "response_time_days"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_e7580e25.md"
+      ]
+    }
+  },
+  "Krav och Kvalifikation": {
+    "Kvalifikationskrav Konsult": {
+      "topics": [
+        "Applikationsskrivning (systemintegration): Minst 3 års erfarenhet",
+        "Erfarenhet av Docker",
+        "Erfarenhet av Python",
+        "Integrationsarkitektur: Minst 5 års erfarenhet",
+        "Obligatoriska Kompetenskrav (Ska-krav)",
+        "REST-API:er (utforma/bygga): Minst 3 års erfarenhet",
+        "Styrkas med CV",
+        "Teknisk dokumentation: Minst 3 uppdrag"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_827f06a0.md"
+      ]
+    }
+  },
+  "Avtalsvillkor": {
+    "Löptid och Förlängningsvillkor": {
+      "topics": [
+        "Avropskontraktet",
+        "Inera (Optionsinnehavare)",
+        "Kontraktstid",
+        "Option",
+        "Total maximal kontraktstid 12 månader",
+        "ensidig optionsrätt",
+        "sex (6) månader (initial löptid)",
+        "upp till ytterligare sex (6) månader (förlängning)"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_7dcabe13.md"
+      ]
+    },
+    "Tidsplanering och Leveransvillkor": {
+      "topics": [
+        "Försening inträffar",
+        "Leveransdatum",
+        "Milstolpar för delleveranser",
+        "Tidplan",
+        "allmanna_kontraktsvillkor_avsnitt_3_1"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_INSTRUCTION_PRIMARY_64a99c8f.md"
+      ]
+    },
+    "Byte av nyckelpersonal": {
+      "topics": [
+        "Byte av namngiven konsult",
+        "Extra kostnader eller förseningar",
+        "Kompetensbrist",
+        "Minst motsvarande kompetens",
+        "Sakliga skäl (byte av konsult)",
+        "Samarbetssvårigheter",
+        "Skriftligt godkännande",
+        "Särskilt viktig konsult"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_PRIMARY_8ddf55e8.md"
+      ]
+    },
+    "Kontraktstid och Omfattning": {
+      "topics": [
+        "7 månader (initial varaktighet)",
+        "700 timmar",
+        "Avropskontraktet",
+        "Inera",
+        "Initial giltighetstid (2023-08-01 till 2024-02-28)",
+        "ensidig optionsrätt",
+        "maximalt sex (6) månader (förlängning)"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_0c7a45ee.md"
+      ]
+    },
+    "Avtalstid och Optionsvillkor": {
+      "topics": [
+        "2024-03-31",
+        "Inera",
+        "ensidig optionsrätt",
+        "fyra veckor innan avtalet löper ut",
+        "nio (9) månader totalt"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_2ab37d3a.md"
+      ]
+    },
+    "Avtalsperiod och Uppsägning": {
+      "topics": [
+        "18 månader",
+        "2022-09-26",
+        "48 månader",
+        "Adda",
+        "Maximalt fyra (4) år",
+        "Ramavtalets Giltighetstid",
+        "Sex månaders varsel",
+        "Uppsägning"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_3d50f4e0.md"
+      ]
+    },
+    "Plats och Logistik": {
+      "topics": [
+        "Distansarbete",
+        "Geografisk plats",
+        "Tillgång till lokaler",
+        "Utförandeplats"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_INSTRUCTION_PRIMARY_7c04b1fb.md"
+      ]
+    },
+    "Leverans- och Godkännandevillkor": {
+      "topics": [
+        "Acceptanstest",
+        "Kontrollperiod: 30 kalenderdagar",
+        "Krav på skriftligt godkännande",
+        "Leveranskontrollperiod",
+        "Minsta tillgänglighet före kontroll: 5 arbetsdagar"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_PRIMARY_2914a594.md"
+      ]
+    },
+    "Tillgänglighets- och närvarokrav": {
+      "topics": [
+        "Ineras kontor i Stockholm",
+        "Kommunikation inom teamet sker på svenska",
+        "Minst en (1) dag varje vecka",
+        "Närvaron är behovsstyrd",
+        "Senast inom tre (3) arbetsdagar",
+        "Tillgänglighet för uppdragsstart per omgående"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_SECONDARY_912ef15e.md"
+      ]
+    },
+    "Avtalslöptid och Förlängningsoptioner": {
+      "topics": [
+        "Aviseringsfrist för förlängning (4 veckor)",
+        "Ensidig optionsrätt",
+        "Initialt avtalsdatum (2024-12-31)",
+        "Kontraktstid och Option (Inera)",
+        "Total maximal förlängning (6 månader)"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_6b448f5e.md"
+      ]
+    },
+    "Kontraktsvillkor: Tidsperiod och Volym": {
+      "topics": [
+        "2023-12-31",
+        "50% av en heltidstjänst",
+        "Initial avtalstid",
+        "ensidig optionsrätt",
+        "maximalt sex (6) månader"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_ff9edfab.md"
+      ]
+    },
+    "Kontraktstid och Förlängningsvillkor": {
+      "topics": [
+        "2023-12-31 (Initialt slutdatum)",
+        "2024-01-01 till 2024-10-31",
+        "Avropskontrakt",
+        "Avropskontraktet",
+        "Ensidig optionsrätt",
+        "Förlängningsoption (Optionsrätt)",
+        "Inera (Part)",
+        "Initial löptid (10 månader)",
+        "Kontraktstid",
+        "Maximal förlängning (24 månader)",
+        "Maximalt tolv (12) månader totalt",
+        "Meddelande om förlängning",
+        "Meddelandefrist (4 veckor)",
+        "Option (ensidig rätt till förlängning)",
+        "Tidsfrist: Två (2) veckor innan avtalets utgång",
+        "Total maximal avtalstid (34 månader)",
+        "ensidig optionsrätt",
+        "fyra veckor innan avtalets utgång",
+        "gäller initialt till 2023-12-31",
+        "maximal förlängning på tolv (12) månader"
+      ],
+      "file_count": 3,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_445e373a.md",
+        "3_volume_DEFINITION_SECONDARY_e89ffabb.md",
+        "3_volume_DEFINITION_SECONDARY_10053910.md"
+      ]
+    },
+    "Sanktioner och vite": {
+      "topics": [
+        "1% av kontraktets ersättning per påbörjad vecka",
+        "Försening överstiger 5 veckor",
+        "Hävningsgrund",
+        "Vite vid Försening",
+        "Vitesperiod maximalt 5 veckor"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_080ad869.md"
+      ]
+    },
+    "Fakturakrav och Innehåll": {
+      "topics": [
+        "Fakturakrav",
+        "Fullständig faktureringsadress",
+        "Standardkraven i de allmänna villkoren (Avsnitt 9)",
+        "Ytterligare uppgifter på fakturor"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_INSTRUCTION_PRIMARY_ca217e51.md"
+      ]
+    },
+    "Immateriella Rättigheter (IP-villkor)": {
+      "topics": [
+        "Exklusiv nyttjanderätt (Standard)",
+        "Full äganderätt",
+        "Icke-exklusiv nyttjanderätt",
+        "Obegränsad nyttjanderätt",
+        "Rättigheter till Uppdragsresultat (IP)",
+        "Vederlagsfri",
+        "Överlåtelseförbud"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_PRIMARY_ff3f09d8.md"
+      ]
+    },
+    "Kontraktsperioder": {
+      "topics": [
+        "Giltighetstid",
+        "Kontraktsperiod",
+        "Slutdatum",
+        "Startdatum"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_INSTRUCTION_PRIMARY_f5fdee0f.md"
+      ]
+    },
+    "Kontraktstid och Optionsvillkor": {
+      "topics": [
+        "Förlängningsoption",
+        "Förlängningsperiod tolv (12) månader",
+        "Inera ensidig optionsrätt",
+        "Initialt avslutningsdatum 2024-09-30",
+        "Kontraktstid",
+        "Tidsfrist för meddelande om förlängning: två veckor innan avtalet löper ut"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_c45fa81c.md"
+      ]
+    },
+    "Avtalslöptid och Optioner": {
+      "topics": [
+        "10 månader",
+        "2024-01-01",
+        "2024-10-31",
+        "24 månader",
+        "34 månader",
+        "Avropskontraktet",
+        "Ensidig optionsrätt"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_6764a432.md"
+      ]
+    },
+    "Hantering av Underleverantörer": {
+      "topics": [
+        "Adda Inköpscentral",
+        "Nya underleverantörer SKA rapporteras retroaktivt",
+        "Ramavtalet IT-konsulttjänster 2021",
+        "Ramavtalsleverantören FÅR anlita nya underleverantörer",
+        "Ramavtalsleverantören SKA säkerställa att alla anlitade underleverantörer uppfyller samtliga villkor"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_93d7a3c6.md"
+      ]
+    },
+    "Avtalsomfattning och Löptid": {
+      "topics": [
+        "650 000 SEK (uppskattat värde)",
+        "Avtalstid initialt t.o.m. 2024-09-30",
+        "Ensidig optionsrätt (Inera)",
+        "Inga volymer garanteras",
+        "Maximalt tre (3) månader totalt (optionstid)",
+        "Meddelande om förlängning senast två veckor innan avtalet löper ut",
+        "Upp till 500 timmar (uppskattad volym)",
+        "Volym kan utökas och minskas"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_9ea3ec79.md"
+      ]
+    },
+    "Vitesreglering och Sanktioner": {
+      "topics": [
+        "Maximal vitesnivå 3% per vecka",
+        "Maximal vitesperiod 5 veckor",
+        "Påbörjad vecka",
+        "Rätt till hävning",
+        "Standardnivå 1% av kontraktets ersättning",
+        "Vite vid Försening"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_29a9eb64.md"
+      ]
+    },
+    "Omfattningsdefinition och Volymjustering": {
+      "topics": [
+        "24 timmar/vecka",
+        "60% av en heltidsekvivalent",
+        "96 timmar/månad",
+        "Rätten att justera omfattningen under kontraktstiden",
+        "Uppdragsvolym (Definition)",
+        "avropskontraktet"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_16f5da29.md"
+      ]
+    },
+    "Avtalstid och Löptid": {
+      "topics": [
+        "Avropskontraktet",
+        "Ensidig rätt att förlänga",
+        "Inera (avtalspart)",
+        "Initial avtalstid (12 månader)",
+        "Maximal förlängning (24 månader)",
+        "Total maximal avtalstid (36 månader)"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_7b5af8d6.md"
+      ]
+    },
+    "IPR-ansvar och skadestånd": {
+      "topics": [
+        "Ersättningsskyldighet vid IPR-intrång",
+        "Kostnader för utredning",
+        "Myndighetens merkostnader",
+        "Nedlagd arbetstid",
+        "Rättegångskostnader",
+        "Skadestånd/ersättning till tredje man"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_PRIMARY_22099bb7.md"
+      ]
+    },
+    "Starttid och Närvarokrav": {
+      "topics": [
+        "Ineras kontor i Stockholm",
+        "Offererad konsult",
+        "kontrakt har signerats",
+        "tre (3) arbetsdagar",
+        "upp till fyra (4) dagar i månaden",
+        "uppdragsstart"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_SECONDARY_dca26172.md"
+      ]
+    }
+  },
+  "Affärsregler och Styrning": {
+    "Hållbarhetskrav vid Avrop": {
+      "topics": [
+        "Hållbarhetsaspekter vid avrop",
+        "Leverans på distans (Distansarbete)",
+        "Minska miljöpåverkan",
+        "authority_level: PRIMARY",
+        "block_type: INSTRUCTION",
+        "it-konsulttjanster-2021.pdf",
+        "process_step: step_1_intake",
+        "Öka effektivitet"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_INSTRUCTION_PRIMARY_6698546f.md"
+      ]
+    }
+  },
+  "Kompetens och Resurser": {
+    "Roller och Kompetenskrav": {
+      "topics": [
+        "Huvudarkitekt PKI",
+        "IT och informationssäkerhet",
+        "Nivå 5",
+        "Teknisk kravställare PKI",
+        "Två (2) konsulter"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_94ede860.md"
+      ]
+    },
+    "Konsultroller och Kompetenskrav": {
+      "topics": [
+        "5 konsulter (Total bemanning)",
+        "Anbud kan endast lämnas på uppdraget i sin helhet",
+        "Infrastrukturarkitekt",
+        "Lösningsarkitekt",
+        "Mjukvaruarkitekt",
+        "Nivå 5 (Ramavtalsnivå)",
+        "Senior Utvecklare"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_0884777c.md"
+      ]
+    }
+  },
+  "Upphandlingsprocess": {
+    "Dokumenthantering och Kommunikationsregler": {
+      "topics": [
+        "2022-03-28",
+        "Adda Inköpscentral",
+        "Anbud",
+        "Officiella funktionen för frågor och svar",
+        "Prisbilaga",
+        "Sökande"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_INSTRUCTION_PRIMARY_4821eb6a.md"
+      ]
+    },
+    "Avropsspecifikation och Tidslinjer": {
+      "topics": [
+        "2023-11-02",
+        "2023-11-13",
+        "Avropsförfrågan",
+        "Förnyad konkurrensutsättning (FKU)",
+        "Inera AB",
+        "Projektnummer 10539",
+        "Ramavtalet IT-konsulttjänster 2021",
+        "Verksamhetsarkitekt"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_60f87ff1.md"
+      ]
+    },
+    "Avropsidentifikation och Tidplan": {
+      "topics": [
+        "Addas ramavtal IT-konsulttjänster 2021",
+        "Avropsinformation Inera E-klient",
+        "E-klient - plattform",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Inera AB",
+        "Publiceringsdatum: 2023-11-09",
+        "Sista anbudsdag: 2023-11-22",
+        "projektnummer 10539"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_af8035fe.md"
+      ]
+    },
+    "Avropsförfarande och Omfattning": {
+      "topics": [
+        "Avrop",
+        "Avrop PKI-konsulter",
+        "Flytt från Telia till egen regi",
+        "Förnyad konkurrensutsättning (FKU)",
+        "IT och informationssäkerhet",
+        "Inera AB",
+        "Nivå 5",
+        "PKI-miljö",
+        "Projektnummer 10539",
+        "Ramavtalet IT-konsulttjänster 2021",
+        "Två konsulter"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_7a44c34e.md"
+      ]
+    },
+    "Formella Anbudskrav": {
+      "topics": [
+        "Alternativa anbud",
+        "Alternativa anbud/sidoanbud (förbud)",
+        "Anbudsspråk: svenska",
+        "Anbudssystem: Mercell TendSign",
+        "Mercell TendSign",
+        "Prisangivelse (SEK exkl. moms)",
+        "Sidoanbud",
+        "Sista dag för frågor (2023-08-11)",
+        "elektroniskt",
+        "exklusive mervärdesskatt",
+        "svenska (språkkrav)",
+        "svenska kronor (SEK)"
+      ],
+      "file_count": 2,
+      "files": [
+        "4_strategy_RULE_SECONDARY_5c11750a.md",
+        "1_intake_DEFINITION_SECONDARY_215a926e.md"
+      ]
+    },
+    "Avropsdetaljer och Förfarande": {
+      "topics": [
+        "Adda Inköpscentrals ramavtal 'IT-konsulttjänster 2021'",
+        "Avropsförfrågan",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Inera AB",
+        "Projektnummer 10539",
+        "Sista anbudsdag 2023-07-06",
+        "Transformationsledare"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_62fb36fb.md"
+      ]
+    },
+    "Avropsförfarande och Ramavtalsidentifiering": {
+      "topics": [
+        "Adda Inköpscentral",
+        "Avropsförfrågan",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Inera AB",
+        "Konsultstöd",
+        "Projektnummer 10539",
+        "Ramavtal 'IT-konsulttjänster 2021'",
+        "Utredning av IT-drift"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_SECONDARY_d5ee98f4.md"
+      ]
+    }
+  },
+  "Juridik & Compliance": {
+    "Sanktionsregler & Uteslutningsgrunder": {
+      "topics": [
+        "EU-förordning 2022/576",
+        "Företag vars kapacitet åberopas",
+        "Kontraktsförbud mot Rysk Koppling",
+        "Leverantör",
+        "Rysk koppling",
+        "Sanktioner",
+        "Underleverantör",
+        "Underskriven försäkran"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_PRIMARY_50dc3344.md"
+      ]
+    },
+    "Villkor för personuppgiftsbehandling (GDPR)": {
+      "topics": [
+        "Adekvansbeslut",
+        "Alternativ 1: Överföring tillåten under lagliga grunder",
+        "Alternativ 2: Skriftligt förhandsgodkännande (Standardval)",
+        "Alternativ 3: Överföring helt förbjuden",
+        "DEFAULT-REGEL vid avrop",
+        "Personuppgifter",
+        "Personuppgiftsbiträdesavtal (PUBA)",
+        "Tredjelandsöverföring"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_PRIMARY_8749334c.md"
+      ]
+    }
+  },
+  "Avtalshantering": {
+    "Avropsstruktur och Kontakter": {
+      "topics": [
+        "Avtalsansvarig",
+        "Bid Manager",
+        "Förnyad konkurrensutsättning",
+        "IT-konsulttjänster 2021 (ITK 2021)",
+        "Key Account Manager",
+        "Kundansvarig",
+        "Norrbottens län",
+        "Org.nr",
+        "Ramavtal",
+        "Sändlista"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_PRIMARY_sandlista-for-fornyad-konkurre_0ad2.md"
+      ]
+    },
+    "Avropsmallar och Förfarande": {
+      "topics": [
+        "Avropsmall",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Projektnummer 10539",
+        "Ramavtalet IT-konsulttjänster 2021",
+        "Resursuppdrag"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_PRIMARY_c746e3e7.md"
+      ]
+    }
+  },
+  "Kravställning": {
+    "Avropsspecifikation och Ramar": {
+      "topics": [
+        "Avropande myndighet (fullständigt namn)",
+        "Behov och syfte (med uppdraget)",
+        "Kontraktstid (start- och slutdatum)",
+        "Optioner (förlängning)",
+        "Ort för utförande (geografisk plats)",
+        "Uppskattat kontraktsvärde i totalt antal timmar eller SEK"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_INSTRUCTION_PRIMARY_f755bacc.md"
+      ]
+    },
+    "Geografiska och Språkliga Krav": {
+      "topics": [
+        "Kort varsel",
+        "Placering inom EU/EES",
+        "Placeringsort (Stockholm)",
+        "Svenska i tal och skrift",
+        "Säkerhetsskäl",
+        "Verksamhetskrav"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_SECONDARY_0716ee05.md"
+      ]
+    },
+    "Uppdragsspecifikation och Leverabler": {
+      "topics": [
+        "Adda IT-konsulttjänster 2021 (10539)",
+        "Förstudie av Ineras IT-drift",
+        "GAPs och risker",
+        "Inera AB",
+        "Linux/Kubernetes",
+        "Nulägesanalys",
+        "Resurskonsult",
+        "Tidskritiskt",
+        "Transformationskarta",
+        "Windows/VMWare"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_e54d21b2.md"
+      ]
+    }
+  },
+  "Process & Juridik": {
+    "Administrativa avropskrav och tidplaner": {
+      "topics": [
+        "Adda Inköpscentrals ramavtal IT-konsulttjänster 2021",
+        "Anbudet ska vara skrivet på svenska",
+        "Anbudets giltighetstid",
+        "Kompetensnivå (Skala 1-5)",
+        "Kontraktstid (inkl. optioner)",
+        "Sekretess fram till tilldelningsbeslut",
+        "Sista dag för lämna anbud",
+        "Uppskattat kontraktsvärde (Timmar/Kronor)",
+        "förnyad konkurrensutsättning",
+        "resursuppdrag",
+        "sekretessbegäran"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_PRIMARY_mall-for-avropsforfragan-resur_192f.md"
+      ]
+    }
+  },
+  "Avtalsstyrning": {
+    "Avtalsadministration (Pris)": {
+      "topics": [
+        "Adda Inköpscentral",
+        "Ansvar för Prisjustering",
+        "Meddela leverantören",
+        "Nya priser",
+        "Ramavtal"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_PRIMARY_85f67d07.md"
+      ]
+    },
+    "Avropsstruktur och Villkor": {
+      "topics": [
+        "Avropssvarsområde G",
+        "Ineras avrop",
+        "Nivå 5",
+        "Senior Fullstackutvecklare",
+        "förnyad konkurrensutsättning (FKU)",
+        "ramavtalet 'IT-konsulttjänster 2021'",
+        "resurskonsult"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_cfbc0980.md"
+      ]
+    },
+    "Kontraktshierarki och Precedensregler": {
+      "topics": [
+        "Hierarki för Kontraktshandlingar",
+        "Kontraktet med bilagor",
+        "Motstridiga uppgifter",
+        "Ramavtalet med bilagor",
+        "Rangordning",
+        "Skriftliga ändringar och tillägg till kontraktet",
+        "Skriftliga ändringar och tillägg till ramavtalet",
+        "Tolkning av villkor"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_9d1021d7.md"
+      ]
+    }
+  },
+  "Upphandlingsprocess och Styrning": {
+    "Ramavtal och Avropsprocesser": {
+      "topics": [
+        "Adda Inköpscentrals ramavtal IT-konsulttjänster 2021",
+        "Avropsförfrågan",
+        "Förnyad konkurrensutsättning (FKU)",
+        "IAM (Identitet och Åtkomst)",
+        "Inera AB",
+        "Projektnummer 10539",
+        "Säkerhetsanalytiker",
+        "Säkerhetsstrateg"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_88403eec.md"
+      ]
+    }
+  },
+  "Upphandlingens Omfattning": {
+    "Avropets Specifikation": {
+      "topics": [
+        "1 resurskonsult",
+        "100% (Heltid)",
+        "Addas ramavtal IT-konsulttjänster 2021",
+        "Inera AB",
+        "Ineras kontor i Lund",
+        "Projekt E-klient",
+        "Senior Systemutvecklare",
+        "proj. 10539"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_5c846481.md"
+      ]
+    }
+  },
+  "Data/Informationsobjekt": {
+    "Leverantörskontaktinformation": {
+      "topics": [
+        "Avropsmottagare",
+        "E-postadress för avrop",
+        "Företagsnamn",
+        "Kontaktperson",
+        "Organisationsnummer",
+        "Ramavtalsleverantör",
+        "Telefonnummer",
+        "it-konsulttjanster-2021"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DATA_POINTER_PRIMARY_6296b675.md"
+      ]
+    }
+  },
+  "Kompetens och Roller": {
+    "Rollbeskrivningar": {
+      "topics": [
+        "Agera mentor åt ledningsgrupp",
+        "Förbereda verksamheter inför förändring",
+        "Förändringsledare",
+        "förändringsarbete genom hela dess livscykel",
+        "metoder för förändringsarbete",
+        "minimera störningar i verksamheten"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_3c0ace9e.md"
+      ]
+    }
+  },
+  "Juridik och Kontrakt": {
+    "Avtalsstruktur och Ekonomisk Omfattning": {
+      "topics": [
+        "Avropets värde per avtalsår till 600 000 SEK (uppskattat)",
+        "Avropssvarsområde G; Skåne län, Blekinge län och Kronobergs län",
+        "Förnyad konkurrensutsättning",
+        "Inga sidoanbud eller alternativa anbud (ej tillåtet)",
+        "Kontraktstid 2024-01-01 till 2024-10-31 (inledningsvis)",
+        "Omfattning cirka 25 % av en heltidsekvivalent",
+        "Optionsrätt till förlängning om tjugofyra (24) månader",
+        "Ramavtal IT-konsulttjänster 2021, projektnummer 10539",
+        "Senior Enterprisearkitekt",
+        "Sista anbudsdag: 2023-11-22 23:59"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(24)_79d7.md"
+      ]
+    }
+  },
+  "Juridik": {
+    "Avtalsramverk och Geografisk Omfattning": {
+      "topics": [
+        "Adda Inköpscentrals ramavtal IT-konsulttjänster 2021, projektnummer 10539",
+        "Avropskontraktet",
+        "Avropsområdet Arkitektur, nivå 5",
+        "Avropssvarsområde D",
+        "Förnyad konkurrensutsättning",
+        "Integrationsarkitekt",
+        "Stockholms län, Uppsala län, Gotlands län"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(25)_f163.md"
+      ]
+    },
+    "Hantering av Personuppgifter": {
+      "topics": [
+        "Adda Inköpscentral",
+        "Anbudsgivarens ansvar att informera",
+        "Dataskyddsförordningen (GDPR)",
+        "Kontaktpersoner (personuppgifter)",
+        "Personuppgiftsansvarig"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_4cb80918.md"
+      ]
+    },
+    "Kontraktstid och Optionsvillkor": {
+      "topics": [
+        "Avropskontraktet",
+        "Inera",
+        "Kontraktstid",
+        "Option",
+        "ensidig optionsrätt",
+        "initialt i sex (6) månader",
+        "maximalt sex (6) månader",
+        "totala maximala kontraktstiden är 12 månader"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_96d84d8a.md"
+      ]
+    },
+    "Immateriella Rättigheter och Licensvillkor": {
+      "topics": [
+        "Evig licens",
+        "Icke-exklusiv licens",
+        "Icke-överlåtbar licens",
+        "Immateriella Rättigheter (IPR)",
+        "Leverantörens befintliga IPR",
+        "Royaltyfri licens",
+        "Äganderätt till Befintliga Immateriella Rättigheter"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_667ee9ac.md"
+      ]
+    },
+    "Ansvarsbegränsningar och skadeståndstak": {
+      "topics": [
+        "5 miljoner SEK",
+        "Ansvarsbegränsning",
+        "Fast takbelopp",
+        "Ren förmögenhetsskada",
+        "Takbelopp per skada",
+        "Takbelopp per år"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_3eb53985.md"
+      ]
+    },
+    "Ansvarsbegränsningar och skadeståndsgränser": {
+      "topics": [
+        "Ansvarsbegränsning",
+        "Maxbelopp 10 MSEK per skada",
+        "Maxbelopp 20 MSEK per år",
+        "Maxbelopp 5 MSEK per år",
+        "Person- eller sakskada",
+        "Ren förmögenhetsskada",
+        "Skadeståndsansvar",
+        "Undantag vid grov vårdslöshet eller uppsåt"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_d50016f3.md"
+      ]
+    },
+    "Hantering av Personuppgifter vid Avrop": {
+      "topics": [
+        "Avrop",
+        "Avropande myndigheten",
+        "Avropsförfrågan",
+        "Krav på GDPR-specifikation",
+        "Personuppgiftsbehandling",
+        "Personuppgiftsbiträdesavtal"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_PRIMARY_b7e44373.md"
+      ]
+    },
+    "Avropsvillkor och Omfattning": {
+      "topics": [
+        "70 % av en heltidsekvivalent per månad",
+        "Adda Inköpscentrals ramavtal IT-konsulttjänster 2021, projektnummer 10539",
+        "Avropssvarsområde D (Stockholms län, Uppsala län, Gotlands län)",
+        "Ensidigt optionsrätt",
+        "Förnyad konkurrensutsättning",
+        "Kontraktstid inledningsvis till 2023-12-31",
+        "Maximalt tolv (12) månader optionsrätt",
+        "Organisationsnummer: 556559-4230",
+        "Sidoanbud eller alternativa anbud (förbjudet)",
+        "Sista anbudsdag: 2023-07-06 23:59",
+        "Transformationsledare"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(9)_647b.md"
+      ]
+    },
+    "Avtalshierarki och Tolkningsregler": {
+      "topics": [
+        "Allmänna kontraktsvillkor (Rang 3)",
+        "Anbud med bilagor i ramavtalet (Rang 7)",
+        "Bilagor till de allmänna kontraktsvillkoren (Rang 8)",
+        "Inbördes rangordning av kontraktshandlingar",
+        "Kontraktet med bilagor (Rang 2)",
+        "Motstridiga uppgifter (tolkning)",
+        "Ramavtalets upphandlingsdokument (Rang 5)",
+        "Skriftliga ändringar och tillägg till kontraktet (Rang 1)"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_PRIMARY_8373a56e.md"
+      ]
+    },
+    "Reklamationsfrister och Ansvar": {
+      "topics": [
+        "1 år från faktisk leveransdag",
+        "60 kalenderdagar efter upptäckt",
+        "Fel i utfört uppdrag",
+        "Generellt avtalsbrott",
+        "Tidsfrister för Reklamation"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_dcb3e5c6.md"
+      ]
+    },
+    "Kontraktsstruktur och dokumenthierarki": {
+      "topics": [
+        "Adda Inköpscentral AB",
+        "Bilaga 03 – Prisbilaga",
+        "Bilaga 04 – Personuppgiftsbiträdesavtal",
+        "Bilaga 05 – Säkerhetsskyddsavtal",
+        "Dynamisk rangordning",
+        "Fackmässigt utförande",
+        "Kontraktshandlingars inbördes ordning",
+        "Kontraktsvillkor IT -konsulttjänster 2021",
+        "Leverantörens fullständiga och odelade ansvar",
+        "Ramavtal IT -konsulttjänster 2021"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_PRIMARY_kontraktsvillkor-dynamisk-rang_1e7a.md"
+      ]
+    },
+    "Sekretess och Offentlighet": {
+      "topics": [
+        "Absolut Sekretess",
+        "Anbudstid",
+        "Offentlighet",
+        "Selektion av leverantörer",
+        "Tilldelningsbeslut"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_21ff7ea6.md"
+      ]
+    },
+    "Ansvarsbegränsningar och skadestånd": {
+      "topics": [
+        "Avsnitt 8.5.2",
+        "Avsnitt 9.5.2",
+        "Direkta skador",
+        "Indirekta skador",
+        "Skadeståndsansvar",
+        "Undantag",
+        "Utebliven vinst"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_435cad76.md"
+      ]
+    },
+    "Avtalsvillkor och Tvingande Regler": {
+      "topics": [
+        "Automatiskt gälla (mest fördelaktiga villkor)",
+        "Avvikelser från Ramavtalet",
+        "Fördelaktighetsprincipen",
+        "Kontrakt (avrop)",
+        "Ramavtalets villkor",
+        "Villkor till nackdel för den upphandlande myndigheten"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_a7fc15eb.md"
+      ]
+    },
+    "Avtalstid och Optionsrätt": {
+      "topics": [
+        "2024-01-01 till 2024-10-31",
+        "Inera (Part)",
+        "Initial Periodlängd (10 månader)",
+        "Initial kontraktstid",
+        "Maximal total avtalstid (34 månader)",
+        "Meddelandetid (fyra veckor)",
+        "Option Periodlängd (24 månader)",
+        "Regel för Meddelande om förlängning",
+        "ensidig optionsrätt"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_65e51562.md"
+      ]
+    },
+    "Skadeståndsansvar och Beloppsbegränsningar": {
+      "topics": [
+        "10 MSEK per skada (Person-/sakskada)",
+        "20 MSEK per år (Person-/sakskada)",
+        "5 MSEK per skada (Ren förmögenhetsskada)",
+        "5 MSEK per år (Ren förmögenhetsskada)",
+        "Ansvar enligt gällande dataskyddslagstiftning",
+        "GDPR-relaterad skada",
+        "Leverantörens skadeståndsansvar",
+        "Person- eller sakskada",
+        "Ren förmögenhetsskada (ej GDPR-relaterad)",
+        "Undantag vid grov vårdslöshet eller uppsåt"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_PRIMARY_f2ab09e4.md"
+      ]
+    },
+    "Avtalsvillkor: Optioner": {
+      "topics": [
+        "Avropande myndigheten",
+        "Ensidig rätt",
+        "Gällande priser",
+        "Nyttja en option",
+        "Sista datum för aktivering",
+        "Skriftligt meddelande",
+        "Specificera alla optioner"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_c7087ea3.md"
+      ]
+    },
+    "Obligatoriska dataskyddsval": {
+      "topics": [
+        "Adekvat skyddsnivå",
+        "Alternativ 1: Tillåtet med garantier",
+        "Alternativ 2 (Standard): Kräver förhandsgodkännande",
+        "Alternativ 3: Förbjudet",
+        "Dataöverföring till Tredje Land",
+        "Personuppgifter",
+        "Standardavtalsklausuler"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_PRIMARY_c328c53c.md"
+      ]
+    },
+    "Upphandlingsdokumentation & Ramavtal": {
+      "topics": [
+        "Adda Inköpscentrals ramavtal IT-konsulttjänster 2021",
+        "Avropsförfrågan",
+        "E-klient",
+        "Inera AB",
+        "Projektnummer 10539",
+        "Senior Systemutvecklare"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_4c23dcc9.md"
+      ]
+    },
+    "Avtalsansvar och skadestånd": {
+      "topics": [
+        "Ansvarsbegränsning för Tredjemansskada",
+        "Grov vårdslöshet",
+        "Takbelopp",
+        "Uppsåt"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_a37c12a1.md"
+      ]
+    },
+    "IPR-Villkor och Nyttjanderätter": {
+      "topics": [
+        "DEFAULT-REGEL (Automatisk tillämpning av alternativ b)",
+        "Exklusiv, vederlagsfri och obegränsad nyttjanderätt (alternativ b)",
+        "Full äganderätt (alternativ a)",
+        "Icke-exklusiv, vederlagsfri och obegränsad nyttjanderätt (alternativ c)",
+        "Rätt till Uppdragsresultat (IPR)",
+        "Vederlagsfri"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_PRIMARY_70df5b33.md"
+      ]
+    },
+    "Säkerhetsskydd": {
+      "topics": [
+        "Säkerhetskänslig verksamhet",
+        "Säkerhetsprövning",
+        "Säkerhetsskyddsavtal",
+        "Säkerhetsskyddsklassificerade uppgifter"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_PRIMARY_2934061c.md"
+      ]
+    },
+    "Hävningsgrunder och vitessanktioner": {
+      "topics": [
+        "5 veckors vitesgrundande försening/fel",
+        "Brott mot mänskliga rättigheter (hävningsgrund)",
+        "Felaktiga priser (hävningsgrund)",
+        "Hävning av ramavtal",
+        "Hävning med omedelbar verkan",
+        "Väsentliga avtalsbrott"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_77bcf06c.md"
+      ]
+    }
+  },
+  "Juridik och Avtal": {
+    "Avtalstid och Optionsrätt": {
+      "topics": [
+        "Avropskontrakt",
+        "Beställaren (Inera)",
+        "Ensidig optionsrätt",
+        "Initial löptid (12 månader)",
+        "Maximal Avtalstid (Regel)",
+        "Maximal ytterligare tid (24 månader)",
+        "Total maximal kontraktstid (36 månader)"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_f4e652e5.md"
+      ]
+    },
+    "Avropsbehörighet och Omfång": {
+      "topics": [
+        "'Bilaga 01 - Avropsberättigade parter'",
+        "Avropsberättigade Parter",
+        "avropa",
+        "bolag",
+        "kommuner",
+        "ramavtal",
+        "regioner"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DATA_POINTER_PRIMARY_7b46d2f9.md"
+      ]
+    }
+  },
+  "Ekonomi": {
+    "Faktureringsvillkor": {
+      "topics": [
+        "Fakturerar månadsvis i efterskott",
+        "Faktureringskadens",
+        "Tjänster som utförts under perioden",
+        "Undantag via Avrop"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_PRIMARY_f66b38cb.md"
+      ]
+    },
+    "Ersättning och Faktureringsvillkor": {
+      "topics": [
+        "Diarienummer 2023100010",
+        "Elektroniska fakturor",
+        "Fakturering baserad på faktiskt nedlagd tid",
+        "Fakturering månadsvis i efterskott",
+        "Fast timpris",
+        "Inget administrationsersättning",
+        "Inget reseersättning",
+        "Inget traktamente",
+        "Kostnadsställe 9015",
+        "PEPPOL"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_INSTRUCTION_SECONDARY_a96e4623.md"
+      ]
+    }
+  },
+  "Juridik och Compliance": {
+    "Reglering av Personuppgiftshantering": {
+      "topics": [
+        "Bilaga",
+        "De tre alternativa regleringarna för överföring till tredje land",
+        "GDPR",
+        "PUBA (Personuppgiftsbiträdesavtal)",
+        "Personuppgifter",
+        "allmanna_kontraktsvillkor_avsnitt_2_9",
+        "Överföring till tredje land"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_INSTRUCTION_PRIMARY_efd87bf1.md"
+      ]
+    }
+  },
+  "Affärsregler och Compliance": {
+    "Underleverantörshantering och Efterlevnad": {
+      "topics": [
+        "Adda IC",
+        "Ansvaret för att kontrollera att underleverantörerna uppfyller ramavtalets villkor",
+        "Konkursbeslut",
+        "Organisationsnummer",
+        "Punkt 1.8 i Ramavtalet",
+        "Ramavtal IT-konsulttjänster 2021",
+        "Ramavtalsleverantörerna",
+        "Retroaktivt (redovisning till Adda IC)",
+        "Status (Rating, Anbud)",
+        "Tillkommande underleverantörer",
+        "Underleverantör"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_PRIMARY_sammanstallning-underleveranto_c1d1.md"
+      ]
+    }
+  },
+  "Kontraktsvillkor": {
+    "Avtalsomfattning (Volym och Tidsramar)": {
+      "topics": [
+        "Ej garanterad volym",
+        "Ensidig rätt för Inera (förlängning)",
+        "Initial avtalstid",
+        "Initial volym",
+        "Max 12 månader (Optionstid)",
+        "Max 400 timmar (Initial volym)",
+        "Max 550 timmar (Optionsvolym)",
+        "Option förlängning",
+        "Optionsvolym",
+        "Slutdatum: 2023-12-31"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_34922281.md"
+      ]
+    }
+  },
+  "Avtalsstruktur": {
+    "Geografisk Indelning och Avgränsning": {
+      "topics": [
+        "21 län i Sverige",
+        "Blekinge län",
+        "Dalarnas län",
+        "Delområde A",
+        "Delområde B",
+        "Delområde C",
+        "Delområde D",
+        "Delområde E",
+        "Delområde F",
+        "Delområde G",
+        "Geografiska Delområden (A-G)",
+        "Gotlands län",
+        "Gävleborgs län",
+        "Hallands län",
+        "Jämtlands län",
+        "Jönköpings län",
+        "Kalmar län",
+        "Kronobergs län",
+        "Norrbottens län",
+        "Skåne län",
+        "Stockholms län",
+        "Södermanlands län",
+        "Uppsala län",
+        "Värmlands län",
+        "Västerbottens län",
+        "Västernorrlands län",
+        "Västmanlands län",
+        "Västra Götalands län",
+        "Örebro län",
+        "Östergötlands län"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_4a937496.md"
+      ]
+    },
+    "Geografisk Omfattning": {
+      "topics": [
+        "Avropssvarsområde D",
+        "Gotlands län",
+        "Stockholms län",
+        "Uppsala län"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_56f43912.md"
+      ]
+    },
+    "Anbudsområden (Geografisk Indelning)": {
+      "topics": [
+        "Blekinge län",
+        "Dalarnas län",
+        "Geografiska Anbudsområden (Regioner A-G)",
+        "Gotlands län",
+        "Gävleborgs län",
+        "Hallands län",
+        "Jämtlands län",
+        "Jönköpings län",
+        "Kalmar län",
+        "Kronobergs län",
+        "Norrbottens län",
+        "Ramavtal IT-konsulttjänster 2021",
+        "Skåne län",
+        "Stockholms län",
+        "Södermanlands län",
+        "Uppsala län",
+        "Värmlands län",
+        "Västerbottens län",
+        "Västernorrlands län",
+        "Västmanlands län",
+        "Västra Götalands län",
+        "Örebro län",
+        "Östergötlands län"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_c79e0947.md"
+      ]
+    }
+  },
+  "Kravspecifikation": {
+    "Placerings- och Språkkrav": {
+      "topics": [
+        "Fysiskt placerad inom EU/EES",
+        "Obehinderat på svenska i tal och skrift",
+        "Säkerhetstekniska skäl",
+        "Uppdragstiden",
+        "Utföras på plats i Ineras lokaler i Stockholm"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_SECONDARY_f2097929.md"
+      ]
+    },
+    "Konsultkvalifikationer och erfarenhet": {
+      "topics": [
+        "Nivå 5",
+        "PPS-modellen (praktisk erfarenhet)",
+        "Referensuppdrag max tre (3) år gamla",
+        "Tvingande krav (ska-krav)",
+        "Två (2) relevanta referensuppdrag",
+        "Utbildningsbevis (PPS)"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_6994de99.md"
+      ]
+    },
+    "Geografisk Omfattning och Leveransplats": {
+      "topics": [
+        "Avropsområde G",
+        "Blekinge län",
+        "Geografiskt Omfattning (Södra Sverige)",
+        "Inera (kontor i Lund)",
+        "Kronobergs län",
+        "Lund (uppdragsutgångspunkt)",
+        "Skåne län"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_9840ff91.md"
+      ]
+    },
+    "Geografisk Omfattning och Indelning": {
+      "topics": [
+        "Avropsförfrågan",
+        "Avropssvarsområde D",
+        "Geografisk Omfattning",
+        "Gotlands län",
+        "Stockholms län",
+        "Uppsala län"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_82ca24bb.md"
+      ]
+    }
+  },
+  "Juridik och Regelverk": {
+    "Tidsfrister och avvisningsgrunder": {
+      "topics": [
+        "Angiven tidsfrist",
+        "FÅR EJ beaktas",
+        "För sent inkomna anbud",
+        "SKA avvisas"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_ca67718c.md"
+      ]
+    }
+  },
+  "Prissättning och Ersättning": {
+    "Takpriser och Timarvoden": {
+      "topics": [
+        "1300 SEK",
+        "Inkludera samtliga eventuella kringkostnader",
+        "Konsultroll",
+        "Takpris per timme",
+        "Timpris"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_SECONDARY_a62b1140.md"
+      ]
+    }
+  },
+  "Juridik och Upphandlingskrav": {
+    "Anbudsförfarande och Formalia": {
+      "topics": [
+        "Alternativa anbud",
+        "Anbud förkastat",
+        "Avropsförfrågan",
+        "Förbehåll",
+        "Förbud mot Alternativa Anbud",
+        "Sidoanbud"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_SECONDARY_f7a3c252.md"
+      ]
+    }
+  },
+  "Avtalsvillkor och Juridik": {
+    "Tillämpning av Vite och Påföljdsregler": {
+      "topics": [
+        "Acceptanstest",
+        "Hanteras som en försening",
+        "Kumulationsförbud (Vite för BÅDE fel och försening)",
+        "Leveransdag",
+        "Vite för fel"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_PRIMARY_6dd5b637.md"
+      ]
+    }
+  },
+  "Avtalsförvaltning": {
+    "Regler för Konsultbyte": {
+      "topics": [
+        "Byte av namngiven eller särskilt viktig konsult",
+        "Får INTE medföra extra kostnader",
+        "Får INTE medföra förseningar",
+        "Minst motsvarande kompetens",
+        "Skriftligt godkännande"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_PRIMARY_56cccdd2.md"
+      ]
+    },
+    "Ramavtalsdata (Historik och Leverantörsförändringar)": {
+      "topics": [
+        "Borttagna Underleverantörer",
+        "Datum för händelsen (borttagandet)",
+        "IT-konsulttjänster 2021",
+        "Ramavtalsleverantör som begärt borttagandet",
+        "it-konsulttjanster-2021-2025-11-21.xlsx",
+        "removed_subcontractors",
+        "step_4_strategy"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DATA_POINTER_PRIMARY_21e177cc.md"
+      ]
+    },
+    "Prisjusteringsansvar och Procedur": {
+      "topics": [
+        "Ansvar för Prisjustering",
+        "FKU (Förnyad konkurrensutsättning)",
+        "Kontrakt efter FKU",
+        "Leverantören",
+        "Meddelandeskyldighet om nya priser",
+        "Upphandlande myndigheten"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_PRIMARY_81d6c055.md"
+      ]
+    }
+  },
+  "Kvalificeringskrav": {
+    "Krav på referenser": {
+      "topics": [
+        "Anbudsgivaren",
+        "Får vara pågående (max ett)",
+        "Konsult",
+        "Krav på Referensuppdrag",
+        "Max 3 års ålder på uppdrag",
+        "Måste vara avslutat (minst ett)",
+        "sista anbudsdag",
+        "två referensuppdrag per konsult"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_fb24fa15.md"
+      ]
+    },
+    "Referensvillkor": {
+      "topics": [
+        "Anbudsgivaren (Roll)",
+        "Beräkningstidpunkt (Sista anbudsdag)",
+        "Krav på Referensuppdrag",
+        "Maximal ålder (3) år",
+        "Minst ett (1) relevant referensuppdrag"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_04a00f2b.md"
+      ]
+    }
+  },
+  "Ekonomi & Administration": {
+    "Faktureringsspecifikationer": {
+      "topics": [
+        "Diarienummer 2023090032",
+        "Elektroniska fakturor (e-fakturor)",
+        "Kostnadsställe 8431",
+        "PDF-fakturor (ej godkända)",
+        "PEPPOL"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_INSTRUCTION_SECONDARY_755e882c.md"
+      ]
+    }
+  },
+  "Kvalitetsstyrning": {
+    "Resultat och Acceptanskriterier": {
+      "topics": [
+        "Hur resultatet ska levereras",
+        "Kontrollera att leveransen uppfyller ställda krav",
+        "Kravspecifikation",
+        "Specificera Uppdragets Resultat",
+        "Verifiering",
+        "Vilket resultat som ska uppnås"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_INSTRUCTION_PRIMARY_69425637.md"
+      ]
+    }
+  },
+  "Juridik och Avtalshantering": {
+    "Kontraktstid och Optionsvillkor": {
+      "topics": [
+        "2024-09-30",
+        "Avropskontraktet",
+        "Inera",
+        "Meddelande om förlängning ska ske senast två veckor innan avtalet löper ut",
+        "ensidig optionsrätt",
+        "maximalt två (2) månader"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_c64688b7.md"
+      ]
+    }
+  },
+  "Informationssäkerhet och Dataskydd": {
+    "Säkerhetskopiering och Dataansvar": {
+      "topics": [
+        "Ansvar för att utföra säkerhetskopiering",
+        "Data som hanteras inom ramen för uppdraget",
+        "Leverantörens ansvar",
+        "Reglera Säkerhetskopiering",
+        "it-konsulttjanster-2021"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_INSTRUCTION_PRIMARY_e579940b.md"
+      ]
+    }
+  },
+  "Kvalificering": {
+    "Villkor för Referensuppdrag": {
+      "topics": [
+        "Inte äldre än tre (3) år från sista anbudsdag",
+        "Krav på Referensuppdrag",
+        "Referensuppdrag får vara pågående",
+        "Sista anbudsdag",
+        "Två (2) referensuppdrag"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_6fe6e3ae.md"
+      ]
+    }
+  },
+  "Utvärdering": {
+    "Utvärderingsformler och Spärregler": {
+      "topics": [
+        "4 bedömningsgrunder",
+        "50 SEK i mervärdesavdrag per poäng",
+        "Anbudspris (timpris)",
+        "Maximalt mervärdesavdrag 600 SEK",
+        "Mervärdesavdrag",
+        "Poängsättning 0-3",
+        "Spärr (4 poäng eller lägre)",
+        "Utvärderingspris",
+        "ekonomiskt mest fördelaktiga anbudet"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_SECONDARY_ceb8e293.md"
+      ]
+    }
+  },
+  "Administrativa Krav": {
+    "Faktureringskrav (Tekniska Format)": {
+      "topics": [
+        "Elektroniska fakturor (e-fakturor)",
+        "Förbud mot skannade papper/PDF-fakturor",
+        "PEPPOL",
+        "PEPPOL-ID: 0007:5565594230"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_INSTRUCTION_SECONDARY_a03dabf0.md"
+      ]
+    }
+  },
+  "Process och Juridik": {
+    "Formalia och Anbudsregler": {
+      "topics": [
+        "Anbud kan förkastas vid förbehåll eller reservation mot villkor",
+        "Avbryta avropet (om avropssvaren överskrider avsatt budget)",
+        "Avropsförfarande förnyad konkurrensutsättning",
+        "ESPD-krav",
+        "Frågan är viktad och ingår i utvärderingen",
+        "Ramavtal IT- konsulttjänster 2021 (projektnummer 10539)",
+        "Sidoanbud eller alternativa anbud får ej förekomma",
+        "Texten ingår i annonsen",
+        "Texten kommer att ingå i avtalet"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(8)_8200.md"
+      ]
+    }
+  },
+  "Upphandlingsvillkor": {
+    "Geografisk Omfattning och Avropsområde": {
+      "topics": [
+        "Avropsområde D",
+        "EU/EES",
+        "Gotlands län",
+        "Ramavtalet",
+        "Stockholm",
+        "Stockholms län",
+        "Uppsala län"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_914c998d.md"
+      ]
+    },
+    "Administrativa Anbudsvillkor": {
+      "topics": [
+        "Alternativa anbud",
+        "Anbudets språk: svenska",
+        "Ersättning för kostnaden att upprätta anbud",
+        "Sidoanbud",
+        "Undantag för intyg och tekniska specifikationer: engelska"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_SECONDARY_88634542.md"
+      ]
+    }
+  },
+  "Kompetens och Rollspecifikation": {
+    "Erfarenhetskrav och Nivåspecifikation": {
+      "topics": [
+        "Ansvarat för framtagande av nulägesanalys i minst 2 uppdrag",
+        "Ansvarat för hantering av moderna plattformar i minst 2 uppdrag",
+        "Minst 1 projekt med erfarenhet från offentlig sektor",
+        "Minst 1 uppdrag som omfattat framtagande av transformationskarta",
+        "Minst 2 uppdrag inom komplexa nätverkslösningar (lastbalansering, segmentering, nätverkskryptering)",
+        "Minst 2 års arbete med Hybridlösningar",
+        "Minst 5 års erfarenhet av IT-arkitektur/systemlösningar inom infrastruktur/IT-drift",
+        "Minst 5 års erfarenhet av containerlösningar (kubernetes) och mikrotjänster",
+        "Senior Nätverksarkitekt (Nivå 5)"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_daf91263.md"
+      ]
+    }
+  },
+  "Process och Avtal": {
+    "Avropets omfång och genomförande": {
+      "topics": [
+        "Adda Inköpscentrals ramavtal IT-konsulttjänster 2021",
+        "Avbrytande av avrop (vid överskriden budget/ej uppfyllda krav)",
+        "Avropsförfrågan",
+        "Avropsområde Ledning och styrning",
+        "Avropssvarsområde D",
+        "Ensidig optionsrätt upp till maximalt sex (6) månader",
+        "Förnyad konkurrensutsättning",
+        "Kontraktstid till 2023-12-31",
+        "Omfattning cirka en halv (50 %) halvtidsekvivalent",
+        "Roll Processledare",
+        "Sidoanbud eller alternativa anbud (ej tillåtet)"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(6)_ba09.md"
+      ]
+    }
+  },
+  "Affärsregler & Upphandlingsvillkor": {
+    "Utvärderingsmodeller och Avropsmetod": {
+      "topics": [
+        "50 SEK (Kvalitetsfaktor)",
+        "Anbudspris",
+        "Avropsstrategi",
+        "Förhandling (möjlighet till)",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Inera (köpande part)",
+        "Kvalitetspoäng från intervju",
+        "Utvärderingsformel",
+        "Utvärderingspris (lägst)"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_SECONDARY_c5d42818.md"
+      ]
+    }
+  },
+  "Ekonomi och Prissättning": {
+    "Ersättning för Obekväm Arbetstid (OB-tillägg)": {
+      "topics": [
+        "Ersättning för Obekväm Arbetstid",
+        "Kontrakterat timpris",
+        "Multiplikator 1,5 (Kväll)",
+        "Multiplikator 2,0 (Övrig tid)",
+        "Normal arbetstid (07:00-19:00 helgfria vardagar)",
+        "Tidsfönster Kväll (06-07 & 19-21, vardagar)",
+        "Tidsfönster Övrig tid (natt & helg)"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_RULE_PRIMARY_309747a1.md"
+      ]
+    }
+  },
+  "Formalia": {
+    "Språkkrav för anbud": {
+      "topics": [
+        "Anbudsspråk",
+        "Bevis",
+        "Enstaka ord",
+        "FÅR vara på engelska",
+        "Förkortningar",
+        "SKA vara skrivet på svenska",
+        "Tekniska beskrivningar",
+        "Vedertagna begrepp"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_PRIMARY_af79ca8d.md"
+      ]
+    }
+  },
+  "Upphandlingsregler": {
+    "Anbudets formella krav och giltighet": {
+      "topics": [
+        "Alternativa Anbud",
+        "Anbudet kan komma att förkastas",
+        "Avropsförfrågan",
+        "Förbehåll (i anbud)",
+        "Förbud mot Alternativa Anbud",
+        "Reservera sig mot villkor",
+        "Sidoanbud"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_SECONDARY_3b5fb673.md"
+      ]
+    }
+  },
+  "Upphandlingsstruktur": {
+    "Avropsspecifika villkor och tidsramar": {
+      "topics": [
+        "Avropsområde Ledning och styrning",
+        "Avropssvarsområde D (Stockholms län, Uppsala län, Gotlands län)",
+        "Cirka 100 % av en heltidsekvivalent",
+        "Förnyad konkurrensutsättning",
+        "Inera AB (Upphandlande organisation)",
+        "Inga sidoanbud eller alternativa anbud får förekomma",
+        "Maximalt tolv (12) månaders optionsrätt",
+        "Organisationsnummer: 556559-4230",
+        "Projektnummer 10539",
+        "Ramavtal IT-konsulttjänster 2021",
+        "SDK (Säker digital kommunikation)",
+        "Sista anbudsdag: 2023-08-21 23:59"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(12)_1338.md"
+      ]
+    }
+  },
+  "Juridik & Kontraktsstruktur": {
+    "Avtalshierarki & Tolkningsregler": {
+      "topics": [
+        "Allmänna Kontraktsvillkoren",
+        "Avsnitt 1",
+        "Motsägelsefullt innehåll",
+        "Rangordning av Kontraktshandlingar",
+        "it-konsulttjanster-2021"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_PRIMARY_91290c52.md"
+      ]
+    }
+  },
+  "Operativa Villkor": {
+    "Plats- och Närvarokrav": {
+      "topics": [
+        "Avropssvarsområde G",
+        "Blekinge län",
+        "Ineras kontor i Lund",
+        "Kronobergs län",
+        "Skåne län",
+        "tre (3) dagar per vecka"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_758220ae.md"
+      ]
+    }
+  },
+  "Kompetens och Kvalifikation": {
+    "Tekniska Erfarenhetskrav för Roll": {
+      "topics": [
+        "Minimikrav på Erfarenhet",
+        "OAuth2-baserad åtkomsthantering",
+        "Offererad konsult",
+        "REST",
+        "SKA uppfylla samtliga specificerade ska-krav",
+        "minst två (2) tidigare uppdrag"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_fe6ca056.md"
+      ]
+    }
+  },
+  "Regelverk och Förfarande": {
+    "Upphandlingsstruktur och Avtalsvillkor": {
+      "topics": [
+        "Adda Inköpscentral AB",
+        "Avropsberättigade parter (Bilaga 01)",
+        "Bästa förhållandet mellan pris och kvalitet",
+        "Dynamisk rangordning",
+        "ESPD-krav",
+        "Organisationsnummer 556819-4798",
+        "Ramavtal i eget namn (genom inköpscentralen)",
+        "Ramavtalsperiod (fyra år)",
+        "Ramavtalsstart (2022-09-26)",
+        "Selektivt förfarande i LOU",
+        "Upphandlande myndigheter (kommuner, regioner, etc.)",
+        "Uppsägning efter 18 månader",
+        "Uppsägningstid (sex månader)",
+        "Viktad fråga",
+        "Åtta anbudsgivare per anbudsområde"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_PRIMARY_Upphandlingsdokument_(GDPR)_f38b.md"
+      ]
+    }
+  },
+  "Upphandlingsstyrning": {
+    "Uppdrags- och Avtalsidentifikation": {
+      "topics": [
+        "Avropsförfrågan",
+        "E-klient",
+        "Inera AB",
+        "Senior Mjukvaruarkitekt",
+        "projektnummer 10539",
+        "ramavtalet IT-konsulttjänster 2021"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_9b1627e7.md"
+      ]
+    }
+  },
+  "Kompetens och Kvalifikationer": {
+    "Kvalifikationskrav och Roller": {
+      "topics": [
+        "Dokumentation som bevisar detta",
+        "Kompetensnivå 5",
+        "Ramavtalet",
+        "Senior Mjukvaruarkitekt"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_32f031df.md"
+      ]
+    }
+  },
+  "Upphandling och Avrop": {
+    "Avropsspecifikation": {
+      "topics": [
+        "3 dagar/vecka på plats (Placering)",
+        "Adda IT-konsulttjänster 2021 (10539)",
+        "Blekinge län",
+        "E-klient (Projekt)",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Inera AB",
+        "Ineras kontor i Lund",
+        "Kronobergs län",
+        "Nivå 5 (Kompetensnivå)",
+        "Senior Fullstackutvecklare",
+        "Skåne län"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_b757db7e.md"
+      ]
+    }
+  },
+  "Affärsregler och Juridik": {
+    "Avtalsvillkor och Förfarande": {
+      "topics": [
+        "Adda Inköpscentrals ramavtal IT-konsulttjänster 2021",
+        "Avbrytande av avrop om avropssvaren överskrider avsatt budget",
+        "Avropssvarsområde D",
+        "Ensidig optionsrätt till förlängning upp till maximalt tolv (12) månader",
+        "Inga sidoanbud eller alternativa anbud",
+        "Kontraktstid: 2024-01-02 till 2024-09-30",
+        "Sista anbudsdag: 2023-11-10 23:59",
+        "Uppskattat värde: 3 900 000 SEK",
+        "förnyad konkurrensutsättning",
+        "meddela förlängning senast två (2) veckor innan avtalet löper ut",
+        "projektnummer 10539",
+        "transformationsledare"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(19)_1431.md"
+      ]
+    }
+  },
+  "Kontraktsstyrning": {
+    "Avtalsstruktur och Utförandevillkor": {
+      "topics": [
+        "Adda Inköpscentrals ramavtal",
+        "Allmänna kontraktsvillkoren",
+        "Avropande myndighets namn",
+        "Betalningstidpunkt",
+        "Ersättningsform",
+        "IT-konsulttjänster 2021 (Kontraktsmall)",
+        "Kontaktpersoner (behörighet)",
+        "Kontraktshandlingars inbördes ordning",
+        "Kontraktsperiod",
+        "Leverantörens namn",
+        "Organisationsnummer",
+        "Projektnummer 10539",
+        "Projektorganisation",
+        "Säkerhetskopiering",
+        "Tidplan (Milstolpar)",
+        "Uppdragets omfattning",
+        "Uppdragets resultat",
+        "Uppföljning",
+        "Var uppdraget ska utföras"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_PRIMARY_mall-for-kontrakt---it-konsult_7614.md"
+      ]
+    }
+  },
+  "Utvärderingsprocessen": {
+    "Utvärderingsregler och Kvalitetskrav": {
+      "topics": [
+        "Anbudet kommer att förkastas",
+        "Får 0 poäng",
+        "Minimikrav vid Intervju",
+        "Minst en (1) poäng",
+        "Varje enskild bedömningsgrund"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_SECONDARY_19123de3.md"
+      ]
+    }
+  },
+  "Juridik och Upphandlingsprocess": {
+    "Avtalets Struktur och Procedurregler": {
+      "topics": [
+        "2 000 000 SEK (Uppskattat årsbelopp)",
+        "2024-03-08",
+        "2024-03-25 23:59 (Sista anbudsdag)",
+        "Adda Inköpscentrals ramavtal IT-konsulttjänster 2021",
+        "Avropskontraktet",
+        "Avropsområde Systemutveckling/systemförvaltning och infrastruktur",
+        "Avropssvarsområde G: Skåne län, Blekinge län och Kronobergs län",
+        "Frågan är viktad och ingår i utvärderingen",
+        "Fyra (4) veckor (Meddelande om förlängning)",
+        "Förnyad konkurrensutsättning",
+        "Kontraktstid Tolv (12) månader",
+        "Optionsrätt till maximalt tjugofyra (24) månader",
+        "Projektnummer 10539",
+        "Reservation eller alternativa anbud (Förbud)",
+        "Senior systemutvecklare (Roll)",
+        "Texten/frågan innehåller ESPD-krav",
+        "Upp till en heltids (100 %) resurskonsult"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(28)_1573.md"
+      ]
+    }
+  },
+  "Juridik och Efterlevnad": {
+    "Krav och dokumentation för Dataskydd": {
+      "topics": [
+        "Avropande myndigheten",
+        "GDPR",
+        "Krav på tydlig beskrivning (Hantering av PU)",
+        "Personuppgifter",
+        "Personuppgiftsbehandling",
+        "Personuppgiftsbiträdesavtal (PUB-avtal)",
+        "Utkast till PUB-avtal MÅSTE bifogas avropsförfrågan"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_INSTRUCTION_PRIMARY_bf4829c9.md"
+      ]
+    },
+    "Hantera Dataskyddsavtal": {
+      "topics": [
+        "Avropande myndigheten",
+        "Instruktionen till personuppgiftsbiträdet SKA anpassas",
+        "Personuppgiftsbiträdesavtal (DPA)",
+        "SKR (Mallkälla)",
+        "Säkerhetspolisen (Mallkälla)",
+        "Säkerhetsskyddsavtal"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_INSTRUCTION_PRIMARY_00542c5f.md"
+      ]
+    }
+  },
+  "Avtalsstruktur och Förfarande": {
+    "Avropsvillkor och Administrativa Ramar": {
+      "topics": [
+        "Avropet genomförs på området Säkerhetsstrateg/Säkerhetsanalytiker nivå 5",
+        "Avropskontraktet",
+        "Avropssvarsområde D, Stockholms län, Uppsala län, Gotlands län",
+        "Förnyad konkurrensutsättning",
+        "Kontraktstid (från omgående till 2024-09-30)",
+        "Optionsrätt till förlängning på tolv (12) månader",
+        "Ramavtal IT-konsulttjänster 2021",
+        "Reservation eller alternativa anbud (förbjudet)",
+        "projektnummer 10539"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(21)_24c9.md"
+      ]
+    }
+  },
+  "Upphandlingsprocess och Juridik": {
+    "Avropets Villkor och Formalia": {
+      "topics": [
+        "Avropets värde ... 6 000 000 SEK (beräknat per avtalsår)",
+        "Avropsförfarande förnyad konkurrensutsättning",
+        "Avropssvarsområde G; Skåne län, Blekinge län och Kronobergs län",
+        "ESPD-krav",
+        "Ensidigt optionsrätt till förlängning om tjugofyra (24) månader",
+        "Frågan är viktad och ingår i utvärderingen",
+        "Kontraktstid 2024-01-01 till 2024-10-31",
+        "Ramavtal IT-konsulttjänster 2021 (projektnummer 10539)",
+        "Reservation eller alternativa anbud (förbud)",
+        "Sista anbudsdag: 2023-11-22 23:59"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(22)_760d.md"
+      ]
+    }
+  },
+  "Affärsregler och Ramverk": {
+    "Avropsramar och Geografisk Omfattning": {
+      "topics": [
+        "Adda IT-konsulttjänster 2021",
+        "Avropsområde D - Förändringsledare",
+        "Förnyad Konkurrensutsättning (FKU)",
+        "Gotlands län",
+        "Projektnummer 10539",
+        "Stockholms län",
+        "Uppsala län"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_e2c227ed.md"
+      ]
+    },
+    "Avtalsspecifikationer och Avropsprocedur": {
+      "topics": [
+        "Avropsområde D",
+        "Förnyad Konkurrensutsättning",
+        "Geografiska regioner",
+        "Inera AB",
+        "Projektledare",
+        "Projektnummer 10539",
+        "Ramavtalet 'IT-konsulttjänster 2021'",
+        "SDK (Införandeprojekt)"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_d31d933e.md"
+      ]
+    }
+  },
+  "Avtalets Omfattning": {
+    "IT-konsulttjänster: Kompetensområden": {
+      "topics": [
+        "Användarsupport/teknikstöd",
+        "Arkitektur",
+        "IT-, informations-och cybersäkerhet",
+        "Ledning och styrning",
+        "Systemutveckling/system-förvaltning och infrastruktur",
+        "Tillgänglighet och webb",
+        "Verksamhetsutveckling och strategi"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_a6d9b8d2.md"
+      ]
+    }
+  },
+  "Anbudsprocess": {
+    "Formella Anbudskrav": {
+      "topics": [
+        "Alternativa anbud",
+        "Anbudsförkastning",
+        "Ersättning för anbudskostnader",
+        "Krav på svenska språket",
+        "Sidoanbud"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_RULE_SECONDARY_388527f0.md"
+      ]
+    }
+  },
+  "Ekonomi och Finans": {
+    "Faktureringskrav och Betalningsvillkor": {
+      "topics": [
+        "30 kalenderdagar netto",
+        "Avrops-/beställningsnummer",
+        "Elektronisk fakturering (e-faktura)",
+        "GLN (Global Location Number)",
+        "Kontraktsnummer/referens",
+        "Kostnadsställe/beställarreferens",
+        "Kreditfaktura",
+        "Peppol BIS Billing 3",
+        "Ramavtalets namn/projektnummer"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_INSTRUCTION_PRIMARY_500b0bd3.md"
+      ]
+    }
+  },
+  "Kompetens och Resurskrav": {
+    "Kravprofiler/Rollspecifikationer": {
+      "topics": [
+        "Djup kunskap",
+        "Huvudarkitekt PKI",
+        "Kravställning av funktionella och icke-funktionella krav",
+        "PKI-området",
+        "Ska-krav",
+        "Styrkas med CV",
+        "Teknisk kravställare PKI"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_DEFINITION_SECONDARY_5ca7de0f.md"
+      ]
+    }
+  },
+  "Utvärdering och Kriterier": {
+    "Utvärderingsmodeller och Formler": {
+      "topics": [
+        "Kvalitetspoängsvärde 40 kr",
+        "Lägst utvärderingspris vinner",
+        "Maximal Kvalitetspoäng 15 poäng",
+        "Maximalt mervärdesavdrag 600 kr",
+        "Pris per timme - (Kvalitetspoäng * 40 kr) = Utvärderingspris"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_INSTRUCTION_SECONDARY_61b70cca.md"
+      ]
+    }
+  },
+  "Affärsregler & Avtalsstruktur": {
+    "Geografisk Omfattning (Avrop)": {
+      "topics": [
+        "Avropsförfrågan",
+        "Avropssvarsområde G",
+        "Blekinge län",
+        "Geografiskt Avropsområde",
+        "Kronobergs län",
+        "Ramavtalet",
+        "Skåne län"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_281f85d6.md"
+      ]
+    }
+  },
+  "Ramverk och Styrning": {
+    "Avtalsramverk och Tillämpning": {
+      "topics": [
+        "Inera AB",
+        "OAuth2-konsult",
+        "förnyad konkurrensutsättning (FKU)",
+        "projektnummer 10539",
+        "ramavtalet IT-konsulttjänster 2021",
+        "resurskonsult"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_SECONDARY_b618768f.md"
+      ]
+    }
+  },
+  "Juridik och Affärsregler": {
+    "Regulatoriska Krav och Ekonomiska Villkor": {
+      "topics": [
+        "Absolut sekretess",
+        "Avsnitt 1.2.1 i anbudsinbjudan",
+        "Förbjudet att tilldela eller fortsätta fullgörandet av offentliga kontrakt med rysk koppling",
+        "Förordning (EU) nr 833/2014",
+        "Försäkran (intyg om sanktionsfrihet)",
+        "Leverantörer och underleverantörer (som omfattas av sanktioner)",
+        "Omsatt cirka 477 miljoner SEK",
+        "RÅDETS FÖRORDNING (EU) 2022/576 av den 8 april 2022",
+        "Takvolym"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_PRIMARY_Fr†gor_och_svar_under_anbudsti_e77c.md"
+      ]
+    }
+  },
+  "Affärsregler och Metodik": {
+    "Utvärderingsmodell och Tilldelningskriterier": {
+      "topics": [
+        "4 bedömningsgrunder",
+        "Anbudspris - Fiktivt avdrag = Utvärderingspris (formel)",
+        "bästa förhållandet mellan pris och kvalitet",
+        "fiktivt mervärdesavdrag i SEK",
+        "intervju (max 30 min)",
+        "lägst fiktivt utvärderingspris vinner",
+        "max 700 SEK (avdragstak)",
+        "mest ekonomiskt fördelaktigt",
+        "minst 1 poäng per bedömningsgrund (avslagskriterium)",
+        "obligatoriska krav",
+        "poängsättning 0-5"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_INSTRUCTION_SECONDARY_2686d87b.md"
+      ]
+    }
+  },
+  "Kommersiella Villkor": {
+    "Uppskattat Värde och Volym": {
+      "topics": [
+        "150 timmar (Nätverksarkitekt)",
+        "350 timmar (IT-arkitekt)",
+        "500 timmar (total volym)",
+        "650 000 SEK (beräknat värde)",
+        "Ingen volymgaranti",
+        "Volym/värde kan över-/understigas"
+      ],
+      "file_count": 1,
+      "files": [
+        "3_volume_DEFINITION_SECONDARY_abb8dc56.md"
+      ]
+    }
+  },
+  "Styrning": {
+    "Roller och Mandat": {
+      "topics": [
+        "Behöriga att fatta nödvändiga beslut",
+        "Byte av kontaktperson",
+        "Kontaktpersoner",
+        "Meddela motparten omedelbart",
+        "Namn, Adress, E-post och Telefon (specifikation)"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_PRIMARY_b58daf14.md"
+      ]
+    }
+  },
+  "Affärsregler och Scope": {
+    "Avropsområden och Geografiska Begränsningar": {
+      "topics": [
+        "Avropssvarsområde G",
+        "Blekinge län",
+        "Geografiskt Avropsområde (Regel)",
+        "Kronobergs län",
+        "Ramavtalets",
+        "Skåne län"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_RULE_SECONDARY_5922ee5f.md"
+      ]
+    }
+  },
+  "Process och Affärsregler": {
+    "Avropsmetoder och Avtalsvillkor": {
+      "topics": [
+        "Avtalsperiod",
+        "Dynamisk rangordning",
+        "Ersättning för obekväm tid",
+        "Fakturering och förfallotid",
+        "Förnyad konkurrensutsättning",
+        "Generella prisvillkor",
+        "Kompetensnivåer",
+        "Konsultroller",
+        "Konsulttjänstens pris vid rangordning",
+        "Leverantörer per delområde",
+        "Projektnummer 10539",
+        "Ramavtal för IT-konsulttjänster 20 21",
+        "Rangordning",
+        "Resurs- och projektuppdrag",
+        "Rätt till uppdragsresultat",
+        "Underleverantörer",
+        "Utvärderingskriterier vid förnyad konkurrensutsättning"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_PRIMARY_avropsvagledning---it-konsultt_2db6.md"
+      ]
+    }
+  },
+  "Juridik och Avtalsstruktur": {
+    "Upphandlingsstruktur och Avtalsram": {
+      "topics": [
+        "Addas ramavtal 'IT-konsulttjänster 2021' (10539)",
+        "Avropsförfrågan",
+        "E-klient",
+        "Förnyad konkurrensutsättning (FKU)",
+        "Inera AB",
+        "Resurskonsult",
+        "Senior Enterprisearkitekt"
+      ],
+      "file_count": 1,
+      "files": [
+        "4_strategy_DEFINITION_SECONDARY_bc227438.md"
+      ]
+    }
+  },
+  "Tjänstekatalog och Uppdragsregler": {
+    "Tjänsteområde och Leveranskrav": {
+      "topics": [
+        "Användarsupport",
+        "Kompetensområde 7",
+        "Regler för avropsform",
+        "Regler för prissättning",
+        "Servicedesk",
+        "Support på distans",
+        "Support på plats hos användaren",
+        "Teknikstöd"
+      ],
+      "file_count": 1,
+      "files": [
+        "1_intake_DEFINITION_PRIMARY_69c2c1bb.md"
+      ]
+    }
+  },
+  "Kravhantering": {
+    "Personella Krav och Kvalifikationer": {
+      "topics": [
+        "Bifogas anbudet",
+        "Dokumentation (kravuppfyllnad)",
+        "Kompetensnivå 5",
+        "Krav på Kompetensnivå 5",
+        "Verksamhetsarkitekt",
+        "Överordnade ramavtalet"
+      ],
+      "file_count": 1,
+      "files": [
+        "2_level_RULE_SECONDARY_969a014a.md"
+      ]
+    }
+  },
+  "Ramverkets Parter": {
+    "Entitetsregister & Geografiska Koder": {
+      "topics": [
+        "AB Alingsåshem",
+        "Ale kommun",
+        "Avropsberättigad",
+        "IT-konsulttjänster 2021",
+        "Kommunnr",
+        "Lännr.",
+        "Org.nr"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_PRIMARY_avropsberattigade-parter---it-_7a4f.md"
+      ]
+    }
+  },
+  "Affärsregler och Ramavtal": {
+    "Avropsförfarande och Kommersiella Villkor": {
+      "topics": [
+        "Adda Inköpscentrals ramavtal IT-konsulttjänster 2021",
+        "Avropets värde per avtalsår beräknas uppgå till 1 800 000 SEK",
+        "Avropssvarsområde G; Skåne län, Blekinge län och Kronobergs län",
+        "Ensidig optionsrätt till förlängning om tjugofyra (24) månader",
+        "Fyra (4) veckors varsel (meddelande om förlängning)",
+        "Förbud mot alternativa anbud",
+        "Förkastning vid reservation",
+        "Förnyad konkurrensutsättning",
+        "Kontraktstid: 2024-01-01 till och med 2024-10-31",
+        "Projektnummer 10539",
+        "Rätt att avbryta avropet (vid överskriden budget)"
+      ],
+      "file_count": 1,
+      "files": [
+        "general_FULL_DOCUMENT_SECONDARY_1-AllDocuments_(23)_f26d.md"
+      ]
+    }
+  }
+}
