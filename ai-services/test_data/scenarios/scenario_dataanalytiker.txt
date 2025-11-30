@@ -1,0 +1,34 @@
+# Avrop: Dataanalytiker för verksamhetsutveckling
+
+## Organisation
+Stockholms läns landsting, Stockholm
+
+## Behov
+Dataanalytiker för att analysera vårddata och ta fram beslutsunderlag.
+Fokus på att identifiera förbättringsmöjligheter i vårdflöden.
+
+## Roller och Nivåer
+- Dataanalytiker/Business Intelligence, Nivå 4
+
+## Omfattning
+- 100% heltid
+- Kontraktsvärde: 1 400 000 SEK
+- Avropsområde D (Stockholm, Uppsala, Gotland)
+- Takpris: 1150 kr/timme
+
+## Krav på konsulten
+- Minst 4 års erfarenhet av dataanalys
+- Erfarenhet av SQL och Python
+- Kunskap om Power BI eller Tableau
+- Erfarenhet från hälso- och sjukvård är meriterande
+
+## Uppgifter
+- Analysera stora datamängder
+- Skapa dashboards och rapporter
+- Identifiera mönster och trender
+- Presentera insikter för ledning
+
+## Kontraktstid
+- 10 månader initialt
+- Option: 14 månader förlängning
+

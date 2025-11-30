@@ -1,47 +1,75 @@
+# =============================================================================
+# PLANNER (LOGIC LAYER) - Reasoning before Synthesis
+# =============================================================================
+
 planner:
-  instruction: |
-    Du är en strategisk upphandlingsrådgivare på Adda. Din uppgift är att navigera i kunskapsgrafen för att hitta rätt information.
-    Datum idag: {date}
+  system_prompt: |
+    Du är Logik-motorn i Addas upphandlingssystem. 
+    Din uppgift är INTE att chatta eller formulera svar - det gör Synthesizer.
+    Din uppgift är att ANALYSERA och RESONERA baserat på fakta.
 
-    DIN VERKTYGSLÅDA (TAXONOMI):
-    1. PROCESS-STEG (Var ska vi leta?):
-       - step_1_intake: Behov, Roller, Regioner, Kravspecifikation.
-       - step_2_level: Kompetensnivåer (1-5), Senioritet, Erfarenhet.
-       - step_3_volume: Pris, Takpris, Volym, Timmar, 320-timmarsregeln.
-       - step_4_strategy: Avropsform (FKU vs DR), Affärsregler (t.ex. KN5).
-       - general: Allmänna villkor, Avtalsfrågor.
+    DU FÅR:
+    1. Intent: Vad användaren vill (FACT/INSPIRATION/INSTRUCTION)
+    2. Context: Hämtade dokument med metadata (authority, scope, type)
 
-    2. BLOCK-TYPER (Vad letar vi efter?):
-       - RULE: Tvingande regler (Ska/Måste/Får ej). Kritiskt för Primary-data.
-       - INSTRUCTION: Hur man gör (Process).
-       - DEFINITION: Fakta och förklaringar.
-       - DATA_POINTER: Hänvisningar till bilagor/Excel (Prislistor).
-       - ALL: Om du är osäker, sök brett.
+    DIN UPPGIFT:
+    Analysera kontexten och skapa en strategi för hur svaret ska formuleras.
 
-    INTENT-DRIVEN STRATEGI:
-    Du får information om användarens `current_intent` från Extractor:
-    
-    * **Om Intent = 'FACT':**
-      - Användaren vill veta regler, priser, villkor.
-      - VAR EXTREMT STRIKT: Sök ENDAST efter RULE eller DATA_POINTER.
-      - Prioritera PRIMARY-dokument (Ramavtal, Villkor, Prisbilagor).
-      - Undvik SECONDARY (vägledningar/exempel) – de kan förvirra.
-    
-    * **Om Intent = 'INSPIRATION':**
-      - Användaren vill ha hjälp, exempel, förslag.
-      - Sök efter INSTRUCTION eller DEFINITION.
-      - SECONDARY-dokument (vägledningar) är tillåtna och ofta användbara.
+    HIERARKI (KRITISKT - FÖLJ ALLTID):
+    1. PRIMARY trumfar ALLTID SECONDARY
+       - Om PRIMARY säger "Max 320 timmar" och SECONDARY säger "Ibland kan man göra undantag" -> PRIMARY GÄLLER
+    2. FRAMEWORK_SPECIFIC trumfar GENERAL_LEGAL
+       - Addas ramavtal har företräde framför allmänna upphandlingsregler
+    3. RULE trumfar DEFINITION/EXAMPLE
+       - Tvingande regler (SKA/MÅSTE) har företräde framför beskrivningar
 
-    UPPGIFT:
-    Analysera användarens fråga och mappa den till exakt ETT steg och EN typ.
-    Om användaren verkar vilja bryta en regel (t.ex. "Kan jag göra direktavrop på nivå 5?"), prioritera sökning efter 'RULE' i 'step_4_strategy'.
+    KONFLIKTHANTERING:
+    Om källor motsäger varandra:
+    - Identifiera konflikten explicit
+    - Ange vilken källa som gäller (enligt hierarkin)
+    - Förklara varför
+
+    VALIDERING (Fånga orimliga begäranden):
+    - Om användaren ber om >320 timmar -> Notera att FKU krävs
+    - Om användaren ber om nivå 5 -> Notera att FKU krävs (KN5-regeln)
+    - Om användaren ber om något utanför ramavtalet -> Notera begränsningen
+
+    TON-INSTRUKTION (Välj EN):
+    - "Strict/Warning": Användaren försöker bryta en regel, eller begäran är orimlig
+    - "Helpful/Guiding": Användaren behöver vägledning, vi saknar info
+    - "Informative": Ren faktafråga med tydligt svar
+
+    PROCESS-STEG (för persona-val):
+    - step_1_intake: Behov, Roller, Regioner
+    - step_2_level: Kompetensnivåer (1-5)
+    - step_3_volume: Pris, Volym, Timmar
+    - step_4_strategy: Avropsform (FKU/DR), Affärsregler
+    - general: Allmänna frågor
 
     OUTPUT JSON:
     {{
-      "reasoning": "Kort analys av varför du valde detta steg/typ",
-      "target_step": "Välj ETT värde från listan ovan",
-      "target_type": "Välj ETT värde från listan ovan",
-      "vector_query": "En detaljerad söksträng optimerad för att hitta PRIMARY-regler först"
+      "primary_conclusion": "Kärnsvaret baserat på PRIMARY-fakta",
+      "policy_check": "Regel X (från fil Y) styrde detta beslut",
+      "tone_instruction": "Strict/Warning | Helpful/Guiding | Informative",
+      "missing_info": ["lista på saknad info för 100% svar"],
+      "conflict_resolution": "Hur konflikter löstes (eller null)",
+      "data_validation": "Varför begäran är orimlig (eller null)",
+      "target_step": "step_1_intake | step_2_level | step_3_volume | step_4_strategy | general",
+      "primary_sources": ["filnamn1.md", "filnamn2.md"],
+      "secondary_sources": ["filnamn3.md"]
+    }}
+
+  # Legacy instruction (kept for backward compatibility)
+  instruction: |
+    Du är en strategisk upphandlingsrådgivare på Adda.
+    Analysera användarens fråga och mappa den till process-steg och block-typ.
+    
+    OUTPUT JSON:
+    {{
+      "reasoning": "Kort analys",
+      "target_step": "step_1_intake | step_2_level | step_3_volume | step_4_strategy | general",
+      "target_type": "RULE | INSTRUCTION | DEFINITION | DATA_POINTER | ALL",
+      "vector_query": "Optimerad söksträng"
     }}
 
 judge:
@@ -310,3 +338,146 @@ extractor:
 
     SENASTE MEDDELANDE:
     {query}
+
+# =============================================================================
+# INTENT ANALYZER - Query to Taxonomy Mapping
+# =============================================================================
+
+intent_analyzer:
+  # Keywords for rule-based intent classification
+  fact_keywords:
+    - "vad är"
+    - "hur mycket"
+    - "kostar"
+    - "pris"
+    - "takpris"
+    - "regel"
+    - "får man"
+    - "måste"
+    - "ska"
+    - "krav"
+    - "gräns"
+    - "max"
+    - "min"
+    - "timmar"
+    - "volym"
+    - "nivå"
+    - "kompetens"
+  
+  instruction_keywords:
+    - "hur gör"
+    - "steg för steg"
+    - "process"
+    - "guide"
+    - "instruktion"
+    - "förklara hur"
+    - "visa hur"
+    - "hjälp mig"
+    - "hur skriver"
+    - "hur formulerar"
+  
+  inspiration_keywords:
+    - "exempel"
+    - "tips"
+    - "förslag"
+    - "inspiration"
+    - "liknande"
+    - "hur har andra"
+    - "vad brukar"
+    - "erfarenhet"
+  
+  # Branch detection patterns (keyword -> branch mapping)
+  branch_patterns:
+    ROLES:
+      - "roll"
+      - "konsult"
+      - "utvecklare"
+      - "projektledare"
+      - "arkitekt"
+      - "testare"
+      - "kompetens"
+      - "nivå"
+    FINANCIALS:
+      - "pris"
+      - "kostnad"
+      - "takpris"
+      - "budget"
+      - "timmar"
+      - "volym"
+      - "kr"
+      - "kronor"
+    LOCATIONS:
+      - "stockholm"
+      - "göteborg"
+      - "malmö"
+      - "region"
+      - "ort"
+      - "plats"
+      - "anbudsområde"
+      - "remote"
+      - "distans"
+      - "land"
+      - "sverige"
+      - "eu"
+      - "grönland"
+      - "utomlands"
+    GOVERNANCE:
+      - "regel"
+      - "lag"
+      - "krav"
+      - "gdpr"
+      - "säkerhet"
+      - "sekretess"
+      - "lou"
+    STRATEGY:
+      - "fku"
+      - "förnyad konkurrensutsättning"
+      - "direktupphandling"
+      - "avrop"
+      - "strategi"
+    ARTIFACTS:
+      - "cv"
+      - "avtal"
+      - "bilaga"
+      - "dokument"
+      - "mall"
+      - "formulär"
+      - "specifikation"
+      - "kravspec"
+      - "kravspecifikation"
+    PHASES:
+      - "steg"
+      - "fas"
+      - "process"
+      - "intake"
+      - "utvärdering"
+  
+  # LLM enhancement prompt for ambiguous queries
+  llm_enhance_prompt: |
+    Analysera följande fråga och klassificera den enligt taxonomin.
+
+    FRÅGA: {query}
+
+    {vocab_context}
+
+    RULES OF THUMB (VIKTIGT - Följ dessa exakt):
+    - IF query mentions geography (Cities, Countries, Remote work, "Grönland", "Stockholm", "utomlands") -> ADD branch 'LOCATIONS'
+    - IF query mentions documents (CV, Avtal, Specifikation, Mall, Kravspec) -> ADD branch 'ARTIFACTS'
+    - IF query mentions specific job titles (Utvecklare, Projektledare, Arkitekt, Testare) -> ADD branch 'ROLES'
+    - IF query mentions money, price, hours, volume (pris, takpris, timmar, kr) -> ADD branch 'FINANCIALS'
+    - IF query mentions rules, laws, requirements (regel, lag, krav, GDPR) -> ADD branch 'GOVERNANCE'
+    - IF query mentions procurement strategy (FKU, Direktavrop, avropsform) -> ADD branch 'STRATEGY'
+
+    NUVARANDE ANALYS (kan vara fel):
+    - Intent: {current_intent}
+    - Branches: {current_branches}
+    - Topics: {current_topics}
+
+    Returnera JSON med:
+    {{
+        "intent_category": "FACT" | "INSPIRATION" | "INSTRUCTION",
+        "taxonomy_branches": ["ROLES", "FINANCIALS", etc.],
+        "detected_topics": ["topic1", "topic2"],
+        "detected_entities": ["entity1", "entity2"],
+        "confidence": 0.0-1.0
+    }}

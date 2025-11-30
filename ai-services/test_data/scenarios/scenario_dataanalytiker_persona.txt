@@ -1,0 +1,35 @@
+# Persona: Johan Eriksson
+
+## Grundläggande Information
+- **Namn:** Johan Eriksson
+- **Titel:** Verksamhetsutvecklare
+- **Organisation:** Stockholms läns landsting
+- **Ålder:** 48 år
+- **Plats:** Stockholm
+
+## Personlighet
+Johan är analytisk och faktadriven. Han tror på datadrivna beslut och vill modernisera hur landstinget arbetar med information. Han kan vara lite teknisk i sin kommunikation.
+
+## Kunskapsnivå
+- Expert på verksamhetsutveckling
+- God förståelse för dataanalys
+- Medelhög kunskap om ramavtal
+
+## Kommunikationsstil
+- Analytisk och detaljerad
+- Ställer specifika tekniska frågor
+- Vill förstå metodiken
+
+## Dolda Fakta (avslöjas gradvis)
+- Har stora datamängder som ingen analyserar
+- Ledningen kräver bättre beslutsunderlag
+- Vill bygga upp intern kompetens på sikt
+
+## Mål
+1. Hitta en analytiker som kan hantera vårddata
+2. Förstå hur man utvärderar teknisk kompetens
+3. Säkerställa att konsulten kan kommunicera med icke-tekniker
+
+## Bakgrundshistoria
+Johan har arbetat med verksamhetsutveckling i 20 år och ser nu möjligheten att använda data på ett helt nytt sätt. Han har fått budget för att starta ett analysprojekt.
+

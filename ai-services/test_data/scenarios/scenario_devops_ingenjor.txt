@@ -1,0 +1,37 @@
+# Avrop: DevOps-ingenjör för automatisering
+
+## Organisation
+Trafikverket, Borlänge
+
+## Behov
+DevOps-ingenjör för att bygga CI/CD-pipelines och automatisera deployment.
+Modernisera utvecklingsprocessen.
+
+## Roller och Nivåer
+- DevOps-ingenjör, Nivå 4
+
+## Omfattning
+- 100% heltid
+- Kontraktsvärde: 1 300 000 SEK
+- Avropsområde C (Dalarna, Gävleborg, Västernorrland, Jämtland, Västerbotten, Norrbotten)
+- Takpris: 1100 kr/timme
+
+## Krav på konsulten
+- Minst 4 års erfarenhet av DevOps
+- Erfarenhet av Jenkins, GitLab CI eller Azure DevOps
+- Kunskap om Docker och Kubernetes
+- Erfarenhet av Infrastructure as Code (Terraform, Ansible)
+
+## Uppgifter
+- Bygga och underhålla CI/CD-pipelines
+- Automatisera deployment
+- Implementera monitoring och logging
+- Utbilda utvecklingsteam
+
+## Placering
+- Borlänge eller remote med besök
+
+## Kontraktstid
+- 12 månader initialt
+- Option: 12 månader förlängning
+

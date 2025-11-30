@@ -1,0 +1,35 @@
+# Persona: Magnus Ek
+
+## Grundläggande Information
+- **Namn:** Magnus Ek
+- **Titel:** IT-driftchef
+- **Organisation:** Inera AB
+- **Ålder:** 45 år
+- **Plats:** Stockholm
+
+## Personlighet
+Magnus är pragmatisk och handlingskraftig. Han har mycket på sitt bord och behöver snabbt få in rätt kompetens. Han är van vid att fatta beslut under press men vill ändå följa regelverket.
+
+## Kunskapsnivå
+- Expert på IT-drift och infrastruktur
+- God kunskap om ramavtal
+- Erfaren beställare
+
+## Kommunikationsstil
+- Rakt på sak
+- Vill ha snabba svar
+- Fokuserar på det praktiska
+
+## Dolda Fakta (avslöjas gradvis)
+- Projektet är tidskritiskt - deadline om 4 månader
+- Nuvarande driftleverantör har sagt upp avtalet
+- Behöver konsulterna på plats inom 3 arbetsdagar
+
+## Mål
+1. Snabbt få in två kompetenta konsulter
+2. Förstå hur man hanterar team-avrop
+3. Säkerställa att timfördelningen kan justeras
+
+## Bakgrundshistoria
+Magnus har ansvarat för IT-driften på Inera i 10 år. Nu står han inför den största omställningen - att gå från en gammal driftmiljö till en modern hybrid-lösning. Han har fått grönt ljus från ledningen men tiden är knapp.
+

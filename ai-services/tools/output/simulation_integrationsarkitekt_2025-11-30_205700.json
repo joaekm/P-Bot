@@ -1,0 +1,722 @@
+{
+  "timestamp": "2025-11-30T20:57:00.622082",
+  "scenario": {
+    "filename": "scenario_integrationsarkitekt.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/test_data/scenarios/scenario_integrationsarkitekt.txt"
+  },
+  "persona": {
+    "name": "Erik Johansson",
+    "title": "Arkitektledare",
+    "organization": "Inera AB",
+    "personality": "Erik är en erfaren arkitekt med djup teknisk kunskap. Han är analytisk och vill förstå alla detaljer innan han fattar beslut. Kan ibland uppfattas som petig men det beror på hans höga kvalitetskrav.",
+    "knowledge_level": "- Expert på systemarkitektur - God kunskap om ramavtal - Mycket erfaren inom offentlig sektor",
+    "communication_style": "- Teknisk och detaljerad - Ställer djupgående frågor - Vill ha motiveringar till rekommendationer",
+    "hidden_constraints": [
+      "Projektet har redan startat och de behöver förstärkning snabbt",
+      "Tidigare konsult slutade oväntat",
+      "Vill helst ha någon med erfarenhet från hälso- och sjukvård"
+    ],
+    "goals": [
+      "Hitta en arkitekt som kan ta över snabbt",
+      "Förstå vilka krav som är rimliga att ställa",
+      "Säkerställa att referensuppdrag är relevanta"
+    ],
+    "background": "Erik har lett arkitekturarbetet på Inera i 15 år. Han ser detta projekt som en av de viktigaste förändringarna i Ineras historia och vill att det ska bli rätt.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Erik Johansson och jobbar som Arkitektledare på Inera AB. Jag behöver hjälp med ett avrop. Vi ska hitta en arkitekt som kan ta över snabbt.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "⚠️ **Observera:** Inga orimliga begäranden detekterades då ingen specifik volym eller nivå angavs.\n\nHej Erik, välkommen! Kul att du hör av dig. Självklart ska jag hjälpa dig och Inera att hitta rätt person.\n\nEn arkitekt som kan ta över snabbt, det låter som att det är full fart hos er!\n\nJag ser att det handlar om en **Lösningsarkitekt**, stämmer det?\n\nFör att jag ska förstå ert behov på bästa sätt, kan du berätta lite mer om uppdraget? Vad är det för projekt eller utmaning som arkitekten ska kliva in i? Det hjälper oss att ringa in exakt vilken typ av kompetens ni behöver.",
+      "turn": 1,
+      "reasoning": {
+        "conclusion": "Användaren, Erik Johansson från Inera AB, behöver vägledning för ett avrop gällande en arkitektroll. Eftersom avropet nämns utan specificerad nivå, volym eller tidsåtgång, och den enda tillgängliga informationen fokuserar på strategiska regler (som FKU-krav vid >320 timmar eller Nivå 5), saknas de kritiska parametrarna för att fastställa rätt avropsform.",
+        "conflicts": null,
+        "policy": "Inga specifika regler kunde direkt tillämpas eftersom volym och nivå saknas. Dock pekar RULE: 1_intake_RULE_PRIMARY_d1c24bb1 och RULE: 2_level_RULE_PRIMARY_2e553ef7 på viktiga tröskelvärden (320 timmar och Nivå 5) som styr FKU-krav.",
+        "tone": "Helpful/Guiding",
+        "validation": "Inga orimliga begäranden detekterades då ingen specifik volym eller nivå angavs."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [
+          "Avrop"
+        ],
+        "entity_summary": {
+          "location": null,
+          "price_cap": null,
+          "resources": [
+            {
+              "dialog_status": "ACTIVE",
+              "id": "res_1",
+              "level": null,
+              "quantity": 1,
+              "role": "Lösningsarkitekt",
+              "status": "PENDING"
+            }
+          ],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": true,
+        "has_warning": true,
+        "missing_info": [
+          "location",
+          "volume",
+          "level för Arkitekt"
+        ],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [
+          "STRATEGY",
+          "PHASES",
+          "ROLES"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Nej, det är inte en lösningsarkitekt vi söker, utan en **Integrationsarkitekt**. Vi behöver hjälp med att uppdatera vår Samverkansarkitektur, från en SOA-liknande arkitektur till en REST-baserad. Det är ett viktigt projekt för oss.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "⚠️ **Observera:** Ingen orimlig begäran noterades då ingen volym eller nivå specificerats som skulle trigga FKU-krav.\n\nAh, tack för förtydligandet! Integrationsarkitekt, absolut. Då fokuserar vi helt på den rollen.\n\nDet låter som ett spännande och väldigt viktigt projekt! Att modernisera från SOA till REST kan verkligen göra skillnad.\n\nFör att jag ska förstå behovet på djupet – kan du berätta lite mer om *varför* ni gör den här förändringen? Vad är det ni hoppas uppnå med den nya arkitekturen? Är det för att öka flexibiliteten, sänka kostnader, eller något helt annat?\n\nOch en praktisk fråga – var ska konsulten finnas? Vilken region eller stad gäller det för?",
+      "turn": 2,
+      "reasoning": {
+        "conclusion": "Användarens begäran är av typen INSPIRATION och specificerar ett behov av en Integrationsarkitekt för uppdatering av Samverkansarkitektur (SOA till REST-baserad). Även om specifika regler för volym eller nivå (steg 3 och 2) saknas, bekräftar kontexten att rollen 'Integrationsarkitekt' är relevant inom ramavtalsprocessen (se SECONDARY-dokument). Strategin ska fokusera på att vägleda användaren genom nästa steg i upphandlingen.",
+        "conflicts": "Ingen direkt konflikt mellan PRIMARY och SECONDARY gällande den specifika rollen eller arkitekturfrågan. PRIMARY-dokumenten (FRAMEWORK_SPECIFIC INSTRUCTION/RULE) har företräde över SECONDARY (DOMAIN_KNOWLEDGE/EXAMPLE) men de hanterar olika processaspekter (volym/tidsfrister vs. exempel på roller/processer). Inget i SECONDARY motsäger de tvingande reglerna i PRIMARY.",
+        "policy": "Inga direkta POLICY-regler (från PRIMARY-dokument) begränsar valet av roll eller arkitekturtyp. PRIMARY-dokumenten hanterar främst kommunikation vid prisjustering och svarstider vid Dynamisk Rangordning (DR).",
+        "tone": "Helpful/Guiding",
+        "validation": "Ingen orimlig begäran noterades då ingen volym eller nivå specificerats som skulle trigga FKU-krav."
+      },
+      "ui_directives": {
+        "current_intent": "INSPIRATION",
+        "detected_topics": [
+          "Arkitektur"
+        ],
+        "entity_summary": {
+          "location": null,
+          "price_cap": null,
+          "resources": [
+            {
+              "dialog_status": "ACTIVE",
+              "id": "res_1",
+              "level": null,
+              "quantity": 1,
+              "role": "Integrationsarkitekt",
+              "status": "PENDING"
+            },
+            {
+              "dialog_status": "ACTIVE",
+              "id": "res_1",
+              "level": null,
+              "quantity": 1,
+              "role": "Lösningsarkitekt",
+              "status": "PENDING"
+            }
+          ],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": false,
+        "has_warning": true,
+        "missing_info": [
+          "level för Integrationsarkitekt",
+          "location",
+          "volume"
+        ],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [
+          "PHASES",
+          "ROLES"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi gör den här förändringen för att öka flexibiliteten och skalbarheten i våra system. Vi vill också förenkla integrationerna och minska beroendet av specifika teknologier. Konsulten ska vara baserad i avropsområde D, alltså Stockholm, Uppsala eller Gotland.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+      "turn": 3,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, uppdraget utförs i Stockholm. Det är viktigt att konsulten är placerad inom EU/EES, för att underlätta samarbetet och säkerställa att vi följer våra upphandlingskrav.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+      "turn": 4,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, uppdraget utförs i Stockholm. Konsulten måste vara placerad inom EU/EES. Det är avgörande för oss.",
+      "turn": 5
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+      "turn": 5,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, uppdraget utförs i Stockholm. Det är självklart att konsulten måste vara placerad inom EU/EES. Vi behöver säkerställa en smidig kommunikation och följa alla relevanta regelverk.",
+      "turn": 6
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+      "turn": 6,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det stämmer. Uppdraget utförs i Stockholm och konsulten måste vara placerad inom EU/EES. Det är en absolut förutsättning för oss.",
+      "turn": 7
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+      "turn": 7,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det är korrekt. Uppdraget utförs i Stockholm och konsulten måste vara placerad inom EU/EES. Det är en förutsättning för att vi ska kunna säkerställa efterlevnad av våra regelverk och en smidig samverkan.",
+      "turn": 8
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+      "turn": 8,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det är helt korrekt. Uppdraget utförs i Stockholm och jag behöver en konsult som är placerad inom EU/EES. Det är absolut nödvändigt för oss.",
+      "turn": 9
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+      "turn": 9,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det stämmer. Uppdraget utförs i Stockholm och konsulten måste vara placerad inom EU/EES. Det är en förutsättning för att vi ska kunna leva upp till våra krav.",
+      "turn": 10
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+      "turn": 10,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det är korrekt. Uppdraget utförs i Stockholm och konsulten måste vara placerad inom EU/EES. Det är en absolut nödvändighet för oss.",
+      "turn": 11
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+      "turn": 11,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det är korrekt. Uppdraget utförs i Stockholm och konsulten måste vara placerad inom EU/EES. Det är en förutsättning för att vi ska kunna leva upp till våra säkerhetskrav.",
+      "turn": 12
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+      "turn": 12,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det stämmer. Uppdraget är i Stockholm och konsulten måste vara placerad inom EU/EES. Det är helt avgörande för oss, säkerhetsmässigt.",
+      "turn": 13
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+      "turn": 13,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det är precis som jag har sagt. Uppdraget är i Stockholm och konsulten måste vara placerad inom EU/EES. Det är en icke förhandlingsbar punkt.",
+      "turn": 14
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+      "turn": 14,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, jag förstår. Uppdraget är i Stockholm och konsulten måste vara placerad inom EU/EES. Det är en absolut nödvändighet för oss.",
+      "turn": 15
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+      "turn": 15,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    }
+  ],
+  "final_state": {
+    "current_state": {
+      "confidence": 0.95,
+      "current_intent": "FACT",
+      "extracted_entities": {
+        "_validation_issues": [
+          {
+            "action": "BLOCK",
+            "message": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+            "param": "location",
+            "source": "1_intake_RULE_SECONDARY_0716ee05.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Vald region ingår inte i detta avrop. Godkända regioner är Stockholm, Uppsala och Gotland.",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_56f43912.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Vald region ingår inte i detta avropsområde. Välj Skåne, Blekinge eller Kronobergs län.",
+            "param": "location",
+            "source": "1_intake_RULE_SECONDARY_5922ee5f.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Leverantören måste tillhöra avropsområde Skåne, Blekinge eller Kronoberg.",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_758220ae.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Avropet är begränsat till leverantörer inom Skåne, Blekinge och Kronobergs län.",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_b757db7e.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "INFO",
+            "message": "Information: Förfrågan skickas till leverantörer i regionerna Stockholm, Uppsala och Gotland.",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_f062710d.md",
+            "type": "WARN",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Vald region ingår inte i detta avrop. Välj Stockholm, Uppsala eller Gotland.",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_82ca24bb.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Vald region ingår inte i avropet. Välj Stockholm, Uppsala eller Gotland.",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_edcf9f9e.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Vald region ingår inte i avtalet. Välj Stockholm, Uppsala eller Gotland.",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_5584cbe1.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Leverantören måste vara antagen för Avropssvarsområde G (Skåne, Blekinge, Kronoberg).",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_6826b000.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Vald region ingår inte i avropet. Välj Stockholm, Uppsala eller Gotland.",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_e2c227ed.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Vald region ingår inte i avropsområdet. Välj Skåne, Blekinge eller Kronoberg.",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_281f85d6.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Gäller endast för leverantörer inom Stockholms, Uppsala eller Gotlands län.",
+            "param": "location",
+            "source": "4_strategy_DEFINITION_SECONDARY_84a6cb3e.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Vald region ingår inte i avropsområdet. Välj Skåne, Blekinge eller Kronoberg.",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_cfbc0980.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Leverantören måste vara antagen på ramavtalet för Avropssvarsområde G (Skåne, Blekinge, Kronoberg).",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_9840ff91.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Vald region ingår inte i detta avropsområde. Välj Stockholm, Uppsala eller Gotland.",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_d31d933e.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          },
+          {
+            "action": "BLOCK",
+            "message": "Vald region ingår inte i avropet. Välj Stockholm, Uppsala eller Gotland.",
+            "param": "location",
+            "source": "1_intake_DEFINITION_SECONDARY_ef306f02.md",
+            "type": "BLOCK",
+            "value": "Anbudsområde D"
+          }
+        ],
+        "location": "Anbudsområde D",
+        "price_cap": null,
+        "resources": [
+          {
+            "dialog_status": "ACTIVE",
+            "id": "res_1",
+            "level": null,
+            "quantity": 1,
+            "role": "Integrationsarkitekt",
+            "status": "PENDING"
+          },
+          {
+            "dialog_status": "ACTIVE",
+            "id": "res_1",
+            "level": null,
+            "quantity": 1,
+            "role": "Lösningsarkitekt",
+            "status": "PENDING"
+          }
+        ],
+        "start_date": null,
+        "volume": null
+      },
+      "missing_info": [
+        "resources"
+      ]
+    },
+    "message": "🛑 **Åtgärd krävs:** Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES.",
+    "reasoning": {
+      "conclusion": "BLOCKED",
+      "policy": "Validator constraint",
+      "tone": "Strict/Warning",
+      "validation": "Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES."
+    },
+    "sources": [
+      "1_intake_RULE_SECONDARY_0716ee05.md",
+      "1_intake_DEFINITION_SECONDARY_56f43912.md",
+      "1_intake_RULE_SECONDARY_5922ee5f.md",
+      "1_intake_DEFINITION_SECONDARY_758220ae.md",
+      "1_intake_DEFINITION_SECONDARY_b757db7e.md",
+      "1_intake_DEFINITION_SECONDARY_82ca24bb.md",
+      "1_intake_DEFINITION_SECONDARY_edcf9f9e.md",
+      "1_intake_DEFINITION_SECONDARY_5584cbe1.md",
+      "1_intake_DEFINITION_SECONDARY_6826b000.md",
+      "1_intake_DEFINITION_SECONDARY_e2c227ed.md",
+      "1_intake_DEFINITION_SECONDARY_281f85d6.md",
+      "4_strategy_DEFINITION_SECONDARY_84a6cb3e.md",
+      "1_intake_DEFINITION_SECONDARY_cfbc0980.md",
+      "1_intake_DEFINITION_SECONDARY_9840ff91.md",
+      "1_intake_DEFINITION_SECONDARY_d31d933e.md",
+      "1_intake_DEFINITION_SECONDARY_ef306f02.md"
+    ],
+    "ui_directives": {
+      "current_intent": "FACT",
+      "detected_topics": [],
+      "entity_summary": {},
+      "ghost_mode": false,
+      "has_warning": false,
+      "missing_info": [],
+      "set_active_process_step": "step_1_intake",
+      "taxonomy_branches": [],
+      "tone": "Informative",
+      "update_sticky_header": "Steg 1: Beskriv Behov"
+    }
+  },
+  "summary": {
+    "total_turns": 15,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "FACT"
+  }
+}

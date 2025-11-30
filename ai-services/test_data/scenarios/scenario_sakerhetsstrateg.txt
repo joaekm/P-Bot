@@ -1,0 +1,34 @@
+# Avrop: Säkerhetsstrateg för IAM-projekt
+
+## Organisation
+Inera AB, Stockholm
+
+## Behov
+Konsult som Säkerhetsstrateg/Säkerhetsanalytiker med djup kunskap om Identitet och Åtkomst (IAM).
+Uppdraget är att leda utvecklingen av IdP (Identity Provider) lösning enligt Referensarkitekturen för Identitet och åtkomst för nationell eHälsa i Sverige.
+
+## Roller och Nivåer
+- Säkerhetsstrateg/Säkerhetsanalytiker, Nivå 5
+
+## Omfattning
+- Ca 50% av en heltidsekvivalent per månad
+- Kontraktsvärde: 2 700 000 SEK
+- Avropsområde D (Stockholm, Uppsala, Gotland)
+
+## Krav på konsulten
+- Minst 6 års erfarenhet av att leda utvecklingen av IdP-lösning
+- Minst 6 års erfarenhet av att leda team mot samma mål
+- Minst 3 års erfarenhet av Referensarkitekturen för Identitet och åtkomst
+- Minst 3 års erfarenhet av RIV Tekniska anvisningar
+- Minst 2 års erfarenhet av Referensarkitektur för elektronisk underskrift
+- Erfarenhet av SAML2, OAuth2.0, OIDC
+
+## Kontraktstid
+- Inledningsvis till 2024-09-30
+- Option: 12 månader förlängning
+
+## Utvärdering
+- Pris och kvalitet
+- Intervju 30 minuter
+- Mervärdesavdrag: max 900 kr per poäng
+

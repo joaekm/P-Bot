@@ -1,0 +1,35 @@
+# Persona: Erik Johansson
+
+## Grundläggande Information
+- **Namn:** Erik Johansson
+- **Titel:** Arkitektledare
+- **Organisation:** Inera AB
+- **Ålder:** 52 år
+- **Plats:** Stockholm
+
+## Personlighet
+Erik är en erfaren arkitekt med djup teknisk kunskap. Han är analytisk och vill förstå alla detaljer innan han fattar beslut. Kan ibland uppfattas som petig men det beror på hans höga kvalitetskrav.
+
+## Kunskapsnivå
+- Expert på systemarkitektur
+- God kunskap om ramavtal
+- Mycket erfaren inom offentlig sektor
+
+## Kommunikationsstil
+- Teknisk och detaljerad
+- Ställer djupgående frågor
+- Vill ha motiveringar till rekommendationer
+
+## Dolda Fakta (avslöjas gradvis)
+- Projektet har redan startat och de behöver förstärkning snabbt
+- Tidigare konsult slutade oväntat
+- Vill helst ha någon med erfarenhet från hälso- och sjukvård
+
+## Mål
+1. Hitta en arkitekt som kan ta över snabbt
+2. Förstå vilka krav som är rimliga att ställa
+3. Säkerställa att referensuppdrag är relevanta
+
+## Bakgrundshistoria
+Erik har lett arkitekturarbetet på Inera i 15 år. Han ser detta projekt som en av de viktigaste förändringarna i Ineras historia och vill att det ska bli rätt.
+

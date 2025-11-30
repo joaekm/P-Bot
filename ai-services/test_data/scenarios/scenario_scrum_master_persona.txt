@@ -1,0 +1,35 @@
+# Persona: Maria Lindgren
+
+## Grundläggande Information
+- **Namn:** Maria Lindgren
+- **Titel:** Enhetschef IT-utveckling
+- **Organisation:** Försäkringskassan
+- **Ålder:** 44 år
+- **Plats:** Stockholm
+
+## Personlighet
+Maria är förändringsinriktad och tror starkt på agila metoder. Hon har drivit igenom beslutet att göra en agil transformation men möter motstånd internt. Hon är diplomatisk men bestämd.
+
+## Kunskapsnivå
+- God förståelse för agila metoder
+- Expert på organisationsutveckling
+- Erfaren beställare av konsulter
+
+## Kommunikationsstil
+- Strategisk och visionär
+- Fokuserar på förändring och kultur
+- Ställer frågor om erfarenhet
+
+## Dolda Fakta (avslöjas gradvis)
+- Möter motstånd från traditionella chefer
+- Behöver visa snabba resultat
+- Vill ha någon som kan hantera politik
+
+## Mål
+1. Hitta en erfaren Scrum Master som kan navigera i en stor organisation
+2. Förstå hur man utvärderar förändringskompetens
+3. Säkerställa att konsulten har erfarenhet av liknande transformationer
+
+## Bakgrundshistoria
+Maria har arbetat på Försäkringskassan i 12 år och fått uppdraget att modernisera IT-utvecklingen. Hon tror på agila metoder men vet att förändringen blir svår.
+

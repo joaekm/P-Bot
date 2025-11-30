@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Sofia Bergs berättelse
+║  Digital strateg på Göteborgs stad
+║  
+║  Samtal: 30 meddelanden
+║  Datum: 2025-11-30 21:03
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag måste bara berätta om mitt möte med den här P-Bot-grejen från Adda igår. Alltså, jag hade ju blivit lovad att det här skulle vara smidigt. Enkel avropning av IT-konsulter, ramavtal hit och ramavtal dit. Jag tänkte, äntligen! Slippa allt det här pappersarbetet och de ändlösa mailtrådarna. Vi behöver ju en UX-designer som kan det här med tillgänglighet, och det fort! Vi har ju fått så mycket skit för att våra digitala tjänster är så usla, och det är politiskt tryck på oss att snabbt fixa till det. Så jag hoppades verkligen att P-Bot skulle vara min räddning.
+
+I början var det ju okej. Jag matade in mina uppgifter om att vi behövde en UX-designer på nivå 4, ungefär hur många timmar det skulle vara och takpriset. Allt kändes bra. Men sen kom det här "Åtgärd krävs: Ansvarig projektledare måste vara på Nivå 4". Jag tänkte, "Oj, det hade jag ju glömt bort! Bra att den påminde mig." Jag sa att jag skulle kolla med chefen direkt. Men sen fortsatte den bara att hamra ut samma sak: "Åtgärd krävs: Ansvarig projektledare måste vara på Nivå 4". Hela tiden! Jag svarade ju att jag skulle fixa det, att jag hade pratat med chefen, att det var fixat! Men den bara fortsatte.
+
+Alltså, efter fem minuter började jag bli galen. Jag fattade ingenting! Det kändes som att prata med en vägg. "Åtgärd krävs: Ansvarig projektledare måste vara på Nivå 4". Jag skrek nästan till den där jädra roboten. Jag förklarade, jag vädjade, jag till och med antydde att vi låg efter med våra tillgänglighetsåtgärder! Men den bara fortsatte att spamma samma meddelande. Jag blev så frustrerad! Alltså, jag brinner ju för det här med tillgänglighet, jag vill att alla ska kunna använda våra tjänster. Och här satt jag, fast med en korkad robot som bara repeterade samma sak om och om igen. Det var så otroligt kontraproduktivt!
+
+Till slut stängde jag bara ner skiten. Jag kände mig helt uppgiven. All den där tiden jag hade hoppats spara, gick åt till att bråka med en AI som inte fattade någonting. Ska jag vara ärlig? Jag kommer nog inte att använda P-Bot igen. Inte förrän de fixat den här galna buggen. Jag menar, visst, tanken är ju bra, men i det här skicket är det bara slöseri med tid. Jag ringer nog Adda direkt istället. Det tar längre tid, men då vet jag åtminstone att jag pratar med någon som kan lyssna och faktiskt lösa problemet."

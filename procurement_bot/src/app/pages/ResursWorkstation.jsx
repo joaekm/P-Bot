@@ -471,8 +471,8 @@ export default function ResursWorkstation() {
     <>
       {/* Progress Bar */}
       <AddaCard style={{ marginBottom: tokens.spacing['2xl'], padding: tokens.spacing['2xl'] }}>
-        <ProcessProgressBar 
-          steps={processSteps} 
+      <ProcessProgressBar 
+        steps={processSteps} 
           currentStepIndex={currentStepIndex}
         />
       </AddaCard>
@@ -509,8 +509,8 @@ export default function ResursWorkstation() {
                 summaryData
               },
               session_state: {
-                current_step: sessionState.current_step,
-                resource_manifest: sessionState.resource_manifest,
+              current_step: sessionState.current_step,
+              resource_manifest: sessionState.resource_manifest,
                 source_documents: sessionState.source_documents?.length || 0
               }
             }, null, 2)}

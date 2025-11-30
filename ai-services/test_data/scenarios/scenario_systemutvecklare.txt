@@ -1,0 +1,36 @@
+# Avrop: Senior Systemutvecklare för E-klient
+
+## Organisation
+Inera AB, Lund
+
+## Behov
+Senior Systemutvecklare för E-klient-tjänsten.
+Utveckling av fullstack-lösningar byggda på .Net-plattformen.
+
+## Roller och Nivåer
+- Senior Systemutvecklare, Nivå 5
+
+## Omfattning
+- Upp till 100% heltid
+- Kontraktsvärde: 2 000 000 SEK per år
+- Avropsområde G (Skåne, Blekinge, Kronoberg)
+- Takpris: 1250 kr/timme
+
+## Krav på konsulten
+- Minst 5 års erfarenhet av C# / .Net Core, SQL, REST-API
+- Djup kunskap i Visual Studio, TypeScript, React/Fluent UI
+- Minst 1 års erfarenhet av Microsoft Graph API
+- Minst 3 års erfarenhet av Git
+
+## Referensuppdrag (3 st krävs)
+a) Backend-utveckling i C#/.Net Core med REST-integrationer
+b) Ledande roll med handledning av andra utvecklare
+c) Azure DevOps och Git-erfarenhet
+
+## Placering
+- Ineras kontor i Lund, minst 3 dagar/vecka
+
+## Kontraktstid
+- 12 månader initialt
+- Option: 24 månader förlängning
+

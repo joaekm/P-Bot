@@ -1,0 +1,33 @@
+# Avrop: Integrationsarkitekt för Samverkansarkitektur
+
+## Organisation
+Inera AB, Stockholm
+
+## Behov
+Integrationsarkitekt för att arbeta med uppdatering av Samverkansarkitekturen.
+Går från SOA-liknande arkitektur till REST-baserad arkitektur.
+
+## Roller och Nivåer
+- Integrationsarkitekt, Nivå 5
+
+## Omfattning
+- 100% heltidsekvivalent
+- Kontraktsvärde: 1 700 000 SEK
+- Avropsområde D (Stockholm, Uppsala, Gotland)
+
+## Krav på konsulten
+- Minst 5 års erfarenhet av integrationsarkitektur
+- Minst 3 års erfarenhet av REST-API:er
+- Erfarenhet av Python och Docker
+- Minst 3 års erfarenhet av systemintegration
+- Minst 3 uppdrag med teknisk dokumentation
+
+## Uppgifter
+- Skapa referensarkitektur för stödtjänster
+- Genomföra POC:ar för att verifiera arkitekturantaganden
+- Arbeta med katalogtjänster och digitala ekosystem
+
+## Kontraktstid
+- 6 månader initialt
+- Option: 6 månader förlängning
+

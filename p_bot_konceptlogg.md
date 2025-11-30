@@ -1,4 +1,4 @@
-# P-Bot Konceptlogg (v5.0)
+# P-Bot Konceptlogg (v5.2)
 
 Detta dokument spårar "Varför" – resonemanget och de designbeslut som lett fram till prototypen.
 
@@ -352,6 +352,104 @@ from app.engine import AddaSearchEngine, engine
 
 ---
 
+## Fas 11: Reasoning Engine v2 (Taxonomy-Aware)
+
+### 11.1 Insikt: Planner var för enkel
+
+**Problem:** Den gamla Planner-komponenten valde bara `target_step` och `target_type`. Den saknade:
+- Djupare förståelse för dokumentens taxonomi
+- Förmåga att resonera om konflikter mellan källor
+- Strukturerad output för Synthesizer
+
+### 11.2 Lösning: Intent Analyzer + Context Builder + Planner v2
+
+**Beslut:** Dela upp Extractor/Planner i tre specialiserade komponenter:
+
+| Komponent | Ansvar |
+|-----------|--------|
+| **IntentAnalyzer** | Mappar query → IntentTarget (Root, Branch, Scope, Topics) |
+| **ContextBuilder** | Dual Retrieval baserat på IntentTarget (keyword + vector + graph) |
+| **PlannerV2** | Resonerar om kontext, genererar ReasoningPlan |
+
+### 11.3 IntentTarget & ReasoningPlan
+
+**IntentTarget** (output från IntentAnalyzer):
+```python
+{
+    "intent_category": "FACT",
+    "taxonomy_roots": ["PROCESS_RULES"],
+    "taxonomy_branches": ["STRATEGY", "FINANCIALS"],
+    "scope_preference": "FRAMEWORK_SPECIFIC",
+    "detected_topics": ["FKU", "Nivå 5"],
+    "ghost_mode": True
+}
+```
+
+**ReasoningPlan** (output från Planner):
+```python
+{
+    "primary_conclusion": "Nivå 5 kräver alltid FKU enligt ramavtalet.",
+    "policy_check": "Regel: KN5 → FKU (4_strategy_RULE_PRIMARY_428a5710.md)",
+    "tone_instruction": "Strict/Warning",
+    "conflict_resolution": None,
+    "data_validation": None
+}
+```
+
+### 11.4 Topic-to-Branch Inference
+
+**Insikt:** LLM missade ofta rätt Branch (t.ex. LOCATIONS för "Stockholm").
+
+**Lösning:** VocabularyService håller en mappning Topic→Branch. Efter LLM-svar körs inference:
+```python
+for topic in detected_topics:
+    if topic in vocabulary["LOCATIONS"]:
+        taxonomy_branches.add("LOCATIONS")
+```
+
+---
+
+## Fas 12: Stresstestning & Discovery
+
+### 12.1 Procurement Simulation Tool
+
+**Syfte:** Automatisera testning av hela pipelinen med realistiska scenarion.
+
+**Funktioner:**
+- Läser `.txt`-scenarion från `test_data/scenarios/`
+- AI spelar en "beställar-persona" som svarar på P-Bot
+- Batch-läge för att köra alla scenarion automatiskt
+- Loggar varje session till JSON
+
+### 12.2 Persona Story Generator
+
+**Insikt:** Checklistor och poäng ger inte insikt i upplevelsen.
+
+**Beslut:** Låt Gemini skriva en berättelse i första person från personans perspektiv:
+> *"Du vet, jag hade verkligen höga förväntningar på den där P-Bot:en... Men sen började det. Den hängde upp sig totalt. Varje gång jag sa något fick jag bara ett svar: '🛑 Åtgärd krävs: Offererad konsult måste vara på Nivå 5.' Jag fattade ju det, jag hade ju sagt det från början!"*
+
+### 12.3 Upptäckt: "Papegoj-effekten" (Validator-loop)
+
+**Kritisk bugg:** Vid batch-körning av 11 scenarion fastnade ALLA i oändliga loopar.
+
+**Symptom:**
+- P-Bot upprepar samma BLOCK-meddelande 15 gånger
+- Användaren bekräftar kravet men botten förstår inte
+- Frustration eskalerar ("JAG VET! Sluta tjata!")
+
+**Rotorsak:** Validatorn läser constraints från SECONDARY-dokument (gamla avrop) och applicerar dem som universella regler.
+
+### 12.4 Åtgärdsplan
+
+| Prioritet | Åtgärd | Fil |
+|-----------|--------|-----|
+| P0 | Filtrera bort SECONDARY i `_load_constraints` | `normalizer.py` |
+| P0 | Implementera "acknowledged constraints" i session | `engine.py` |
+| P1 | Ändra nivå-krav från BLOCK till WARN | `normalizer.py` |
+| P2 | Ta bort "Ingen orimlig begäran"-meddelanden | `synthesizer.py` |
+
+---
+
 ## Lärdomar & Insikter
 
 1. **Separation of Concerns:** Motor/Manus-separation löste render-buggar
@@ -369,8 +467,12 @@ from app.engine import AddaSearchEngine, engine
 13. **UI Directives:** Backend styr frontend explicit – ingen gissning
 14. **Modular Architecture:** Komponenter med tydligt ansvar förenklar underhåll
 15. **State Merge (Anti-Purge):** Behåll gamla resurser även om de inte nämns igen
+16. **Taxonomy-Aware Intent:** IntentAnalyzer + VocabularyService förbättrar precision
+17. **ReasoningPlan:** Strukturerad output från Planner till Synthesizer
+18. **Persona Stories:** Berättelser ger djupare insikt än checklistor
+19. **Validator Authority Filter:** SECONDARY-regler får ALDRIG blockera
 
 ---
 
-*Version: 5.1*  
+*Version: 5.2*  
 *Senast uppdaterad: November 2024*

@@ -1,0 +1,34 @@
+# Avrop: Testledare för kvalitetssäkring
+
+## Organisation
+Region Skåne, Malmö
+
+## Behov
+Testledare för att säkerställa kvaliteten i ett stort digitaliseringsprojekt.
+Projektet omfattar implementation av nytt journalsystem.
+
+## Roller och Nivåer
+- Testledare, Nivå 4
+
+## Omfattning
+- 80% av heltid
+- Kontraktsvärde: 1 500 000 SEK
+- Avropsområde G (Skåne, Blekinge, Kronoberg)
+- Takpris: 1100 kr/timme
+
+## Krav på konsulten
+- Minst 5 års erfarenhet av testledning
+- Erfarenhet av ISTQB-certifiering
+- Minst 3 års erfarenhet från hälso- och sjukvård
+- Erfarenhet av agila metoder
+
+## Uppgifter
+- Planera och leda testarbetet
+- Koordinera testteam
+- Rapportera till projektledning
+- Säkerställa att kvalitetskrav uppfylls
+
+## Kontraktstid
+- 12 månader initialt
+- Option: 12 månader förlängning
+

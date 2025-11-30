@@ -124,7 +124,7 @@ const ChatWindow = ({
 
             {/* Fixed Input Zone at Bottom */}
             <div style={{ paddingBottom: tokens.borderRadius.md }}>
-                {inputZone}
+            {inputZone}
             </div>
         </div>
     );

@@ -123,7 +123,7 @@ const ComponentsDoc = () => {
             <div>
               <AddaInput 
                 label="Input Field" 
-                placeholder="Ange text..." 
+                placeholder="Ange text..."
               />
             </div>
             <div>
@@ -157,7 +157,7 @@ const ComponentsDoc = () => {
               <AddaCard 
                 style={{ borderRadius: tokens.borderRadius.md }}
                 title="Standard (8px)"
-                badge="Kategori"
+            badge="Kategori"
                 date="2023-10-27"
               >
                 Standard för de flesta kort, paneler och formulärelement i applikationen.

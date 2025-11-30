@@ -116,7 +116,7 @@ export const AIAnswerContainer = ({
                 hr: () => <hr style={markdownStyles.hr} />,
               }}
             >
-              {text}
+            {text}
             </ReactMarkdown>
           </div>
           

@@ -1,0 +1,665 @@
+{
+  "timestamp": "2025-11-30T20:53:56.167554",
+  "scenario": {
+    "filename": "example_team_request.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/test_data/scenarios/example_team_request.txt"
+  },
+  "persona": {
+    "name": "Okänd",
+    "title": "Okänd",
+    "organization": "Okänd",
+    "personality": "",
+    "knowledge_level": "Medel",
+    "communication_style": "Kortfattad",
+    "hidden_constraints": [],
+    "goals": [],
+    "background": "",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Okänd och jobbar som Okänd på Okänd. Jag behöver hjälp med ett avrop. Vi ska genomföra en upphandling.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Hej Okänd! Absolut, vad roligt! Jag hjälper dig gärna att komma igång med avropet.\n\nFör att jag ska kunna guida dig på bästa sätt, kan du berätta lite mer om projektet eller uppdraget? Vad är det ni vill uppnå?\n\nOch vilken typ av kompetens eller roll är det ni letar efter för att lyckas med det?",
+      "turn": 1,
+      "reasoning": {
+        "conclusion": "Användaren har initierat ett ärende och identifierat behovet av ett avrop (\"upphandling\"). Ingen specifik detalj om volym, nivå eller avropsform har angetts.",
+        "conflicts": null,
+        "policy": "Ingen specifik regel kan tillämpas direkt då frågan är generell. Dokumenten indikerar att nästa steg i processen ska vara att fastställa intresseområde, roller och regioner (step_1_intake).",
+        "tone": "Helpful/Guiding",
+        "validation": null
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [
+          "Avrop"
+        ],
+        "entity_summary": {
+          "location": null,
+          "price_cap": null,
+          "resources": [],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": true,
+        "has_warning": false,
+        "missing_info": [
+          "resources"
+        ],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [
+          "STRATEGY",
+          "PHASES"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Hej! Tack, jag är glad för hjälpen. Det handlar om projektet \"Digital Elevhälsa\". Vi behöver hjälp med att modernisera systemstödet för skolhälsovården. Vi behöver få in teamet som beskrivs i avropsunderlaget.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Absolut, jag hjälper dig att sätta upp strategin för Digital Elevhälsa.\n\nFör att vi ska göra det här korrekt och effektivt behöver vi först specificera teamet. Kompetensnivån för varje roll är helt avgörande för vilken avropsform vi kan använda – ett snabbt direktavrop eller en mer formell Förnyad Konkurrensutsättning (FKU).\n\nKom ihåg den viktigaste regeln: om **någon** resurs i teamet har **kompetensnivå 5**, måste hela avropet ske via en FKU. Det styr vårt nästa steg.\n\nVilka roller och kompetensnivåer (1-5) behöver du från ditt underlag? Börja med den första.",
+      "turn": 2,
+      "reasoning": {
+        "conclusion": "Användaren indikerar att de är i ett avropsstadium (INSPIRATION/Avrop) för projektet \"Digital Elevhälsa\" och behöver ett team enligt ett befintligt avropsunderlag. Då inga PRIMARY-dokument eller tvingande regler har tillhandahållits, är nästa logiska steg att fastställa vilken avropsform som är aktuell baserat på de sekundära instruktionerna om utvärderingsmodeller (FKU, Intervju).",
+        "conflicts": null,
+        "policy": "Inga specifika regler från PRIMARY-dokument identifierades. Processen styrs av generell förståelse för de sekundära stegen relaterade till utvärderingsmodeller och avropsform (step_4_strategy).",
+        "tone": "Helpful/Guiding",
+        "validation": null
+      },
+      "ui_directives": {
+        "current_intent": "INSPIRATION",
+        "detected_topics": [
+          "Avrop"
+        ],
+        "entity_summary": {
+          "location": null,
+          "price_cap": null,
+          "resources": [],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [
+          "resources",
+          "location",
+          "volume",
+          "start_date",
+          "price_cap"
+        ],
+        "set_active_process_step": "step_4_strategy",
+        "taxonomy_branches": [
+          "STRATEGY",
+          "PHASES",
+          "GOVERNANCE"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 4: Avropsform"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi behöver en teamledare/teknisk projektledare (nivå 4), en backend-utvecklare (nivå 3) och en informationssäkerhetsspecialist (nivå 3).",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+      "turn": 3,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Ansvarig projektledare måste vara på Nivå 4."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det stämmer. Det är precis de rollerna vi behöver. Vi behöver verkligen få igång detta snabbt, så jag hoppas vi kan hitta rätt väg framåt. Kan du förklara lite enklare vad vi behöver göra nu?",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+      "turn": 4,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Ansvarig projektledare måste vara på Nivå 4."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det är ju det vi har specificerat. Teamledaren ska vara Nivå 4. Jag förstår inte riktigt vad du menar med \"åtgärd krävs\". Kan du förklara det lite enklare?",
+      "turn": 5
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+      "turn": 5,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Ansvarig projektledare måste vara på Nivå 4."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag förstår att teamledaren ska vara Nivå 4, det är ju det som står i underlaget. Jag förstår fortfarande inte vad du menar med \"åtgärd krävs\". Kan du förtydliga? Vi behöver verkligen få igång detta snabbt.",
+      "turn": 6
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+      "turn": 6,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Ansvarig projektledare måste vara på Nivå 4."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag förstår att teamledaren ska vara Nivå 4, det är ju det som står i underlaget. Vad är det jag behöver göra nu då? Kan du förklara det lite enklare? Vi har en deadline den 15 december, så det är bråttom.",
+      "turn": 7
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+      "turn": 7,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Ansvarig projektledare måste vara på Nivå 4."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag förstår att teamledaren ska vara Nivå 4, men jag fattar inte vad jag ska göra för att åtgärda det. Kan du förtydliga? Vi måste verkligen få igång detta snabbt, deadline är ju den 15:e!",
+      "turn": 8
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+      "turn": 8,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Ansvarig projektledare måste vara på Nivå 4."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Men... jag fattar fortfarande inte. Vad är det jag ska göra rent praktiskt? Jag har ju angett Nivå 4 för teamledaren i avropsunderlaget. Är det något annat som saknas? Vi behöver verkligen få igång detta snabbt!",
+      "turn": 9
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+      "turn": 9,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Ansvarig projektledare måste vara på Nivå 4."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Alltså... Jag fattar fortfarande inte vad jag ska göra. Jag har ju angett Nivå 4 för teamledaren i avropsunderlaget. Det måste väl vara rätt? Är det något jag missar? Kan du förklara det lite enklare? Vi behöver verkligen få igång detta snabbt!",
+      "turn": 10
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+      "turn": 10,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Ansvarig projektledare måste vara på Nivå 4."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Alltså... Ja, jag vet att jag angett Nivå 4. Det är ju det jag frågar om! Jag vet inte vad jag ska göra mer. Vad är det jag missar? Kan du förklara det lite enklare? Vi behöver verkligen få igång detta snabbt!",
+      "turn": 11
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+      "turn": 11,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Ansvarig projektledare måste vara på Nivå 4."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag vet, jag har angett Nivå 4 för teamledaren! Men vad mer behöver jag göra? Vad är det jag missar? Jag har ju en deadline den 15 december, så vi behöver verkligen få igång detta snabbt! Kan du förklara det lite enklare?",
+      "turn": 12
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+      "turn": 12,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Ansvarig projektledare måste vara på Nivå 4."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag förstår att teamledaren ska vara på nivå 4. Men vad mer behöver jag göra nu? Vad är nästa steg? Jag är lite lost. Kan du förklara det lite enklare? Vi behöver verkligen få igång detta snabbt!",
+      "turn": 13
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+      "turn": 13,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Ansvarig projektledare måste vara på Nivå 4."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag förstår! Teamledaren ska vara på Nivå 4. Men jag är fortfarande lite osäker på vad jag ska göra härnäst. Jag är lite lost. Vad är det jag missar? Vi behöver verkligen få igång detta snabbt!",
+      "turn": 14
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+      "turn": 14,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Ansvarig projektledare måste vara på Nivå 4."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, teamledaren ska vara på nivå 4. Men jag förstår inte riktigt vad mer jag behöver göra nu. Jag är lite lost. Kan du förklara det lite enklare? Vad är det jag missar?",
+      "turn": 15
+    },
+    {
+      "role": "assistant",
+      "content": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+      "turn": 15,
+      "reasoning": {
+        "conclusion": "BLOCKED",
+        "policy": "Validator constraint",
+        "tone": "Strict/Warning",
+        "validation": "Ansvarig projektledare måste vara på Nivå 4."
+      },
+      "ui_directives": {
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {},
+        "ghost_mode": false,
+        "has_warning": false,
+        "missing_info": [],
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    }
+  ],
+  "final_state": {
+    "current_state": {
+      "confidence": 0.95,
+      "current_intent": "FACT",
+      "extracted_entities": {
+        "_validation_issues": [
+          {
+            "action": "BLOCK",
+            "context": {
+              "id": "res_1",
+              "role": "Teamledare"
+            },
+            "message": "Ansvarig projektledare måste vara på Nivå 4.",
+            "param": "competence_level",
+            "source": "2_level_RULE_SECONDARY_ee131dca.md",
+            "type": "BLOCK",
+            "value": 4
+          },
+          {
+            "action": "BLOCK",
+            "context": {
+              "id": "res_1",
+              "role": "Teamledare"
+            },
+            "message": "Endast kompetensnivå 4 är efterfrågad för denna roll.",
+            "param": "competence_level",
+            "source": "2_level_RULE_SECONDARY_2036253c.md",
+            "type": "BLOCK",
+            "value": 4
+          },
+          {
+            "action": "BLOCK",
+            "context": {
+              "id": "res_1",
+              "role": "Projektledare"
+            },
+            "message": "Ansvarig projektledare måste vara på Nivå 4.",
+            "param": "competence_level",
+            "source": "2_level_RULE_SECONDARY_ee131dca.md",
+            "type": "BLOCK",
+            "value": 4
+          },
+          {
+            "action": "BLOCK",
+            "context": {
+              "id": "res_1",
+              "role": "Projektledare"
+            },
+            "message": "Endast kompetensnivå 4 är efterfrågad för denna roll.",
+            "param": "competence_level",
+            "source": "2_level_RULE_SECONDARY_2036253c.md",
+            "type": "BLOCK",
+            "value": 4
+          },
+          {
+            "action": "BLOCK",
+            "context": {
+              "id": "res_1",
+              "role": "Teamledare/Teknisk Projektledare"
+            },
+            "message": "Ansvarig projektledare måste vara på Nivå 4.",
+            "param": "competence_level",
+            "source": "2_level_RULE_SECONDARY_ee131dca.md",
+            "type": "BLOCK",
+            "value": 4
+          },
+          {
+            "action": "BLOCK",
+            "context": {
+              "id": "res_1",
+              "role": "Teamledare/Teknisk Projektledare"
+            },
+            "message": "Endast kompetensnivå 4 är efterfrågad för denna roll.",
+            "param": "competence_level",
+            "source": "2_level_RULE_SECONDARY_2036253c.md",
+            "type": "BLOCK",
+            "value": 4
+          },
+          {
+            "action": "BLOCK",
+            "context": {
+              "id": "res_2",
+              "role": "Backend-utvecklare"
+            },
+            "message": "Offererad konsult måste vara på Nivå 3 enligt ramavtalet.",
+            "param": "competence_level",
+            "source": "2_level_RULE_SECONDARY_e330f6e2.md",
+            "type": "BLOCK",
+            "value": 3
+          },
+          {
+            "action": "BLOCK",
+            "context": {
+              "id": "res_3",
+              "role": "Informationssäkerhetsspecialist"
+            },
+            "message": "Offererad konsult måste vara på Nivå 3 enligt ramavtalet.",
+            "param": "competence_level",
+            "source": "2_level_RULE_SECONDARY_e330f6e2.md",
+            "type": "BLOCK",
+            "value": 3
+          }
+        ],
+        "location": null,
+        "price_cap": null,
+        "resources": [
+          {
+            "dialog_status": "LOCKED",
+            "id": "res_1",
+            "level": 4,
+            "quantity": 1,
+            "role": "Teamledare",
+            "status": "DONE"
+          },
+          {
+            "dialog_status": "LOCKED",
+            "id": "res_1",
+            "level": 4,
+            "quantity": 1,
+            "role": "Projektledare",
+            "status": "DONE"
+          },
+          {
+            "dialog_status": "LOCKED",
+            "id": "res_1",
+            "level": 4,
+            "quantity": 1,
+            "role": "Teamledare/Teknisk Projektledare",
+            "status": "DONE"
+          },
+          {
+            "dialog_status": "LOCKED",
+            "id": "res_2",
+            "level": 3,
+            "quantity": 1,
+            "role": "Backend-utvecklare",
+            "status": "DONE"
+          },
+          {
+            "dialog_status": "LOCKED",
+            "id": "res_3",
+            "level": 3,
+            "quantity": 1,
+            "role": "Informationssäkerhetsspecialist",
+            "status": "DONE"
+          }
+        ],
+        "start_date": null,
+        "volume": null
+      },
+      "missing_info": [
+        "location",
+        "volume"
+      ]
+    },
+    "message": "🛑 **Åtgärd krävs:** Ansvarig projektledare måste vara på Nivå 4.",
+    "reasoning": {
+      "conclusion": "BLOCKED",
+      "policy": "Validator constraint",
+      "tone": "Strict/Warning",
+      "validation": "Ansvarig projektledare måste vara på Nivå 4."
+    },
+    "sources": [
+      "2_level_RULE_SECONDARY_ee131dca.md",
+      "2_level_RULE_SECONDARY_2036253c.md",
+      "2_level_RULE_SECONDARY_ee131dca.md",
+      "2_level_RULE_SECONDARY_2036253c.md",
+      "2_level_RULE_SECONDARY_ee131dca.md",
+      "2_level_RULE_SECONDARY_2036253c.md",
+      "2_level_RULE_SECONDARY_e330f6e2.md",
+      "2_level_RULE_SECONDARY_e330f6e2.md"
+    ],
+    "ui_directives": {
+      "current_intent": "FACT",
+      "detected_topics": [],
+      "entity_summary": {},
+      "ghost_mode": false,
+      "has_warning": false,
+      "missing_info": [],
+      "set_active_process_step": "step_1_intake",
+      "taxonomy_branches": [],
+      "tone": "Informative",
+      "update_sticky_header": "Steg 1: Beskriv Behov"
+    }
+  },
+  "summary": {
+    "total_turns": 15,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "FACT"
+  }
+}

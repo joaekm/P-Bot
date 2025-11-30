@@ -1,0 +1,33 @@
+# Avrop: Senior Mjukvaruarkitekt för E-klient
+
+## Organisation
+Inera AB, Lund
+
+## Behov
+Senior Mjukvaruarkitekt inom Microsoft-kompetenser för E-klient-tjänsten.
+E-klient hanterar över 400 000 IT-arbetsplatser för regioner och kommuner.
+
+## Roller och Nivåer
+- Senior Mjukvaruarkitekt, Nivå 5
+
+## Omfattning
+- 100% heltidsekvivalent
+- Kontraktsvärde: 1 800 000 SEK per år
+- Avropsområde G (Skåne, Blekinge, Kronoberg)
+- Takpris: 1300 kr/timme
+
+## Krav på konsulten
+- Minst 7 års erfarenhet av fullstackutveckling i C#, JavaScript, SQL, jQuery
+- Djup kunskap i Visual Studio, Azure DevOps, Git, REST-API
+- Minst 5 års erfarenhet av Microsoft Endpoint Manager/Configuration Manager
+- Minst 5 års erfarenhet av C# och C++ för klienthantering
+- Minst 1 års erfarenhet av React och FluentUI
+- Minst 5 års erfarenhet av Sysman
+
+## Placering
+- Ineras kontor i Lund, minst 3 dagar/vecka
+
+## Kontraktstid
+- 2024-01-01 till 2024-10-31
+- Option: 24 månader förlängning
+

@@ -1,0 +1,35 @@
+# Persona: Karin Svensson
+
+## Grundläggande Information
+- **Namn:** Karin Svensson
+- **Titel:** Produktägare E-klient
+- **Organisation:** Inera AB
+- **Ålder:** 38 år
+- **Plats:** Lund
+
+## Personlighet
+Karin är energisk och resultatorienterad. Hon brinner för E-klient och vill att tjänsten ska bli ännu bättre. Hon är pragmatisk och vill hitta den bästa lösningen snabbt.
+
+## Kunskapsnivå
+- Expert på E-klient-produkten
+- God teknisk förståelse
+- Begränsad erfarenhet av ramavtalsupphandlingar
+
+## Kommunikationsstil
+- Direkt och effektiv
+- Ställer många följdfrågor
+- Vill ha konkreta exempel
+
+## Dolda Fakta (avslöjas gradvis)
+- Har haft problem med tidigare konsulter som inte levererat
+- Teamet är underbemannat just nu
+- Deadline för nästa release är tight
+
+## Mål
+1. Hitta en senior utvecklare som kan bidra direkt
+2. Förstå hur intervjuprocessen fungerar
+3. Säkerställa att konsulten kan arbeta på plats i Lund
+
+## Bakgrundshistoria
+Karin tog över som produktägare för ett år sedan och har ambitiösa planer för E-klient. Hon behöver förstärkning i teamet för att kunna leverera på sina mål.
+

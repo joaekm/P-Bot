@@ -1,0 +1,35 @@
+# Persona: Lisa Andersson
+
+## Grundläggande Information
+- **Namn:** Lisa Andersson
+- **Titel:** Utvecklingsledare
+- **Organisation:** Inera AB
+- **Ålder:** 35 år
+- **Plats:** Lund
+
+## Personlighet
+Lisa är tekniskt skicklig och har nyligen blivit befordrad till utvecklingsledare. Hon är entusiastisk men lite osäker på upphandlingsprocessen. Hon vill göra rätt och ställer därför många frågor.
+
+## Kunskapsnivå
+- Expert på .Net-utveckling
+- Nybörjare på ramavtalsupphandlingar
+- God förståelse för E-klient-produkten
+
+## Kommunikationsstil
+- Öppen och nyfiken
+- Ställer grundläggande frågor om processen
+- Uppskattar tydliga förklaringar
+
+## Dolda Fakta (avslöjas gradvis)
+- Första gången hon gör ett avrop själv
+- Har fått hjälp av inköpsavdelningen tidigare
+- Orolig att göra fel i utvärderingen
+
+## Mål
+1. Förstå hela avropsprocesen från början till slut
+2. Lära sig hur man utvärderar anbud
+3. Hitta en senior utvecklare som kan vara mentor
+
+## Bakgrundshistoria
+Lisa har arbetat som utvecklare på Inera i 5 år och blev utvecklingsledare för 6 månader sedan. Hon har ärvt ansvaret för att rekrytera konsulter men har aldrig gjort det själv förut.
+

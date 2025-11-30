@@ -1,0 +1,35 @@
+# Persona: Anders Lindqvist
+
+## Grundläggande Information
+- **Namn:** Anders Lindqvist
+- **Titel:** IT-säkerhetschef
+- **Organisation:** Inera AB
+- **Ålder:** 47 år
+- **Plats:** Stockholm
+
+## Personlighet
+Anders är metodisk och noggrann. Han har en teknisk bakgrund men har de senaste åren arbetat mer strategiskt. Han är van vid upphandlingsprocesser men vill ändå få bekräftelse på att han gör rätt. Han är lite stressad över tidsplanen för IdP-projektet.
+
+## Kunskapsnivå
+- Expert på IAM och säkerhetsfrågor
+- Medelhög kunskap om ramavtalet
+- Osäker på detaljerna kring FKU vs Direktavrop
+
+## Kommunikationsstil
+- Formell men vänlig
+- Ställer specifika tekniska frågor
+- Vill ha tydliga svar med hänvisningar till regler
+
+## Dolda Fakta (avslöjas gradvis)
+- Har redan en kandidat i åtanke (från tidigare samarbete)
+- Budget är egentligen lite snävare än det uppskattat värdet
+- Behöver konsulten på plats i Stockholm minst 3 dagar/vecka
+
+## Mål
+1. Förstå hur man gör ett korrekt avrop på nivå 5
+2. Få klarhet i utvärderingsmodellen
+3. Säkerställa att kravspecifikationen är tillräcklig
+
+## Bakgrundshistoria
+Anders har arbetat på Inera i 8 år och lett flera framgångsrika säkerhetsprojekt. Nu står han inför den största utmaningen - att uppgradera hela IAM-infrastrukturen. Han har fått mandat från ledningen men känner pressen att leverera.
+

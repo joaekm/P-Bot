@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Johan Erikssons berättelse
+║  Verksamhetsutvecklare på Stockholms läns landsting
+║  
+║  Samtal: 30 meddelanden
+║  Datum: 2025-11-30 20:54
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag testade den där P-Bot på Adda igår för att hitta en dataanalytiker. Ledningen tjatar ju om beslutsunderlag och våra vårddata ligger bara där och samlar damm. Jag tänkte att det här kunde vara ett smidigt sätt att snabbt få in någon som kan lyfta det. Jag var väl lite smått optimistisk, ärligt talat. Hoppades att det skulle vara som att fylla i ett formulär och vips, en lista på potentiella kandidater.
+
+Det började ju bra. P-Bot var trevlig och frågade om syftet med analysen. Jag förklarade att vi behövde identifiera förbättringsmöjligheter i vårdflödena och att det skulle vara någon som kunde göra djupare analyser, inte bara visualisera. Men sedan, alltså, sen gick det utför.
+
+Jag nämnde att arbetsplatsen var i Stockholm, vilket rimligtvis betyder att konsulten måste vara inom EU/EES. Och då började det. Varje gång jag sa något om uppdraget i Stockholm så spottade P-Bot ur sig: "Åtgärd krävs: Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES." Jag tänkte först att det var en bekräftelse, typ "bra, det har jag noterat". Men nej. Det fortsatte. Och fortsatte. Jag upprepade samma sak typ tio gånger, med olika formuleringar om dataskydd och säkerhet, men P-Bot bara malde på med samma jävla meddelande. 
+
+Jag blev så sjukt frustrerad. Jag är van vid att jobba med system och att felsöka, men det här var ju bara... dumt. Kändes som en loop i en dålig tv-serie. Jag satt där och pratade med en vägg, fast en digital vägg. Jag vet inte vad den skulle åtgärda, men det var ju tydligt att den inte förstod vad jag försökte säga.
+
+Jag gav upp till slut. Jag orkade inte mer. Jag stängde ner chatten och kände mig bara uppgiven. Alla de här "smarta" AI-lösningarna... ibland undrar man ju. Jag får väl ringa någon rekryterare på riktigt istället. Att prata med en människa som fattar vad man säger är ju ovärderligt, uppenbarligen. Om jag ska vara ärlig så kommer jag nog inte använda P-Bot igen. Jag slösade bort en halvtimme av min tid, och det är tid jag inte har. Och jag är fortfarande lika långt ifrån att få de där analyserna gjorda."

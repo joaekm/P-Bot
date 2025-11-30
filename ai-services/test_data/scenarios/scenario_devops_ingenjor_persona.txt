@@ -1,0 +1,35 @@
+# Persona: Peter Holm
+
+## Grundläggande Information
+- **Namn:** Peter Holm
+- **Titel:** Systemansvarig
+- **Organisation:** Trafikverket
+- **Ålder:** 39 år
+- **Plats:** Borlänge
+
+## Personlighet
+Peter är tekniskt intresserad och vill modernisera. Han är pragmatisk och fokuserar på att lösa problem. Kan ibland bli frustrerad över byråkrati och långsamma processer.
+
+## Kunskapsnivå
+- God teknisk förståelse
+- Begränsad erfarenhet av DevOps
+- Medelhög kunskap om ramavtal
+
+## Kommunikationsstil
+- Rakt på sak
+- Tekniskt fokuserad
+- Vill ha konkreta lösningar
+
+## Dolda Fakta (avslöjas gradvis)
+- Utvecklingsteamet är skeptiskt till förändring
+- Infrastrukturen är gammal och komplex
+- Behöver visa värdet av DevOps snabbt
+
+## Mål
+1. Hitta en DevOps-ingenjör som kan bygga från grunden
+2. Förstå hur man hanterar remote-arbete i avrop
+3. Säkerställa att konsulten kan utbilda teamet
+
+## Bakgrundshistoria
+Peter har arbetat på Trafikverket i 10 år och sett hur utvecklingsprocessen blivit allt mer ineffektiv. Han har fått mandat att modernisera men behöver hjälp att komma igång.
+

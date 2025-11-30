@@ -1,0 +1,40 @@
+# Avrop: Konsultstöd för utredning av IT-drift
+
+## Organisation
+Inera AB, Stockholm
+
+## Behov
+Två konsulter för att stödja förstudie för IT-drift.
+Analysera nuvarande infrastruktur och nätverkstopologi.
+Ta fram nulägesanalys med GAP, risker och förmågor.
+
+## Roller och Nivåer
+- Senior Nätverksarkitekt, Nivå 5 (ca 150 timmar)
+- Senior IT-arkitekt Infrastruktur, Nivå 5 (ca 350 timmar)
+
+## Omfattning
+- Totalt ca 500 timmar
+- Kontraktsvärde: 650 000 SEK
+- Avropsområde D (Stockholm, Uppsala, Gotland)
+- Takpris: 1300 kr/timme
+
+## Teknisk miljö
+- Linux-baserade kontainerlösningar (Kubernetes)
+- Mikrotjänster
+- Windows-lösningar med VMware
+
+## Krav på Senior IT-arkitekt Infrastruktur
+- Minst 5 års erfarenhet av IT-arkitektur inom infrastruktur/IT-drift
+- Minst 2 års erfarenhet av hybridlösningar (Onprem, IaaS, PaaS, SaaS)
+- Minst 5 års erfarenhet av Kubernetes och mikrotjänster
+- Erfarenhet av säkerhetslösningar och transformationsprojekt
+
+## Krav på Senior Nätverksarkitekt
+- Minst 5 års erfarenhet av IT-arkitektur inom infrastruktur
+- Erfarenhet av komplexa nätverkslösningar (lastbalansering, segmentering)
+- Erfarenhet av Cisco och F5
+
+## Kontraktstid
+- Till 2024-09-30
+- Option: 2 månader förlängning
+

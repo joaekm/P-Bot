@@ -89,28 +89,39 @@ procurement_bot/src/
 - `SystemNotice` - Info/Success/Warning-notiser
 - `AIAnswerContainer` / `UserAnswerContainer` - Pratbubblor med Markdown
 
-### 3.3 Adda Intelligence Engine (Backend v5.1)
+### 3.3 Adda Intelligence Engine (Backend v5.2)
 
 ```
 ai-services/
-├── app/                      # Modulär arkitektur (v5.1)
+├── app/                      # Modulär arkitektur (v5.2)
 │   ├── engine.py             # Huvudorchestrator
 │   ├── main.py               # Flask API entrypoint
+│   ├── cli.py                # CLI chat-verktyg
 │   ├── components/           # Pipeline-komponenter
 │   │   ├── extractor.py      # Entity extraction & state merge
-│   │   ├── planner.py        # Query analysis & search strategy
-│   │   ├── hunter.py         # Lake & Vector search
+│   │   ├── intent_analyzer.py # Query → IntentTarget (taxonomy-mappning)
+│   │   ├── context_builder.py # Dual Retrieval (ersätter hunter.py)
+│   │   ├── planner.py        # Reasoning → ReasoningPlan
 │   │   └── synthesizer.py    # Response generation with personas
+│   ├── models/               # Pydantic-modeller
+│   │   ├── domain.py         # Enums (TaxonomyRoot, Branch, Scope)
+│   │   └── reasoning.py      # ReasoningPlan, IntentTarget
+│   ├── services/             # Runtime-tjänster
+│   │   └── vocabulary_service.py  # Singleton för vocabulary.json
 │   └── validators/           # Business rules
 │       └── normalizer.py     # Entity normalization
-├── _archive/                 # Legacy-kod (v1-v4)
-├── adda_chat.py              # CLI Wrapper (→ app/cli.py)
+├── tools/                    # Utvecklingsverktyg
+│   ├── simulate_procurement.py  # Stresstestning med AI-personas
+│   ├── verify_reasoning.py   # Pipeline-verifiering
+│   └── output/               # Loggfiler och berättelser
+├── test_data/scenarios/      # Testscenarier med personas
 ├── data_pipeline/            # Turbo Mode Ingest (v6.5)
 ├── storage/
 │   ├── lake/                 # Normaliserade Markdown-filer
 │   └── index/                # ChromaDB + Kuzu Graph
 ├── config/
 │   ├── adda_config.yaml
+│   ├── vocabulary.json       # Taxonomy-vokabulär
 │   └── assistant_prompts.yaml
 ├── server.py                 # Wrapper (bakåtkompatibilitet)
 └── search_engine.py          # Wrapper (bakåtkompatibilitet)
@@ -121,10 +132,12 @@ ai-services/
 | Komponent | Ansvar |
 |-----------|--------|
 | **ExtractorComponent** | Entity extraction, state merge (anti-purge) |
-| **PlannerComponent** | Query analysis, search strategy |
-| **HunterComponent** | Lake search (exakt), Vector search (semantisk) |
+| **IntentAnalyzerComponent** | Query → IntentTarget (taxonomy, scope, topics) |
+| **ContextBuilderComponent** | Dual Retrieval baserat på IntentTarget |
+| **PlannerComponent** | Reasoning → ReasoningPlan (conclusion, policy, tone) |
 | **SynthesizerComponent** | Response generation med fas-specifika personas |
-| **Normalizer** | Entity normalization, region-mappning, KN5-validering |
+| **VocabularyService** | Runtime-access till vocabulary.json |
+| **Normalizer** | Entity normalization, constraint validation |
 
 **API Endpoints:**
 | Endpoint | Metod | Beskrivning |
@@ -132,24 +145,41 @@ ai-services/
 | `/api/conversation` | POST | Huvudendpoint för chat |
 | `/api/analyze-document` | POST | Dokumentuppladdning (stub) |
 
-### 3.4 Pipeline Architecture (6-Stegs Retrieval)
+### 3.4 Pipeline Architecture (7-Stegs Retrieval)
 
-Motorn är **fas-lös** och **kontext-medveten**:
+Motorn är **fas-lös**, **kontext-medveten** och **taxonomy-aware**:
 
 | Steg | Komponent | Modell | Ansvar |
 |------|-----------|--------|--------|
-| 0 | **Extractor** | gemini-flash-lite | Entity extraction + Intent-klassificering |
-| 1 | **Planner** | gemini-flash-lite | Analyserar frågan, genererar sökstrategi |
-| 2 | **Hunter** | – | Exakt nyckelordssökning i Lake (med authority filter) |
-| 3 | **Vector** | all-MiniLM-L6-v2 | Semantisk sökning i ChromaDB (med authority filter) |
-| 4 | **Judge** | gemini-flash-lite | Rankar och filtrerar kandidater |
-| 5 | **Synthesizer** | gemini-pro | Genererar svar + injicerar extracted_entities |
+| 0 | **Extractor** | gemini-flash-lite | Entity extraction + state merge |
+| 1 | **IntentAnalyzer** | gemini-flash-lite | Query → IntentTarget (taxonomy, scope, topics) |
+| 2 | **ContextBuilder** | – | Dual Retrieval (keyword + vector + graph) |
+| 3 | **Planner** | gemini-flash-lite | Reasoning → ReasoningPlan |
+| 4 | **Validator** | – | Constraint check (BLOCK/WARN/STRATEGY_FORCE) |
+| 5 | **Synthesizer** | gemini-2.0-flash | Genererar svar med ReasoningPlan + personas |
 
-**Intent-klassificering (Killswitch Logic):**
-- `FACT` → Endast PRIMARY-källor (regler, priser) – blockerar SECONDARY
-- `INSPIRATION` → Både PRIMARY och SECONDARY (hjälp, exempel)
+**IntentTarget (output från steg 1):**
+```python
+{
+    "intent_category": "FACT",           # FACT/INSPIRATION
+    "taxonomy_branches": ["STRATEGY"],   # Vilka grenar att söka i
+    "scope_preference": "FRAMEWORK_SPECIFIC",
+    "detected_topics": ["FKU", "Nivå 5"],
+    "ghost_mode": True                   # Blockera SECONDARY
+}
+```
 
-**Strategisk fördel:** Backend är inte längre låst till "faser". Om användaren hoppar direkt till "Vad kostar det?" kan motorn svara utan att vara i rätt "fas".
+**ReasoningPlan (output från steg 3):**
+```python
+{
+    "primary_conclusion": "Nivå 5 kräver alltid FKU.",
+    "policy_check": "Regel: KN5 → FKU",
+    "tone_instruction": "Strict/Warning",
+    "data_validation": None
+}
+```
+
+**Strategisk fördel:** Taxonomy-awareness gör att sökningen träffar rätt dokument direkt. Ghost Mode blockerar SECONDARY vid faktafrågor.
 
 ---
 
@@ -276,19 +306,29 @@ Integreras i Addas Optimizely-miljö som React-komponent.
 
 ---
 
-## 8. Nyckelbegrepp (v5.0)
+## 8. Nyckelbegrepp (v5.2)
 
 | Begrepp | Beskrivning |
 |---------|-------------|
 | **Lake** | Markdown-filer med YAML frontmatter (normaliserade dokument) |
 | **Tri-Store** | Lake (Text) + Vector (Semantik) + Graph (Relationer) |
 | **Process & Block Taxonomi** | step_1-4 + RULE/INSTRUCTION/DEFINITION/DATA_POINTER |
-| **Extractor** | Entity extraction + Intent-klassificering (Shadow State) |
+| **IntentTarget** | Output från IntentAnalyzer: taxonomy, scope, topics, ghost_mode |
+| **ReasoningPlan** | Output från Planner: conclusion, policy, tone, validation |
 | **Killswitch (Ghost Mode)** | FACT-intent blockerar SECONDARY-källor |
 | **UI Directives** | Backend-driven UI-uppdatering (entity_summary, header, step) |
 | **SummaryCard** | "Varukorgen" – multi-resource beställningssammanfattning |
-| **Strict Mode** | Pandas-parsing för tabeller (ej AI-hallucination) |
-| **Dual Search** | Hunter (exakt) + Vector (semantisk) |
+| **VocabularyService** | Singleton för taxonomy-vocabulary access vid runtime |
+| **Topic-to-Branch Inference** | Automatisk mappning av topics till taxonomy branches |
+| **Dual Retrieval** | ContextBuilder: keyword + vector + graph sökning |
+
+### 8.1 Testverktyg
+
+| Verktyg | Beskrivning |
+|---------|-------------|
+| **simulate_procurement.py** | Stresstestning med AI-personas (batch-läge) |
+| **verify_reasoning.py** | Verifiering av IntentAnalyzer + ContextBuilder |
+| **Persona Story Generator** | Gemini skriver berättelser från personans perspektiv |
 
 ### Ingest Pipeline [DEPRECATED]
 
@@ -322,6 +362,27 @@ Separat bulk-ingest processor för dokumentkonvertering:
 
 ---
 
+## 9. Kända Problem (v5.2)
+
+### 9.1 Validator-loop ("Papegoj-effekten") 🚩 KRITISK
+
+**Problem:** Validatorn läser constraints från SECONDARY-dokument och applicerar dem som universella regler. Detta orsakar oändliga loopar där användaren bekräftar ett krav men botten fortsätter blockera.
+
+**Symptom:**
+- Samma BLOCK-meddelande upprepas 15+ gånger
+- Användaren säger "Ja, det stämmer" men botten förstår inte
+- Frustration eskalerar
+
+**Åtgärd:** 
+1. Filtrera bort SECONDARY i `_load_constraints` (normalizer.py)
+2. Implementera "acknowledged constraints" i session state (engine.py)
+
+### 9.2 Upptäckt via Simulation Tool
+
+Problemet upptäcktes via batch-körning av 11 scenarion med `simulate_procurement.py`. Alla scenarion fastnade i samma typ av loop. Persona Story Generator gav insikt i användarupplevelsen.
+
+---
+
 *Version: 5.2*  
-*Status: Modular Architecture + Entity Extraction + UI Directives + Multi-Resource Support*  
+*Status: Reasoning Engine v2 + Taxonomy-Aware + Simulation Tool*  
 *Senast uppdaterad: November 2024*

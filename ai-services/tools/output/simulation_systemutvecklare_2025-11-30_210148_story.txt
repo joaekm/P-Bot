@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Lisa Anderssons berättelse
+║  Utvecklingsledare på Inera AB
+║  
+║  Samtal: 30 meddelanden
+║  Datum: 2025-11-30 21:01
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Alltså, du anar inte vilken soppa det blev igår! Jag skulle ju testa den här P-Bot på Adda, för att göra ett avrop. Jag tänkte att det skulle vara smidigt, liksom en modern grej. Jag är ju ny som utvecklingsledare och vill verkligen lära mig den här avropsgrejen. Tidigare har inköpsavdelningen alltid hjälpt till, men nu ska jag ju klara det själv. Var lite nervös, men också peppad på att lära mig, liksom ta nästa steg.
+
+Jag började chatta med den här P-Boten, och det kändes väl okej i början. Jag förklarade att vi behövde en senior systemutvecklare till E-klient-tjänsten i Lund. Men sen, alltså sen började karusellen. Den här boten, den fortsatte tjata om att uppdraget var i Stockholm och att konsulterna måste vara placerade inom EU/EES! Jag fattade ingenting! Jag skrev ju tydligt att det var Lund! Jag kollade avropsunderlaget en gång till, och en gång till... och en gång till. Började faktiskt undra om jag var helt dum i huvudet.
+
+Det värsta var att den bara upprepade samma sak, om och om igen! Som en trasig grammofon! "Åtgärd krävs: Uppdraget utförs i Stockholm. Konsult måste vara placerad inom EU/EES." Alltså, jag blev tokig! Jag började till och med tvivla på mig själv. Tänkte att jag kanske hade missförstått något fundamentalt, fast jag ju var helt säker på att det var Lund som gällde. Ju mer den upprepade sig, desto mer stressad blev jag. Jag kände mig så inkompetent! Tänk om jag skulle göra ett jättefel och sabba hela projektet!
+
+Till slut gav jag upp. Jag stängde ner chatten och mailade inköpsavdelningen istället. Fick typ panik! Det kändes verkligen som ett bottennapp, haha, ursäkta ordvitsen. Jag vet inte, kanske den här AI-grejen är bra för enklare saker, men när det blir minsta lilla fel eller otydlighet verkar det ju inte funka alls. Om jag ska vara ärlig, jag är inte säker på om jag kommer testa den igen. Jag känner mig bara ännu mer osäker på processen nu än innan. Jag behöver nog prata med någon riktig människa istället."

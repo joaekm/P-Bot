@@ -1,4 +1,4 @@
-# P-Bot Backlog (v5.1)
+# P-Bot Backlog (v5.2)
 
 Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade på projektets faser.
 
@@ -93,6 +93,26 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 | **EPIC-384** | Persona Switching | ✅ DONE | Fas-specifika synthesizer-promptar (intake/protocol/strategy). |
 | **EPIC-385** | Legacy Archival | ✅ DONE | Gammal kod flyttad till `_archive/`. |
 
+### 3b-v6. Reasoning Engine v2 (v5.2) ✅
+
+| Epic-ID | Titel | Status | Kommentar |
+|:--------|:------|:-------|:----------|
+| **EPIC-390** | Intent Analyzer Component | ✅ DONE | Taxonomy-mappning (Root, Branch, Scope). Topic-to-Branch inference. |
+| **EPIC-391** | Context Builder | ✅ DONE | Ersätter Hunter. Dual Retrieval (keyword + vector + graph). |
+| **EPIC-392** | Planner v2 (Reasoning Layer) | ✅ DONE | ReasoningPlan output med conclusion, policy_check, tone. |
+| **EPIC-393** | Vocabulary Service | ✅ DONE | Singleton för vocabulary.json-access vid runtime. |
+| **EPIC-394** | Procurement Simulation Tool | ✅ DONE | Stresstestning med AI-personas. Batch-läge. |
+| **EPIC-395** | Persona Story Generator | ✅ DONE | Gemini skriver berättelser från personans perspektiv. |
+
+### 3b-v7. Validator Fixes 🚩 KRITISK
+
+| Epic-ID | Titel | Status | Kommentar |
+|:--------|:------|:-------|:----------|
+| **EPIC-400** | SECONDARY Constraint Filter | 🚩 KRITISK | Validatorn läser SECONDARY-regler som universella. Måste filtreras. |
+| **EPIC-401** | Acknowledgement Logic | 🚩 KRITISK | Användare fastnar i loop när de bekräftar krav. |
+| **EPIC-402** | BLOCK → WARN Conversion | 📝 TO DO | Många BLOCK borde vara WARN (info, ej stopp). |
+| **EPIC-403** | Remove "Rättegångskänslan" | 📝 TO DO | Ta bort "Ingen orimlig begäran"-meddelanden. |
+
 ### 3c. Pågående / Nästa Steg 🚩
 
 | Epic-ID | Titel | Status | Kommentar |
@@ -176,12 +196,12 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 
 ## Prioritetsordning
 
-1. **P0 (Kritisk):** EPIC-308 Varukorgsfunktion (slutföra SummaryCard-integration)
-2. **P1 (Hög):** EPIC-357 Sources UI, EPIC-358 Dokumentuppladdning
-3. **P2 (Medium):** EPIC-319 Split Deal, EPIC-320 Prisuppskattning
+1. **P0 (Kritisk - Blockerare):** EPIC-400 SECONDARY Constraint Filter, EPIC-401 Acknowledgement Logic
+2. **P1 (Hög):** EPIC-402 BLOCK→WARN, EPIC-357 Sources UI
+3. **P2 (Medium):** EPIC-319 Split Deal, EPIC-320 Prisuppskattning, EPIC-358 Dokumentuppladdning
 4. **P3 (Låg):** EPIC-303-306 Övriga vyer
 
 ---
 
-*Version: 5.0*  
+*Version: 5.2*  
 *Senast uppdaterad: November 2024*

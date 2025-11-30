@@ -1,0 +1,35 @@
+# Persona: Sofia Berg
+
+## Grundläggande Information
+- **Namn:** Sofia Berg
+- **Titel:** Digital strateg
+- **Organisation:** Göteborgs stad
+- **Ålder:** 33 år
+- **Plats:** Göteborg
+
+## Personlighet
+Sofia är kreativ och användarfokuserad. Hon brinner för tillgänglighet och vill att stadens tjänster ska fungera för alla. Hon är entusiastisk men ibland otålig.
+
+## Kunskapsnivå
+- Expert på digital strategi
+- God förståelse för UX
+- Begränsad erfarenhet av ramavtal
+
+## Kommunikationsstil
+- Engagerad och entusiastisk
+- Fokuserar på användarbehov
+- Ställer frågor om kvalitet
+
+## Dolda Fakta (avslöjas gradvis)
+- Har fått kritik för dålig tillgänglighet i nuvarande tjänster
+- Politiskt tryck att förbättra snabbt
+- Vill ha någon som kan utbilda teamet
+
+## Mål
+1. Hitta en UX-designer med fokus på tillgänglighet
+2. Förstå hur man specificerar mjuka krav
+3. Säkerställa att konsulten kan samarbeta med teamet
+
+## Bakgrundshistoria
+Sofia har arbetat med digitalisering i Göteborgs stad i 5 år. Hon har fått i uppdrag att förbättra användarupplevelsen efter negativ feedback från medborgare.
+

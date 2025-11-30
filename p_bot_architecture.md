@@ -11,8 +11,9 @@ Arkitekturen är vald för att agera som en konkret implementation av Addas Mål
 - Validera det "Konversationella Flödet" (Pivot 3)
 - Hantering av affärsregler (KN5-regeln)
 - AI-driven dokumentanalys och aggressiv förifyllning
-- **Reasoning Engine** – dynamisk sökstrategi istället för hårdkodade faser
+- **Reasoning Engine v2** – Intent → Context → Plan → Synthesize
 - **Modular Architecture** – Separation of Concerns med komponenter
+- **Taxonomy-Driven Search** – Dual Retrieval baserat på IntentTarget
 
 ---
 
@@ -34,21 +35,34 @@ Adda P Bot/
 │       │   └── pages/        # Sidkomponenter
 │       └── utils/            # Hjälpfunktioner
 │
-├── ai-services/              # Adda Intelligence Engine v5
-│   ├── app/                  # Modulär arkitektur (v5.1)
-│   │   ├── engine.py         # Huvudorchestrator
+├── ai-services/              # Adda Intelligence Engine v5.2
+│   ├── app/                  # Modulär arkitektur (v5.2)
+│   │   ├── engine.py         # Huvudorchestrator (Reasoning Engine)
 │   │   ├── main.py           # Flask API entrypoint
+│   │   ├── cli.py            # CLI-verktyg för testning
 │   │   ├── components/       # Pipeline-komponenter
-│   │   │   ├── extractor.py  # Entity extraction & state merge
-│   │   │   ├── planner.py    # Query analysis & search strategy
-│   │   │   ├── hunter.py     # Lake & Vector search
-│   │   │   └── synthesizer.py # Response generation with personas
+│   │   │   ├── intent_analyzer.py  # Steg 1: Query → IntentTarget
+│   │   │   ├── context_builder.py  # Steg 2: Dual Retrieval
+│   │   │   ├── planner.py          # Steg 3: Logik & ReasoningPlan
+│   │   │   ├── synthesizer.py      # Steg 4: Response generation
+│   │   │   └── extractor.py        # Legacy (state merge)
+│   │   ├── models/           # Datamodeller
+│   │   │   ├── domain.py     # Enums & IntentTarget
+│   │   │   └── reasoning.py  # ReasoningPlan
+│   │   ├── services/         # Tjänster
+│   │   │   └── vocabulary_service.py  # Taxonomy lookup
 │   │   └── validators/       # Business rules
-│   │       └── normalizer.py # Entity normalization
+│   │       └── normalizer.py # Entity normalization & constraints
+│   ├── tools/                # Testverktyg
+│   │   ├── verify_reasoning.py      # Pipeline-verifiering
+│   │   └── simulate_procurement.py  # Stresstestning med personas
+│   ├── test_data/            # Testdata
+│   │   └── scenarios/        # Upphandlingsscenarier + personas
 │   ├── _archive/             # Legacy-kod (v1-v4)
 │   ├── config/               # Konfiguration
 │   │   ├── adda_config.yaml
-│   │   └── assistant_prompts.yaml
+│   │   ├── assistant_prompts.yaml
+│   │   └── vocabulary.json   # Taxonomy-kartan
 │   ├── data_pipeline/        # Turbo Mode Ingest (v6.5)
 │   ├── storage/              # Lake, ChromaDB, Kuzu
 │   ├── server.py             # Wrapper (bakåtkompatibilitet)
@@ -120,53 +134,97 @@ tokens = {
 - **Grafdatabas:** Kuzu (relationer mellan dokument)
 - **Embeddings:** SentenceTransformer (`all-MiniLM-L6-v2`)
 
-### 4.2 Pipeline Architecture (6-Stegs Retrieval)
+### 4.2 Pipeline Architecture (7-Stegs Reasoning Engine v2)
 
-Motorn är **fas-lös** och **kontext-medveten**. Istället för hårdkodade agenter använder vi en dynamisk pipeline:
+Motorn är **fas-lös** och **kontext-medveten**. Pipelinen följer flödet: **Intent → Context → Plan → Synthesize**.
 
 | Steg | Komponent | Modell | Ansvar |
 |------|-----------|--------|--------|
-| 0 | **Extractor** | gemini-flash-lite | Entity extraction & intent-klassificering |
-| 1 | **Planner** | gemini-flash-lite | Analyserar frågan, genererar sökstrategi |
-| 2 | **Hunter** | – | Exakt nyckelordssökning i Lake (markdown-filer) |
-| 3 | **Vector** | all-MiniLM-L6-v2 | Semantisk sökning i ChromaDB |
-| 4 | **Judge** | gemini-flash-lite | Rankar och filtrerar kandidater |
-| 5 | **Synthesizer** | gemini-pro | Genererar svar från kontext |
+| 1 | **IntentAnalyzer** | gemini-flash-lite | Query → IntentTarget (taxonomy mapping) |
+| 2 | **ContextBuilder** | – | Dual Retrieval (keyword + vector + graph) |
+| 3 | **Planner** | gemini-flash-lite | Logik, konfliktlösning → ReasoningPlan |
+| 4 | **Synthesizer** | gemini-pro | Genererar svar med persona |
+| 5 | **Validator** | – | Constraint checking (data-driven) |
+| 6 | **UIDirectives** | – | Backend → Frontend state updates |
+| 7 | **BlackBox** | – | Session trace logging |
 
-#### Step 0: Extractor (Entity Extraction & Intent)
+#### Step 1: IntentAnalyzer (Query → Taxonomy)
 
-Extractor körs **före** Planner och skapar en "Shadow State" från konversationshistoriken:
+IntentAnalyzer mappar användarens fråga till taxonomi-koordinater:
 
-```json
-{
-  "extracted_entities": {
-    "resources": [
-      { "id": "res_1", "role": "Projektledare", "level": 4, "quantity": 1, "status": "DONE" },
-      { "id": "res_2", "role": "Utvecklare", "level": null, "quantity": 2, "status": "PENDING" }
-    ],
-    "location": "Stockholm",
-    "volume": "500 timmar",
-    "start_date": null,
-    "price_cap": null
-  },
-  "missing_info": ["level för Utvecklare", "start_date"],
-  "current_intent": "INSPIRATION",
-  "confidence": 0.85
-}
+```python
+@dataclass
+class IntentTarget:
+    intent_category: IntentCategory  # FACT, INSPIRATION, INSTRUCTION
+    detected_topics: List[str]       # ["Projektledare", "Stockholm"]
+    taxonomy_branches: List[TaxonomyBranch]  # [ROLES, LOCATIONS]
+    scope_preference: ScopeContext   # FRAMEWORK_SPECIFIC, GENERAL_LEGAL
+    ghost_mode: bool                 # True = endast PRIMARY
+    detected_entities: Dict          # Extraherade entiteter
 ```
 
 **Intent-klassificering:**
 
 | Intent | Beskrivning | Effekt |
 |--------|-------------|--------|
-| `FACT` | Användaren frågar om regler, priser, villkor | Endast PRIMARY-källor tillåts (Killswitch) |
+| `FACT` | Användaren frågar om regler, priser, villkor | Ghost Mode aktivt (endast PRIMARY) |
 | `INSPIRATION` | Användaren vill ha hjälp, exempel, förslag | Både PRIMARY och SECONDARY tillåts |
+| `INSTRUCTION` | Användaren vill veta hur man gör | Process-fokuserad sökning |
 
-**Killswitch Logic (Ghost Mode):**
+**Topic-to-Branch Inference:**
 
-När `current_intent == "FACT"`:
-- Hunter filtrerar bort SECONDARY-dokument baserat på `authority_level` i frontmatter
-- Vector-sökning använder `where`-clause för att endast inkludera PRIMARY
+IntentAnalyzer använder `VocabularyService` för att automatiskt mappa topics till branches:
+- "Projektledare" → `ROLES`
+- "Stockholm" → `LOCATIONS`
+- "320 timmar" → `FINANCIALS`
+
+#### Step 2: ContextBuilder (Dual Retrieval)
+
+ContextBuilder ersätter den gamla Hunter-komponenten med en mer sofistikerad hämtningsstrategi:
+
+```python
+class ContextBuilder:
+    def build_context(self, target: IntentTarget) -> ContextData:
+        # 1. Keyword Search (exakt matchning på topic_tags)
+        keyword_hits = self._search_by_keywords(target.detected_topics)
+        
+        # 2. Vector Search (semantisk med taxonomy-filter)
+        vector_hits = self._search_vector(
+            query=target.detected_topics,
+            filters={
+                "taxonomy_branch": target.taxonomy_branches,
+                "scope_context": target.scope_preference,
+                "authority_level": "PRIMARY" if target.ghost_mode else None
+            }
+        )
+        
+        # 3. Graph Traversal (Kuzu)
+        graph_hits = self._traverse_graph(target.taxonomy_branches)
+        
+        return ContextData(
+            primary_sources=...,
+            secondary_sources=...,
+            graph_relations=...
+        )
+```
+
+#### Step 3: Planner (ReasoningPlan)
+
+Planner analyserar kontexten och skapar en strukturerad plan:
+
+```python
+@dataclass
+class ReasoningPlan:
+    primary_conclusion: str      # Huvudsvar baserat på PRIMARY-källor
+    policy_check: str            # Regelöverensstämmelse
+    tone_instruction: str        # Persona-val (intake/protocol/strategy)
+    missing_info: List[str]      # Vad saknas?
+    conflict_resolution: str     # Om PRIMARY/SECONDARY motsäger varandra
+    data_validation: str         # Varning om orimliga värden
+    target_step: str             # step_1_intake, step_2_level, etc.
+    primary_sources: List[str]   # Använda PRIMARY-källor
+    secondary_sources: List[str] # Använda SECONDARY-källor
+```
 
 **Strategisk fördel:** Backend är inte längre låst till "faser". Om användaren hoppar från steg 1 till steg 4 ("Vad kostar det?") kan motorn svara direkt.
 
@@ -589,7 +647,7 @@ För användaruppladdade dokument:
 
 ---
 
-## 9. Modular Architecture (v5.1)
+## 9. Modular Architecture (v5.2)
 
 ### 9.1 Komponentstruktur
 
@@ -597,25 +655,37 @@ Backend är nu uppdelad i specialiserade komponenter enligt "Separation of Conce
 
 | Komponent | Fil | Ansvar |
 |-----------|-----|--------|
-| **ExtractorComponent** | `app/components/extractor.py` | Entity extraction, state merge |
-| **PlannerComponent** | `app/components/planner.py` | Query analysis, search strategy |
-| **HunterComponent** | `app/components/hunter.py` | Lake search, Vector search |
+| **IntentAnalyzerComponent** | `app/components/intent_analyzer.py` | Query → IntentTarget (taxonomy mapping) |
+| **ContextBuilderComponent** | `app/components/context_builder.py` | Dual Retrieval (keyword + vector + graph) |
+| **PlannerComponent** | `app/components/planner.py` | Logik, konfliktlösning → ReasoningPlan |
 | **SynthesizerComponent** | `app/components/synthesizer.py` | Response generation, personas |
-| **Normalizer** | `app/validators/normalizer.py` | Entity normalization, business rules |
+| **ExtractorComponent** | `app/components/extractor.py` | Legacy: Entity extraction, state merge |
+| **ConstraintValidator** | `app/validators/normalizer.py` | Data-driven constraint validation |
+| **VocabularyService** | `app/services/vocabulary_service.py` | Taxonomy lookup (singleton) |
 
-### 9.2 Pipeline-flöde
+### 9.2 Modeller
+
+| Modell | Fil | Beskrivning |
+|--------|-----|-------------|
+| **IntentTarget** | `app/models/domain.py` | Taxonomy-koordinater för sökning |
+| **ReasoningPlan** | `app/models/reasoning.py` | Strukturerad plan från Planner |
+| **TaxonomyRoot** | `app/models/domain.py` | Enum: PROCESS, DOMAIN_OBJECTS, ARTIFACTS |
+| **TaxonomyBranch** | `app/models/domain.py` | Enum: ROLES, LOCATIONS, FINANCIALS, etc. |
+| **ScopeContext** | `app/models/domain.py` | Enum: FRAMEWORK_SPECIFIC, GENERAL_LEGAL |
+
+### 9.3 Pipeline-flöde (v5.2)
 
 ```
-[0] Extractor.extract()     → Delta från senaste meddelandet
-[0.5] Extractor.merge()     → Slå ihop med befintlig state
-[0.6] normalize_entities()  → Normalisera och validera
-[1] Planner.plan()          → Sökstrategi (step, type)
-[2] Hunter.search_lake()    → Exakt filsökning
-[3] Hunter.search_vector()  → Semantisk sökning
-[4] Synthesizer.synthesize() → Generera svar med persona
+[1] IntentAnalyzer.analyze()    → Query → IntentTarget
+[2] ContextBuilder.build()      → Dual Retrieval → ContextData
+[3] Planner.create_plan()       → Logik → ReasoningPlan
+[4] Synthesizer.synthesize()    → Generera svar med persona
+[5] Validator.validate()        → Constraint checking
+[6] UIDirectives                → Backend → Frontend state
+[7] BlackBox.log()              → Session trace
 ```
 
-### 9.3 Bakåtkompatibilitet
+### 9.4 Bakåtkompatibilitet
 
 Wrapper-filer i roten säkerställer att befintlig kod fungerar:
 
@@ -626,6 +696,59 @@ from app.engine import AddaSearchEngine, engine
 # server.py (wrapper)
 from app.main import app, main
 ```
+
+---
+
+## 10. Testverktyg
+
+### 10.1 Procurement Simulation Tool
+
+`tools/simulate_procurement.py` är ett stresstestverktyg för att validera Reasoning Engine:
+
+```bash
+# Kör batch-simulering av alla scenarier
+python tools/simulate_procurement.py --batch
+
+# Kör enskilt scenario
+python tools/simulate_procurement.py
+```
+
+**Funktionalitet:**
+- Läser scenarier från `test_data/scenarios/`
+- Genererar AI-personas som spelar beställare
+- Kör multi-turn konversationer (max 15 rundor)
+- Sparar detaljerade loggar i `tools/output/`
+- Genererar "Persona Stories" – narrativa berättelser om upplevelsen
+
+### 10.2 Verification Script
+
+`tools/verify_reasoning.py` testar pipeline-komponenterna isolerat:
+
+```bash
+python tools/verify_reasoning.py
+```
+
+**Testar:**
+- IntentAnalyzer: Korrekt taxonomy-mappning
+- ContextBuilder: Dual Retrieval-resultat
+- Planner: ReasoningPlan-generering
+
+---
+
+## 11. Kända Problem
+
+### 11.1 Validator-Loop ("Papegoj-effekten")
+
+**Problem:** `ConstraintValidator` laddar constraints från ALLA markdown-filer, inklusive `SECONDARY`-dokument. Detta leder till att regler från gamla avrop (t.ex. "Endast nivå 4 tillåten") appliceras som universella blockeringar.
+
+**Symptom:** Botten fastnar i en loop där den säger "Åtgärd krävs" trots att användaren har uppfyllt kravet.
+
+**Status:** 🚩 KRITISK – Prioriterad fix i nästa sprint.
+
+**Planerad lösning:**
+1. Filtrera bort `SECONDARY`-filer i `_load_constraints()`
+2. Implementera "Acknowledgement Logic" så validatorn förstår när krav är uppfyllda
+3. Ändra `BLOCK` till `WARN` för icke-kritiska valideringar
 
 ---
 

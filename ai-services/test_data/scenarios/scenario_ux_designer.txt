@@ -1,0 +1,34 @@
+# Avrop: UX-designer för digital tjänsteutveckling
+
+## Organisation
+Göteborgs stad, Göteborg
+
+## Behov
+UX-designer för att förbättra användarupplevelsen i stadens digitala tjänster.
+Fokus på tillgänglighet och användarvänlighet.
+
+## Roller och Nivåer
+- UX-designer, Nivå 4
+
+## Omfattning
+- 100% heltid
+- Kontraktsvärde: 1 200 000 SEK
+- Avropsområde F (Västra Götaland, Halland)
+- Takpris: 1050 kr/timme
+
+## Krav på konsulten
+- Minst 4 års erfarenhet av UX-design
+- Erfarenhet av användartester och prototyping
+- Kunskap om WCAG och tillgänglighet
+- Erfarenhet av Figma eller Sketch
+
+## Uppgifter
+- Genomföra användarundersökningar
+- Skapa prototyper och wireframes
+- Testa och iterera design
+- Samarbeta med utvecklingsteam
+
+## Kontraktstid
+- 8 månader initialt
+- Option: 12 månader förlängning
+

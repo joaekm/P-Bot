@@ -1,6 +1,11 @@
 """
-Adda Search Engine v5 - Main Orchestrator
-Coordinates the pipeline: Extractor -> Validator -> Planner -> Hunter -> Synthesizer
+Adda Search Engine v5.2 - Main Orchestrator
+Coordinates the pipeline: IntentAnalyzer -> ContextBuilder -> Planner -> Synthesizer
+
+v5.2 Changes:
+- New pipeline flow with Planner (Logic Layer) between Context and Synthesis
+- ReasoningPlan model for structured reasoning output
+- Removed redundant Extractor step (IntentAnalyzer handles intent)
 """
 import os
 import json
@@ -16,7 +21,14 @@ import kuzu
 from google import genai
 from dotenv import load_dotenv
 
-from .components import ExtractorComponent, PlannerComponent, HunterComponent, SynthesizerComponent
+from .components import (
+    ExtractorComponent,
+    IntentAnalyzerComponent,
+    ContextBuilderComponent,
+    PlannerComponent, 
+    SynthesizerComponent
+)
+from .models import ReasoningPlan
 from .validators import normalize_entities, validate_entities
 
 # --- CONFIG LOADER ---
@@ -60,14 +72,17 @@ API_KEY = os.getenv("GOOGLE_API_KEY")
 
 class AddaSearchEngine:
     """
-    Main orchestrator for the Adda Search Engine v5.
+    Main orchestrator for the Adda Search Engine v5.2.
     
     Pipeline:
-    0. Extractor - Entity extraction from conversation
-    0.5. Validator - Normalize and validate entities
-    1. Planner - Analyze query and create search strategy
-    2. Hunter - Search Lake (files) and Vector (ChromaDB)
-    3. Synthesizer - Generate response with persona
+    1. IntentAnalyzer - Query -> IntentTarget (taxonomy mapping)
+    2. ContextBuilder - IntentTarget -> Context (dual retrieval)
+    3. Planner - Intent + Context -> ReasoningPlan (logic layer)
+    4. Synthesizer - ReasoningPlan + Context -> Response
+    
+    Additionally:
+    - Extractor for session state (resources, location, etc.)
+    - Validator for constraint checking
     """
     
     def __init__(self):
@@ -88,7 +103,8 @@ class AddaSearchEngine:
             logger.error(f"Chroma Init Failed: {e}")
             self.collection = None
             
-        # 2. Init Kuzu (Graph) - Placeholder for future advanced queries
+        # 2. Init Kuzu (Graph)
+        self.conn = None
         try:
             self.db = kuzu.Database(str(PATHS['kuzu']))
             self.conn = kuzu.Connection(self.db)
@@ -101,11 +117,15 @@ class AddaSearchEngine:
         
         # Initialize Components
         self.extractor = ExtractorComponent(self.client, model_lite, self.prompts)
+        self.intent_analyzer = IntentAnalyzerComponent(self.client, model_lite, self.prompts)
+        self.context_builder = ContextBuilderComponent(PATHS['lake'], self.collection, self.conn)
         self.planner = PlannerComponent(self.client, model_lite, self.prompts)
-        self.hunter = HunterComponent(PATHS['lake'], self.collection)
         self.synthesizer = SynthesizerComponent(self.client, model_pro, self.prompts)
         
-        logger.info("AddaSearchEngine v5 initialized with modular components")
+        # Legacy alias for backward compatibility
+        self.hunter = self.context_builder
+        
+        logger.info("AddaSearchEngine v5.2 initialized with Logic Layer (Planner)")
 
     def _load_prompts(self):
         try:
@@ -115,183 +135,263 @@ class AddaSearchEngine:
             return {}
 
     def run(self, query: str, history: List[Dict] = [], session_state: Dict = None) -> Dict[str, Any]:
-        """Main Pipeline with State Persistence"""
+        """
+        Main Pipeline: Intent -> Context -> Plan -> Synthesize
+        
+        Args:
+            query: User's current query
+            history: Conversation history
+            session_state: Existing session state from frontend
+            
+        Returns:
+            Dict with response, sources, reasoning_plan, current_state, ui_directives
+        """
         logger.info(f"New Query: {query}")
         
-        # 0. EXTRACT (Delta from latest message)
-        extracted_delta = self.extractor.extract(query, history)
+        # =====================================================================
+        # STEP 1: INTENT ANALYSIS (Understand)
+        # =====================================================================
+        intent_target = self.intent_analyzer.analyze(query, history)
+        logger.info(f"Intent: {intent_target.intent_category}, "
+                   f"branches={[b.value for b in intent_target.taxonomy_branches]}, "
+                   f"topics={intent_target.detected_topics}")
         
-        # 0.5 MERGE (Combine with existing state from frontend)
+        # =====================================================================
+        # STEP 2: ENTITY EXTRACTION (Session State)
+        # =====================================================================
+        extracted_delta = self.extractor.extract(query, history)
         current_state = self.extractor.merge(session_state, extracted_delta)
         
-        current_intent = current_state.get('current_intent', 'INSPIRATION')
+        # Sync intent from IntentAnalyzer to state
+        current_state['current_intent'] = intent_target.intent_category
+        
         extracted_entities = current_state.get('extracted_entities', {})
         
-        # 0.6 NORMALIZE
+        # Normalize entities
         extracted_entities = normalize_entities(extracted_entities)
         current_state['extracted_entities'] = extracted_entities
         
-        logger.info(f"Merged State Resources: {len(extracted_entities.get('resources', []))}")
-        logger.info(f"Current Intent: {current_intent}, Missing: {current_state.get('missing_info')}")
+        logger.info(f"Session State: {len(extracted_entities.get('resources', []))} resources, "
+                   f"missing: {current_state.get('missing_info')}")
         
-        # --- STEP 0.7: VALIDATION (Constraint Check) ---
-        # Skyddar systemet mot orimliga värden eller otillåtna val
+        # =====================================================================
+        # STEP 3: VALIDATION (Constraint Check)
+        # =====================================================================
         validated_entities, validation_issues = validate_entities(extracted_entities)
         current_state['extracted_entities'] = validated_entities
         
-        # 1. Hantera BLOCK (Avbryt direkt)
+        # Handle BLOCK (abort immediately)
         block_issues = [i for i in validation_issues if i.get("type") == "BLOCK"]
         if block_issues:
-            block_msg = block_issues[0].get('message', "Begäran stoppad av regelverk.")
-            logger.warning(f"🚫 Request BLOCKED by Validator: {block_msg}")
-            
-            # Logga även BLOCK-svar
-            self._log_trace(
-                query=query,
-                current_intent=current_intent,
-                extracted_entities=extracted_entities,
-                current_state=current_state,
-                plan={"reasoning": "BLOCKED by Validator", "target_step": "validation", "target_type": "BLOCK"},
-                target_step="validation",
-                target_type="BLOCK",
-                hunter_hits={},
-                vector_hits={},
-                sources=[i.get('source') for i in block_issues if i.get('source')],
-                answer=f"🛑 BLOCKED: {block_msg}"
+            return self._handle_blocked_request(
+                query, intent_target, current_state, block_issues, validation_issues
             )
-            
-            # Returnera direkt utan att köra Planner/LLM
-            return {
-                "response": f"🛑 **Åtgärd krävs:** {block_msg}",
-                "sources": [i.get('source') for i in block_issues if i.get('source')],
-                "thoughts": {
-                    "reasoning": "Validator triggered BLOCK action.",
-                    "violation": validation_issues
-                },
-                "current_state": current_state,
-                "ui_directives": {
-                    "current_intent": "FACT",
-                    "missing_info": [],
-                    "validation_blocked": True
-                }
-            }
         
-        # 2. Hantera STRATEGY_FORCE (Tvinga FKU etc)
+        # Handle STRATEGY_FORCE
         strategy_notices = []
-        force_fku = False
-        
         for issue in validation_issues:
             if issue.get("type") == "STRATEGY_FORCE":
                 strategy_notices.append(f"⚠️ **Notis:** {issue.get('message')}")
                 if issue.get("action") == "TRIGGER_STRATEGY_FKU":
-                    force_fku = True
+                    current_state["forced_strategy"] = "FKU"
+                    logger.info("📋 Strategy forced to FKU by Validator")
         
-        # Om validatorn tvingar FKU, skriv över strategin i state
-        if force_fku:
-            current_state["forced_strategy"] = "FKU"
-            logger.info("📋 Strategy forced to FKU by Validator")
+        # =====================================================================
+        # STEP 4: CONTEXT BUILD (Retrieve)
+        # =====================================================================
+        if intent_target.should_block_secondary():
+            logger.info("🛡️ GHOST MODE: Blocking SECONDARY files")
         
-        # KILLSWITCH LOGIC: Determine allowed authority levels based on intent
-        if current_intent == "FACT":
-            allowed_authorities = ["PRIMARY"]
-            logger.info("🛡️ GHOST MODE ACTIVATED: Blocking SECONDARY files based on intent 'FACT'")
-        else:
-            allowed_authorities = ["PRIMARY", "SECONDARY"]
+        context = self.context_builder.build_context(intent_target)
         
-        # 1. PLAN
-        plan = self.planner.plan(query, history)
-        target_step = plan.get('target_step', 'general')
-        target_type = plan.get('target_type', 'DEFINITION')
+        if not context:
+            return self._handle_no_context(query, intent_target, current_state)
         
-        candidates = {}
-        hunter_hits = {}
+        # Track hits for logging
+        topic_hits = {k: v for k, v in context.items() if v.get('source') == 'TOPIC_MATCH'}
+        vector_hits = {k: v for k, v in context.items() if 'VECTOR' in v.get('source', '')}
+        graph_hits = {k: v for k, v in context.items() if v.get('source') == 'GRAPH'}
         
-        # 2. HUNT (If looking for rules/instructions) - with authority filter
-        if target_type in ['RULE', 'INSTRUCTION', 'DATA_POINTER']:
-            hunter_hits = self.hunter.search_lake(target_step, target_type, allowed_authorities)
-            candidates.update(hunter_hits)
-            
-        # 3. VECTOR (Understanding) - with authority filter
-        vector_query = plan.get('vector_query', query)
-        vector_hits = self.hunter.search_vector(vector_query, target_step, allowed_authorities)
+        logger.info(f"Context: {len(topic_hits)} topic, {len(vector_hits)} vector, {len(graph_hits)} graph")
         
-        # Merge (Vector fills in where Hunter misses)
-        for k, v in vector_hits.items():
-            if k not in candidates:
-                candidates[k] = v
+        # =====================================================================
+        # STEP 5: REASONING (Plan)
+        # =====================================================================
+        reasoning_plan = self.planner.create_plan(intent_target, context)
         
-        # 4. CONTEXT PREP
-        context_docs = []
-        sources = []
+        logger.info(f"Plan: tone={reasoning_plan.tone_instruction}, "
+                   f"step={reasoning_plan.target_step}, "
+                   f"warning={reasoning_plan.requires_warning()}")
         
-        # Sort: Rules first!
-        sorted_candidates = sorted(
-            candidates.values(), 
-            key=lambda x: 0 if x['type'] == 'RULE' else 1
+        # =====================================================================
+        # STEP 6: SYNTHESIS (Generate Response)
+        # =====================================================================
+        answer = self.synthesizer.generate_response(
+            query=query,
+            plan=reasoning_plan,
+            context=context,
+            extracted_entities=extracted_entities
         )
         
-        for doc in sorted_candidates[:8]:  # Max 8 block context
-            authority_tag = f" [{doc.get('authority', 'UNKNOWN')}]" if doc.get('authority') else ""
-            context_docs.append(f"--- BLOCK: {doc['type']}{authority_tag} (File: {doc['filename']}) ---\n{doc['content']}")
-            sources.append(doc['filename'])
-            
-        if not context_docs:
-            return {
-                "response": "Jag hittar ingen information om detta i din valda kontext.", 
-                "sources": [], 
-                "thoughts": plan,
-                "current_state": current_state
-            }
-            
-        # 5. SYNTHESIZE
-        answer = self.synthesizer.synthesize(query, context_docs, extracted_entities, target_step)
-        
-        # Injicera strategy_notices i svaret om de finns
+        # Inject strategy notices if any
         if strategy_notices:
             prefix = "\n\n".join(strategy_notices) + "\n\n"
             answer = prefix + answer
         
-        # --- BLACK BOX RECORDER ---
-        self._log_trace(query, current_intent, extracted_entities, current_state, 
-                        plan, target_step, target_type, hunter_hits, vector_hits, 
-                        sources, answer)
-
+        # =====================================================================
+        # STEP 7: BUILD RESPONSE
+        # =====================================================================
+        sources = reasoning_plan.get_all_sources()
+        
+        # Build UI directives
+        ui_directives = self._build_ui_directives(intent_target, reasoning_plan, current_state)
+        
+        # Log trace
+        self._log_trace(
+            query=query,
+            intent_target=intent_target,
+            context=context,
+            reasoning_plan=reasoning_plan,
+            current_state=current_state,
+            answer=answer
+        )
+        
         return {
             "response": answer,
-            "sources": list(set(sources)),
-            "thoughts": plan,
-            "current_state": current_state
+            "sources": sources,
+            "reasoning": {
+                "conclusion": reasoning_plan.primary_conclusion,
+                "policy": reasoning_plan.policy_check,
+                "tone": reasoning_plan.tone_instruction,
+                "conflicts": reasoning_plan.conflict_resolution,
+                "validation": reasoning_plan.data_validation
+            },
+            "current_state": current_state,
+            "ui_directives": ui_directives
         }
     
-    def _log_trace(self, query, current_intent, extracted_entities, current_state,
-                   plan, target_step, target_type, hunter_hits, vector_hits, sources, answer):
+    def _handle_blocked_request(
+        self, 
+        query: str, 
+        intent_target, 
+        current_state: Dict,
+        block_issues: List[Dict],
+        all_issues: List[Dict]
+    ) -> Dict[str, Any]:
+        """Handle requests blocked by validator."""
+        block_msg = block_issues[0].get('message', "Begäran stoppad av regelverk.")
+        logger.warning(f"🚫 Request BLOCKED: {block_msg}")
+        
+        # Log the blocked request
+        self._log_trace(
+            query=query,
+            intent_target=intent_target,
+            context={},
+            reasoning_plan=None,
+            current_state=current_state,
+            answer=f"🛑 BLOCKED: {block_msg}"
+        )
+        
+        return {
+            "response": f"🛑 **Åtgärd krävs:** {block_msg}",
+            "sources": [i.get('source') for i in block_issues if i.get('source')],
+            "reasoning": {
+                "conclusion": "BLOCKED",
+                "policy": "Validator constraint",
+                "tone": "Strict/Warning",
+                "validation": block_msg
+            },
+            "current_state": current_state,
+            "ui_directives": {
+                "current_intent": "FACT",
+                "missing_info": [],
+                "validation_blocked": True
+            }
+        }
+    
+    def _handle_no_context(
+        self, 
+        query: str, 
+        intent_target, 
+        current_state: Dict
+    ) -> Dict[str, Any]:
+        """Handle case when no context is found."""
+        return {
+            "response": "Jag hittar ingen information om detta i din valda kontext.",
+            "sources": [],
+            "reasoning": {
+                "conclusion": "No context found",
+                "policy": "N/A",
+                "tone": "Helpful/Guiding"
+            },
+            "current_state": current_state,
+            "ui_directives": self._build_ui_directives(intent_target, None, current_state)
+        }
+    
+    def _build_ui_directives(
+        self, 
+        intent_target, 
+        reasoning_plan, 
+        current_state: Dict
+    ) -> Dict[str, Any]:
+        """Build UI directives for frontend."""
+        directives = {
+            "current_intent": intent_target.intent_category,
+            "detected_topics": intent_target.detected_topics,
+            "detected_entities": intent_target.detected_entities,
+            "taxonomy_branches": [b.value for b in intent_target.taxonomy_branches],
+            "entity_summary": current_state.get('extracted_entities', {}),
+            "missing_info": current_state.get('missing_info', []),
+            "ghost_mode": intent_target.should_block_secondary()
+        }
+        
+        if reasoning_plan:
+            directives["target_step"] = reasoning_plan.target_step
+            directives["tone"] = reasoning_plan.tone_instruction
+            directives["has_warning"] = reasoning_plan.requires_warning()
+        
+        return directives
+    
+    def _log_trace(
+        self, 
+        query: str, 
+        intent_target, 
+        context: Dict,
+        reasoning_plan,
+        current_state: Dict,
+        answer: str
+    ):
         """Black Box Recorder - Log pipeline execution for analysis."""
         try:
-            used_persona = self.synthesizer.get_persona_name(target_step)
-
             trace_entry = {
                 "timestamp": datetime.datetime.now().isoformat(),
-                "session_input": {
-                    "query": query,
-                    "extracted_intent": current_intent,
-                    "extracted_entities": extracted_entities,
+                "query": query,
+                "intent": {
+                    "category": intent_target.intent_category,
+                    "branches": [b.value for b in intent_target.taxonomy_branches],
+                    "topics": intent_target.detected_topics,
+                    "entities": intent_target.detected_entities,
+                    "ghost_mode": intent_target.should_block_secondary()
+                },
+                "context": {
+                    "total_docs": len(context),
+                    "primary_count": sum(1 for d in context.values() if d.get('authority') == 'PRIMARY'),
+                    "secondary_count": sum(1 for d in context.values() if d.get('authority') == 'SECONDARY')
+                },
+                "reasoning": {
+                    "conclusion": reasoning_plan.primary_conclusion if reasoning_plan else "N/A",
+                    "policy": reasoning_plan.policy_check if reasoning_plan else "N/A",
+                    "tone": reasoning_plan.tone_instruction if reasoning_plan else "N/A",
+                    "step": reasoning_plan.target_step if reasoning_plan else "N/A",
+                    "warning": reasoning_plan.requires_warning() if reasoning_plan else False
+                } if reasoning_plan else {"status": "BLOCKED or NO_CONTEXT"},
+                "session_state": {
+                    "resources": len(current_state.get('extracted_entities', {}).get('resources', [])),
                     "missing_info": current_state.get('missing_info', [])
-                },
-                "pipeline_logic": {
-                    "step_1_planner": plan,
-                    "target_step": target_step,
-                    "target_type": target_type,
-                    "used_persona": used_persona,
-                    "ghost_mode": current_intent == "FACT"
-                },
-                "search_results": {
-                    "hunter_hits": len(hunter_hits),
-                    "vector_hits": len(vector_hits),
-                    "final_sources": sources
                 },
                 "output": {
                     "response_length": len(answer),
-                    "response_preview": answer[:100] + "..." if answer else ""
+                    "response_preview": answer[:150] + "..." if len(answer) > 150 else answer
                 }
             }
 
@@ -310,4 +410,3 @@ class AddaSearchEngine:
 
 # Singleton for import
 engine = AddaSearchEngine()
-

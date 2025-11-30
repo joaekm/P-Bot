@@ -1,8 +1,13 @@
 """
-Adda P-Bot API Server v5.1
+Adda P-Bot API Server v5.2
 Main entrypoint for the Flask API.
+
+Updated to work with the new Reasoning Engine pipeline:
+- Uses `reasoning` instead of `thoughts`
+- Uses `ui_directives` directly from engine
 """
 import os
+import sys
 import logging
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -19,7 +24,7 @@ CORS(app)  # Enable CORS for all routes
 # Initialize the Search Engine
 try:
     engine = AddaSearchEngine()
-    logger.info("AddaSearchEngine v5 initialized successfully")
+    logger.info("AddaSearchEngine v5.2 initialized successfully")
 except Exception as e:
     logger.critical(f"Failed to initialize AddaSearchEngine: {e}")
     sys.exit(1)
@@ -35,6 +40,15 @@ def conversation():
         "conversation_history": list,
         "session_state": dict (optional)
     }
+    
+    Returns:
+    {
+        "message": str,
+        "sources": list,
+        "reasoning": dict,
+        "current_state": dict,
+        "ui_directives": dict
+    }
     """
     try:
         data = request.json
@@ -49,39 +63,55 @@ def conversation():
             return jsonify({
                 "message": "Hej! Jag är din AI-assistent för resursupphandling. Vad behöver du hjälp med idag?",
                 "input_placeholder": "T.ex. 'Jag behöver en projektledare'",
-                "show_upload_button": True
+                "show_upload_button": True,
+                "ui_directives": {
+                    "entity_summary": {},
+                    "update_sticky_header": "Steg 1: Beskriv Behov",
+                    "set_active_process_step": "step_1_needs",
+                    "missing_info": [],
+                    "current_intent": "INSPIRATION"
+                }
             })
 
         # Run the engine with session state for persistence
         session_state = data.get('session_state')
         result = engine.run(user_message, history, session_state)
         
-        # Extract data for UI directives
+        # Extract data from new v5.2 format
         current_state = result.get('current_state', {})
-        thoughts = result.get('thoughts', {})
+        reasoning = result.get('reasoning', {})
+        engine_ui_directives = result.get('ui_directives', {})
         
-        # Build UI directives for frontend
-        target_step = thoughts.get('target_step', 'step_1_intake')
+        # Map target_step to human-readable header
+        target_step = engine_ui_directives.get('target_step', 'step_1_intake')
         step_titles = {
             'step_1_intake': 'Steg 1: Beskriv Behov',
+            'step_1_needs': 'Steg 1: Beskriv Behov',
             'step_2_level': 'Steg 2: Kompetensnivå',
             'step_3_volume': 'Steg 3: Volym & Pris',
             'step_4_strategy': 'Steg 4: Avropsform',
             'general': 'Allmänt'
         }
         
+        # Build UI directives for frontend (matching expected format)
         ui_directives = {
-            "entity_summary": current_state.get('extracted_entities', {}),
+            "entity_summary": engine_ui_directives.get('entity_summary', {}),
             "update_sticky_header": step_titles.get(target_step, 'Resursupphandling'),
             "set_active_process_step": target_step,
-            "missing_info": current_state.get('missing_info', []),
-            "current_intent": current_state.get('current_intent', 'INSPIRATION')
+            "missing_info": engine_ui_directives.get('missing_info', []),
+            "current_intent": engine_ui_directives.get('current_intent', 'INSPIRATION'),
+            # New v5.2 fields
+            "detected_topics": engine_ui_directives.get('detected_topics', []),
+            "taxonomy_branches": engine_ui_directives.get('taxonomy_branches', []),
+            "ghost_mode": engine_ui_directives.get('ghost_mode', False),
+            "tone": engine_ui_directives.get('tone', 'Informative'),
+            "has_warning": engine_ui_directives.get('has_warning', False)
         }
         
         response = {
             "message": result.get('response', "Ursäkta, jag kunde inte generera ett svar."),
-            "thoughts": result.get('thoughts', {}),
             "sources": result.get('sources', []),
+            "reasoning": reasoning,
             "current_state": current_state,
             "ui_directives": ui_directives
         }
@@ -90,6 +120,8 @@ def conversation():
 
     except Exception as e:
         logger.error(f"Error in conversation endpoint: {e}")
+        import traceback
+        traceback.print_exc()
         return jsonify({"error": str(e), "message": "Ett fel uppstod på servern."}), 500
 
 
@@ -108,16 +140,15 @@ def analyze_document():
 @app.route('/api/health', methods=['GET'])
 def health():
     """Health check endpoint."""
-    return jsonify({"status": "ok", "version": "5.1"})
+    return jsonify({"status": "ok", "version": "5.2"})
 
 
 def main():
     """Main entry point."""
     port = int(os.environ.get('PORT', 5000))
-    logger.info(f"Starting Adda P-Bot API v5.1 on port {port}")
+    logger.info(f"Starting Adda P-Bot API v5.2 on port {port}")
     app.run(host='0.0.0.0', port=port, debug=True)
 
 
 if __name__ == '__main__':
     main()
-

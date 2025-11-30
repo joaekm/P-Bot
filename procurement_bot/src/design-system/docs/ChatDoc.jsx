@@ -57,7 +57,7 @@ const ChatDoc = () => {
                   : <UserAnswerContainer key={i} text={msg.text} />
               ))}
             </ChatWindow>
-          </div>
+              </div>
           
           <div style={{ marginTop: '16px', padding: '12px', backgroundColor: '#F5F5F5', borderRadius: '8px', fontFamily: 'monospace', fontSize: '12px' }}>
             <strong>Props:</strong> currentStepNumber, currentStepTitle, minHeight, maxHeight, inputZone, children

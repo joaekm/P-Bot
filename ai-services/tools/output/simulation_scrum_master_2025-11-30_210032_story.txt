@@ -1,0 +1,13 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Maria Lindgrens berättelse
+║  Enhetschef IT-utveckling på Försäkringskassan
+║  
+║  Samtal: 30 meddelanden
+║  Datum: 2025-11-30 21:00
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag måste berätta om det här P-Bot-fiaskot igår. Jag tänkte att Adda skulle kunna spara oss tid, liksom automatisera det här trista avropsmomentet. Vi behöver ju verkligen en grym Scrum Master, en nivå 5, för att få fart på den här agila transformationen. Tanken var att P-Bot skulle hjälpa mig specificera kravet så att vi kunde komma igång snabbt. Jag var faktiskt optimistisk. Jag tänkte: 'äntligen slipper jag sitta och bläddra i gamla avtal och prata med en massa leverantörer som ändå inte förstår vad vi behöver'.
+
+Men herregud! Det började bra, jag gav den alla uppgifter: kompetensnivå, heltid, startdatum, takpris. Allt enligt boken. Och sen bara låste den sig. Varje svar jag gav, vad jag än sa, fick jag samma svar tillbaka: 'Åtgärd krävs: Offererad konsult måste vara på Nivå 5.' Jag fattade ingenting! Trodde den hade hängt sig. Jag repeterade ju som en papegoja att vi BEHÖVER en nivå 5, som om jag inte hade varit tydlig från början. Till slut kände jag mig som i en sketch. Jag vet inte hur många gånger jag sa 'Ja, jag förstår, konsulten måste vara på Nivå 5', men den bara malde på. Jag blev så irriterad! Tiden rinner ju iväg och jag behöver hitta någon som kan hantera de här konservativa cheferna innan de saboterar hela transformationen.
+
+Det värsta är att jag inte fattar vad som gick fel. Var det en bugg? Missförstod den mig? Hade den fastnat i något slags loop? Oavsett vad så var det en total katastrof. Jag gick därifrån med noll levererade resultat. Hade jag ringt en leverantör direkt hade jag kommit längre. Nu sitter jag här med samma problem och en gnutta hopp mindre. Jag funderar på om jag ska testa den igen, men jag är rädd att jag bara kommer att slösa bort ännu mer tid. Kanske är det bäst att gå tillbaka till det gamla vanliga sättet ändå. Ibland känns det som att 'effektivisering' bara leder till mer frustration."
