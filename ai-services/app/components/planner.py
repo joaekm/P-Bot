@@ -13,7 +13,6 @@ v5.3: Added _validate_against_rules (absorbed from normalizer.py)
 """
 import json
 import logging
-import datetime
 import re
 import yaml
 from pathlib import Path
@@ -450,42 +449,3 @@ Analysera och returnera din ReasoningPlan som JSON.
             primary_sources=primary_sources[:5],
             secondary_sources=secondary_sources[:3]
         )
-    
-    # =========================================================================
-    # LEGACY METHOD (for backward compatibility)
-    # =========================================================================
-    
-    def plan(self, query: str, history: List[Dict]) -> Dict:
-        """
-        Legacy method for backward compatibility.
-        Creates a simple search plan without full reasoning.
-        """
-        raw_prompt = self.prompts.get('planner', {}).get('instruction', '')
-        
-        if not raw_prompt:
-            return {
-                "reasoning": "No planner instruction found",
-                "target_step": "general",
-                "target_type": "DEFINITION",
-                "vector_query": query
-            }
-        
-        # Inject today's date
-        prompt = raw_prompt.format(date=datetime.date.today())
-        full_prompt = f"{prompt}\n\nHISTORIK: {history[-2:]}\nANVÄNDARENS FRÅGA: {query}"
-        
-        try:
-            resp = self.client.models.generate_content(
-                model=self.model,
-                contents=full_prompt,
-                config=types.GenerateContentConfig(response_mime_type="application/json")
-            )
-            return json.loads(resp.text)
-        except Exception as e:
-            logger.error(f"Legacy planning failed: {e}")
-            return {
-                "reasoning": "Fallback due to error",
-                "target_step": "general",
-                "target_type": "DEFINITION",
-                "vector_query": query
-            }

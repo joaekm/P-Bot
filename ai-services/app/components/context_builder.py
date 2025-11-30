@@ -484,6 +484,3 @@ class ContextBuilderComponent:
         return hits
 
 
-# Alias for backward compatibility
-HunterComponent = ContextBuilderComponent
-

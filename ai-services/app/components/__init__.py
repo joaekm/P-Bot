@@ -1,16 +1,16 @@
 """
-Pipeline Components for Adda Search Engine v5
+Pipeline Components for Adda Search Engine v5.3
 
 Components:
-- ExtractorComponent: Entity extraction from conversation
-- IntentAnalyzerComponent: Query -> IntentTarget mapping (NEW)
-- ContextBuilderComponent: Dual retrieval (replaces HunterComponent)
-- PlannerComponent: Search strategy planning
+- ExtractorComponent: Entity extraction from conversation (session state)
+- IntentAnalyzerComponent: Query -> IntentTarget mapping (taxonomy)
+- ContextBuilderComponent: Dual retrieval (keyword + vector + graph)
+- PlannerComponent: Logic layer (reasoning + validation)
 - SynthesizerComponent: Response generation with persona
 """
 from .extractor import ExtractorComponent
 from .intent_analyzer import IntentAnalyzerComponent
-from .context_builder import ContextBuilderComponent, HunterComponent  # HunterComponent is alias
+from .context_builder import ContextBuilderComponent
 from .planner import PlannerComponent
 from .synthesizer import SynthesizerComponent
 
@@ -18,7 +18,6 @@ __all__ = [
     'ExtractorComponent',
     'IntentAnalyzerComponent',
     'ContextBuilderComponent',
-    'HunterComponent',  # Alias for backward compatibility
     'PlannerComponent', 
     'SynthesizerComponent'
 ]
