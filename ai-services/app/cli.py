@@ -1,8 +1,13 @@
 """
-Adda P-Bot CLI v5.2
+Adda P-Bot CLI v5.4
 Command-line interface for testing the search engine.
 
-Updated to work with the new Reasoning Engine pipeline:
+v5.4 Changes:
+- Shows AvropsData (resources with DELETE support)
+- Shows AvropsProgress (completion %, missing fields)
+- Shows avrop_typ (DR_RESURS, FKU_RESURS, FKU_PROJEKT)
+
+v5.2 Changes:
 - Shows IntentTarget data (topics, branches, scope)
 - Shows ReasoningPlan (conclusion, policy, tone)
 """
@@ -26,7 +31,7 @@ except ImportError:
     sys.exit(1)
 
 # --- ARGS (måste parsas FÖRE logging-konfiguration) ---
-parser = argparse.ArgumentParser(description="Adda P-Bot CLI v5.2")
+parser = argparse.ArgumentParser(description="Adda P-Bot CLI v5.4")
 parser.add_argument("--debug", action="store_true", help="Visa tankeprocessen och engine-loggar")
 args = parser.parse_args()
 
@@ -72,7 +77,7 @@ def show_header():
     console.clear()
     title = f"{CONFIG['system']['app_name']} v{CONFIG['system']['version']}"
     console.print(Panel(
-        f"[bold white]{title}[/bold white]\n[dim]Reasoning Engine v5.2[/dim]", 
+        f"[bold white]{title}[/bold white]\n[dim]Reasoning Engine v5.4 (AvropsData + DELETE)[/dim]", 
         style="on red", 
         box=box.DOUBLE, 
         expand=False
@@ -167,46 +172,81 @@ def show_reasoning(reasoning):
     ))
 
 
-def show_state(current_state):
-    """Visa extraherade entiteter och session state."""
-    if not current_state:
-        return
-    
-    entities = current_state.get('extracted_entities', {})
-    missing = current_state.get('missing_info', [])
-    confidence = current_state.get('confidence', 0)
-    forced_strategy = current_state.get('forced_strategy')
-    
+def show_state(current_state, avrop_data=None, avrop_progress=None):
+    """Visa AvropsData och progress (v5.4)."""
     grid = Table.grid(expand=True)
     grid.add_column(style="bold cyan", width=15)
     grid.add_column()
     
-    # Confidence
-    if confidence:
-        grid.add_row("Confidence:", f"{confidence:.0%}")
+    # v5.4: Show AvropsProgress
+    if avrop_progress:
+        completion = avrop_progress.get('completion_percent', 0)
+        is_complete = avrop_progress.get('is_complete', False)
+        avrop_typ = avrop_progress.get('avrop_typ', 'UNKNOWN')
+        
+        # Completion bar
+        completion_color = 'green' if is_complete else 'yellow' if completion > 50 else 'red'
+        grid.add_row("Avrop-typ:", f"[bold]{avrop_typ}[/bold]")
+        grid.add_row("Komplett:", f"[{completion_color}]{completion:.0f}%[/]" + (" ✅" if is_complete else ""))
+        
+        # Constraint violations
+        violations = avrop_progress.get('constraint_violations', [])
+        if violations:
+            for v in violations[:2]:
+                grid.add_row("⚠️ Regelbrott:", f"[red]{v}[/red]")
     
-    # Visa extraherade entiteter
-    resources = entities.get('resources', [])
-    if resources:
-        res_str = ", ".join([f"{r.get('role', '?')} (L{r.get('level', '?')})" for r in resources[:3]])
-        grid.add_row("Resurser:", res_str)
+    # v5.4: Show AvropsData resources
+    if avrop_data:
+        resources = avrop_data.get('resources', [])
+        if resources:
+            for i, r in enumerate(resources[:5]):  # Max 5
+                roll = r.get('roll', '?')
+                level = r.get('level', '?')
+                antal = r.get('antal', 1)
+                is_complete = r.get('is_complete', False)
+                status = "✅" if is_complete else "⏳"
+                antal_str = f" x{antal}" if antal > 1 else ""
+                grid.add_row(f"Resurs {i+1}:", f"{roll} (Nivå {level}){antal_str} {status}")
+        else:
+            grid.add_row("Resurser:", "[dim]Inga resurser ännu[/dim]")
+        
+        # Global fields
+        location = avrop_data.get('location_text')
+        volume = avrop_data.get('volume')
+        start = avrop_data.get('start_date')
+        
+        global_parts = []
+        if location:
+            global_parts.append(f"Ort: {location}")
+        if volume:
+            global_parts.append(f"Volym: {volume}h")
+        if start:
+            global_parts.append(f"Start: {start}")
+        
+        if global_parts:
+            grid.add_row("Globalt:", ", ".join(global_parts))
     
-    # Global fields
-    known = {k: v for k, v in entities.items() if v is not None and k != 'resources'}
-    if known:
-        grid.add_row("Globalt:", ", ".join([f"{k}={v}" for k, v in known.items()]))
+    # Missing fields
+    if avrop_progress:
+        missing = avrop_progress.get('missing_fields', [])
+        if missing:
+            grid.add_row("Saknas:", ", ".join(missing[:4]) + ("..." if len(missing) > 4 else ""))
     
-    # Missing info
-    if missing:
-        grid.add_row("Saknas:", ", ".join(missing[:3]))
-    
-    # Forced strategy
-    if forced_strategy:
-        grid.add_row("Strategi:", f"[red]⚠️ {forced_strategy} (tvingad)[/red]")
+    # Fallback to legacy current_state if no avrop_data
+    if not avrop_data and current_state:
+        entities = current_state.get('extracted_entities', {})
+        resources = entities.get('resources', [])
+        if resources:
+            res_str = ", ".join([f"{r.get('role', '?')} (L{r.get('level', '?')})" for r in resources[:3]])
+            grid.add_row("Resurser:", res_str)
+        
+        forced_strategy = current_state.get('forced_strategy')
+        if forced_strategy:
+            grid.add_row("Strategi:", f"[red]⚠️ {forced_strategy} (tvingad)[/red]")
     
     console.print(Panel(
         grid, 
-        title="[bold green]📦 Session State[/bold green]", 
+        title="[bold green]📦 Avrop (Varukorg)[/bold green]", 
         border_style="green", 
         expand=False
     ))
@@ -236,6 +276,7 @@ def chat_loop():
     show_header()
     history = []
     session_state = None
+    avrop_data = None  # v5.4: Track AvropsData
 
     while True:
         query = Prompt.ask("\n[bold green]Du[/bold green]")
@@ -245,10 +286,12 @@ def chat_loop():
             continue
 
         with console.status("[bold red]P-Bot resonerar...[/bold red]", spinner="dots"):
-            result = engine.run(query, history, session_state)
+            result = engine.run(query, history, session_state, avrop_data=None)
         
-        # Uppdatera session state för nästa runda
+        # Uppdatera session state och avrop_data för nästa runda
         session_state = result.get('current_state')
+        avrop_data = result.get('avrop_data')  # v5.4
+        avrop_progress = result.get('avrop_progress')  # v5.4
         ui_directives = result.get('ui_directives', {})
         reasoning = result.get('reasoning', {})
         
@@ -260,9 +303,9 @@ def chat_loop():
         if DEBUG_MODE:
             show_reasoning(reasoning)
         
-        # 3. Visa Session State (Om debug)
+        # 3. Visa Avrop State (v5.4, Om debug)
         if DEBUG_MODE:
-            show_state(session_state)
+            show_state(session_state, avrop_data, avrop_progress)
 
         # 4. Visa Svar
         console.print("\n[bold red]P-Bot:[/bold red]")

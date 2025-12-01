@@ -1,16 +1,17 @@
 """
-Intent Analyzer Component - Query to Taxonomy Mapping
-Maps user queries to IntentTarget with taxonomy coordinates.
-Uses VocabularyService for concept matching.
+Intent Analyzer Component - Query to Search Strategy (v5.5)
+Maps user queries to IntentTarget with search strategy and taxonomy coordinates.
+Uses LLM for intelligent search planning.
 
-All keywords and prompts are loaded from config/assistant_prompts.yaml
-
-v5.3: Added entity normalization (absorbed from normalizer.py)
+v5.5 Changes:
+- Removed entity extraction (moved to Synthesizer)
+- Removed hardcoded ROLE_MAPPING, LOCATION_MAPPING, DELETE_PATTERNS
+- Now LLM-driven for search strategy and search terms
+- Returns search_strategy and search_terms for ContextBuilder
 """
 import json
 import logging
-import re
-from typing import List, Dict, Optional, Any
+from typing import List, Dict, Optional
 
 from google.genai import types
 
@@ -26,54 +27,18 @@ from ..services import VocabularyService
 logger = logging.getLogger("ADDA_ENGINE")
 
 
-# =============================================================================
-# NORMALIZATION MAPPINGS (moved from normalizer.py)
-# =============================================================================
-
-LOCATION_MAPPING = {
-    # Stockholm-varianter
-    "sthlm": "Stockholm",
-    "stockholm": "Stockholm",
-    "stokholm": "Stockholm",
-    # Göteborg-varianter
-    "gbg": "Göteborg",
-    "göteborg": "Göteborg",
-    "goteborg": "Göteborg",
-    # Malmö-varianter
-    "malmö": "Malmö",
-    "malmo": "Malmö",
-    # Regioner
-    "region stockholm": "Region Stockholm",
-    "region västra götaland": "Region Västra Götaland",
-    "region skåne": "Region Skåne",
-}
-
-ROLE_MAPPING = {
-    "pl": "Projektledare",
-    "pm": "Projektledare",
-    "projektledare": "Projektledare",
-    "dev": "Utvecklare",
-    "utvecklare": "Utvecklare",
-    "arkitekt": "Lösningsarkitekt",
-    "testare": "Testledare",
-    "testledare": "Testledare",
-    "ux": "UX-designer",
-    "ux-designer": "UX-designer",
-    "scrum master": "Scrum Master",
-    "devops": "DevOps-ingenjör",
-}
-
-
 class IntentAnalyzerComponent:
     """
-    Intent Analyzer - Maps user queries to taxonomy coordinates.
+    Intent Analyzer - Maps user queries to search strategy.
+    
+    v5.5: Now LLM-driven for intelligent search planning.
     
     Pipeline:
-    1. Extract known topics/entities using VocabularyService
-    2. Classify intent (FACT/INSPIRATION/INSTRUCTION) using keywords from config
-    3. Detect taxonomy branches using patterns from config
-    4. Infer additional branches from detected topics (Topic-to-Branch Inference)
-    5. Return IntentTarget for ContextBuilder
+    1. Use LLM to analyze query and determine search strategy
+    2. Return IntentTarget with search_strategy, search_terms, branches
+    3. ContextBuilder uses this to fetch relevant documents
+    
+    NO entity extraction here - that's Synthesizer's job.
     """
     
     def __init__(self, client, model: str, prompts: Dict):
@@ -82,201 +47,199 @@ class IntentAnalyzerComponent:
         self.prompts = prompts
         self.vocabulary = VocabularyService()
         
-        # Load keywords from prompts config
+        # Load prompt template from config
         intent_config = prompts.get('intent_analyzer', {})
-        self.fact_keywords = intent_config.get('fact_keywords', [])
-        self.instruction_keywords = intent_config.get('instruction_keywords', [])
-        self.inspiration_keywords = intent_config.get('inspiration_keywords', [])
-        self.branch_patterns = intent_config.get('branch_patterns', {})
-        self.llm_enhance_prompt_template = intent_config.get('llm_enhance_prompt', '')
+        self.system_prompt = intent_config.get('system_prompt', '')
         
-        # Log config loading
-        if self.fact_keywords:
-            logger.debug(f"Loaded {len(self.fact_keywords)} fact keywords from config")
-        else:
-            logger.warning("No intent_analyzer config found in prompts, using empty defaults")
+        if not self.system_prompt:
+            logger.warning("No intent_analyzer.system_prompt found, using default")
+            self.system_prompt = self._default_system_prompt()
     
     def analyze(self, query: str, history: List[Dict] = None) -> IntentTarget:
         """
-        Analyze query and return IntentTarget with taxonomy coordinates.
+        Analyze query using LLM and return IntentTarget with search strategy.
         
         Args:
             query: User's current query
             history: Conversation history (optional)
             
         Returns:
-            IntentTarget with detected topics, entities, branches, and intent
+            IntentTarget with search_strategy, search_terms, branches, intent
         """
-        query_lower = query.lower()
+        # Build context from vocabulary
+        vocab_context = self.vocabulary.get_prompt_context()
         
-        # 1. Extract known concepts from vocabulary
-        concepts = self.vocabulary.extract_known_concepts(query)
-        detected_topics = concepts.get("topics", [])
-        detected_entities = concepts.get("entities", [])
-        vocabulary_branches = concepts.get("branches", [])
+        # Format history for prompt - include more context for reference resolution
+        history_text = ""
+        last_bot_message = ""
+        last_topic = ""
         
-        # 2. Classify intent using keywords from config
-        intent_category = self._classify_intent(query_lower)
+        if history:
+            # Get last 6 messages for better context
+            for msg in history[-6:]:
+                role = msg.get('role', 'unknown')
+                content = msg.get('content', '')[:300]  # More content for context
+                history_text += f"{role.upper()}: {content}\n"
+                
+                # Track last bot message for reference resolution
+                if role.lower() in ['assistant', 'bot', 'ai']:
+                    last_bot_message = content
+                    
+                    # Detect if bot made a recommendation
+                    if any(kw in content.lower() for kw in ['rekommenderar', 'föreslår', 'bör välja', 'passar bäst']):
+                        last_topic = "RECOMMENDATION"
+                    elif any(kw in content.lower() for kw in ['prismodell', 'utvärderingsmodell']):
+                        last_topic = "PRICING_MODEL"
+                    elif any(kw in content.lower() for kw in ['nivå', 'kompetensnivå']):
+                        last_topic = "LEVEL"
+                    elif any(kw in content.lower() for kw in ['roll', 'konsult', 'utvecklare', 'projektledare']):
+                        last_topic = "ROLE"
         
-        # 3. Detect taxonomy branches using patterns from config
-        detected_branches = self._detect_branches(query_lower, vocabulary_branches)
+        # Build context hint for reference resolution
+        context_hint = ""
+        if last_topic:
+            context_hint = f"""
+SENASTE KONTEXT (för att förstå referenser som "det", "detta", "den"):
+- Senaste ämne: {last_topic}
+- Botens senaste meddelande: {last_bot_message[:200]}
+
+Om användaren säger "ja", "det blir bra", "rekommendera mig" etc., refererar de troligen till ämnet ovan.
+"""
         
-        # 4. Topic-to-Branch Inference (self-healing)
-        detected_branches = self._infer_branches_from_topics(
-            detected_topics, 
-            detected_branches
-        )
+        # Build the prompt
+        prompt = f"""{self.system_prompt}
+
+VOCABULARY (kända begrepp i systemet):
+{vocab_context}
+
+KONVERSATIONSHISTORIK:
+{history_text if history_text else "(Första meddelandet)"}
+{context_hint}
+
+ANVÄNDARENS FRÅGA:
+{query}
+
+VIKTIGT: Om frågan innehåller referenser som "det", "detta", "den", "rekommendera mig" - titta på konversationshistoriken för att förstå vad användaren syftar på!
+
+Returnera JSON:
+"""
         
-        # 5. Determine scope preference based on intent
-        scope_preference = self._determine_scope(intent_category, detected_branches)
-        
-        # 6. Detect taxonomy roots from branches
-        taxonomy_roots = self._roots_from_branches(detected_branches)
-        
-        # 7. Calculate confidence
-        confidence = self._calculate_confidence(
-            detected_topics, detected_entities, detected_branches
-        )
-        
-        # 8. Normalize entities (absorbed from normalizer.py)
-        normalized_entities = self._normalize_entities(query, detected_entities)
-        
-        intent_target = IntentTarget(
-            original_query=query,
-            taxonomy_roots=taxonomy_roots,
-            taxonomy_branches=detected_branches,
-            detected_topics=detected_topics,
-            detected_entities=detected_entities,
-            normalized_entities=normalized_entities,
-            scope_preference=scope_preference,
-            intent_category=intent_category,
-            confidence=confidence
-        )
-        
-        logger.info(f"Intent Analysis: {intent_category}, branches={[b.value for b in detected_branches]}, "
-                   f"topics={len(detected_topics)}, entities={len(detected_entities)}, "
-                   f"normalized={bool(normalized_entities.get('resources'))}, confidence={confidence:.2f}")
-        
-        return intent_target
-    
-    def analyze_with_llm(self, query: str, history: List[Dict] = None) -> IntentTarget:
-        """
-        Enhanced analysis using LLM for complex queries.
-        Falls back to rule-based analysis if LLM fails.
-        """
-        # First, do rule-based analysis
-        base_intent = self.analyze(query, history)
-        
-        # If confidence is high enough, use rule-based result
-        if base_intent.confidence >= 0.7:
-            return base_intent
-        
-        # Otherwise, enhance with LLM
         try:
-            enhanced = self._llm_enhance(query, base_intent)
-            return enhanced
+            resp = self.client.models.generate_content(
+                model=self.model,
+                contents=prompt,
+                config=types.GenerateContentConfig(response_mime_type="application/json")
+            )
+            
+            result = json.loads(resp.text)
+            
+            # Parse LLM response
+            intent_target = self._parse_llm_response(query, result)
+            
+            logger.info(f"Intent Analysis (LLM): {intent_target.intent_category}, "
+                       f"branches={[b.value for b in intent_target.taxonomy_branches]}, "
+                       f"search_terms={intent_target.search_terms[:3]}, "
+                       f"strategy={intent_target.search_strategy}")
+            
+            return intent_target
+            
         except Exception as e:
-            logger.warning(f"LLM enhancement failed: {e}, using rule-based result")
-            return base_intent
+            logger.error(f"LLM intent analysis failed: {e}, using fallback")
+            return self._fallback_analysis(query)
     
-    def _classify_intent(self, query_lower: str) -> str:
-        """Classify query intent based on keyword patterns from config."""
-        fact_score = sum(1 for kw in self.fact_keywords if kw in query_lower)
-        instruction_score = sum(1 for kw in self.instruction_keywords if kw in query_lower)
-        inspiration_score = sum(1 for kw in self.inspiration_keywords if kw in query_lower)
-        
-        # "hur skriver/gör/formulerar" patterns strongly boost INSTRUCTION
-        if re.search(r'hur\s+(skriver|gör|formulerar|skapar|bygger)', query_lower):
-            instruction_score += 3
-        
-        # "jag vill ha" patterns boost INSPIRATION (request, not question)
-        if re.search(r'(jag vill|vi behöver|ge mig|visa mig)', query_lower):
-            inspiration_score += 2
-        
-        # Question patterns boost FACT only if not instruction/inspiration
-        if re.search(r'\?$', query_lower.strip()):
-            if instruction_score == 0 and inspiration_score == 0:
-                fact_score += 1
-        
-        # "vad är/hur mycket" are FACT questions
-        if re.search(r'(vad är|hur mycket|vad kostar|får jag|måste jag)', query_lower):
-            fact_score += 2
-        
-        # Determine winner
-        if instruction_score > fact_score and instruction_score > inspiration_score:
-            return "INSTRUCTION"
-        elif inspiration_score > fact_score:
-            return "INSPIRATION"
-        elif fact_score > 0:
-            return "FACT"
-        else:
-            return "INSPIRATION"  # Default to INSPIRATION for open-ended queries
-    
-    def _detect_branches(self, query_lower: str, vocabulary_branches: List[str]) -> List[TaxonomyBranch]:
-        """Detect taxonomy branches from query text using patterns from config."""
-        detected = set()
-        
-        # Add branches from vocabulary lookup
-        for branch_name in vocabulary_branches:
+    def _parse_llm_response(self, query: str, result: Dict) -> IntentTarget:
+        """Parse LLM response into IntentTarget."""
+        # Parse branches
+        branches = []
+        for b in result.get("taxonomy_branches", ["ROLES"]):
             try:
-                detected.add(TaxonomyBranch(branch_name))
+                branches.append(TaxonomyBranch(b))
             except ValueError:
                 pass
         
-        # Pattern-based detection from config
-        for branch_name, patterns in self.branch_patterns.items():
-            for pattern in patterns:
-                if pattern.lower() in query_lower:
-                    try:
-                        detected.add(TaxonomyBranch(branch_name))
-                    except ValueError:
-                        pass
-                    break
+        if not branches:
+            branches = [TaxonomyBranch.ROLES]
         
-        # Default to ROLES if nothing detected
-        if not detected:
-            detected.add(TaxonomyBranch.ROLES)
+        # Parse search strategy
+        search_strategy = result.get("search_strategy", {
+            "lake": True,
+            "vector": True,
+            "graph": False
+        })
         
-        return list(detected)[:3]  # Max 3 branches
+        # Parse search terms
+        search_terms = result.get("search_terms", [])
+        if not search_terms:
+            # Extract key terms from query as fallback
+            search_terms = [w for w in query.split() if len(w) > 3][:5]
+        
+        # Parse intent
+        intent_category = result.get("intent_category", "INSPIRATION")
+        if intent_category not in ["FACT", "INSPIRATION", "INSTRUCTION"]:
+            intent_category = "INSPIRATION"
+        
+        # Determine scope based on intent
+        scope_preference = self._determine_scope(intent_category, branches)
+        
+        # Get roots from branches
+        taxonomy_roots = self._roots_from_branches(branches)
+        
+        return IntentTarget(
+            original_query=query,
+            taxonomy_roots=taxonomy_roots,
+            taxonomy_branches=branches,
+            detected_topics=result.get("detected_topics", []),
+            detected_entities=result.get("detected_entities", []),
+            scope_preference=scope_preference,
+            intent_category=intent_category,
+            confidence=result.get("confidence", 0.7),
+            search_strategy=search_strategy,
+            search_terms=search_terms
+        )
     
-    def _infer_branches_from_topics(
-        self, 
-        detected_topics: List[str], 
-        current_branches: List[TaxonomyBranch]
-    ) -> List[TaxonomyBranch]:
-        """
-        Topic-to-Branch Inference - Infer missing branches from detected topics.
+    def _fallback_analysis(self, query: str) -> IntentTarget:
+        """Fallback analysis when LLM fails."""
+        query_lower = query.lower()
         
-        This makes the system "self-healing": if the vocabulary knows that 
-        "Grönland" is under LOCATIONS, we automatically add LOCATIONS branch.
-        """
-        inferred = set(current_branches)
+        # Simple intent classification
+        if any(kw in query_lower for kw in ["vad är", "hur mycket", "kostar", "måste"]):
+            intent = "FACT"
+        elif any(kw in query_lower for kw in ["hjälp", "exempel", "tips"]):
+            intent = "INSPIRATION"
+        else:
+            intent = "INSPIRATION"
         
-        for topic in detected_topics:
-            location = self.vocabulary.find_branch_for_topic(topic)
-            if location:
-                root, branch = location
-                try:
-                    branch_enum = TaxonomyBranch(branch)
-                    if branch_enum not in inferred:
-                        logger.debug(f"Inferred branch {branch} from topic '{topic}'")
-                        inferred.add(branch_enum)
-                except ValueError:
-                    pass
+        # Simple branch detection
+        branches = [TaxonomyBranch.ROLES]
+        if any(kw in query_lower for kw in ["pris", "takpris", "timmar", "volym"]):
+            branches.append(TaxonomyBranch.FINANCIALS)
+        if any(kw in query_lower for kw in ["fku", "avrop", "strategi"]):
+            branches.append(TaxonomyBranch.STRATEGY)
         
-        return list(inferred)[:3]  # Max 3 branches
+        # Extract search terms from query
+        search_terms = [w for w in query.split() if len(w) > 3][:5]
+        
+        return IntentTarget(
+            original_query=query,
+            taxonomy_roots=self._roots_from_branches(branches),
+            taxonomy_branches=branches[:3],
+            detected_topics=[],
+            detected_entities=[],
+            scope_preference=self._determine_scope(intent, branches),
+            intent_category=intent,
+            confidence=0.4,
+            search_strategy={"lake": True, "vector": True, "graph": False},
+            search_terms=search_terms
+        )
     
     def _determine_scope(self, intent: str, branches: List[TaxonomyBranch]) -> List[ScopeContext]:
         """Determine scope preference based on intent and branches."""
-        # FACT queries should prefer FRAMEWORK_SPECIFIC
         if intent == "FACT":
             return [ScopeContext.FRAMEWORK_SPECIFIC]
         
-        # GOVERNANCE branch often involves legal context
         if TaxonomyBranch.GOVERNANCE in branches:
             return [ScopeContext.FRAMEWORK_SPECIFIC, ScopeContext.GENERAL_LEGAL]
         
-        # INSPIRATION can use all scopes
         if intent == "INSPIRATION":
             return [
                 ScopeContext.FRAMEWORK_SPECIFIC,
@@ -284,11 +247,6 @@ class IntentAnalyzerComponent:
                 ScopeContext.GENERAL_LEGAL
             ]
         
-        # INSTRUCTION prefers framework-specific and domain knowledge
-        if intent == "INSTRUCTION":
-            return [ScopeContext.FRAMEWORK_SPECIFIC, ScopeContext.DOMAIN_KNOWLEDGE]
-        
-        # Default
         return [ScopeContext.FRAMEWORK_SPECIFIC, ScopeContext.DOMAIN_KNOWLEDGE]
     
     def _roots_from_branches(self, branches: List[TaxonomyBranch]) -> List[TaxonomyRoot]:
@@ -299,157 +257,44 @@ class IntentAnalyzerComponent:
                 if branch in valid:
                     roots.add(root)
                     break
-        
         return list(roots)
     
-    def _calculate_confidence(
-        self, 
-        topics: List[str], 
-        entities: List[str], 
-        branches: List[TaxonomyBranch]
-    ) -> float:
-        """Calculate confidence score based on matches."""
-        score = 0.3  # Base score
-        
-        # Topics found
-        if topics:
-            score += min(0.3, len(topics) * 0.1)
-        
-        # Entities found
-        if entities:
-            score += min(0.2, len(entities) * 0.1)
-        
-        # Branches detected (beyond default)
-        if len(branches) > 1:
-            score += 0.1
-        
-        return min(1.0, score)
-    
-    # =========================================================================
-    # ENTITY NORMALIZATION (moved from normalizer.py)
-    # =========================================================================
-    
-    def _normalize_entities(self, query: str, detected_entities: List[str]) -> Dict[str, Any]:
-        """
-        Normalize and clean extracted entities from query.
-        
-        This replaces the old normalizer.py functionality:
-        - Maps location aliases (sthlm → Stockholm)
-        - Normalizes role names (pl → Projektledare)
-        - Clamps level to 1-5
-        - Parses volume ("100 timmar" → 100)
-        
-        Returns:
-            Dict with normalized entities: location, role, level, volume, resources
-        """
-        normalized = {
-            "location": None,
-            "volume": None,
-            "resources": [],
-        }
-        
-        query_lower = query.lower()
-        
-        # 1. Normalize location
-        for alias, standard in LOCATION_MAPPING.items():
-            if alias in query_lower:
-                normalized["location"] = standard
-                break
-        
-        # 2. Normalize roles and extract level
-        resources = []
-        
-        # Look for role mentions
-        for alias, standard_role in ROLE_MAPPING.items():
-            if alias in query_lower:
-                resource = {
-                    "role": standard_role,
-                    "level": None,
-                    "quantity": 1,
-                    "status": "PENDING"
-                }
-                resources.append(resource)
-        
-        # 3. Extract and normalize levels (1-5)
-        level_match = re.search(r'nivå\s*(\d+)', query_lower)
-        if level_match:
-            raw_level = int(level_match.group(1))
-            clamped_level = max(1, min(5, raw_level))  # Clamp to 1-5
-            
-            # Apply level to first resource without a level
-            for resource in resources:
-                if resource["level"] is None:
-                    resource["level"] = clamped_level
-                    resource["status"] = "DONE"
-                    break
-        
-        # 4. Parse volume ("100 timmar" → 100)
-        volume_match = re.search(r'(\d+)\s*(timmar|tim|h)', query_lower)
-        if volume_match:
-            normalized["volume"] = int(volume_match.group(1))
-        
-        # 5. Also check for volume in detected entities
-        for entity in detected_entities:
-            entity_lower = entity.lower()
-            if "timmar" in entity_lower or "tim" in entity_lower:
-                vol_match = re.search(r'(\d+)', entity_lower)
-                if vol_match and normalized["volume"] is None:
-                    normalized["volume"] = int(vol_match.group(1))
-        
-        normalized["resources"] = resources
-        
-        return normalized
-    
-    def _llm_enhance(self, query: str, base_intent: IntentTarget) -> IntentTarget:
-        """Use LLM to enhance intent analysis for ambiguous queries."""
-        if not self.llm_enhance_prompt_template:
-            logger.warning("No LLM enhance prompt template configured")
-            return base_intent
-        
-        vocab_context = self.vocabulary.get_prompt_context()
-        
-        # Format the prompt from config
-        prompt = self.llm_enhance_prompt_template.format(
-            query=query,
-            vocab_context=vocab_context,
-            current_intent=base_intent.intent_category,
-            current_branches=[b.value for b in base_intent.taxonomy_branches],
-            current_topics=base_intent.detected_topics
-        )
-        
-        resp = self.client.models.generate_content(
-            model=self.model,
-            contents=prompt,
-            config=types.GenerateContentConfig(response_mime_type="application/json")
-        )
-        
-        result = json.loads(resp.text)
-        
-        # Parse LLM response into IntentTarget
-        branches = []
-        for b in result.get("taxonomy_branches", []):
-            try:
-                branches.append(TaxonomyBranch(b))
-            except ValueError:
-                pass
-        
-        if not branches:
-            branches = base_intent.taxonomy_branches
-        
-        # Apply Topic-to-Branch Inference on LLM results too
-        detected_topics = result.get("detected_topics", base_intent.detected_topics)
-        branches = self._infer_branches_from_topics(detected_topics, branches)
-        
-        return IntentTarget(
-            original_query=query,
-            taxonomy_roots=self._roots_from_branches(branches),
-            taxonomy_branches=branches,
-            detected_topics=detected_topics,
-            detected_entities=result.get("detected_entities", base_intent.detected_entities),
-            scope_preference=self._determine_scope(
-                result.get("intent_category", base_intent.intent_category),
-                branches
-            ),
-            intent_category=result.get("intent_category", base_intent.intent_category),
-            confidence=result.get("confidence", 0.7)
-        )
+    def _default_system_prompt(self) -> str:
+        """Default system prompt if none configured."""
+        return """Du är Intent Analyzer för Addas upphandlingssystem.
+
+Din uppgift är att analysera användarens fråga och bestämma:
+1. VAR ska vi söka information? (lake/vector/graph)
+2. VILKA söktermer ska användas?
+3. VILKEN typ av fråga är det? (FACT/INSPIRATION/INSTRUCTION)
+4. VILKA taxonomy branches är relevanta?
+
+REGLER:
+- FACT = Användaren vill veta regler, priser, villkor (t.ex. "Vad är takpriset?")
+- INSPIRATION = Användaren vill ha hjälp, exempel (t.ex. "Hur formulerar jag detta?")
+- INSTRUCTION = Användaren vill ha steg-för-steg-guide
+
+BRANCHES:
+- ROLES: Konsultroller, kompetenser, nivåer
+- FINANCIALS: Priser, takpris, volym, timmar
+- LOCATIONS: Regioner, orter, anbudsområden
+- GOVERNANCE: Regler, lagar, krav, GDPR
+- STRATEGY: FKU, direktavrop, avropsformer
+- ARTIFACTS: Dokument, mallar, CV, avtal
+- PHASES: Processsteg, faser
+
+SEARCH STRATEGY:
+- lake: true om vi behöver söka i markdown-filer
+- vector: true om vi behöver semantisk sökning
+- graph: true om vi behöver relationer mellan begrepp
+
+OUTPUT JSON:
+{
+  "intent_category": "FACT" | "INSPIRATION" | "INSTRUCTION",
+  "taxonomy_branches": ["ROLES", "FINANCIALS", ...],
+  "search_strategy": {"lake": true, "vector": true, "graph": false},
+  "search_terms": ["sökterm1", "sökterm2", ...],
+  "detected_topics": ["topic1", "topic2"],
+  "detected_entities": ["entity1", "entity2"],
+  "confidence": 0.0-1.0
+}"""

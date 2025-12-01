@@ -1,4 +1,4 @@
-# P-Bot Arkitektur (v5.2)
+# P-Bot Arkitektur (v5.10)
 
 Detta dokument beskriver "Hur" – den tekniska implementationen av prototypen och målbilden, nu mappad mot Addas strategi.
 
@@ -737,20 +737,28 @@ python tools/verify_reasoning.py
 
 ## 11. Kända Problem
 
-### 11.1 Validator-Loop ("Papegoj-effekten")
+### 11.1 Validator-Loop ("Papegoj-effekten") ✅ LÖST
 
-**Problem:** `ConstraintValidator` laddar constraints från ALLA markdown-filer, inklusive `SECONDARY`-dokument. Detta leder till att regler från gamla avrop (t.ex. "Endast nivå 4 tillåten") appliceras som universella blockeringar.
+**Problem:** `ConstraintValidator` laddade constraints från ALLA markdown-filer, inklusive `SECONDARY`-dokument.
 
-**Symptom:** Botten fastnar i en loop där den säger "Åtgärd krävs" trots att användaren har uppfyllt kravet.
+**Lösning (v5.10):** Validatorn har tagits bort som blockerande komponent. Constraints hanteras nu av data lake och Planner.
 
-**Status:** 🚩 KRITISK – Prioriterad fix i nästa sprint.
+### 11.2 Sammanfattnings-upprepningar ✅ LÖST (v5.10)
 
-**Planerad lösning:**
-1. Filtrera bort `SECONDARY`-filer i `_load_constraints()`
-2. Implementera "Acknowledgement Logic" så validatorn förstår när krav är uppfyllda
-3. Ändra `BLOCK` till `WARN` för icke-kritiska valideringar
+**Problem:** Synthesizer visade sammanfattning baserat på `completion_percent >= 70%`, vilket ledde till att samma sammanfattning upprepades gång på gång.
+
+**Lösning:** Sammanfattning visas nu ENDAST när `AvropsProgress.is_complete == True`:
+- `is_complete=True + bekräftelse` → Avsluta konversationen
+- `is_complete=True` → Visa sammanfattning, fråga om bekräftelse
+- `is_complete=False` → Lista saknade fält (ingen sammanfattning)
+
+### 11.3 FKU-regel upprepningar ✅ LÖST (v5.10)
+
+**Problem:** `synthesizer_strategy` prompten innehöll hårdkodade FKU-regler som upprepades i varje svar.
+
+**Lösning:** Reglerna togs bort från prompten (de finns redan i data lake). Ny instruktion: "Förklara avropsform EN gång. Vid upprepning, referera kort."
 
 ---
 
-*Version: 5.2*  
-*Senast uppdaterad: November 2024*
+*Version: 5.10*  
+*Senast uppdaterad: December 2024*

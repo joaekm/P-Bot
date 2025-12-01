@@ -29,6 +29,7 @@ Fokus på tillgänglighet och användarvänlighet.
 - Samarbeta med utvecklingsteam
 
 ## Kontraktstid
-- 8 månader initialt
+- Start: 2026-02-01
+- Slut: 2026-09-30 (8 månader)
 - Option: 12 månader förlängning
 

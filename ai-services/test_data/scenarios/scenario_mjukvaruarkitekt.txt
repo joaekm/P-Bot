@@ -28,6 +28,7 @@ E-klient hanterar över 400 000 IT-arbetsplatser för regioner och kommuner.
 - Ineras kontor i Lund, minst 3 dagar/vecka
 
 ## Kontraktstid
-- 2024-01-01 till 2024-10-31
+- Start: 2026-02-01
+- Slut: 2026-10-31
 - Option: 24 månader förlängning
 

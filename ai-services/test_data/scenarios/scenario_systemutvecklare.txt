@@ -31,6 +31,7 @@ c) Azure DevOps och Git-erfarenhet
 - Ineras kontor i Lund, minst 3 dagar/vecka
 
 ## Kontraktstid
-- 12 månader initialt
+- Start: 2026-02-01
+- Slut: 2027-01-31 (12 månader)
 - Option: 24 månader förlängning
 

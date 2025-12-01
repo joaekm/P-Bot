@@ -1,10 +1,16 @@
 """
-Adda P-Bot API Server v5.2
+Adda P-Bot API Server v5.5
 Main entrypoint for the Flask API.
 
-Updated to work with the new Reasoning Engine pipeline:
-- Uses `reasoning` instead of `thoughts`
-- Uses `ui_directives` directly from engine
+v5.5 Changes:
+- IntentAnalyzer is now LLM-driven with search_strategy
+- Entity extraction moved to Synthesizer (context-aware)
+- DELETE support in Synthesizer ("ta bort X", "vi behöver inte X")
+
+v5.4 Changes:
+- Returns avrop_data and avrop_progress (new AvropsData model)
+- Returns completion_percent and avrop_typ in ui_directives
+- Supports DELETE operations on resources
 """
 import os
 import sys
@@ -13,6 +19,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 from .engine import AddaSearchEngine
+from .models import AvropsData
 
 # Configure Logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - SERVER - %(levelname)s - %(message)s')
@@ -24,7 +31,7 @@ CORS(app)  # Enable CORS for all routes
 # Initialize the Search Engine
 try:
     engine = AddaSearchEngine()
-    logger.info("AddaSearchEngine v5.2 initialized successfully")
+    logger.info("AddaSearchEngine v5.5 initialized successfully")
 except Exception as e:
     logger.critical(f"Failed to initialize AddaSearchEngine: {e}")
     sys.exit(1)
@@ -38,7 +45,8 @@ def conversation():
     {
         "user_message": str,
         "conversation_history": list,
-        "session_state": dict (optional)
+        "session_state": dict (optional, legacy),
+        "avrop_data": dict (optional, v5.4 - preferred)
     }
     
     Returns:
@@ -46,7 +54,9 @@ def conversation():
         "message": str,
         "sources": list,
         "reasoning": dict,
-        "current_state": dict,
+        "avrop_data": dict (v5.4 - new AvropsData),
+        "avrop_progress": dict (v5.4 - completion info),
+        "current_state": dict (legacy, for backward compatibility),
         "ui_directives": dict
     }
     """
@@ -64,23 +74,37 @@ def conversation():
                 "message": "Hej! Jag är din AI-assistent för resursupphandling. Vad behöver du hjälp med idag?",
                 "input_placeholder": "T.ex. 'Jag behöver en projektledare'",
                 "show_upload_button": True,
+                "avrop_data": {"resources": [], "avrop_typ": None},
+                "avrop_progress": {"completion_percent": 0, "is_complete": False, "missing_fields": ["resources"]},
                 "ui_directives": {
                     "entity_summary": {},
                     "update_sticky_header": "Steg 1: Beskriv Behov",
                     "set_active_process_step": "step_1_needs",
-                    "missing_info": [],
-                    "current_intent": "INSPIRATION"
+                    "missing_info": ["resources"],
+                    "current_intent": "INSPIRATION",
+                    "completion_percent": 0,
+                    "avrop_typ": None
                 }
             })
 
-        # Run the engine with session state for persistence
-        session_state = data.get('session_state')
-        result = engine.run(user_message, history, session_state)
+        # Get avrop_data from request (v5.4) or fall back to session_state (legacy)
+        avrop_data_dict = data.get('avrop_data')
+        avrop_data = None
+        if avrop_data_dict:
+            try:
+                avrop_data = AvropsData(**avrop_data_dict)
+            except Exception as e:
+                logger.warning(f"Failed to parse avrop_data: {e}, falling back to session_state")
         
-        # Extract data from new v5.2 format
+        session_state = data.get('session_state')
+        result = engine.run(user_message, history, session_state, avrop_data)
+        
+        # Extract data from v5.4 format
         current_state = result.get('current_state', {})
         reasoning = result.get('reasoning', {})
         engine_ui_directives = result.get('ui_directives', {})
+        avrop_data_result = result.get('avrop_data', {})
+        avrop_progress = result.get('avrop_progress', {})
         
         # Map target_step to human-readable header
         target_step = engine_ui_directives.get('target_step', 'step_1_intake')
@@ -100,19 +124,30 @@ def conversation():
             "set_active_process_step": target_step,
             "missing_info": engine_ui_directives.get('missing_info', []),
             "current_intent": engine_ui_directives.get('current_intent', 'INSPIRATION'),
-            # New v5.2 fields
+            # v5.2 fields
             "detected_topics": engine_ui_directives.get('detected_topics', []),
             "taxonomy_branches": engine_ui_directives.get('taxonomy_branches', []),
             "ghost_mode": engine_ui_directives.get('ghost_mode', False),
             "tone": engine_ui_directives.get('tone', 'Informative'),
-            "has_warning": engine_ui_directives.get('has_warning', False)
+            "has_warning": engine_ui_directives.get('has_warning', False),
+            # v5.4 fields
+            "avrop_typ": engine_ui_directives.get('avrop_typ'),
+            "resource_count": engine_ui_directives.get('resource_count', 0),
+            "completion_percent": engine_ui_directives.get('completion_percent', 0),
+            "is_complete": engine_ui_directives.get('is_complete', False),
+            "constraint_violations": engine_ui_directives.get('constraint_violations', [])
         }
         
         response = {
             "message": result.get('response', "Ursäkta, jag kunde inte generera ett svar."),
             "sources": result.get('sources', []),
             "reasoning": reasoning,
-            "current_state": current_state,
+            # v5.4: New avrop fields
+            "avrop_data": avrop_data_result,
+            "avrop_progress": avrop_progress,
+            # Session state - frontend expects "session_state" key
+            "session_state": current_state,
+            "current_state": current_state,  # Keep for backward compatibility
             "ui_directives": ui_directives
         }
         
@@ -140,13 +175,13 @@ def analyze_document():
 @app.route('/api/health', methods=['GET'])
 def health():
     """Health check endpoint."""
-    return jsonify({"status": "ok", "version": "5.2"})
+    return jsonify({"status": "ok", "version": "5.5"})
 
 
 def main():
     """Main entry point."""
     port = int(os.environ.get('PORT', 5000))
-    logger.info(f"Starting Adda P-Bot API v5.2 on port {port}")
+    logger.info(f"Starting Adda P-Bot API v5.4 on port {port}")
     app.run(host='0.0.0.0', port=port, debug=True)
 
 

@@ -207,10 +207,15 @@ class PlannerComponent:
         if not self.system_prompt:
             logger.warning("No planner.system_prompt found in config")
     
+    # v5.8: Step order for enforcing forward-only progression
+    STEP_ORDER = ['step_1_intake', 'step_1_needs', 'step_2_level', 'step_3_volume', 'step_4_strategy', 'complete']
+    
     def create_plan(
         self, 
         intent: IntentTarget, 
-        context: Dict[str, Dict]
+        context: Dict[str, Dict],
+        current_step: str = "step_1_intake",
+        history: List[Dict] = None
     ) -> ReasoningPlan:
         """
         Analyze context and create reasoning plan for Synthesizer.
@@ -218,21 +223,23 @@ class PlannerComponent:
         Args:
             intent: IntentTarget from IntentAnalyzer
             context: Dict of doc_id -> doc_data from ContextBuilder
+            current_step: Current process step (v5.8 - for preventing backward jumps)
+            history: Conversation history (v5.9 - for understanding confirmations)
             
         Returns:
             ReasoningPlan with logical analysis and strategy
         """
         # 0. Validate against PRIMARY rules (absorbed from normalizer.py)
-        validation_warnings, forced_strategy = self._validate_against_rules(
-            intent.normalized_entities
-        )
+        # v5.5: normalized_entities removed from IntentTarget, validation moved to Synthesizer
+        # For now, pass empty dict - validation will be done after entity extraction
+        validation_warnings, forced_strategy = [], None
         
         # 1. Prepare structured context summary
         reasoning_context = self._prepare_context(context)
         context_summary = self._format_context_for_llm(context, reasoning_context)
         
-        # 2. Build prompt
-        prompt = self._build_prompt(intent, context_summary, reasoning_context)
+        # 2. Build prompt (v5.8: include current_step, v5.9: include history)
+        prompt = self._build_prompt(intent, context_summary, reasoning_context, current_step, history)
         
         # 3. Call LLM for reasoning
         try:
@@ -251,6 +258,10 @@ class PlannerComponent:
                 return val
             
             # 4. Parse to ReasoningPlan (with validation results)
+            # v5.8: Validate and enforce step constraints
+            llm_target_step = result.get('target_step', self._derive_step(intent))
+            validated_step = self._validate_step_transition(current_step, llm_target_step)
+            
             plan = ReasoningPlan(
                 primary_conclusion=result.get('primary_conclusion', 'Ingen slutsats kunde dras'),
                 policy_check=result.get('policy_check', 'Ingen specifik regel identifierad'),
@@ -260,7 +271,7 @@ class PlannerComponent:
                 data_validation=clean_null(result.get('data_validation')),
                 validation_warnings=validation_warnings,  # NEW
                 forced_strategy=forced_strategy,  # NEW
-                target_step=result.get('target_step', self._derive_step(intent)),
+                target_step=validated_step,  # v5.8: Use validated step
                 primary_sources=result.get('primary_sources', []),
                 secondary_sources=result.get('secondary_sources', [])
             )
@@ -369,7 +380,9 @@ class PlannerComponent:
         self, 
         intent: IntentTarget, 
         context_summary: str,
-        reasoning_context: ReasoningContext
+        reasoning_context: ReasoningContext,
+        current_step: str = "step_1_intake",
+        history: List[Dict] = None
     ) -> str:
         """Build the full prompt for LLM reasoning."""
         
@@ -381,10 +394,64 @@ class PlannerComponent:
 Du MÅSTE ange i conflict_resolution vilken källa som gäller och varför.
 """
         
+        # v5.8: Calculate allowed next steps (forward only, no jumps)
+        try:
+            current_idx = self.STEP_ORDER.index(current_step)
+        except ValueError:
+            current_idx = 0
+        
+        # Can stay on current, go to next, or go to general (for questions)
+        allowed_steps = [current_step]
+        if current_idx + 1 < len(self.STEP_ORDER):
+            allowed_steps.append(self.STEP_ORDER[current_idx + 1])
+        allowed_steps.append('general')
+        
+        # v5.9: Build history context for understanding confirmations
+        history_context = ""
+        if history:
+            recent = history[-4:]  # Last 4 messages
+            history_lines = []
+            for msg in recent:
+                role = msg.get('role', 'unknown').upper()
+                content = msg.get('content', '')[:200]
+                history_lines.append(f"  {role}: {content}")
+            
+            history_context = f"""
+--- KONVERSATIONSHISTORIK (senaste meddelanden) ---
+{chr(10).join(history_lines)}
+
+VIKTIGT FÖR BEKRÄFTELSER:
+- Om användaren svarar "Ja", "Det stämmer", "Korrekt" etc. efter att assistenten frågat "Stämmer detta?" eller liknande:
+  → Det är en BEKRÄFTELSE att nuvarande steg är klart
+  → GÅ TILL NÄSTA STEG (inte 'general')
+  → Nästa steg efter {current_step} är: {self.STEP_ORDER[min(current_idx + 1, len(self.STEP_ORDER) - 1)]}
+- Välj INTE 'general' för korta bekräftande svar!
+"""
+        
+        step_constraint = f"""
+--- STEG-KONTROLL (v5.8 - KRITISKT!) ---
+NUVARANDE STEG: {current_step}
+TILLÅTNA NÄSTA STEG: {allowed_steps}
+
+REGLER FÖR STEG-BYTE:
+1. Du får ENDAST välja ett steg från listan ovan
+2. Du får ALDRIG hoppa bakåt (t.ex. från step_3 till step_1)
+3. Du får ALDRIG hoppa över steg (t.ex. från step_1 till step_4)
+4. Om användaren nämner något från ett tidigare steg (t.ex. "Stockholm" när vi är på step_3):
+   → STANNA på nuvarande steg ({current_step})
+   → Uppdatera informationen men byt INTE steg
+5. Byt ENDAST till nästa steg om nuvarande steg är KOMPLETT
+6. Om användaren bekräftar ("Ja", "Det stämmer") → GÅ TILL NÄSTA STEG (inte 'general')
+"""
+        
         prompt = f"""
 {self.system_prompt}
 
 {conflict_warning}
+
+{history_context}
+
+{step_constraint}
 
 --- INTENT (Vad användaren vill) ---
 Kategori: {intent.intent_category}
@@ -398,8 +465,52 @@ Ghost Mode (blockera SECONDARY): {intent.should_block_secondary()}
 {context_summary}
 
 Analysera och returnera din ReasoningPlan som JSON.
+VIKTIGT: target_step MÅSTE vara ett av: {allowed_steps}
 """
         return prompt
+    
+    def _validate_step_transition(self, current_step: str, proposed_step: str) -> str:
+        """
+        v5.8: Validate and enforce step transition rules.
+        
+        Rules:
+        - Can stay on current step
+        - Can go to next step (forward only)
+        - Can go to 'general' for questions
+        - CANNOT go backward
+        - CANNOT skip steps
+        
+        Returns:
+            Validated step (either proposed or current if invalid)
+        """
+        # 'general' is always allowed
+        if proposed_step == 'general':
+            return proposed_step
+        
+        try:
+            current_idx = self.STEP_ORDER.index(current_step)
+        except ValueError:
+            current_idx = 0
+        
+        try:
+            proposed_idx = self.STEP_ORDER.index(proposed_step)
+        except ValueError:
+            # Unknown step - stay on current
+            logger.warning(f"Unknown step '{proposed_step}', staying on {current_step}")
+            return current_step
+        
+        # Check if transition is valid
+        if proposed_idx < current_idx:
+            # Trying to go backward - not allowed
+            logger.warning(f"Blocked backward jump: {proposed_step} <- {current_step}")
+            return current_step
+        elif proposed_idx > current_idx + 1:
+            # Trying to skip steps - not allowed
+            logger.warning(f"Blocked step skip: {current_step} -> {proposed_step}")
+            return current_step
+        
+        # Valid transition (stay or next)
+        return proposed_step
     
     def _derive_step(self, intent: IntentTarget) -> str:
         """Derive process step from IntentTarget branches."""

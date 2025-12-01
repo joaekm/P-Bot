@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Johan Erikssons berättelse
+║  Verksamhetsutvecklare på Stockholms läns landsting
+║  
+║  Samtal: 30 meddelanden
+║  Datum: 2025-12-01 10:14
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade ju det där mötet med P-Bot igår, den där AI-assistenten från Adda. Tanken var ju att den skulle hjälpa mig att göra ett avrop på en analytiker. Jag var väl lite skeptisk från början, ska jag vara ärlig. Jag menar, hur mycket kan en bot fatta egentligen? Jag hoppades mest på att slippa krångla med pappersarbete och missförstånd, men samtidigt var jag orolig att det skulle bli för generellt och att vi skulle missa de där viktiga detaljerna som gör skillnad mellan en bra och en dålig kandidat. Vi har ju sjukt mycket vårddata som ligger och dammar, och ledningen tjatar om bättre beslutsunderlag, så det här är viktigt för oss.
+
+Det började rätt smidigt, jag måste säga. Den fattade direkt vad jag behövde och ställde relevanta frågor om kompetensnivå och tidsomfattning. Jag var noga med att trycka på att vi behövde någon med erfarenhet av SQL och Python, och det verkade den snappa upp bra. Det var sen det började bli lite krångligare. FKU, prismodell, utvärderingsmodell… det blev snabbt tydligt att jag behövde ha en ganska klar bild av vad jag ville. Jag var lite osäker på den där fördelningen mellan pris och kvalitet, men jag insåg snabbt att kompetensen var viktigast för oss. Den delen med intervjun och hur vi skulle vikta olika förmågor var faktiskt riktigt bra. Det tvingade mig att tänka till ordentligt om vad vi egentligen letade efter.
+
+Det fanns ett tillfälle, mot slutet, när den föreslog en 50/50-fördelning mellan kvalitet och pris, trots att jag hade sagt 60/40. Jag blev lite irriterad då, för det kändes som att den inte riktigt lyssnade. Jag var tvungen att förklara igen varför kvaliteten var så viktig, och då backade den. Det är väl det som är grejen med AI, antar jag, man måste vara extremt tydlig och ibland rätta till den. Men överlag så måste jag säga att den var faktiskt bra på att sammanfatta informationen och strukturera avropet. Det där med utkastet till avropsunderlaget är guld värt, det sparar mig massor av tid.
+
+Jag är fortfarande lite tveksam till hur bra den faktiskt kan bedöma teknisk kompetens, men den hjälpte mig definitivt att skapa ett mer genomtänkt underlag. Om den kan minska pappersarbetet och missförstånden så är det värt det. Jag skulle nog använda den igen, men jag vet att jag måste vara påläst och veta exakt vad jag vill. Det är ingen mirakelkur, men som ett verktyg för att effektivisera avropen är det helt klart intressant. Nu får vi se om vi faktiskt hittar rätt person också!"

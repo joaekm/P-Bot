@@ -28,6 +28,7 @@ Går från SOA-liknande arkitektur till REST-baserad arkitektur.
 - Arbeta med katalogtjänster och digitala ekosystem
 
 ## Kontraktstid
-- 6 månader initialt
+- Start: 2026-02-01
+- Slut: 2026-07-31 (6 månader)
 - Option: 6 månader förlängning
 

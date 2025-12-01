@@ -29,6 +29,7 @@ Fokus på att identifiera förbättringsmöjligheter i vårdflöden.
 - Presentera insikter för ledning
 
 ## Kontraktstid
-- 10 månader initialt
+- Start: 2026-02-01
+- Slut: 2026-11-30 (10 månader)
 - Option: 14 månader förlängning
 

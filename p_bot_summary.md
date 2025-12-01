@@ -1,4 +1,4 @@
-# P-Bot Summary (v5.2)
+# P-Bot Summary (v5.10)
 
 Detta dokument beskriver "Vad" – den slutgiltiga processen, designen och arkitekturstrategin.
 
@@ -362,27 +362,36 @@ Separat bulk-ingest processor för dokumentkonvertering:
 
 ---
 
-## 9. Kända Problem (v5.2)
+## 9. Lösta Problem (v5.10)
 
-### 9.1 Validator-loop ("Papegoj-effekten") 🚩 KRITISK
+### 9.1 Validator-loop ("Papegoj-effekten") ✅ LÖST
 
-**Problem:** Validatorn läser constraints från SECONDARY-dokument och applicerar dem som universella regler. Detta orsakar oändliga loopar där användaren bekräftar ett krav men botten fortsätter blockera.
+**Problem:** Validatorn läste constraints från SECONDARY-dokument och applicerade dem som universella regler.
 
-**Symptom:**
-- Samma BLOCK-meddelande upprepas 15+ gånger
-- Användaren säger "Ja, det stämmer" men botten förstår inte
-- Frustration eskalerar
+**Lösning:** Validatorn togs bort som blockerande komponent. Constraints hanteras nu av data lake och Planner.
 
-**Åtgärd:** 
-1. Filtrera bort SECONDARY i `_load_constraints` (normalizer.py)
-2. Implementera "acknowledged constraints" i session state (engine.py)
+### 9.2 Sammanfattnings-upprepningar ✅ LÖST
 
-### 9.2 Upptäckt via Simulation Tool
+**Problem:** Synthesizer visade sammanfattning baserat på procent-trösklar (70%), vilket ledde till "papegoj-effekten".
 
-Problemet upptäcktes via batch-körning av 11 scenarion med `simulate_procurement.py`. Alla scenarion fastnade i samma typ av loop. Persona Story Generator gav insikt i användarupplevelsen.
+**Lösning:** Sammanfattning visas nu ENDAST när `AvropsProgress.is_complete == True`.
+
+### 9.3 FKU-regel upprepningar ✅ LÖST
+
+**Problem:** Hårdkodade FKU-regler i `synthesizer_strategy` prompten upprepades i varje svar.
+
+**Lösning:** Reglerna togs bort från prompten. Ny instruktion: "Förklara avropsform EN gång."
+
+### 9.4 Kvarstående Förbättringsområden
+
+| Problem | Status | Beskrivning |
+|---------|--------|-------------|
+| Begränsade viktningsval | 🟡 Kvarstår | Användare vill ha 60/40 men får bara 50/50 eller 70/30 |
+| Bekräftelsefrågor | 🟡 Kvarstår | Botten frågar om saker som redan sagts |
+| Saknar personlighet | 🟡 Kvarstår | Användare önskar mer proaktiva råd |
 
 ---
 
-*Version: 5.2*  
-*Status: Reasoning Engine v2 + Taxonomy-Aware + Simulation Tool*  
-*Senast uppdaterad: November 2024*
+*Version: 5.10*  
+*Status: Reasoning Engine v2 + Taxonomy-Aware + Simulation Tool + Summary Fix*  
+*Senast uppdaterad: December 2024*

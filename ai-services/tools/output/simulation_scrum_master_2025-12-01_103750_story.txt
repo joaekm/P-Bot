@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Maria Lindgrens berättelse
+║  Enhetschef IT-utveckling på Försäkringskassan
+║  
+║  Samtal: 30 meddelanden
+║  Datum: 2025-12-01 10:37
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade ju det här samtalet med Addas P-Bot igår. Jag var lite nervös inför det faktiskt. Vi är ju så pressade här på Försäkringskassan, med den här agila transformationen som jag driver. Jag hoppades verkligen att P-Bot skulle vara smidig och snabbt hjälpa mig att få ihop ett bra avrop för en Scrum Master. En riktigt bra en, på nivå 5, som kan hantera allt motstånd jag möter från gamla gardet. Jag hade ju redan tvingat mig till det här digitaliseringsgreppet med ramavtalen, och nu hoppades jag att det inte skulle vara slöseri med tid.
+
+Det började ju rätt bra. P-Bot fattade direkt att jag behövde en erfaren Scrum Master. Men sedan började frågorna om kompetensnivå och tidsramar. Det var ju liksom standardfrågor, inget fel med det, men jag kände att vi inte kom till pudelns kärna direkt. Sen kom det där med utvärderingsmodellerna. Där blev jag lite irriterad, faktiskt. Jag hade ju sagt att jag ville ha 60% kvalitet och 40% pris, men P-Bot pushade ju för 50/50. Jag fattar ju att de har sina standardmallar, men jag vill ha den bästa konsulen! Men då tänkte jag, ja, okej, 50/50 är väl bättre än 70% pris, så jag gav med mig. Jag kände lite pressen av att komma vidare, du vet?
+
+Det avgörande ögonblicket var när jag började prata om kraven på förändringsledning. Jag vet inte om det var jag som började formulera mig tydligare, eller om P-Bot äntligen förstod vad som var viktigt, men då började det kännas som att vi var på samma våglängd. Jag gillade när P-Bot sa: "Erfarenhet av förändringsledning är en central del i den här typen av uppdrag. Jag ser till att kravet på dokumenterad erfarenhet av att leda och coacha i förändringsprocesser specificeras tydligt i underlaget." Då kände jag att, okej, kanske den här boten faktiskt kan leverera. Det är ju precis den erfarenheten vi behöver! Någon som kan ta hand om motståndet, coacha teamen och få den här transformationen att lyckas.
+
+När sammanfattningen kom var jag ändå rätt nöjd. Allt stämde, och det verkade som att P-Bot hade fattat poängen med förändringsledningen. Jag var ändå lättad när det var över. Jag är inte helt såld på det här med AI, det känns lite opersonligt. Samtidigt sparar det ju tid. Skulle jag använda det igen? Jo, absolut, men jag skulle vara ännu tydligare från början med att lyfta fram just förändringsledningen. Jag måste ju kunna visa resultat snabbt, så jag hoppas verkligen att de här "tydliga formuleringarna" faktiskt gör skillnad. Om inte, ja då får jag väl gå via ramavtalet på det gamla sättet nästa gång. Men jag hoppas verkligen att det här funkar, det skulle spara oss så mycket tid och energi."

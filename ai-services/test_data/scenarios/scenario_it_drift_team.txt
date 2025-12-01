@@ -35,6 +35,7 @@ Ta fram nulägesanalys med GAP, risker och förmågor.
 - Erfarenhet av Cisco och F5
 
 ## Kontraktstid
-- Till 2024-09-30
+- Start: 2026-02-01
+- Slut: 2026-09-30
 - Option: 2 månader förlängning
 

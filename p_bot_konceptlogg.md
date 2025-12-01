@@ -1,4 +1,4 @@
-# P-Bot Konceptlogg (v5.2)
+# P-Bot Konceptlogg (v5.10)
 
 Detta dokument spårar "Varför" – resonemanget och de designbeslut som lett fram till prototypen.
 
@@ -450,6 +450,61 @@ for topic in detected_topics:
 
 ---
 
+## Fas 13: Sammanfattnings- och Upprepningsfix (v5.10)
+
+### 13.1 Insikt: Procent-baserad logik orsakade "Papegoj-effekten"
+
+**Problem:** Synthesizer visade sammanfattning baserat på `completion_percent >= 70%`. Detta ledde till att samma sammanfattning upprepades varje gång användaren svarade, eftersom procenten inte ändrades.
+
+**Symptom:**
+- Användaren fick samma sammanfattning 5-10 gånger
+- Frustration: "Ja, jag vet! Du har redan sagt det!"
+- Botten kändes "robotlik" och repetitiv
+
+### 13.2 Lösning: Deterministisk Completion-logik
+
+**Beslut:** Ersätt procent-baserad logik med `AvropsProgress.is_complete`:
+
+```python
+# FÖRE (v5.9)
+if progress.completion_percent >= 70:
+    show_summary()
+
+# EFTER (v5.10)
+if progress.is_complete:
+    show_summary()
+```
+
+**Logik:**
+1. `is_complete=True + bekräftelse` → Avsluta konversationen
+2. `is_complete=True` → Visa sammanfattning, fråga om bekräftelse
+3. `is_complete=False` → Lista saknade fält (ingen sammanfattning)
+
+### 13.3 Insikt: Hårdkodade FKU-regler i prompt
+
+**Problem:** `synthesizer_strategy` prompten innehöll:
+```yaml
+REGLER (VIKTIGT):
+- Nivå 5 → FKU krävs (KN5-regeln)
+- >320 timmar → FKU krävs
+```
+
+Dessa regler upprepades i varje svar, trots att de redan fanns i data lake.
+
+### 13.4 Lösning: Ta bort hårdkodade regler
+
+**Beslut:** Ta bort reglerna från prompten. Lägg till instruktion:
+> "Förklara avropsform EN gång. Vid upprepning, referera kort: 'Som nämnt tidigare...'"
+
+### 13.5 Resultat: Simuleringsrapport v5.10
+
+Batch-körning av 10 scenarion visade:
+- ✅ **Inga klagomål på upprepade sammanfattningar**
+- ✅ **Inga klagomål på FKU-regel upprepningar**
+- 🟡 Kvarstående: Begränsade viktningsval, bekräftelsefrågor, saknar personlighet
+
+---
+
 ## Lärdomar & Insikter
 
 1. **Separation of Concerns:** Motor/Manus-separation löste render-buggar
@@ -471,8 +526,10 @@ for topic in detected_topics:
 17. **ReasoningPlan:** Strukturerad output från Planner till Synthesizer
 18. **Persona Stories:** Berättelser ger djupare insikt än checklistor
 19. **Validator Authority Filter:** SECONDARY-regler får ALDRIG blockera
+20. **Deterministisk Completion:** Använd `is_complete` istället för procent-trösklar
+21. **Prompt-hygien:** Hårdkoda INTE regler i promptar – de finns i data lake
 
 ---
 
-*Version: 5.2*  
-*Senast uppdaterad: November 2024*
+*Version: 5.10*  
+*Senast uppdaterad: December 2024*

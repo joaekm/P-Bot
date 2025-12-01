@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Erik Johanssons berättelse
+║  Arkitektledare på Inera AB
+║  
+║  Samtal: 9 meddelanden
+║  Datum: 2025-12-01 10:21
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag testade den här P-Bot på Adda igår, den här AI-assistenten för avrop. Jag var ju ganska stressad, måste jag säga. Projektet har redan börjat rulla och med tanke på att Lars stack i förra veckan så är det krisläge. Jag hoppades väl på att den där boten skulle vara som en slags magisk genväg, att jag bara skulle slänga in uppgifterna och få fram en lista på lämpliga kandidater direkt. Jag har ju inte tid att sitta och pilla med manuella sökningar i timmar.
+
+Det började väl okej. Jag förklarade läget och att jag behövde en arkitekt snabbt. P-Bot var snabb med att fråga vad för slags arkitekt, kompetensnivå och så vidare. Grundläggande frågor, inget konstigt. Jag gav all information – integrationsarkitekt nivå 5 i Stockholm, allt som står i avropsunderlaget. Jag vill ju att det ska gå smidigt, så jag var noga med att vara tydlig.
+
+Men sen började det kännas lite repetitivt. Den frågade ju om saker som redan stod i avropsunderlaget! Som startdatum och heltidsprocent. Visst, jag förstår att den behöver bekräftelse, men jag kände mig lite dum som satt och upprepade samma information om och om igen. Lite som att prata med någon som inte riktigt lyssnar. Det som verkligen fick mig att sucka var när den frågade om utvärderingsmodellen. "Förnyad Konkurrensutsättning, har ni bestämt vilken utvärderingsmodell?". Alltså, hallå, det är ju standard! Jag kunde känna hur min inre perfektionist vaknade till liv. "Gör din research, P-Bot!" tänkte jag.
+
+Efteråt kände jag mig… utmattad. Det kändes som att jag hade gjort ett första utkast till en kravspecifikation, istället för att faktiskt kommit ett steg närmare en lösning. Jag vet inte, kanske jag hade för höga förväntningar. Jag ska nog ge det ett försök till, men jag kommer att vara beredd på att det inte kommer vara en quick-fix. Nästa gång ska jag vara ännu tydligare i min kommunikation och se om det gör någon skillnad. Men jag måste säga, om jag inte ser någon förbättring, så går jag tillbaka till de gamla metoderna. Jag har ju faktiskt en lista på headhunters som kan fixa det här snabbt. För jag behöver någon med erfarenhet från hälso- och sjukvård och det är jag inte säker på att P-Bot kommer att förstå."

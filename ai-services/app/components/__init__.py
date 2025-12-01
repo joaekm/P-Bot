@@ -1,21 +1,24 @@
 """
-Pipeline Components for Adda Search Engine v5.3
+Pipeline Components for Adda Search Engine v5.5
 
 Components:
-- ExtractorComponent: Entity extraction from conversation (session state)
-- IntentAnalyzerComponent: Query -> IntentTarget mapping (taxonomy)
+- IntentAnalyzerComponent: Query -> IntentTarget with search strategy (LLM-driven)
 - ContextBuilderComponent: Dual retrieval (keyword + vector + graph)
 - PlannerComponent: Logic layer (reasoning + validation)
-- SynthesizerComponent: Response generation with persona
+- SynthesizerComponent: Response generation + Entity extraction
+
+v5.5 Changes:
+- IntentAnalyzer is now LLM-driven (no hardcoded patterns)
+- Entity extraction moved to Synthesizer (context-aware)
+- Synthesizer returns SynthesizerResult with response + avrop_changes
+- DELETE support in Synthesizer ("ta bort X", "vi behöver inte X")
 """
-from .extractor import ExtractorComponent
 from .intent_analyzer import IntentAnalyzerComponent
 from .context_builder import ContextBuilderComponent
 from .planner import PlannerComponent
 from .synthesizer import SynthesizerComponent
 
 __all__ = [
-    'ExtractorComponent',
     'IntentAnalyzerComponent',
     'ContextBuilderComponent',
     'PlannerComponent', 

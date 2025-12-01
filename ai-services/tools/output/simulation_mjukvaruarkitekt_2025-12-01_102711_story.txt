@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Karin Svenssons berättelse
+║  Produktägare E-klient på Inera AB
+║  
+║  Samtal: 20 meddelanden
+║  Datum: 2025-12-01 10:27
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag snackade med den där P-Bot från Adda igår, du vet den där AI-assistenten för avrop? Jag hade ju panik över att hitta en senior utvecklare till E-klienten. Vårt team är redan så underbemannat och releasen närmar sig med stormsteg. Jag hoppades innerst inne att P-Bot skulle vara snabb och effektiv, liksom plocka fram en perfekt kandidat på studs, men jag var samtidigt rätt skeptisk. Jag menar, AI och komplexa IT-kompetenser, funkar det verkligen?
+
+I början kändes det rätt smidigt. P-Bot snappade snabbt upp mina basala behov – senior utvecklare, Skåne, osv. Men sen började det bli lite mer omständligt. Alla de där frågorna om timmar, prismodell, takpris… Jag vet ju att det måste göras, men jag blir så otålig! Jag vill bara ha RESULTAT! Jag blev lite irriterad när P-Bot började prata om utvärdering och 50/50 pris och kvalitet. Pris är ju viktigt, men herregud, vi har blivit brända tidigare av billiga konsulter som inte levererat. Det var då jag kände att jag var tvungen att trycka på kvaliteten.
+
+Jag frågade om intervjuprocessen. Jag ville veta in i minsta detalj hur de tänkte bedöma kompetensen. Jag var tvungen att vara säker på att vi inte skulle hamna i samma sits igen. Det var faktiskt där P-Bot imponerade lite. De var beredda att anpassa utvärderingen, lägga till "ska-krav" och verkligen försöka hitta rätt kompetens. Det gav mig en liten gnutta hopp. Takpriset var ju också bra, alltid skönt att ha koll på ekonomin.
+
+När P-Bot sammanfattade avropet kändes det... okej. Inte fantastiskt, men okej. Det var som att jag hade lyckats navigera genom en byråkratisk djungel med hjälp av en robot. Jag kände mig lite lättad, men fortfarande inte helt säker på att det här verkligen kommer att lösa våra problem. Jag skulle nog använda P-Bot igen, ja. Men jag kommer att vara mer förberedd och definitivt lägga mer energi på att trycka på vikten av kvalitet från början. Kanske ska jag skriva ner en detaljerad kravspec innan nästa samtal, så slipper jag harva runt med alla detaljer live. Det sparar nog både tid och nerver."

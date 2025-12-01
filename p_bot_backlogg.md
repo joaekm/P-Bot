@@ -1,4 +1,4 @@
-# P-Bot Backlog (v5.2)
+# P-Bot Backlog (v5.10)
 
 Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade på projektets faser.
 
@@ -104,14 +104,23 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 | **EPIC-394** | Procurement Simulation Tool | ✅ DONE | Stresstestning med AI-personas. Batch-läge. |
 | **EPIC-395** | Persona Story Generator | ✅ DONE | Gemini skriver berättelser från personans perspektiv. |
 
-### 3b-v7. Validator Fixes 🚩 KRITISK
+### 3b-v7. Validator Fixes ✅ LÖST
 
 | Epic-ID | Titel | Status | Kommentar |
 |:--------|:------|:-------|:----------|
-| **EPIC-400** | SECONDARY Constraint Filter | 🚩 KRITISK | Validatorn läser SECONDARY-regler som universella. Måste filtreras. |
-| **EPIC-401** | Acknowledgement Logic | 🚩 KRITISK | Användare fastnar i loop när de bekräftar krav. |
-| **EPIC-402** | BLOCK → WARN Conversion | 📝 TO DO | Många BLOCK borde vara WARN (info, ej stopp). |
-| **EPIC-403** | Remove "Rättegångskänslan" | 📝 TO DO | Ta bort "Ingen orimlig begäran"-meddelanden. |
+| **EPIC-400** | SECONDARY Constraint Filter | ✅ DONE | Validatorn borttagen som blockerande komponent. |
+| **EPIC-401** | Acknowledgement Logic | ✅ DONE | Hanteras nu av Planner med history-kontext. |
+| **EPIC-402** | BLOCK → WARN Conversion | ✅ DONE | Constraints hanteras av data lake, ej kod. |
+| **EPIC-403** | Remove "Rättegångskänslan" | ✅ DONE | Meddelanden borttagna. |
+
+### 3b-v8. Summary & Repetition Fixes (v5.10) ✅
+
+| Epic-ID | Titel | Status | Kommentar |
+|:--------|:------|:-------|:----------|
+| **EPIC-410** | Deterministisk Sammanfattning | ✅ DONE | Sammanfattning visas ENDAST vid `is_complete=True`. |
+| **EPIC-411** | FKU-regel borttagning | ✅ DONE | Hårdkodade regler borttagna från synthesizer_strategy. |
+| **EPIC-412** | Planner History Context | ✅ DONE | Planner får nu konversationshistorik för bekräftelselogik. |
+| **EPIC-413** | Step Progression Validation | ✅ DONE | Planner validerar stegövergångar (ingen bakåthopp). |
 
 ### 3c. Pågående / Nästa Steg 🚩
 
@@ -196,12 +205,21 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 
 ## Prioritetsordning
 
-1. **P0 (Kritisk - Blockerare):** EPIC-400 SECONDARY Constraint Filter, EPIC-401 Acknowledgement Logic
-2. **P1 (Hög):** EPIC-402 BLOCK→WARN, EPIC-357 Sources UI
-3. **P2 (Medium):** EPIC-319 Split Deal, EPIC-320 Prisuppskattning, EPIC-358 Dokumentuppladdning
+1. **P0 (Kritisk - Blockerare):** ✅ Alla lösta i v5.10
+2. **P1 (Hög):** EPIC-357 Sources UI, EPIC-358 Dokumentuppladdning
+3. **P2 (Medium):** EPIC-319 Split Deal, EPIC-320 Prisuppskattning
 4. **P3 (Låg):** EPIC-303-306 Övriga vyer
+
+### Kvarstående UX-förbättringar (Identifierade via Simulation v5.10)
+
+| Epic-ID | Titel | Status | Kommentar |
+|:--------|:------|:-------|:----------|
+| **EPIC-420** | Fler viktningsalternativ | 📝 TO DO | Användare vill ha 60/40, inte bara 50/50 eller 70/30. |
+| **EPIC-421** | Minska bekräftelsefrågor | 📝 TO DO | Botten frågar om saker som redan sagts. |
+| **EPIC-422** | Mer konsultpersonlighet | 📝 TO DO | Proaktiva råd istället för bara alternativ. |
+| **EPIC-423** | Nybörjarläge | 📝 TO DO | Förklara termer som "FKU" automatiskt. |
 
 ---
 
-*Version: 5.2*  
-*Senast uppdaterad: November 2024*
+*Version: 5.10*  
+*Senast uppdaterad: December 2024*

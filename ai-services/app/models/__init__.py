@@ -1,6 +1,15 @@
 """
-Data Models for Adda Search Engine v5.2
-Domain models, taxonomy enums, and reasoning models for runtime.
+Data Models for Adda Search Engine v5.5
+Domain models, taxonomy enums, reasoning models, and avrop models for runtime.
+
+v5.5 Changes:
+- IntentTarget now includes search_strategy and search_terms
+- SynthesizerResult added for response + entity changes
+- Entity extraction moved from IntentAnalyzer to Synthesizer
+
+v5.4 Changes:
+- Added avrop.py with AvropsTyp, Resurs, AvropsData, RequiredFields
+- Deprecated ResourceEntity, ExtractedEntities (use Resurs, AvropsData instead)
 """
 from .domain import (
     # Taxonomy Enums
@@ -13,7 +22,7 @@ from .domain import (
     # Intent & Query Models
     IntentTarget,
     
-    # Session State Models
+    # Session State Models (DEPRECATED - use avrop.py models)
     ResourceEntity,
     ExtractedEntities,
     SessionState,
@@ -25,6 +34,21 @@ from .reasoning import (
     ReasoningContext,
 )
 
+from .avrop import (
+    # Avrop Models (v5.4)
+    AvropsTyp,
+    Region,
+    Prismodell,
+    Utvarderingsmodell,
+    Resurs,
+    AvropsData,
+    AvropsProgress,
+    REQUIRED_FIELDS,
+    EntityAction,
+    EntityChange,
+    merge_avrop_data,
+)
+
 __all__ = [
     # Taxonomy
     "TaxonomyRoot",
@@ -34,12 +58,24 @@ __all__ = [
     "VALID_BRANCHES",
     # Intent
     "IntentTarget",
-    # Session State
+    # Session State (DEPRECATED)
     "ResourceEntity",
     "ExtractedEntities",
     "SessionState",
     # Reasoning
     "ReasoningPlan",
     "ReasoningContext",
+    # Avrop (v5.4)
+    "AvropsTyp",
+    "Region",
+    "Prismodell",
+    "Utvarderingsmodell",
+    "Resurs",
+    "AvropsData",
+    "AvropsProgress",
+    "REQUIRED_FIELDS",
+    "EntityAction",
+    "EntityChange",
+    "merge_avrop_data",
 ]
 

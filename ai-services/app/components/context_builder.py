@@ -1,11 +1,16 @@
 """
-Context Builder Component - Deterministic Context Retrieval
+Context Builder Component - Deterministic Context Retrieval (v5.5)
 Replaces Hunter with taxonomy-aware dual retrieval.
 
-Retrieval Strategy:
-1. EXACT: Keyword search on topic_tags (if topics detected)
-2. VECTOR: Semantic search with taxonomy filters (branch, scope)
-3. GRAPH: Entity-based traversal via Kuzu (if entities detected)
+v5.5 Changes:
+- Uses search_strategy from IntentTarget to decide which sources to query
+- Uses search_terms from IntentTarget for optimized searches
+- Fully deterministic - no LLM calls here
+
+Retrieval Strategy (controlled by IntentTarget.search_strategy):
+1. LAKE: Keyword search on topic_tags (if search_strategy.lake = true)
+2. VECTOR: Semantic search with taxonomy filters (if search_strategy.vector = true)
+3. GRAPH: Entity-based traversal via Kuzu (if search_strategy.graph = true)
 """
 import logging
 import yaml
@@ -46,6 +51,8 @@ class ContextBuilderComponent:
         """
         Build context based on IntentTarget.
         
+        v5.5: Uses search_strategy and search_terms from IntentTarget.
+        
         Returns dict of document_id -> document_data
         """
         candidates = {}
@@ -55,24 +62,30 @@ class ContextBuilderComponent:
         if not intent.should_block_secondary():
             allowed_authorities.append("SECONDARY")
         
+        # Get search terms (v5.5: from LLM)
+        search_terms = intent.search_terms if intent.search_terms else intent.detected_topics
+        
         logger.info(f"Building context: intent={intent.intent_category}, "
-                   f"topics={len(intent.detected_topics)}, "
-                   f"entities={len(intent.detected_entities)}, "
+                   f"strategy={intent.search_strategy}, "
+                   f"search_terms={search_terms[:3]}, "
                    f"authorities={allowed_authorities}")
         
-        # 1. EXACT: Keyword search on topic_tags
-        if intent.detected_topics:
+        # 1. LAKE: Keyword search on topic_tags (if enabled)
+        if intent.should_search_lake() and search_terms:
             topic_hits = self._search_by_topics(
-                intent.detected_topics, 
+                search_terms, 
                 allowed_authorities
             )
             candidates.update(topic_hits)
-            logger.info(f"Topic search: {len(topic_hits)} hits")
+            logger.info(f"Lake search: {len(topic_hits)} hits")
         
-        # 2. VECTOR: Semantic search with taxonomy filters
-        if intent.taxonomy_branches:
+        # 2. VECTOR: Semantic search with taxonomy filters (if enabled)
+        if intent.should_search_vector() and intent.taxonomy_branches:
+            # Use search_terms for query if available, else original query
+            query_text = " ".join(search_terms) if search_terms else intent.original_query
+            
             vector_hits = self._search_vector(
-                query=intent.original_query,
+                query=query_text,
                 branches=intent.taxonomy_branches,
                 scopes=intent.scope_preference,
                 allowed_authorities=allowed_authorities
@@ -83,8 +96,8 @@ class ContextBuilderComponent:
                     candidates[doc_id] = doc
             logger.info(f"Vector search: {len(vector_hits)} hits")
         
-        # 3. GRAPH: Entity-based traversal
-        if intent.detected_entities and self.kuzu_conn:
+        # 3. GRAPH: Entity-based traversal (if enabled)
+        if intent.should_search_graph() and intent.detected_entities and self.kuzu_conn:
             graph_hits = self._search_graph_by_entities(
                 intent.detected_entities,
                 allowed_authorities
@@ -94,14 +107,20 @@ class ContextBuilderComponent:
                     candidates[doc_id] = doc
             logger.info(f"Graph search: {len(graph_hits)} hits")
         
-        # 4. FALLBACK: If no results, do broader vector search
-        if not candidates:
+        # 4. FALLBACK: If no results and vector is enabled, do broader search
+        if not candidates and intent.should_search_vector():
             logger.info("No results from targeted search, falling back to broad vector search")
             fallback_hits = self._search_vector_fallback(
                 intent.original_query,
                 allowed_authorities
             )
             candidates.update(fallback_hits)
+        
+        # 5. CART OPERATIONS: If no search strategy enabled, still allow Synthesizer to run
+        # This happens when user is modifying their cart (ADD/DELETE) not searching for info
+        if not candidates and not any([intent.should_search_lake(), intent.should_search_vector(), intent.should_search_graph()]):
+            logger.info("No search strategy enabled - likely a cart operation")
+            # Return empty dict - Synthesizer will handle entity extraction without context
         
         logger.info(f"Total context candidates: {len(candidates)}")
         return candidates

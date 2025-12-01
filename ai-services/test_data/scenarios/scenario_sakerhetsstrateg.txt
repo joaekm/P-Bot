@@ -24,7 +24,8 @@ Uppdraget är att leda utvecklingen av IdP (Identity Provider) lösning enligt R
 - Erfarenhet av SAML2, OAuth2.0, OIDC
 
 ## Kontraktstid
-- Inledningsvis till 2024-09-30
+- Start: 2026-02-01
+- Slut: 2026-09-30
 - Option: 12 månader förlängning
 
 ## Utvärdering

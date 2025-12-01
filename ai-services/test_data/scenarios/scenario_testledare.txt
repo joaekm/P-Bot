@@ -29,6 +29,7 @@ Projektet omfattar implementation av nytt journalsystem.
 - Säkerställa att kvalitetskrav uppfylls
 
 ## Kontraktstid
-- 12 månader initialt
+- Start: 2026-02-01
+- Slut: 2027-01-31 (12 månader)
 - Option: 12 månader förlängning
 

@@ -1,11 +1,15 @@
 """
-Adda P-Bot Domain Models v2
+Adda P-Bot Domain Models v5.5
 Runtime contract for ai-services - COPIED from data_pipeline (not imported).
 This ensures ai-services can run independently of data_pipeline.
+
+v5.5 Changes:
+- Added search_strategy and search_terms to IntentTarget
+- Removed normalized_entities (moved to Synthesizer)
 """
 from enum import Enum
 from pydantic import BaseModel, Field
-from typing import List, Literal, Optional
+from typing import List, Dict, Literal, Optional
 
 
 # =============================================================================
@@ -78,8 +82,11 @@ VALID_BRANCHES = {
 
 class IntentTarget(BaseModel):
     """
-    Result of Intent Analysis - maps a user query to taxonomy coordinates.
+    Result of Intent Analysis - maps a user query to search strategy.
     Used by ContextBuilder to fetch relevant documents.
+    
+    v5.5: Now includes search_strategy and search_terms for intelligent search.
+    Entity extraction moved to Synthesizer.
     """
     original_query: str = Field(..., description="The original user query")
     
@@ -103,10 +110,14 @@ class IntentTarget(BaseModel):
         description="Named entities found in query (e.g., 'Nivå 4', 'Stockholm')"
     )
     
-    # Normalized Entities (cleaned and standardized data)
-    normalized_entities: dict = Field(
-        default_factory=dict,
-        description="Normalized entities extracted from query (location, role, level, volume)"
+    # Search Strategy (v5.5 - NEW)
+    search_strategy: Dict[str, bool] = Field(
+        default_factory=lambda: {"lake": True, "vector": True, "graph": False},
+        description="Which data sources to search: lake (markdown), vector (ChromaDB), graph (Kuzu)"
+    )
+    search_terms: List[str] = Field(
+        default_factory=list,
+        description="Optimized search terms extracted by LLM"
     )
     
     # Search Preferences
@@ -141,6 +152,18 @@ class IntentTarget(BaseModel):
     def should_block_secondary(self) -> bool:
         """Determine if SECONDARY sources should be blocked (Ghost Mode)."""
         return self.intent_category == "FACT"
+    
+    def should_search_lake(self) -> bool:
+        """Check if lake (markdown) search is enabled."""
+        return self.search_strategy.get("lake", True)
+    
+    def should_search_vector(self) -> bool:
+        """Check if vector (ChromaDB) search is enabled."""
+        return self.search_strategy.get("vector", True)
+    
+    def should_search_graph(self) -> bool:
+        """Check if graph (Kuzu) search is enabled."""
+        return self.search_strategy.get("graph", False)
 
 
 # =============================================================================

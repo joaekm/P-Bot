@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anna Nilssons berättelse
+║  Projektledare på Region Skåne
+║  
+║  Samtal: 28 meddelanden
+║  Datum: 2025-12-01 10:46
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag satt i möte efter möte igår, helt slut. Och så var det dags för det här avropet via Adda, med den där P-Boten. Jag var verkligen inte sugen. Allt är redan försenat och nu måste vi jaga en ny testledare. Den förra stack ju mitt i alltihop! Jag hoppades väl mest att det skulle gå smidigt och snabbt. Jag behövde verkligen bara få tag på någon kompetent som kan sätta fart på testningen, helst igår.
+
+Det började ju bra. P-Bot var snabb och fattade direkt vad jag ville. Nivå 4, Skåne, check. Men sen började det. Jag visste ju att det var nivå 4, det stod ju i avropsunderlaget! Och jag var tvungen att dubbelkolla slutdatumet också! Jag kände mig direkt stressad, för jag insåg att jag inte hade alla detaljer i huvudet, jag var tvungen att bläddra i underlaget hela tiden. Det kändes inte alls bra. Jag hade ju hoppats att det här skulle vara en enkel grej, men istället kändes det som att jag var tvungen att läsa på mer.
+
+Sen kom den där frågan om kompetensområde. "Systemutveckling/systemförvaltning" eller "Ledning och styrning"? Jag blev tveksam. Jag vet ju att det är Ledning och styrning som är mest relevant, men jag är inte hundra. Men det som verkligen irriterade mig var när P-Bot började prata om Förnyad Konkurrensutsättning och prismodeller. Jag fattar ju inte hur det funkar! Varför ska jag behöva ta ställning till det här? Det är ju inte mitt jobb! Jag ville ju bara ha en testledare! Men P-Bot var faktiskt ganska bra på att förklara skillnaden mellan pris och kvalitet, och det var ju skönt att få lite vägledning, särskilt när budgeten är så pressad. Valet 70% pris och 30% kvalitet kändes som en bra kompromiss.
+
+Det var skönt att få en sammanfattning på slutet. Då kändes det som att jag hade koll på läget igen. Men sedan kom den där frågan om antalet timmar igen! Jag var tvungen att kolla i underlaget igen, och jag insåg att jag fortfarande inte hade en exakt uppskattning. Jag fick ge ett ungefärligt antal, och det kändes inte bra. Men det var bra att P-Bot noterade att erfarenhet av automatiserad testning var ett plus. Det är ju viktigt att vi får någon som kan det.
+
+Jag är inte helt säker på om jag skulle använda P-Bot igen. Å ena sidan var det smidigt att få en sammanfattning och att boten var snabb på att svara. Men å andra sidan kändes det som att jag var tvungen att göra för mycket själv. Jag hade ju hoppats att det skulle vara mer "plug and play", att boten skulle guida mig genom processen utan att jag behövde ha alla detaljer i huvudet. Men jag antar att det är bättre än att sitta i telefonkö med någon handläggare, speciellt när tiden är knapp."
