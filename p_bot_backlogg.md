@@ -1,4 +1,4 @@
-# P-Bot Backlog (v5.10)
+# P-Bot Backlog (v5.13)
 
 Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade på projektets faser.
 
@@ -122,7 +122,29 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 | **EPIC-412** | Planner History Context | ✅ DONE | Planner får nu konversationshistorik för bekräftelselogik. |
 | **EPIC-413** | Step Progression Validation | ✅ DONE | Planner validerar stegövergångar (ingen bakåthopp). |
 
-### 3c. Pågående / Nästa Steg 🚩
+### 3c. Demo Feedback Dec 2025 (v5.11)
+
+| Epic-ID | Titel | Status | Kommentar |
+|:--------|:------|:-------|:----------|
+| **EPIC-430** | Geografisk Datakorrigering | ✅ DONE | Graf-integration: City→County→Area. search_terms resolution. |
+| **EPIC-431** | Minnesoptimering (Takpris) | ✅ DONE | Verifierat i simulering 2025-12-04: ingen minnesförlust. |
+| **EPIC-432** | Proaktiv Rollguidning | 📝 P1 | Assistenten föreslår ramavtalets Exempelroller istället för att acceptera fritext. |
+| **EPIC-433** | SummaryCard Tight Schema | 📝 P1 | Varukorgen visar endast avtalstermer: "Anbudsområde B (Härnösand)", inte fritext. |
+| **EPIC-434** | str/int Typfel | 🔴 BUG | Volymjämförelse kraschar: `'>' not supported between instances of 'str' and 'int'`. |
+
+### 3c-v2. Pipeline 2.0 - Q&A-Driven Knowledge (v5.13) 🚧
+
+| Epic-ID | Titel | Status | Kommentar |
+|:--------|:------|:-------|:----------|
+| **EPIC-440** | Pipeline 2.0 Architecture | ✅ DONE | 4-stegs pipeline: Extract → Test → Create → Dedup. Q&A-driven från avrop. |
+| **EPIC-441** | Lake v2 | ✅ DONE | 342 block från 175 avrop. Rikare tags via LLM-merge. `storage/lake_v2/` |
+| **EPIC-442** | Index v2 | ✅ DONE | ChromaDB + KuzuDB. 1867 topics, taxonomy nodes. `storage/index_v2/` |
+| **EPIC-443** | Config-based Paths | ✅ DONE | Indexer läser lake/index paths från `adda_config.yaml`. Enkelt v1/v2 byte. |
+| **EPIC-444** | Session Logging v2 | ✅ DONE | Separata loggar: `logs/v1/` och `logs/v2/`. Utökad trace med dokument-ID, graf-resolutions, entities. |
+| **EPIC-445** | Geo-mapping i v2 | 🔴 BUG | Stockholm → "A" (fel). Graf-resolution tom. Behöver learnings.json. |
+| **EPIC-446** | Minnes-loop | 🔴 BUG | Bot frågar om KO flera gånger trots bekräftat. Entity extraction svag. |
+
+### 3d. Pågående / Övrigt 🚩
 
 | Epic-ID | Titel | Status | Kommentar |
 |:--------|:------|:-------|:----------|
@@ -137,7 +159,7 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 | **EPIC-357** | Sources UI | 📝 TO DO | Visa källor i frontend (thoughts.sources). |
 | **EPIC-358** | Dokumentuppladdning | 📝 TO DO | Ingest pipeline för användarfiler. |
 
-### 3d. Övriga Vyer 📝
+### 3e. Övriga Vyer 📝
 
 | Epic-ID | Titel | Status | Kommentar |
 |:--------|:------|:-------|:----------|
@@ -205,21 +227,21 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 
 ## Prioritetsordning
 
-1. **P0 (Kritisk - Blockerare):** ✅ Alla lösta i v5.10
-2. **P1 (Hög):** EPIC-357 Sources UI, EPIC-358 Dokumentuppladdning
-3. **P2 (Medium):** EPIC-319 Split Deal, EPIC-320 Prisuppskattning
-4. **P3 (Låg):** EPIC-303-306 Övriga vyer
+1. **P0 (Kritisk):** ~~EPIC-430 Geo-data~~ ✅, ~~EPIC-431 Minnesoptimering~~ ✅, **EPIC-434 str/int Bugg** 🔴
+2. **P1 (Hög - UX):** EPIC-432 Rollguidning, EPIC-433 SummaryCard Tight Schema, EPIC-421 Visuell Bekräftelse
+3. **P2 (Medium):** EPIC-357 Sources UI, EPIC-358 Dokumentuppladdning, EPIC-319 Split Deal
+4. **P3 (Låg):** EPIC-303-306 Övriga vyer, EPIC-420, EPIC-423
 
 ### Kvarstående UX-förbättringar (Identifierade via Simulation v5.10)
 
 | Epic-ID | Titel | Status | Kommentar |
 |:--------|:------|:-------|:----------|
 | **EPIC-420** | Fler viktningsalternativ | 📝 TO DO | Användare vill ha 60/40, inte bara 50/50 eller 70/30. |
-| **EPIC-421** | Minska bekräftelsefrågor | 📝 TO DO | Botten frågar om saker som redan sagts. |
-| **EPIC-422** | Mer konsultpersonlighet | 📝 TO DO | Proaktiva råd istället för bara alternativ. |
+| **EPIC-421** | Visuell Bekräftelse | 📝 TO DO | Ersätt verbal bekräftelse med UI-feedback (SummaryCard-uppdatering + diskret toast). |
+| **EPIC-422** | Mer konsultpersonlighet | ⚠️ SUPERSEDED | Ersatt av EPIC-432 (Proaktiv Rollguidning). |
 | **EPIC-423** | Nybörjarläge | 📝 TO DO | Förklara termer som "FKU" automatiskt. |
 
 ---
 
-*Version: 5.10*  
-*Senast uppdaterad: December 2024*
+*Version: 5.13*  
+*Senast uppdaterad: 5 december 2025*

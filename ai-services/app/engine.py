@@ -59,7 +59,8 @@ def load_config():
         'chroma': base_dir / paths['chroma_db'],
         'kuzu': base_dir / paths['kuzu_db'],
         'prompts': base_dir / paths['prompts_chat'],
-        'logs': base_dir / paths['logs']
+        'logs': base_dir / paths['logs'],
+        'session_logs': base_dir / paths.get('session_logs', 'logs')
     }
     return config, resolved_paths
 
@@ -122,17 +123,19 @@ class AddaSearchEngine:
         # Models
         model_lite = CONFIG['ai_engine']['models']['model_lite']
         model_pro = CONFIG['ai_engine']['models']['model_pro']
+        model_fast = CONFIG['ai_engine']['models']['model_fast']
         
         # Initialize Components
         self.intent_analyzer = IntentAnalyzerComponent(self.client, model_lite, self.prompts)
         self.context_builder = ContextBuilderComponent(PATHS['lake'], self.collection, self.conn)
         self.planner = PlannerComponent(self.client, model_lite, self.prompts)
-        self.synthesizer = SynthesizerComponent(self.client, model_pro, self.prompts)
+        # v5.7: Pass context_builder to Synthesizer for graph lookups (geo, alias)
+        self.synthesizer = SynthesizerComponent(self.client, model_fast, self.prompts, self.context_builder)
         
         # Legacy alias for backward compatibility
         self.hunter = self.context_builder
         
-        logger.info("AddaSearchEngine v5.5 initialized (Entity extraction in Synthesizer)")
+        logger.info("AddaSearchEngine v5.7 initialized (Graph-based geo & alias resolution)")
 
     def _load_prompts(self):
         try:
@@ -191,6 +194,7 @@ class AddaSearchEngine:
         
         # =====================================================================
         # STEP 3: CONTEXT BUILD (Retrieve using search_strategy)
+        # v5.7: Now returns ContextResult with documents AND resolved relations
         # =====================================================================
         if intent_target.should_block_secondary():
             logger.info("🛡️ GHOST MODE: Blocking SECONDARY files")
@@ -204,7 +208,10 @@ class AddaSearchEngine:
             intent_target.should_search_graph()
         ])
         
-        if not context and not is_cart_operation:
+        # v5.7: Check documents OR graph knowledge
+        has_context = bool(context.documents) or context.has_graph_knowledge()
+        
+        if not has_context and not is_cart_operation:
             # No context found and this was a real search - return error
             progress = AvropsProgress.calculate(current_avrop)
             current_state = self._avrop_to_session_state(current_avrop, progress, intent_target, previous_step)
@@ -213,12 +220,17 @@ class AddaSearchEngine:
         if is_cart_operation:
             logger.info("Cart operation detected - proceeding without context")
         
-        # Track hits for logging
-        lake_hits = {k: v for k, v in context.items() if v.get('source') == 'TOPIC_MATCH'}
-        vector_hits = {k: v for k, v in context.items() if 'VECTOR' in v.get('source', '')}
-        graph_hits = {k: v for k, v in context.items() if v.get('source') == 'GRAPH'}
+        # Track hits for logging (v5.7: use context.documents)
+        lake_hits = {k: v for k, v in context.documents.items() if v.get('source') == 'TOPIC_MATCH'}
+        vector_hits = {k: v for k, v in context.documents.items() if 'VECTOR' in v.get('source', '')}
+        graph_hits = {k: v for k, v in context.documents.items() if v.get('source') == 'GRAPH'}
         
         logger.info(f"Context: {len(lake_hits)} lake, {len(vector_hits)} vector, {len(graph_hits)} graph")
+        
+        # v5.7: Log resolved graph relations
+        if context.has_graph_knowledge():
+            logger.info(f"🧠 Graph knowledge: {len(context.resolved_locations)} locations, "
+                       f"{len(context.resolved_roles)} roles, {len(context.resolved_aliases)} aliases")
         
         # =====================================================================
         # STEP 4: REASONING (Plan) - includes validation
@@ -464,6 +476,21 @@ class AddaSearchEngine:
     ):
         """Black Box Recorder - Log pipeline execution for analysis."""
         try:
+            # Extract document IDs and types for debugging
+            doc_summary = [
+                {"id": doc_id, "type": doc.get('type'), "authority": doc.get('authority'), "source": doc.get('source')}
+                for doc_id, doc in context.documents.items()
+            ]
+            
+            # Extract graph resolutions
+            graph_resolutions = {
+                "locations": [{"city": loc.city, "county": loc.county, "area": loc.area} 
+                             for loc in context.resolved_locations] if context.resolved_locations else [],
+                "roles": [{"name": r.role_name, "area": r.kompetensomrade} 
+                         for r in context.resolved_roles] if context.resolved_roles else [],
+                "aliases": context.resolved_aliases if context.resolved_aliases else {}
+            }
+            
             trace_entry = {
                 "timestamp": datetime.datetime.now().isoformat(),
                 "query": query,
@@ -476,9 +503,11 @@ class AddaSearchEngine:
                     "ghost_mode": intent_target.should_block_secondary()
                 },
                 "context": {
-                    "total_docs": len(context),
-                    "primary_count": sum(1 for d in context.values() if d.get('authority') == 'PRIMARY'),
-                    "secondary_count": sum(1 for d in context.values() if d.get('authority') == 'SECONDARY')
+                    "total_docs": len(context.documents),
+                    "primary_count": sum(1 for d in context.documents.values() if d.get('authority') == 'PRIMARY'),
+                    "secondary_count": sum(1 for d in context.documents.values() if d.get('authority') == 'SECONDARY'),
+                    "documents": doc_summary,
+                    "graph_resolutions": graph_resolutions
                 },
                 "reasoning": {
                     "conclusion": reasoning_plan.primary_conclusion if reasoning_plan else "N/A",
@@ -490,7 +519,15 @@ class AddaSearchEngine:
                 "session_state": {
                     "resources": len(current_state.get('extracted_entities', {}).get('resources', [])),
                     "missing_info": current_state.get('missing_info', []),
-                    "entity_changes": entity_changes  # v5.5: Track changes
+                    "entity_changes": entity_changes,
+                    "extracted_entities": current_state.get('extracted_entities', {}),
+                    "avrop": {
+                        "region": current_state.get('extracted_entities', {}).get('region'),
+                        "start_date": current_state.get('extracted_entities', {}).get('start_date'),
+                        "end_date": current_state.get('extracted_entities', {}).get('end_date'),
+                        "volume": current_state.get('extracted_entities', {}).get('volume'),
+                        "avropsform": current_state.get('extracted_entities', {}).get('avropsform')
+                    }
                 },
                 "output": {
                     "response_length": len(answer),
@@ -498,7 +535,7 @@ class AddaSearchEngine:
                 }
             }
 
-            log_dir = PATHS['logs'].parent
+            log_dir = PATHS['session_logs']
             log_filename = f"session_trace_{datetime.date.today()}.jsonl"
             log_path = log_dir / log_filename
             
