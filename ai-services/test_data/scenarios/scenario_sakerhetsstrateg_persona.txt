@@ -20,6 +20,12 @@ Anders är metodisk och noggrann. Han har en teknisk bakgrund men har de senaste
 - Ställer specifika tekniska frågor
 - Vill ha tydliga svar med hänvisningar till regler
 
+## Förståelse för P-Bot
+- P-Bot har INTE tillgång till dina bakgrundsdokument
+- Du måste ange all information muntligt i chatten
+- Det är normalt att P-Bot ställer grundläggande frågor
+- Förvänta dig inte att P-Bot "redan vet" detaljer från ditt underlag
+
 ## Dolda Fakta (avslöjas gradvis)
 - Har redan en kandidat i åtanke (från tidigare samarbete)
 - Budget är egentligen lite snävare än det uppskattat värdet

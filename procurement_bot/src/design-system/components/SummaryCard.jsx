@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { tokens } from '../tokens';
-import { Check, Clock, MapPin, Calendar, Banknote, Users, AlertCircle } from 'lucide-react';
+import { Check, Clock, MapPin, Calendar, Banknote, Users, AlertCircle, Globe, FileText, Scale, Shield, UserCheck, Zap } from 'lucide-react';
 
 /**
  * SummaryCard Component ("Varukorgen")
@@ -9,21 +9,29 @@ import { Check, Clock, MapPin, Calendar, Banknote, Users, AlertCircle } from 'lu
  * Visar en sammanfattning av användarens förfrågan med stöd för
  * FLERA resurser (team-beställningar).
  * 
- * Ny struktur:
- * - resources: Array med { id, role, level, quantity, status }
- * - Globala fält: location, volume, start_date, price_cap
+ * Struktur (matchar backend AvropsData):
+ * - resources: Array med { id, roll, level, antal, is_complete }
+ * - Globala fält: anbudsomrade, location_text, volume, start_date, end_date, takpris
+ * - FKU-fält (visas om avrop_typ börjar med "FKU"): prismodell, utvarderingsmodell, uppdragsbeskrivning
+ * - Flaggor (visas om true): hanterar_personuppgifter, sakerhetsklassad
+ * - avrop_typ: Visar DR/FKU badge
  * 
  * @example
  * <SummaryCard 
  *   data={{
+ *     avrop_typ: "FKU_RESURS",
  *     resources: [
- *       { id: "res_1", role: "Projektledare", level: 4, quantity: 1, status: "DONE" },
- *       { id: "res_2", role: "Utvecklare", level: null, quantity: 2, status: "PENDING" }
+ *       { id: "res_1", roll: "Projektledare", level: 5, antal: 1, is_complete: true }
  *     ],
- *     location: "Stockholm",
- *     volume: "500 timmar",
+ *     anbudsomrade: "D - Stockholm",
+ *     location_text: "Stockholm",
+ *     volume: 500,
  *     start_date: "2025-06-01",
- *     price_cap: null
+ *     end_date: "2025-12-31",
+ *     takpris: 1500,
+ *     prismodell: "LOPANDE_MED_TAK",
+ *     utvarderingsmodell: "PRIS_70_KVALITET_30",
+ *     hanterar_personuppgifter: true
  *   }}
  * />
  */
@@ -34,12 +42,33 @@ const SummaryCard = ({
 }) => {
     // Extract resources array and global fields
     const resources = data.resources || [];
+    const isFKU = data.avrop_typ && data.avrop_typ.startsWith('FKU');
+    
+    // Base global fields (always shown)
     const globalFields = [
-        { key: 'location', label: 'Plats', icon: MapPin },
-        { key: 'volume', label: 'Volym', icon: Users },
+        { key: 'anbudsomrade', label: 'Anbudsområde', icon: Globe },
+        { key: 'location_text', label: 'Plats', icon: MapPin },
+        { key: 'volume', label: 'Volym', icon: Users, format: (v) => v ? `${v} timmar` : null },
         { key: 'start_date', label: 'Startdatum', icon: Calendar, format: formatDate },
-        { key: 'price_cap', label: 'Takpris', icon: Banknote }
+        { key: 'end_date', label: 'Slutdatum', icon: Calendar, format: formatDate },
+        { key: 'takpris', label: 'Takpris', icon: Banknote, format: (v) => v ? `${v} kr/h` : null }
     ];
+    
+    // FKU-specific fields (only shown when avrop_typ is FKU)
+    const fkuFields = isFKU ? [
+        { key: 'prismodell', label: 'Prismodell', icon: Banknote, format: formatPrismodell },
+        { key: 'utvarderingsmodell', label: 'Utvärderingsmodell', icon: Scale, format: formatUtvardering },
+        { key: 'uppdragsbeskrivning', label: 'Uppdragsbeskrivning', icon: FileText, format: (v) => v ? '✓ Angiven' : null }
+    ] : [];
+    
+    // Conditional flags (only shown when true)
+    const flagFields = [
+        data.hanterar_personuppgifter && { key: 'hanterar_personuppgifter', label: 'Personuppgifter', icon: UserCheck, format: () => 'Ja, hanteras' },
+        data.sakerhetsklassad && { key: 'sakerhetsklassad', label: 'Säkerhetsklassad', icon: Shield, format: () => 'Ja' }
+    ].filter(Boolean);
+    
+    // Combine all fields
+    const allFields = [...globalFields, ...fkuFields, ...flagFields];
 
     // Format date from YYYY-MM-DD to readable format
     function formatDate(dateStr) {
@@ -55,11 +84,44 @@ const SummaryCard = ({
             return dateStr;
         }
     }
+    
+    // Format prismodell enum to readable text
+    function formatPrismodell(val) {
+        if (!val) return null;
+        const labels = {
+            'LOPANDE': 'Löpande räkning',
+            'FAST_PRIS': 'Fast pris',
+            'LOPANDE_MED_TAK': 'Löpande med tak'
+        };
+        return labels[val] || val;
+    }
+    
+    // Format utvarderingsmodell enum to readable text
+    function formatUtvardering(val) {
+        if (!val) return null;
+        const labels = {
+            'PRIS_100': '100% pris',
+            'PRIS_70_KVALITET_30': '70% pris, 30% kvalitet',
+            'PRIS_50_KVALITET_50': '50% pris, 50% kvalitet'
+        };
+        return labels[val] || val;
+    }
+    
+    // Format avrop_typ for display
+    function formatAvropsTyp(val) {
+        if (!val) return null;
+        const labels = {
+            'DR_RESURS': 'Dynamisk Rangordning',
+            'FKU_RESURS': 'FKU - Resurs',
+            'FKU_PROJEKT': 'FKU - Projekt'
+        };
+        return labels[val] || val;
+    }
 
-    // Count completed items
-    const completedResources = resources.filter(r => r.status === 'DONE').length;
-    const filledGlobals = globalFields.filter(f => data[f.key] !== null && data[f.key] !== undefined).length;
-    const totalItems = resources.length + globalFields.length;
+    // Count completed items (is_complete from backend)
+    const completedResources = resources.filter(r => r.is_complete).length;
+    const filledGlobals = allFields.filter(f => data[f.key] !== null && data[f.key] !== undefined).length;
+    const totalItems = resources.length + allFields.length;
     const completedItems = completedResources + filledGlobals;
 
     // Check if we have any data at all
@@ -90,7 +152,27 @@ const SummaryCard = ({
                     alignItems: 'center'
                 }}
             >
-                <span>{title}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.md }}>
+                    <span>{title}</span>
+                    {data.avrop_typ && (
+                        <span 
+                            style={{
+                                backgroundColor: isFKU ? tokens.colors.status.warningBg : tokens.colors.status.successBg,
+                                color: isFKU ? tokens.colors.status.warningDark : tokens.colors.status.successDark,
+                                padding: `${tokens.spacing.xs} ${tokens.spacing.sm}`,
+                                borderRadius: tokens.borderRadius.sm,
+                                fontSize: tokens.typography.sizes.xs,
+                                fontWeight: tokens.typography.weights.medium,
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '4px'
+                            }}
+                        >
+                            <Zap size={10} />
+                            {isFKU ? 'FKU' : 'DR'}
+                        </span>
+                    )}
+                </div>
                 {hasData && (
                     <span 
                         style={{
@@ -123,8 +205,8 @@ const SummaryCard = ({
                         </div>
                         
                         {resources.map((resource, index) => {
-                            const isDone = resource.status === 'DONE';
-                            const quantity = resource.quantity || 1;
+                            const isDone = resource.is_complete;
+                            const antal = resource.antal || 1;
                             
                             return (
                                 <div 
@@ -139,7 +221,7 @@ const SummaryCard = ({
                                             : 'none'
                                     }}
                                 >
-                                    {/* Left: Status + Role */}
+                                    {/* Left: Status + Roll */}
                                     <div 
                                         style={{
                                             display: 'flex',
@@ -176,7 +258,7 @@ const SummaryCard = ({
                                             )}
                                         </div>
                                         
-                                        {/* Role + Quantity */}
+                                        {/* Roll + Antal */}
                                         <span 
                                             style={{
                                                 fontSize: tokens.typography.sizes.sm,
@@ -184,7 +266,7 @@ const SummaryCard = ({
                                                 color: tokens.colors.neutral.text
                                             }}
                                         >
-                                            {quantity > 1 ? `${quantity}× ` : ''}{resource.role}
+                                            {antal > 1 ? `${antal}× ` : ''}{resource.roll}
                                         </span>
                                     </div>
 
@@ -208,7 +290,7 @@ const SummaryCard = ({
                                             borderRadius: tokens.borderRadius.sm
                                         }}
                                     >
-                                        {resource.level ? `Nivå ${resource.level}` : 'Nivå?'}
+                                        {resource.level ? `Kompetensnivå ${resource.level}` : 'Nivå?'}
                                     </span>
                                 </div>
                             );
@@ -244,7 +326,7 @@ const SummaryCard = ({
 
                 {/* Global Fields */}
                 <div>
-                    {globalFields.map((field, index) => {
+                    {allFields.map((field, index) => {
                         const rawValue = data[field.key];
                         const value = field.format ? field.format(rawValue) : rawValue;
                         const isFilled = value !== null && value !== undefined;
@@ -307,7 +389,7 @@ const SummaryCard = ({
             </div>
 
             {/* Footer - Pending Resources Hint */}
-            {resources.some(r => r.status === 'PENDING') && (
+            {resources.some(r => !r.is_complete) && (
                 <div 
                     style={{
                         backgroundColor: tokens.colors.status.warningBg,
@@ -328,19 +410,29 @@ const SummaryCard = ({
 };
 
 SummaryCard.propTypes = {
-    /** Data object with extracted entities (multi-resource format) */
+    /** Data object matching backend AvropsData */
     data: PropTypes.shape({
         resources: PropTypes.arrayOf(PropTypes.shape({
             id: PropTypes.string,
-            role: PropTypes.string,
+            roll: PropTypes.string,
             level: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-            quantity: PropTypes.number,
-            status: PropTypes.oneOf(['DONE', 'PENDING'])
+            antal: PropTypes.number,
+            is_complete: PropTypes.bool
         })),
-        location: PropTypes.string,
-        volume: PropTypes.string,
+        anbudsomrade: PropTypes.string,
+        location_text: PropTypes.string,
+        volume: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         start_date: PropTypes.string,
-        price_cap: PropTypes.string
+        end_date: PropTypes.string,
+        takpris: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        // FKU-specific
+        avrop_typ: PropTypes.string,
+        prismodell: PropTypes.string,
+        utvarderingsmodell: PropTypes.string,
+        uppdragsbeskrivning: PropTypes.string,
+        // Flags
+        hanterar_personuppgifter: PropTypes.bool,
+        sakerhetsklassad: PropTypes.bool
     }),
     /** Card title */
     title: PropTypes.string,

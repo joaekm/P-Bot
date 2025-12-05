@@ -20,6 +20,12 @@ Sofia är kreativ och användarfokuserad. Hon brinner för tillgänglighet och v
 - Fokuserar på användarbehov
 - Ställer frågor om kvalitet
 
+## Förståelse för P-Bot
+- P-Bot har INTE tillgång till dina bakgrundsdokument
+- Du måste ange all information muntligt i chatten
+- Det är normalt att P-Bot ställer grundläggande frågor
+- Förvänta dig inte att P-Bot "redan vet" detaljer från ditt underlag
+
 ## Dolda Fakta (avslöjas gradvis)
 - Har fått kritik för dålig tillgänglighet i nuvarande tjänster
 - Politiskt tryck att förbättra snabbt

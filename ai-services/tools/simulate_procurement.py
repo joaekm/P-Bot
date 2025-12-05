@@ -12,7 +12,7 @@ perspektiv om hur de upplevde samtalet med P-Bot.
 Usage:
     python tools/simulate_procurement.py              # Interaktivt läge
     python tools/simulate_procurement.py --batch      # Kör alla scenarion automatiskt
-    python tools/simulate_procurement.py --keep-logs  # Behåll gamla loggar
+    python tools/simulate_procurement.py --clean      # Rensa gamla loggar först
 
 Placera dina .txt-filer med avropsunderlag i test_data/scenarios/
 Verktyget listar tillgängliga filer och låter dig välja.
@@ -20,7 +20,7 @@ Verktyget listar tillgängliga filer och låter dig välja.
 Output:
     Konversationsloggar: tools/output/simulation_*.json
     Personaberättelser: tools/output/simulation_*_story.txt
-    Gamla loggar rensas automatiskt vid omstart (använd --keep-logs för att behålla)
+    Gamla loggar behålls (använd --clean för att rensa)
 """
 import sys
 import os
@@ -1163,11 +1163,11 @@ def main():
     """Entry point."""
     parser = argparse.ArgumentParser(description="Procurement Simulation Tool")
     parser.add_argument("--batch", action="store_true", help="Kör alla scenarion automatiskt")
-    parser.add_argument("--keep-logs", action="store_true", help="Behåll gamla loggar (rensa inte)")
+    parser.add_argument("--clean", action="store_true", help="Rensa gamla loggar innan körning")
     args = parser.parse_args()
     
-    # Rensa gamla loggar vid start (om inte --keep-logs anges)
-    if not args.keep_logs:
+    # Rensa gamla loggar endast om --clean anges
+    if args.clean:
         removed = clean_old_logs()
         if removed > 0:
             console.print(f"[dim]🧹 Rensade {removed} gamla loggfil(er) från output/[/dim]\n")

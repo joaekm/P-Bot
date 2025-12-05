@@ -130,7 +130,7 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 | **EPIC-431** | Minnesoptimering (Takpris) | ✅ DONE | Verifierat i simulering 2025-12-04: ingen minnesförlust. |
 | **EPIC-432** | Proaktiv Rollguidning | 📝 P1 | Assistenten föreslår ramavtalets Exempelroller istället för att acceptera fritext. |
 | **EPIC-433** | SummaryCard Tight Schema | 📝 P1 | Varukorgen visar endast avtalstermer: "Anbudsområde B (Härnösand)", inte fritext. |
-| **EPIC-434** | str/int Typfel | 🔴 BUG | Volymjämförelse kraschar: `'>' not supported between instances of 'str' and 'int'`. |
+| **EPIC-434** | str/int Typfel | ✅ DONE | Fixat: `(antal or 0) > 1` i synthesizer.py och avrop.py. |
 
 ### 3c-v2. Pipeline 2.0 - Q&A-Driven Knowledge (v5.13) 🚧
 
@@ -141,8 +141,24 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 | **EPIC-442** | Index v2 | ✅ DONE | ChromaDB + KuzuDB. 1867 topics, taxonomy nodes. `storage/index_v2/` |
 | **EPIC-443** | Config-based Paths | ✅ DONE | Indexer läser lake/index paths från `adda_config.yaml`. Enkelt v1/v2 byte. |
 | **EPIC-444** | Session Logging v2 | ✅ DONE | Separata loggar: `logs/v1/` och `logs/v2/`. Utökad trace med dokument-ID, graf-resolutions, entities. |
-| **EPIC-445** | Geo-mapping i v2 | 🔴 BUG | Stockholm → "A" (fel). Graf-resolution tom. Behöver learnings.json. |
-| **EPIC-446** | Minnes-loop | 🔴 BUG | Bot frågar om KO flera gånger trots bekräftat. Entity extraction svag. |
+| **EPIC-445** | Geo-mapping i v2 | ✅ DONE | Fixat: learnings.json + Kuzu-graf. Borttagen felaktig AREA_CODE_TO_REGION. |
+| **EPIC-446** | Minnes-loop | ✅ DONE | Fixat: Frontend skickar avrop_data. Dubbel-resurs vid avslut blockerad. |
+| **EPIC-447** | Session Trace Utökning | ✅ DONE | Lagt till prismodell, utvarderingsmodell, location_text, anbudsomrade. |
+
+### 3c-v3. Behovsinsamling & Coachande UX (v5.14) 📝
+
+| Epic-ID | Titel | Status | Kommentar |
+|:--------|:------|:-------|:----------|
+| **EPIC-450** | Behovsinsamling Epic | 📝 PLANERAD | Ny epic för förbättrad behovsförståelse och coachande UX. |
+| **EPIC-450.1** | Filuppladdning UI | 📝 TO DO | Drag-drop zon i ActionPanel, filformat-validering (PDF, DOCX, TXT). |
+| **EPIC-450.2** | Dokument-parser Backend | 📝 TO DO | Extrahera text via PyPDF2/python-docx, chunka för kontext. |
+| **EPIC-450.3** | Pre-fill Entity Extraction | 📝 TO DO | LLM läser dokument → föreslår roll, nivå, volym, plats. |
+| **EPIC-450.4** | Konfirmations-flöde | 📝 TO DO | P-Bot presenterar extraherad info för bekräftelse. |
+| **EPIC-450.5** | Käll-referens | 📝 TO DO | Visa vilka fält som kom från dokumentet vs. chat. |
+| **EPIC-450.6** | Coachande Behovsanalys | 📝 TO DO | Botten visar genuint intresse, ställer fördjupande frågor om behov. |
+| **EPIC-450.7** | Proaktiv Konsekvensanalys | 📝 TO DO | Vid val (nivå, etc) presentera konsekvenser proaktivt. |
+| **EPIC-450.8** | Rollrekommendation | 📝 TO DO | Rekommendera avtalets 24 exempelroller, acceptera egna. (Ersätter EPIC-432) |
+| **EPIC-450.9** | Obligatorisk Uppdragsbeskrivning | 📝 TO DO | `uppdragsbeskrivning` required för steg 1. Blockar progression. (Inkl EPIC-433) |
 
 ### 3d. Pågående / Övrigt 🚩
 
@@ -227,9 +243,9 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 
 ## Prioritetsordning
 
-1. **P0 (Kritisk):** ~~EPIC-430 Geo-data~~ ✅, ~~EPIC-431 Minnesoptimering~~ ✅, **EPIC-434 str/int Bugg** 🔴
-2. **P1 (Hög - UX):** EPIC-432 Rollguidning, EPIC-433 SummaryCard Tight Schema, EPIC-421 Visuell Bekräftelse
-3. **P2 (Medium):** EPIC-357 Sources UI, EPIC-358 Dokumentuppladdning, EPIC-319 Split Deal
+1. **P0 (Kritisk):** ~~EPIC-430 Geo-data~~ ✅, ~~EPIC-431 Minnesoptimering~~ ✅, ~~EPIC-434 str/int Bugg~~ ✅, ~~EPIC-445/446 Pipeline-buggar~~ ✅
+2. **P1 (Hög - UX):** **EPIC-450 Behovsinsamling** 📝, EPIC-421 Visuell Bekräftelse
+3. **P2 (Medium):** EPIC-357 Sources UI, EPIC-319 Split Deal
 4. **P3 (Låg):** EPIC-303-306 Övriga vyer, EPIC-420, EPIC-423
 
 ### Kvarstående UX-förbättringar (Identifierade via Simulation v5.10)
@@ -243,5 +259,13 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 
 ---
 
-*Version: 5.13*  
+*Version: 5.14*  
 *Senast uppdaterad: 5 december 2025*
+
+---
+
+## Teknisk Dokumentation
+
+Se även:
+- `ai-services/docs/ragpipe_test.md` - RAG Pipeline principtest och diagnostik
+- `ai-services/docs/datapipe_test.md` - Data Pipeline och MASTER-källor

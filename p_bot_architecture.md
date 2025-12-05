@@ -1,4 +1,4 @@
-# P-Bot Arkitektur (v5.10)
+# P-Bot Arkitektur (v5.11)
 
 Detta dokument beskriver "Hur" – den tekniska implementationen av prototypen och målbilden, nu mappad mot Addas strategi.
 
@@ -760,5 +760,16 @@ python tools/verify_reasoning.py
 
 ---
 
-*Version: 5.10*  
-*Senast uppdaterad: December 2024*
+## 12. Teknisk Dokumentation
+
+För detaljerade test-scenarion och diagnostik, se:
+
+| Dokument | Syfte |
+|----------|-------|
+| `ai-services/docs/ragpipe_test.md` | RAG Pipeline: komponenter, dataflöde, test-scenarion, kända problem, session trace format |
+| `ai-services/docs/datapipe_test.md` | Data Pipeline: MASTER-källor, var data skrivs, konsistensregler |
+
+---
+
+*Version: 5.14*  
+*Senast uppdaterad: 5 december 2025*

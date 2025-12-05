@@ -20,6 +20,12 @@ Karin är energisk och resultatorienterad. Hon brinner för E-klient och vill at
 - Ställer många följdfrågor
 - Vill ha konkreta exempel
 
+## Förståelse för P-Bot
+- P-Bot har INTE tillgång till dina bakgrundsdokument
+- Du måste ange all information muntligt i chatten
+- Det är normalt att P-Bot ställer grundläggande frågor
+- Förvänta dig inte att P-Bot "redan vet" detaljer från ditt underlag
+
 ## Dolda Fakta (avslöjas gradvis)
 - Har haft problem med tidigare konsulter som inte levererat
 - Teamet är underbemannat just nu

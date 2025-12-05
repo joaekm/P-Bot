@@ -1,6 +1,11 @@
 """
-Synthesizer Component - Response Generation & Entity Extraction (v5.6)
+Synthesizer Component - Response Generation & Entity Extraction (v5.7)
 Generates AI responses and extracts/updates entities from conversation.
+
+v5.7 Changes:
+- Integrated graph-based geo lookup via ContextBuilder.resolve_location()
+- Falls back to hardcoded LOCATION_TO_REGION for non-indexed cities
+- Supports alias resolution for role names via ContextBuilder.resolve_alias()
 
 v5.6 Changes:
 - Added current date injection to prevent outdated date references
@@ -40,6 +45,7 @@ from ..models import (
     EntityChange,
     Prismodell,
     Utvarderingsmodell,
+    ContextResult,
 )
 
 logger = logging.getLogger("ADDA_ENGINE")
@@ -47,8 +53,9 @@ logger = logging.getLogger("ADDA_ENGINE")
 
 # v5.8: Location to Region mapping for automatic region assignment
 # When user mentions a city, we map it to the correct Anbudsområde
-LOCATION_TO_REGION = {
-    # Region A - Stockholm
+# v5.7: This is now a FALLBACK - primary lookup is via graph (ContextBuilder.resolve_location)
+LOCATION_TO_REGION_FALLBACK = {
+    # Region A - Stockholm (Anbudsområde D in taxonomy)
     "stockholm": Region.A,
     "solna": Region.A,
     "sundbyberg": Region.A,
@@ -104,15 +111,16 @@ LOCATION_TO_REGION = {
     "skellefteå": Region.G,
 }
 
-# Human-readable region names for confirmation messages
+# Region names - matchar adda_taxonomy.json (MASTER)
+# OBS: Använd Region[area_code] för konvertering, ingen mappning behövs!
 REGION_NAMES = {
-    Region.A: "Anbudsområde A (Stockholm)",
-    Region.B: "Anbudsområde B (Östra Mellansverige)",
-    Region.C: "Anbudsområde C (Småland med öarna)",
-    Region.D: "Anbudsområde D (Sydsverige)",
-    Region.E: "Anbudsområde E (Västsverige)",
-    Region.F: "Anbudsområde F (Norra Mellansverige)",
-    Region.G: "Anbudsområde G (Mellersta och Övre Norrland)",
+    Region.A: "Norra Norrland",
+    Region.B: "Mellersta Norrland", 
+    Region.C: "Norra Mellansverige",
+    Region.D: "Stockholm",
+    Region.E: "Västsverige",
+    Region.F: "Småland/Östergötland",
+    Region.G: "Sydsverige",
 }
 
 
@@ -135,6 +143,7 @@ class SynthesizerComponent:
     
     v5.5: Now responsible for entity extraction (moved from IntentAnalyzer).
     v5.6: Added missing_fields injection and completion detection.
+    v5.7: Added graph-based geo/alias resolution via ContextBuilder.
     
     Personas:
     - synthesizer_intake: Coaching, curious (for needs/roles phase)
@@ -146,6 +155,7 @@ class SynthesizerComponent:
     2. Know the tone (how to say it)
     3. Know what's missing (what to ask) - NOW from RequiredFields, not LLM!
     4. Extract/Update entities from conversation (NEW in v5.5)
+    5. Resolve geo locations via graph (NEW in v5.7)
     """
     
     # Patterns that indicate user confirmation
@@ -160,10 +170,11 @@ class SynthesizerComponent:
         r'\bvi\s+kör\b',
     ]
     
-    def __init__(self, client, model: str, prompts: Dict):
+    def __init__(self, client, model: str, prompts: Dict, context_builder=None):
         self.client = client
         self.model = model
         self.prompts = prompts
+        self.context_builder = context_builder  # v5.7: For graph lookups
     
     def _detect_user_confirmation(self, query: str) -> bool:
         """Detect if user is confirming/approving the current state."""
@@ -183,33 +194,53 @@ class SynthesizerComponent:
         self, 
         query: str,
         plan: ReasoningPlan, 
-        context: Dict[str, Dict],
+        context: ContextResult,
         current_avrop: Optional[AvropsData] = None,
         history: List[Dict] = None
     ) -> SynthesizerResult:
         """
         Generate response and extract entities.
         
+        v5.7: Now receives ContextResult with resolved graph relations.
         v5.5: Now returns SynthesizerResult with both response and avrop_changes.
+        v5.10: Early return when complete + user confirms (no LLM call).
         
         Args:
             query: Original user query
             plan: ReasoningPlan with logical analysis
-            context: Dict of doc_id -> doc_data from ContextBuilder
+            context: ContextResult with documents AND resolved graph relations (v5.7)
             current_avrop: Current AvropsData (shopping cart)
             history: Conversation history
             
         Returns:
             SynthesizerResult with response and avrop_changes
         """
+        # v5.10: Early return when session is complete and user confirms
+        # This prevents re-extraction of entities from summary
+        if current_avrop:
+            progress = AvropsProgress.calculate(current_avrop)
+            if progress.is_complete and self._detect_user_confirmation(query):
+                static_messages = self.prompts.get('static_messages', {})
+                complete_msg = static_messages.get('chat_complete', 
+                    'Underlaget är registrerat. Du kan nu generera avropsformuläret.')
+                logger.info("Session complete + user confirmed -> returning static message (no LLM)")
+                return SynthesizerResult(
+                    response=complete_msg.strip(),
+                    avrop_changes=[],
+                    updated_avrop=current_avrop
+                )
+        
         # 1. Select persona based on target_step from plan
         prompt_key = self._select_persona(plan.target_step)
         raw_prompt = self._get_prompt(prompt_key)
         
         logger.info(f"Synthesizer: persona={prompt_key}, tone={plan.tone_instruction}")
         
-        # 2. Format context documents
-        context_docs = self._format_context(context)
+        # 2. Format context documents (v5.7: use context.documents)
+        context_docs = self._format_context(context.documents)
+        
+        # 2b. v5.7: Format graph knowledge for injection
+        graph_knowledge = self._format_graph_knowledge(context)
         
         # 3. Build reasoning injection
         reasoning_injection = self._build_reasoning_injection(plan)
@@ -238,6 +269,8 @@ class SynthesizerComponent:
 {prompt}
 
 {date_context}
+
+{graph_knowledge}
 
 {reasoning_injection}
 
@@ -384,6 +417,14 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
                     new_id = f"res_{len(avrop.resources) + 1}"
                     change.new_resource.id = new_id
                     
+                    # v5.7: Resolve role alias via graph (e.g., "Klick-konsult" -> "Qlik-konsult")
+                    if self.context_builder:
+                        canonical_role = self.context_builder.resolve_alias(change.new_resource.roll)
+                        if canonical_role:
+                            original_role = change.new_resource.roll
+                            change.new_resource.roll = canonical_role
+                            logger.info(f"Resolved role alias: '{original_role}' -> '{canonical_role}'")
+                    
                     # v5.6: Infer level from "Senior" prefix if level not set
                     if change.new_resource.level is None:
                         role_lower = change.new_resource.roll.lower()
@@ -445,15 +486,37 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
                             logger.warning(f"Invalid utvarderingsmodell value: {value}")
                     
                     # v5.8: Handle location -> also set region automatically
+                    # v5.7: Try graph lookup first, then fallback to hardcoded dict
                     elif mapped_field == "location_text" and value:
                         avrop.location_text = value
-                        # Try to map to region
-                        location_lower = str(value).lower().strip()
-                        if location_lower in LOCATION_TO_REGION:
-                            avrop.region = LOCATION_TO_REGION[location_lower]
-                            region_name = REGION_NAMES.get(avrop.region, avrop.region.value)
-                            logger.info(f"Mapped location '{value}' to {region_name}")
-                        else:
+                        location_resolved = False
+                        
+                        # 1. Try graph lookup (via ContextBuilder)
+                        if self.context_builder:
+                            geo_result = self.context_builder.resolve_location(str(value))
+                            if geo_result:
+                                area_code = geo_result.get("area_code")
+                                area_name = geo_result.get("area_name")
+                                county = geo_result.get("county")
+                                
+                                # Direkt enum-lookup (taxonomy och enum använder samma koder)
+                                if area_code in Region.__members__:
+                                    avrop.region = Region[area_code]
+                                    avrop.anbudsomrade = f"{area_code} – {area_name}"
+                                    logger.info(f"Graph lookup: '{value}' -> {county} -> Anbudsområde {area_code} ({area_name})")
+                                    location_resolved = True
+                        
+                        # 2. Fallback to hardcoded dict
+                        if not location_resolved:
+                            location_lower = str(value).lower().strip()
+                            if location_lower in LOCATION_TO_REGION_FALLBACK:
+                                avrop.region = LOCATION_TO_REGION_FALLBACK[location_lower]
+                                region_name = REGION_NAMES.get(avrop.region, avrop.region.value)
+                                avrop.anbudsomrade = f"{avrop.region.value} – {region_name}"
+                                logger.info(f"Fallback mapping: '{value}' to {region_name}")
+                                location_resolved = True
+                        
+                        if not location_resolved:
                             logger.info(f"Updated location_text: {value} (no region mapping found)")
                     
                     elif hasattr(avrop, mapped_field):
@@ -557,6 +620,45 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
         
         return "\n\n".join(docs)
     
+    def _format_graph_knowledge(self, context: ContextResult) -> str:
+        """
+        Format resolved graph relations for the prompt.
+        
+        v5.7: Injects geo/role/alias/rule knowledge from the knowledge graph.
+        This is the KEY integration point where learnings become actionable.
+        """
+        if not context.has_graph_knowledge():
+            return ""
+        
+        lines = ["VERIFIERAD KUNSKAP FRÅN GRAFEN (använd denna info!):"]
+        
+        # Geographic mappings - CRITICAL for location → anbudsområde
+        if context.resolved_locations:
+            lines.append("\n📍 GEOGRAFISK MAPPNING (korrekt anbudsområde):")
+            for loc in context.resolved_locations:
+                lines.append(f"  ✓ {loc.city} ligger i {loc.county}")
+                lines.append(f"    → Tillhör Anbudsområde {loc.area_code}: {loc.area_name}")
+        
+        # Role mappings
+        if context.resolved_roles:
+            lines.append("\n👤 ROLLMAPPNING (korrekt kompetensområde):")
+            for role in context.resolved_roles:
+                lines.append(f"  ✓ {role.role} → {role.kompetensomrade}")
+        
+        # Alias mappings - for normalizing user input
+        if context.resolved_aliases:
+            lines.append("\n🔄 NAMNÖVERSÄTTNING (använd kanoniskt namn):")
+            for alias, canonical in context.resolved_aliases.items():
+                lines.append(f"  ✓ \"{alias}\" = \"{canonical}\"")
+        
+        # Learned business rules
+        if context.learned_rules:
+            lines.append("\n📋 AFFÄRSREGLER:")
+            for rule in context.learned_rules[:10]:  # Max 10
+                lines.append(f"  • {rule.subject} {rule.predicate} {rule.object}")
+        
+        return "\n".join(lines)
+    
     def _build_avrop_context(self, avrop: Optional[AvropsData]) -> str:
         """Build avrop context to prevent re-asking and show current state."""
         if not avrop:
@@ -596,7 +698,7 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
         if avrop.resources:
             for res in avrop.resources:
                 level_str = f"Nivå {res.level}" if res.level else "nivå ej angiven"
-                antal_str = f"{res.antal} st " if res.antal > 1 else ""
+                antal_str = f"{res.antal} st " if (res.antal or 0) > 1 else ""
                 lines.append(f"• Roll: {antal_str}{res.roll}, {level_str}")
         
         # Volume and dates

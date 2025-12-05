@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
+import { Info } from 'lucide-react';
 import '../../PBotMain.css'; 
 import {
   tokens,
@@ -90,6 +91,10 @@ export default function ResursWorkstation() {
     current_step: 'step_1_needs'
   });
   
+  // Avrop data (shopping cart) - v5.4 format from backend
+  // This is persisted between turns and sent back with each request
+  const [avropData, setAvropData] = useState({ resources: [] });
+  
   // Action panel state (from backend)
   const [actionPanel, setActionPanel] = useState({
     mode: 'text_input',
@@ -148,7 +153,8 @@ export default function ResursWorkstation() {
         body: JSON.stringify({
           user_message: null,
           conversation_history: [],
-          session_state: sessionState
+          session_state: sessionState,
+          avrop_data: avropData
         })
       });
       
@@ -192,7 +198,8 @@ export default function ResursWorkstation() {
         body: JSON.stringify({
           user_message: message,
           conversation_history: history,
-          session_state: sessionState
+          session_state: sessionState,
+          avrop_data: avropData
         })
       });
       
@@ -232,6 +239,12 @@ export default function ResursWorkstation() {
     // Update session state
     if (data.session_state) {
       setSessionState(data.session_state);
+    }
+    
+    // Store avrop_data (shopping cart) for next turn
+    if (data.avrop_data) {
+      setAvropData(data.avrop_data);
+      console.log('🛒 Avrop data updated:', data.avrop_data);
     }
     
     // Handle UI Directives from backend (Chunk 3: Data Layer)
@@ -388,7 +401,8 @@ export default function ResursWorkstation() {
           body: JSON.stringify({
             user_message: `Jag har laddat upp ett dokument. Hittade: ${summary}`,
             conversation_history: history,
-            session_state: updatedSessionState
+            session_state: updatedSessionState,
+            avrop_data: avropData
           })
         });
         
@@ -420,7 +434,8 @@ export default function ResursWorkstation() {
           body: JSON.stringify({
             user_message: 'Jag har laddat upp ett dokument men inga roller kunde extraheras automatiskt.',
             conversation_history: history,
-            session_state: updatedSessionState
+            session_state: updatedSessionState,
+            avrop_data: avropData
           })
         });
         
@@ -477,46 +492,33 @@ export default function ResursWorkstation() {
         />
       </AddaCard>
       
-      {/* Summary Card (Varukorgen) */}
+      {/* Summary Card (Varukorgen) - uses avropData for persistence */}
       <SummaryCard 
-        data={summaryData} 
+        data={avropData} 
         title="Din Förfrågan"
         style={{ marginBottom: tokens.spacing['2xl'] }}
       />
       
       {/* Information Card */}
-      <AddaCard bgColor="#FFF" style={{ padding: tokens.spacing['2xl'] }}>
-        <BodyText size="sm" bold>Information</BodyText>
-        <BodyText size="xs" style={{ fontWeight: 'bold', marginBottom: '8px' }}>
-          Så här behandlar vi din information och uppladdade filer.
-        </BodyText>
-        <BodyText size="xs">
+      <AddaCard bgColor={tokens.colors.ui.cardBgBlue} style={{ padding: tokens.spacing['2xl'] }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+          <Info size={16} color={tokens.colors.brand.secondary} />
+          <BodyText size="sm" bold style={{ margin: 0 }}>Information</BodyText>
+        </div>
+        <BodyText size="xs" style={{ marginBottom: '8px' }}>
           Kom ihåg att AI ibland kan lämna fel information och att du som avropande part alltid är skyldig att lämna rätt uppgifter och är ansvarig för inlämnade underlag.
         </BodyText>
+        <a 
+          href="/integritetspolicy" 
+          style={{ 
+            fontSize: tokens.typography.sizes.xs, 
+            color: tokens.colors.brand.secondary,
+            textDecoration: 'underline'
+          }}
+        >
+          Så här behandlar vi dina uppgifter.
+        </a>
       </AddaCard>
-      
-      {/* Debug: Show session state and UI directives */}
-      {process.env.NODE_ENV === 'development' && (
-        <AddaCard bgColor="#FEF3C7" style={{ padding: tokens.spacing.md, marginTop: tokens.spacing.lg }}>
-          <BodyText size="xs" bold>Debug: UI Directives</BodyText>
-          <pre style={{ fontSize: '10px', overflow: 'auto', maxHeight: '200px' }}>
-            {JSON.stringify({
-              ui_directives: {
-                headerTitle,
-                activeStep,
-                currentIntent,
-                missingInfo,
-                summaryData
-              },
-              session_state: {
-              current_step: sessionState.current_step,
-              resource_manifest: sessionState.resource_manifest,
-                source_documents: sessionState.source_documents?.length || 0
-              }
-            }, null, 2)}
-          </pre>
-        </AddaCard>
-      )}
     </>
   );
 

@@ -142,11 +142,28 @@ synthesizer_intake:
     - Ställ gärna 2-3 relaterade frågor samtidigt (t.ex. nivå + timmar)
     - Om användaren är vag, föreslå alternativ och förklara kort
     
+    GEOGRAFISK BEKRÄFTELSE (VIKTIGT!):
+    När användaren anger en plats (stad, kommun), bekräfta med anbudsområde:
+    - Använd formatet: "[Stad] (Anbudsområde [X] – [Namn])"
+    - Exempel: "Noterat. Härnösand (Anbudsområde B – Mellersta Norrland)"
+    - Exempel: "Stockholm (Anbudsområde D – Stockholm), uppfattat."
+    - Exempel: "Göteborg (Anbudsområde E – Västsverige). När ska uppdraget starta?"
+    
+    ANBUDSOMRÅDEN (referens):
+    - A = Norra Norrland (Norrbotten, Västerbotten)
+    - B = Mellersta Norrland (Jämtland, Västernorrland)
+    - C = Norra Mellansverige (Gävleborg, Dalarna, Värmland, Örebro, Västmanland, Södermanland)
+    - D = Stockholm (Stockholm, Uppsala, Gotland)
+    - E = Västsverige (Västra Götaland, Halland)
+    - F = Småland/Östergötland (Östergötland, Jönköping, Kalmar)
+    - G = Sydsverige (Skåne, Blekinge, Kronoberg)
+    
     EXEMPEL PÅ BRA SVAR:
     ✓ "Jag förstår att du behöver en utvecklare. Vilken kompetensnivå (1-5) och ungefär hur många timmar?"
     ✓ "Okej, en projektledare. Var ska uppdraget utföras och när vill ni starta?"
     ✓ "En testledare, uppfattat. Behöver du någon specifik erfarenhet, t.ex. från vård eller agila metoder?"
     ✓ "Då har vi en utvecklare nivå 4. Hur många timmar uppskattar du, och när ska uppdraget starta?"
+    ✓ "Härnösand (Anbudsområde B – Mellersta Norrland). Vilken roll behöver ni?"
     
     EXEMPEL PÅ FEL TON (FÖRBJUDET):
     ✗ "Noterat: Utvecklare. Nivå?"  (för robotlikt)
@@ -240,16 +257,25 @@ synthesizer_entity_extraction:
     1. ADD: När användaren EXPLICIT nämner en NY roll
     2. UPDATE: När användaren ändrar något befintligt
     3. DELETE: När användaren säger "ta bort", "skippa", "behöver inte"
-    4. GLOBAL fält: location, volume, start_date, end_date, takpris, prismodell, utvarderingsmodell
+    4. GLOBAL fält: location, volume, start_date, end_date, takpris, prismodell, utvarderingsmodell, anbudsomrade
     
-    REGION-BEKRÄFTELSE (v5.8 - VIKTIGT!):
-    När användaren nämner en ORT, bekräfta vilken region den tillhör i ditt svar:
-    - Stockholm, Solna, Nacka, Täby → "Stockholm ligger i Anbudsområde A."
-    - Göteborg, Borås → "Göteborg ligger i Anbudsområde E (Västsverige)."
-    - Malmö, Lund, Helsingborg → "Malmö ligger i Anbudsområde D (Sydsverige)."
-    - Uppsala, Örebro, Linköping → "Uppsala ligger i Anbudsområde B (Östra Mellansverige)."
-    - Umeå, Luleå, Kiruna → "Umeå ligger i Anbudsområde G (Norra Norrland)."
-    Extrahera orten som location, systemet mappar automatiskt till rätt region.
+    REGION-MAPPNING (v5.8 - Automatisk via graf + manuell fallback):
+    När användaren nämner en ORT:
+    1. Extrahera orten som "location" (t.ex. "Härnösand")
+    2. Extrahera "anbudsomrade" med format "X - Namn" (t.ex. "B - Mellersta Norrland")
+    
+    ANBUDSOMRÅDE-MAPPNING:
+    - A - Norra Norrland (Norrbotten, Västerbotten)
+    - B - Mellersta Norrland (Jämtland, Västernorrland)  
+    - C - Norra Mellansverige (Gävleborg, Dalarna, Värmland, Örebro, Västmanland, Södermanland)
+    - D - Stockholm (Stockholm, Uppsala, Gotland)
+    - E - Västsverige (Västra Götaland, Halland)
+    - F - Småland/Östergötland (Östergötland, Jönköping, Kalmar)
+    - G - Sydsverige (Skåne, Blekinge, Kronoberg)
+    
+    EXEMPEL:
+    - Användaren säger "Härnösand" -> location: "Härnösand", anbudsomrade: "B - Mellersta Norrland"
+    - Användaren säger "Stockholm" -> location: "Stockholm", anbudsomrade: "D - Stockholm"
     
     PRISMODELL-VÄRDEN:
     - "LOPANDE" = Löpande räkning, fast timpris
@@ -278,7 +304,13 @@ synthesizer_entity_extraction:
     NIVÅ-INFERENS:
     - "Senior X" utan nivå → level: 5
     - "Junior X" utan nivå → level: 2
+    - "KN1"-"KN5" → level: 1-5
     - Nivå 5 kräver alltid FKU
+    
+    KANONISK TERMINOLOGI (VIKTIGT - använd ALLTID dessa exakta termer i svar):
+    - Nivåer: Skriv "Kompetensnivå 1/2/3/4/5" (INTE "KN5", "nivå fem", "level 5")
+    - Roller: Använd stor bokstav (t.ex. "Projektledare", inte "projektledare")
+    - Anbudsområden: Använd format "Anbudsområde X – Namn" (t.ex. "Anbudsområde B – Mellersta Norrland")
     
     KRITISKT:
     - Lägg INTE till roller som bara nämns i kontext
@@ -510,3 +542,24 @@ intent_analyzer:
         "detected_entities": ["entity1", "entity2"],
         "confidence": 0.0-1.0
     }}
+
+# =============================================================================
+# STATISKA MEDDELANDEN (ej LLM-genererade)
+# =============================================================================
+
+static_messages:
+  # Meddelande vid chattstart
+  chat_start: |
+    Hej! Jag är P-Bot, din guide för IT-konsultavrop via Addas ramavtal.
+    
+    Berätta vad du behöver – vilken typ av konsult, var uppdraget ska utföras, och ungefär hur många timmar du räknar med.
+  
+  # Meddelande vid avslut (när användaren bekräftar komplett underlag)
+  chat_complete: |
+    Tack för samarbetet! Underlaget är nu registrerat.
+    
+    Du kan nu generera avropsformuläret via knappen ovan.
+  
+  # Meddelande om användaren bekräftar innan underlaget är komplett
+  premature_confirm: |
+    Vi är inte riktigt klara ännu. Låt mig sammanfatta vad vi har och vad som saknas.

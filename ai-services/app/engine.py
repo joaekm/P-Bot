@@ -526,7 +526,11 @@ class AddaSearchEngine:
                         "start_date": current_state.get('extracted_entities', {}).get('start_date'),
                         "end_date": current_state.get('extracted_entities', {}).get('end_date'),
                         "volume": current_state.get('extracted_entities', {}).get('volume'),
-                        "avropsform": current_state.get('extracted_entities', {}).get('avropsform')
+                        "avropsform": current_state.get('extracted_entities', {}).get('avropsform'),
+                        "prismodell": current_state.get('extracted_entities', {}).get('prismodell'),
+                        "utvarderingsmodell": current_state.get('extracted_entities', {}).get('utvarderingsmodell'),
+                        "location_text": current_state.get('extracted_entities', {}).get('location_text'),
+                        "anbudsomrade": current_state.get('extracted_entities', {}).get('anbudsomrade')
                     }
                 },
                 "output": {

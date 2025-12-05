@@ -20,6 +20,12 @@ Peter är tekniskt intresserad och vill modernisera. Han är pragmatisk och foku
 - Tekniskt fokuserad
 - Vill ha konkreta lösningar
 
+## Förståelse för P-Bot
+- P-Bot har INTE tillgång till dina bakgrundsdokument
+- Du måste ange all information muntligt i chatten
+- Det är normalt att P-Bot ställer grundläggande frågor
+- Förvänta dig inte att P-Bot "redan vet" detaljer från ditt underlag
+
 ## Dolda Fakta (avslöjas gradvis)
 - Utvecklingsteamet är skeptiskt till förändring
 - Infrastrukturen är gammal och komplex

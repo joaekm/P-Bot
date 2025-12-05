@@ -1,9 +1,13 @@
 """
-Avrop Data Models (v5.4)
+Avrop Data Models (v5.5)
 Defines the data structures for procurement requests (avrop).
 
 This module replaces the old ResourceEntity and ExtractedEntities models
 with a more comprehensive structure based on the Avropsvägledningen.
+
+Key changes from v5.4:
+- Added anbudsomrade field for full region display (e.g., "B - Mellersta Norrland")
+- Fixed Region enum comments to match actual anbudsområden
 
 Key changes from v5.3:
 - AvropsTyp enum determines the procurement path (DR vs FKU)
@@ -37,13 +41,13 @@ class AvropsTyp(str, Enum):
 
 class Region(str, Enum):
     """Geographic regions (Anbudsområden) A-G."""
-    A = "A"  # Stockholm
-    B = "B"  # Östra Mellansverige
-    C = "C"  # Småland med öarna
-    D = "D"  # Sydsverige
-    E = "E"  # Västsverige
-    F = "F"  # Norra Mellansverige
-    G = "G"  # Mellersta och Övre Norrland
+    A = "A"  # Norra Norrland (Norrbotten, Västerbotten)
+    B = "B"  # Mellersta Norrland (Jämtland, Västernorrland)
+    C = "C"  # Norra Mellansverige (Gävleborg, Dalarna, Värmland, Örebro, Västmanland, Södermanland)
+    D = "D"  # Stockholm (Stockholm, Uppsala, Gotland)
+    E = "E"  # Västsverige (Västra Götaland, Halland)
+    F = "F"  # Småland/Östergötland (Östergötland, Jönköping, Kalmar)
+    G = "G"  # Sydsverige (Skåne, Blekinge, Kronoberg)
 
 
 class Prismodell(str, Enum):
@@ -99,7 +103,7 @@ class Resurs(BaseModel):
     def to_display(self) -> str:
         """Human-readable representation."""
         level_str = f"Nivå {self.level}" if self.level else "Nivå ej angiven"
-        antal_str = f"{self.antal} st" if self.antal > 1 else ""
+        antal_str = f"{self.antal} st" if (self.antal or 0) > 1 else ""
         return f"{self.roll} ({level_str}) {antal_str}".strip()
 
 
@@ -134,6 +138,7 @@ class AvropsData(BaseModel):
     # Location
     region: Optional[Region] = Field(default=None, description="Geographic region A-G")
     location_text: Optional[str] = Field(default=None, description="Free text location (e.g., 'Stockholm')")
+    anbudsomrade: Optional[str] = Field(default=None, description="Full anbudsområde string (e.g., 'B - Mellersta Norrland')")
     
     # Pricing (for FKU)
     prismodell: Optional[Prismodell] = Field(default=None, description="Pricing model")

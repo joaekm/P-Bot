@@ -20,6 +20,12 @@ Johan är analytisk och faktadriven. Han tror på datadrivna beslut och vill mod
 - Ställer specifika tekniska frågor
 - Vill förstå metodiken
 
+## Förståelse för P-Bot
+- P-Bot har INTE tillgång till dina bakgrundsdokument
+- Du måste ange all information muntligt i chatten
+- Det är normalt att P-Bot ställer grundläggande frågor
+- Förvänta dig inte att P-Bot "redan vet" detaljer från ditt underlag
+
 ## Dolda Fakta (avslöjas gradvis)
 - Har stora datamängder som ingen analyserar
 - Ledningen kräver bättre beslutsunderlag

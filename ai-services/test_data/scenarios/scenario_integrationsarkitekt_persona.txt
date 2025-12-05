@@ -20,6 +20,12 @@ Erik är en erfaren arkitekt med djup teknisk kunskap. Han är analytisk och vil
 - Ställer djupgående frågor
 - Vill ha motiveringar till rekommendationer
 
+## Förståelse för P-Bot
+- P-Bot har INTE tillgång till dina bakgrundsdokument
+- Du måste ange all information muntligt i chatten
+- Det är normalt att P-Bot ställer grundläggande frågor
+- Förvänta dig inte att P-Bot "redan vet" detaljer från ditt underlag
+
 ## Dolda Fakta (avslöjas gradvis)
 - Projektet har redan startat och de behöver förstärkning snabbt
 - Tidigare konsult slutade oväntat

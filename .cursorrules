@@ -1,0 +1,50 @@
+# Cursor Rules for Adda P-Bot
+
+## Destructive Operations
+
+**ALDRIG radera databaser, index eller stora datamängder utan att först fråga användaren.**
+
+Exempel på destruktiva operationer som kräver godkännande:
+- `rm -rf` på databas-mappar (kuzu, chroma, etc.)
+- Trunkering eller radering av log-filer
+- Radering av Smart Blocks eller learnings
+- Återställning av konfigurationsfiler
+
+Innan destruktiva operationer:
+1. Förklara VAD som kommer att raderas
+2. Förklara VARFÖR det behövs
+3. Föreslå mindre invasiva alternativ om möjligt
+4. Invänta explicit godkännande
+
+## Språk
+
+Kommunicera på svenska om inte användaren skriver på engelska.
+
+## Config-filer (Single Source of Truth)
+
+**ALDRIG hårdkoda värden som redan finns i config-filer.**
+
+Använd alltid:
+- `adda_config.yaml` för sökvägar och systeminställningar
+- `assistant_prompts.yaml` / `services_prompts.yaml` för prompt-texter
+- `adda_taxonomy.json` för taxonomi-data (områden, nivåer, etc.)
+- `learnings.json` för mappningar (geo, alias, roller)
+
+Om något saknas i config → lägg till det där, hårdkoda inte i kod.
+
+**DUPLICERA ALDRIG data mellan config-filer:**
+- Om `learnings.json` har alias (KN5 → Kompetensnivå 5) → duplicera INTE i prompts
+- Om `adda_taxonomy.json` har nivåer/områden → duplicera INTE i prompts
+- Promptar ska referera till dynamisk data, inte hårdkoda den
+
+**Vid mappnings-problem:**
+1. Kontrollera först om data finns i `learnings.json` eller `adda_taxonomy.json`
+2. Om ja → fixa resolution-logiken (ContextBuilder, grafen)
+3. Om nej → lägg till i rätt config-fil, inte i prompt
+
+## Teknisk Dokumentation
+
+Läs dessa filer för att snabbt förstå systemen utan att läsa all kod:
+
+- `ai-services/docs/ragpipe_test.md` - RAG Pipeline: komponenter, dataflöde, test-scenarion, kända problem
+- `ai-services/docs/datapipe_test.md` - Data Pipeline: MASTER-källor, var data skrivs, konsistensregler
