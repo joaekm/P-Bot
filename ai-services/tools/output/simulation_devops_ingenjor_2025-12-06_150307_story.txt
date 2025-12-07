@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Peter Holms berättelse
+║  Systemansvarig på Trafikverket
+║  
+║  Samtal: 12 meddelanden
+║  Datum: 2025-12-06 15:03
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag snackade ju med den där AI-grejen på Adda igår, P-Bot, för att försöka få tag på en DevOps-ingenjör. Jag var väl… försiktigt optimistisk. Tänkte att det kunde vara ett snabbare sätt att komma igång med avropet än att sitta i möten i veckor. Jag hoppades väl innerst inne att det skulle vara enkelt, du vet, mata in kraven och vips så spottar den ut en färdig avropsförfrågan.
+
+Det började ju bra, måste jag säga. P-Bot var snabb på att identifiera mina behov. Jag sa DevOps-ingenjör och att de skulle bygga från grunden, och den fattade direkt. Sen kom alla frågorna. Vilken nivå? Timmar? Region? Jag vet, det är ju nödvändigt, men jag kände direkt hur energin började läcka ur mig. Varför kan inte den här typen av system bara *veta* sånt här? Typ, "Jag behöver en grym DevOps-kille. Fixa!".
+
+Det som var mest irriterande var att den envisades med att FKU var bäst. Jag fattar ju att det är rätt process med tanke på timmarna, men jag är så trött på all den här byråkratin. Sen när den började fråga om utvärderingsviktning, prismodeller och fan och hans moster, då var jag nära att ge upp. Tur jag hade budgeten i huvudet, hade säkert glömt bort den annars. En positiv sak var att den verkade ha förstått att vi vill ha kompetens och inte bara en billig lösning. Det var bra att den lyfte att konsulten ska kunna utbilda teamet, det är ju jätteviktigt för att vi ska lyckas med det här projektet.
+
+Jag vet inte… visst, jag har nu en FKU-förfrågan på väg ut. Och ja, det är säkert snabbare än att gå den traditionella vägen. Men jag känner mig lite som att jag blivit utfrågad i en timme av en byråkratisk robot. Jag är fortfarande skeptisk. Om det verkligen ger oss rätt person, någon som kan hantera vår gamla infrastruktur och samtidigt inspirera teamet, då är det värt det. Annars var det bara ännu en teknisk lösning som gör livet lite mer komplicerat. Skulle jag använda det igen? Kanske. Om jag verkligen inte har något annat val och om det är ett enklare uppdrag. Men jag hoppas innerst inne att de fixar till den där AI-grejen så att den fattar vad man egentligen behöver, istället för att bara ställa tusen frågor."

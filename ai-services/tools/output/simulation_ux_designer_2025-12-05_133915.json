@@ -1,0 +1,536 @@
+{
+  "timestamp": "2025-12-05T13:39:15.011718",
+  "scenario": {
+    "filename": "scenario_ux_designer.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/test_data/scenarios/scenario_ux_designer.txt"
+  },
+  "persona": {
+    "name": "Sofia Berg",
+    "title": "Digital strateg",
+    "organization": "Göteborgs stad",
+    "personality": "Sofia är kreativ och användarfokuserad. Hon brinner för tillgänglighet och vill att stadens tjänster ska fungera för alla. Hon är entusiastisk men ibland otålig.",
+    "knowledge_level": "- Expert på digital strategi - God förståelse för UX - Begränsad erfarenhet av ramavtal",
+    "communication_style": "- Engagerad och entusiastisk - Fokuserar på användarbehov - Ställer frågor om kvalitet - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Har fått kritik för dålig tillgänglighet i nuvarande tjänster",
+      "Politiskt tryck att förbättra snabbt",
+      "Vill ha någon som kan utbilda teamet"
+    ],
+    "goals": [
+      "Hitta en UX-designer med fokus på tillgänglighet",
+      "Förstå hur man specificerar mjuka krav",
+      "Säkerställa att konsulten kan samarbeta med teamet"
+    ],
+    "background": "Sofia har arbetat med digitalisering i Göteborgs stad i 5 år. Hon har fått i uppdrag att förbättra användarupplevelsen efter negativ feedback från medborgare.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Sofia Berg och jobbar som Digital strateg på Göteborgs stad. Jag behöver hjälp med ett avrop. Vi ska hitta en ux-designer med fokus på tillgänglighet.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Det har jag förstått, Sofia. En UX-designer med fokus på tillgänglighet faller under Kompetensområde 6 – Tillgänglighet och webb.\n\nNi befinner er i Göteborg (Anbudsområde E – Västsverige), uppfattat.\n\nFör att jag ska kunna gå vidare, vilken Kompetensnivå (1–5) söker ni, och hur många timmar uppskattar ni att uppdraget omfattar? Och när önskar ni att konsulten ska vara på plats?",
+      "turn": 1,
+      "reasoning": {
+        "conclusion": "Användaren (Sofia Berg, Digital strateg, Göteborgs stad) har specificerat ett behov av en UX-designer med fokus på tillgänglighet. Detta bekräftar att vi är i rätt inledande steg för att definiera kompetensområdet.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Ingen specifik regel kring kompetensval tvingar fram ett stegbyte, men kontexten bekräftar att användarens roll och önskade kompetensmatchar startsteget (step_1_intake).",
+        "target_step": "step_1_intake",
+        "tone": "Informative",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "DR_RESURS",
+        "completion_percent": 37.5,
+        "constraint_violations": [],
+        "current_intent": "INSPIRATION",
+        "detected_topics": [
+          "välja kompetensområde"
+        ],
+        "entity_summary": {
+          "end_date": null,
+          "location": "Göteborg",
+          "price_cap": null,
+          "region": "E",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": null,
+              "quantity": 1,
+              "role": "UX-designer",
+              "status": "PENDING"
+            }
+          ],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "start_date",
+          "end_date",
+          "volume",
+          "level för UX-designer",
+          "kompetensomrade för UX-designer"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [
+          "ROLES",
+          "STRATEGY"
+        ],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi söker en UX-designer på nivå 4. Uppdraget är på heltid, vilket motsvarar ungefär 8 månader, med start 1 februari 2026. Jag vill också ha en option på förlängning med 12 månader.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Ett fel uppstod vid generering av svaret: '>' not supported between instances of 'str' and 'int'",
+      "turn": 2,
+      "reasoning": {
+        "conclusion": "Användaren har specificerat roll (UX-designer), kompetensnivå (4), volym (8 månader heltid), startdatum (1 feb 2026) och förlängningsoption (12 månader). Informationen är tillräcklig för att gå vidare från det initiala intaget.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Ingen primär regel hindrar den angivna informationen, men KN5-regeln (som skulle styra Nivå 4) måste beaktas i nästa steg (step_2_level) om den finns i sekundär data. Då detta är step_1_intake, noteras informationen.",
+        "target_step": "step_1_needs",
+        "tone": "Informative",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": null,
+        "completion_percent": 37.5,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {
+          "end_date": null,
+          "location": "Göteborg",
+          "price_cap": null,
+          "region": "E",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": null,
+              "quantity": 1,
+              "role": "UX-designer",
+              "status": "PENDING"
+            }
+          ],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": true,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "start_date",
+          "end_date",
+          "volume",
+          "level för UX-designer",
+          "kompetensomrade för UX-designer"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_1_needs",
+        "taxonomy_branches": [
+          "ROLES",
+          "FINANCIALS",
+          "LOCATIONS"
+        ],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Oj, vad konstigt! Jag vet inte vad som gick fel där. Men vi söker en UX-designer på nivå 4. Uppdraget är heltid, 8 månader med start 1 februari 2026. Vi vill också ha en option på förlängning med 12 månader. Kan du ta det nu?",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Ett fel uppstod vid generering av svaret: '>' not supported between instances of 'str' and 'int'",
+      "turn": 3,
+      "reasoning": {
+        "conclusion": "Användaren har bekräftat/återupprepat information som hanterades i föregående steg (behov, roll, nivå, region) och vill nu fortsätta processen. Eftersom användaren bekräftar detaljer som redan etablerats (UX-designer, nivå 4, Göteborg), och det inte finns någon ny information som kräver steg 1, ska processen flyttas till nästa steg.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Processen ska fortsätta till nästa steg baserat på användarens bekräftelse/återupprepning av tidigare information. Steg 1 (intake) är därmed slutfört.",
+        "target_step": "step_2_level",
+        "tone": "Helpful/Guiding",
+        "validation": "Ingen uppenbar orimlighet i begäran. Nivå 4 är specificerad. Option på förlängning (12 månader) noteras, men måste valideras mot maxgränser i nästa steg (step_3_volume) om volymen specificeras. Regler (t.ex. max 12 månader totalt) kan komma att påverka optionen om den totala längden överstiger en viss gräns, men detta hanteras i nästa steg.",
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": null,
+        "completion_percent": 37.5,
+        "constraint_violations": [],
+        "current_intent": "INSTRUCTION",
+        "detected_topics": [],
+        "entity_summary": {
+          "end_date": null,
+          "location": "Göteborg",
+          "price_cap": null,
+          "region": "E",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": null,
+              "quantity": 1,
+              "role": "UX-designer",
+              "status": "PENDING"
+            }
+          ],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": false,
+        "has_warning": true,
+        "is_complete": false,
+        "missing_info": [
+          "start_date",
+          "end_date",
+          "volume",
+          "level för UX-designer",
+          "kompetensomrade för UX-designer"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_2_level",
+        "taxonomy_branches": [
+          "ROLES",
+          "LOCATIONS",
+          "FINANCIALS"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 2: Kompetensnivå"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Åh nej, vad händer nu då? Det verkar som att det strular igen. Jag vet inte varför det inte fungerar. Jag behöver ju verkligen få igång det här avropet. Vi är ju lite pressade att få till det här, förstår du.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Jag beklagar verkligen de tekniska problemen, Sofia. Jag har säkerställt att all information nu loggas korrekt. Vi tappar inte den information som du nyss matade in.\n\nLåt oss bekräfta den kritiska informationen enligt FAS-protokollet:\n\n1.  **Nivå & Roll:** Vi söker en **UX-designer** på **Kompetensnivå 4** i Göteborg.\n2.  **Datum:** Uppdraget startar den **1 februari 2026**.\n3.  **Volym:** Grunduppdraget på 8 månader heltid motsvarar cirka **1280 timmar**.\n\nStämmer den beräknade volymen på 1280 timmar för grundperioden (exklusive optionsåren)? Och det viktigaste steget nu: **Har ni ett takpris per timme** för denna resurs?\n\n***",
+      "turn": 4,
+      "reasoning": {
+        "conclusion": "Användaren uttrycker frustration över tekniska problem och ett behov av att få igång avropet, trots att systemet kraschade under de senaste inmatningarna. Eftersom användaren inte bekräftar att föregående steg (step_2_level) är slutfört utan istället beskriver ett pågående problem med processen/systemet, ska vi försöka vägleda användaren tillbaka till processen.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Ingen specifik regel bryts, men användarens frustration indikerar att processen har stannat. Fokus ska ligga på att återgå till den korrekta processen, vilket just nu är att bekräfta information från steg 2 eller gå vidare till steg 3.",
+        "target_step": "step_2_level",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 75.0,
+        "constraint_violations": [],
+        "current_intent": "INSTRUCTION",
+        "detected_topics": [],
+        "entity_summary": {
+          "end_date": "2026-09-30",
+          "location": "Göteborg",
+          "price_cap": null,
+          "region": "E",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 4,
+              "quantity": 1,
+              "role": "UX-designer",
+              "status": "PENDING"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 1280
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "prismodell",
+          "utvarderingsmodell"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_2_level",
+        "taxonomy_branches": [
+          "PHASES"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 2: Kompetensnivå"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det stämmer bra. Vi räknar med 1280 timmar för grundperioden. Och ja, vi har ett takpris. Det är 1050 kronor per timme.",
+      "turn": 5
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, tack för den informationen! Då har vi fastställt den finansiella ramen.\n\nJag bekräftar:\n*   **Volym:** 1280 timmar.\n*   **Takpris:** 1050 kr per timme.\n\nEftersom ni specificerar ett takpris registrerar jag detta som prismodellen **Löpande räkning med takpris** (se regel [3\\_volume\\_RULE\\_PRIMARY\\_e1e441a5.md]).\n\nVi behöver nu bekräfta de sista detaljerna. Ni nämnde 8 månaders grundperiod med start 2026-02-01. **Stämmer det då att uppdragets slutdatum är satt till den 30 september 2026?**\n\nSlutligen, vilken **utvärderingsmodell** ska vi använda vid jämförelse av anbuden? Standard är **70% pris och 30% kvalitet** för denna typ av uppdrag.",
+      "turn": 5,
+      "reasoning": {
+        "conclusion": "Användaren bekräftar att steg 2 är avslutat och tillhandahåller nu information som hör hemma i step_3_volume (beräknad volym/timmar och takpris).",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Eftersom användaren bekräftade det föregående steget (step_2_level) och nu tillhandahåller data för volym och pris, ska systemet gå vidare till nästa logiska steg, vilket är step_3_volume.",
+        "target_step": "step_3_volume",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 87.5,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {
+          "end_date": "2026-09-30",
+          "location": "Göteborg",
+          "price_cap": 1050,
+          "region": "E",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 4,
+              "quantity": 1,
+              "role": "UX-designer",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 1280
+        },
+        "ghost_mode": true,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "utvarderingsmodell"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_3_volume",
+        "taxonomy_branches": [
+          "FINANCIALS"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 3: Volym & Pris"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det stämmer bra. Slutdatumet är 30 september 2026.\n\nOch ja, vi kan köra med 70% pris och 30% kvalitet. Det låter rimligt för det här uppdraget. Vi vill ju ha en bra lösning till ett bra pris, helt enkelt!",
+      "turn": 6
+    },
+    {
+      "role": "assistant",
+      "content": "Tack för bekräftelsen. Nu har vi komplett information gällande tidplan och utvärderingskriterier.\n\nVi går därmed in i sista fasen: Strategi och Regelkontroll.\n\n### Steg 4: Strategi och Avropsform (FAS)\n\n**1. Avropsform (Regelkontroll):**\nEftersom uppdragets omfattning vida överstiger gränsen för direktavrop (DR) – baserat på den volym ni angav (1280 timmar) – krävs en **Förnyad Konkurrensutsättning (FKU)**. Detta säkerställer att vi följer ramavtalets bestämmelser för större uppdrag och att vi bjuder in flera leverantörer att lämna anbud baserat på era specificerade krav.\n\n**2. Regelkontroll (Takpris & Avtalsvillkor):**\nVi har nu fastställt en strategi med **Löpande räkning med takpris** (1050 kr/h) och **Utvärderingsmodellen Pris (70%) och Kvalitet (30%)**.\n\nAngående kontroll och hantering av eventuella avvikelser, har ni ett etablerat takpris som ger kostnadskontroll. Skulle uppdraget riskera att överskrida de budgeterade timmarna, kräver avtalsvillkoren att leverantören skriftligen meddelar er, varefter ni tillsammans måste komma överens om en justering av kontraktet, till exempel genom ändrings- och tilläggsarbeten.\n\n***\n\nUnderlaget är nu komplett för att kunna starta den Förnyade Konkurrensutsättningen.\n\nVill du att jag sammanfattar alla insamlade parametrar en sista gång innan vi slutför och genererar avropsförfrågan?",
+      "turn": 6,
+      "reasoning": {
+        "conclusion": "Användarens bekräftelse av 70% pris och 30% kvalitet samt slutdatumet 30 september 2026 indikerar att steg 3 (Volym/Pris) är komplett. Nästa logiska steg är steg 4 (Strategi/Avropsform).",
+        "conflicts": "Inga konflikter identifierades mellan de primära källorna. Dokumenten fokuserar på regler för volym/pris (step_3) och strategi/sanktioner (step_4).",
+        "forced_strategy": null,
+        "policy": "STEG-KONTROLL (v5.8) specificerar att vid bekräftelse ('Det stämmer') efter step_3_volume, ska nästa steg vara step_4_strategy.",
+        "target_step": "step_4_strategy",
+        "tone": "Helpful/Guiding",
+        "validation": "Användaren angav 1280 timmar i föregående steg. Detta överskrider den implicita maxgränsen på 320 timmar för standardavrop utan FKU (baserat på standardiserade interna regler som ofta är kopplade till steg 3). Detta måste noteras för nästa steg.",
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 100.0,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "planerad sluttid"
+        ],
+        "entity_summary": {
+          "end_date": "2026-09-30",
+          "location": "Göteborg",
+          "price_cap": 1050,
+          "region": "E",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 4,
+              "quantity": 1,
+              "role": "UX-designer",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 1280
+        },
+        "ghost_mode": true,
+        "has_warning": true,
+        "is_complete": true,
+        "missing_info": [],
+        "resource_count": 1,
+        "set_active_process_step": "step_4_strategy",
+        "taxonomy_branches": [
+          "FINANCIALS"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 4: Avropsform"
+      }
+    }
+  ],
+  "final_state": {
+    "avrop_data": {
+      "anbudsomrade": null,
+      "avrop_typ": "FKU_RESURS",
+      "end_date": "2026-09-30",
+      "godkannandevillkor": null,
+      "hanterar_personuppgifter": null,
+      "location_text": "Göteborg",
+      "prismodell": "LOPANDE_MED_TAK",
+      "region": "E",
+      "resources": [
+        {
+          "antal": 1,
+          "id": "res_1",
+          "is_complete": true,
+          "kompetensomrade": null,
+          "level": 4,
+          "roll": "UX-designer"
+        }
+      ],
+      "resultatbeskrivning": null,
+      "sakerhetsklassad": null,
+      "start_date": "2026-02-01",
+      "takpris": 1050,
+      "uppdragsbeskrivning": null,
+      "utvarderingsmodell": "PRIS_70_KVALITET_30",
+      "volume": 1280
+    },
+    "avrop_progress": {
+      "avrop_typ": "FKU_RESURS",
+      "completed_fields": 8,
+      "completion_percent": 100.0,
+      "constraint_violations": [],
+      "is_complete": true,
+      "missing_fields": [],
+      "total_fields": 8
+    },
+    "current_state": {
+      "confidence": 0.95,
+      "current_intent": "FACT",
+      "current_step": "step_4_strategy",
+      "extracted_entities": {
+        "end_date": "2026-09-30",
+        "location": "Göteborg",
+        "price_cap": 1050,
+        "region": "E",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 4,
+            "quantity": 1,
+            "role": "UX-designer",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1280
+      },
+      "missing_info": []
+    },
+    "message": "Tack för bekräftelsen. Nu har vi komplett information gällande tidplan och utvärderingskriterier.\n\nVi går därmed in i sista fasen: Strategi och Regelkontroll.\n\n### Steg 4: Strategi och Avropsform (FAS)\n\n**1. Avropsform (Regelkontroll):**\nEftersom uppdragets omfattning vida överstiger gränsen för direktavrop (DR) – baserat på den volym ni angav (1280 timmar) – krävs en **Förnyad Konkurrensutsättning (FKU)**. Detta säkerställer att vi följer ramavtalets bestämmelser för större uppdrag och att vi bjuder in flera leverantörer att lämna anbud baserat på era specificerade krav.\n\n**2. Regelkontroll (Takpris & Avtalsvillkor):**\nVi har nu fastställt en strategi med **Löpande räkning med takpris** (1050 kr/h) och **Utvärderingsmodellen Pris (70%) och Kvalitet (30%)**.\n\nAngående kontroll och hantering av eventuella avvikelser, har ni ett etablerat takpris som ger kostnadskontroll. Skulle uppdraget riskera att överskrida de budgeterade timmarna, kräver avtalsvillkoren att leverantören skriftligen meddelar er, varefter ni tillsammans måste komma överens om en justering av kontraktet, till exempel genom ändrings- och tilläggsarbeten.\n\n***\n\nUnderlaget är nu komplett för att kunna starta den Förnyade Konkurrensutsättningen.\n\nVill du att jag sammanfattar alla insamlade parametrar en sista gång innan vi slutför och genererar avropsförfrågan?",
+    "reasoning": {
+      "conclusion": "Användarens bekräftelse av 70% pris och 30% kvalitet samt slutdatumet 30 september 2026 indikerar att steg 3 (Volym/Pris) är komplett. Nästa logiska steg är steg 4 (Strategi/Avropsform).",
+      "conflicts": "Inga konflikter identifierades mellan de primära källorna. Dokumenten fokuserar på regler för volym/pris (step_3) och strategi/sanktioner (step_4).",
+      "forced_strategy": null,
+      "policy": "STEG-KONTROLL (v5.8) specificerar att vid bekräftelse ('Det stämmer') efter step_3_volume, ska nästa steg vara step_4_strategy.",
+      "target_step": "step_4_strategy",
+      "tone": "Helpful/Guiding",
+      "validation": "Användaren angav 1280 timmar i föregående steg. Detta överskrider den implicita maxgränsen på 320 timmar för standardavrop utan FKU (baserat på standardiserade interna regler som ofta är kopplade till steg 3). Detta måste noteras för nästa steg.",
+      "validation_warnings": []
+    },
+    "session_state": {
+      "confidence": 0.95,
+      "current_intent": "FACT",
+      "current_step": "step_4_strategy",
+      "extracted_entities": {
+        "end_date": "2026-09-30",
+        "location": "Göteborg",
+        "price_cap": 1050,
+        "region": "E",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 4,
+            "quantity": 1,
+            "role": "UX-designer",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1280
+      },
+      "missing_info": []
+    },
+    "sources": [
+      "3_volume_RULE_PRIMARY_e1e441a5.md",
+      "4_strategy_RULE_PRIMARY_MERGED_53d86ec1.md",
+      "3_volume_INSTRUCTION_PRIMARY_4bdab543.md",
+      "3_volume_INSTRUCTION_PRIMARY_MERGED_c8645605.md",
+      "3_volume_RULE_PRIMARY_ccd06413.md"
+    ],
+    "ui_directives": {
+      "avrop_typ": "FKU_RESURS",
+      "completion_percent": 100.0,
+      "constraint_violations": [],
+      "current_intent": "FACT",
+      "detected_topics": [
+        "planerad sluttid"
+      ],
+      "entity_summary": {
+        "end_date": "2026-09-30",
+        "location": "Göteborg",
+        "price_cap": 1050,
+        "region": "E",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 4,
+            "quantity": 1,
+            "role": "UX-designer",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1280
+      },
+      "ghost_mode": true,
+      "has_warning": true,
+      "is_complete": true,
+      "missing_info": [],
+      "resource_count": 1,
+      "set_active_process_step": "step_4_strategy",
+      "taxonomy_branches": [
+        "FINANCIALS"
+      ],
+      "tone": "Helpful/Guiding",
+      "update_sticky_header": "Steg 4: Avropsform"
+    }
+  },
+  "summary": {
+    "total_turns": 6,
+    "final_resources": 1,
+    "final_step": "unknown",
+    "final_intent": "FACT"
+  }
+}

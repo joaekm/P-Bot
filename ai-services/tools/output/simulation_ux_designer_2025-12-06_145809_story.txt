@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Sofia Bergs berättelse
+║  Digital strateg på Göteborgs stad
+║  
+║  Samtal: 18 meddelanden
+║  Datum: 2025-12-06 14:58
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+”Alltså, vet du vad jag gjorde igår? Jag testade Addas P-Bot, den där AI-assistenten för att göra avrop på IT-konsulter. Helt ärligt, jag var skeptisk från början. Vi har ju blivit brända så många gånger med dåliga konsulter, särskilt när det gäller tillgänglighet. Det politiska trycket är enormt och vi måste få ordning på det här, och det snabbt. Jag hoppades väl mest på att det inte skulle bli ännu en tidsödande process med massa missförstånd. Allra helst ville jag att P-Bot på något magiskt sätt skulle spottat ur sig den perfekta UX-designern direkt. Ja, jag vet, lite naivt kanske.”
+
+”Det började okej. P-Bot var artig och effektiv, noterade direkt att det handlade om tillgänglighet. Men sen kom alla frågor. Kompetensnivå, volym, startdatum… det är ju standardfrågor, men det känns alltid som att man missar något. Jag stressade lite över takpriset, det är alltid en balansgång mellan att få bra kvalitet och att hålla budgeten. Men jag måste säga, när den började sammanfatta allt kändes det faktiskt bra. Det var skönt att få en överblick och dubbelkolla att vi inte missat något. Sen kom vändpunkten… EU-sanktionerna. Haha, det är ju obligatoriskt, men ändå bra att den frågade. Det gav mig en känsla av att den faktiskt var noggrann.”
+
+"Men det var när vi började prata om viten som jag verkligen kände att det här kunde funka. Jag hade fått kritik för bristande tillgänglighet i våra nuvarande tjänster, och jag kände verkligen att jag behövde ett verktyg för att säkerställa att detta blir rätt den här gången. P-Bot pushade mig att specificera hur vitet skulle fungera. Hur mycket, och när det skulle utlösas. Jag insåg att det här kunde vara lösningen! Att vi kan införa viten för varje enskild brist, det är ju klockrent! Det visar ju att vi menar allvar med tillgängligheten. Boten påpekade dock att Ramavtalet måste efterlevas, vilket var bra att få höra."
+
+”Det som verkligen imponerade var att den förstod hur viktigt det här är för oss. Jag kände mig faktiskt hörd. P-Bot var inte bara en maskin, utan den förstod problematiken och kunde guida mig till en lösning. Det var som att den förstod mitt dolda bekymmer, att vi inte har råd att misslyckas igen. Det som var lite mindre bra var att boten mot slutet ställde lite frågor i repris. Prismodell och utvärderingsmodell hade vi ju redan gått igenom. Där kände jag mig lite otålig, det drog ut på tiden lite. Men sen å andra sidan, det är kanske bra att den dubbelkollar så det blir rätt.”
+
+”När det var över kände jag mig faktiskt lättad. Jag hade varit så stressad innan, men P-Bot hade lugnat mig. Jag kände att vi hade fått med allt, och att vi hade en bra plan för att hitta en kompetent UX-designer med fokus på tillgänglighet. Jag vet inte om den kommer spotta ut den perfekta kandidaten, men jag känner i alla fall att vi har gjort allt vi kan för att säkerställa att vi får en bra konsult. Jag skulle absolut använda P-Bot igen, speciellt om det handlar om uppdrag där kvalitet och noggrannhet är avgörande. Dessutom sparade det mig säkert en massa tid jämfört med att göra allt manuellt. Men jag hoppas verkligen den blir bättre på att komma ihåg vad den redan har frågat om. Lite onödigt att upprepa sig.”

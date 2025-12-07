@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Johan Erikssons berättelse
+║  Verksamhetsutvecklare på Stockholms läns landsting
+║  
+║  Samtal: 10 meddelanden
+║  Datum: 2025-12-06 15:01
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Alltså, du vet, jag hade inte jättehöga förväntningar på det här P-Bot-samtalet igår. Landstinget snackar ju alltid om digitalisering, men det känns mest som floskler. Jag tänkte mest att det skulle bli ännu en ineffektiv process. Men jag var ju tvungen att testa, jag behöver ju faktiskt en analytiker som kan ta tag i all den där vårddatan som bara ligger och dammar. Tänk vad vi skulle kunna göra med bättre beslutsunderlag! Det är ju det ledningen tjatar om hela tiden.
+
+Först var det rätt smidigt. Den fångade upp direkt vad jag var ute efter och spottade ur sig de där grundläggande frågorna om kompetensnivå och tid. Jag gillar att den var tydlig och strukturerad. Det sparade tid, och tid är pengar, som bekant. Jag fyllde i allt korrekt, nivå 4, tio månader med option och det där. Takpriset hade jag redan kollat upp med inköp, så det gick snabbt. Allt kändes som att rulla på, den förstod snabbt mina svar.
+
+Men sen började det med viktningen pris/kvalitet. Jag kände direkt att "fan, det här måste jag fundera på!". Jag vill ju verkligen ha någon som *fattar* vårddata och inte bara är billigast. Frågan är hur man egentligen mäter det? P-Bot:ens förslag om CV, referenser och intervju är ju standard, men känns lite ytligt. Vi måste ju säkerställa att hen faktiskt kan leverera. Det var då jag insåg att jag inte hade tänkt igenom det tillräckligt. Fast jag måste säga, P-Bot plockade upp min fråga om att det var viktigt med kommunikation till icke-tekniker. Det var faktiskt imponerande, att den kunde snappa upp det sådär. Jag gillar att det lades in som ett specifikt kvalitetskriterium.
+
+När den sen sammanfattade allting, alla nyckelparametrar, kändes det faktiskt... bra. Som att jag hade åstadkommit något. Visst, själva urvalsprocessen blir ju ett eget kapitel, men nu har vi i alla fall ett bra underlag. Jag känner mig lite lugnare. Och P-Bot tvingade mig att ta ställning till saker jag annars bara hade skjutit upp. Om jag skulle använda den igen? Definitivt, faktiskt. Det var oväntat effektivt, även om det är tydligt att jag själv måste tänka till ordentligt innan jag pratar med den. Det är ju trots allt bara ett verktyg, men ett bra sådant. Nu är det bara att hoppas att vi hittar någon som kan hjälpa oss att bygga upp intern kompetens på sikt. Det är ju det som är det verkliga målet."

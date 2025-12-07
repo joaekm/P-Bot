@@ -42,9 +42,31 @@ Om något saknas i config → lägg till det där, hårdkoda inte i kod.
 2. Om ja → fixa resolution-logiken (ContextBuilder, grafen)
 3. Om nej → lägg till i rätt config-fil, inte i prompt
 
-## Teknisk Dokumentation
+## Dokumentation
+
+All projektdokumentation finns i mappen `documentation/` i projektroten.
+
+### Huvuddokument
+
+| Dokument | Beskrivning |
+|----------|-------------|
+| `p_bot_architecture.md` | Systemarkitektur, komponenter, dataflöde |
+| `p_bot_summary.md` | Projektöversikt och status |
+| `p_bot_backlogg.md` | Backlogg och planerade features |
+| `p_bot_konceptlogg.md` | Designbeslut och koncept |
+
+### Tekniska bilagor
 
 Läs dessa filer för att snabbt förstå systemen utan att läsa all kod:
 
-- `ai-services/docs/ragpipe_test.md` - RAG Pipeline: komponenter, dataflöde, test-scenarion, kända problem
-- `ai-services/docs/datapipe_test.md` - Data Pipeline: MASTER-källor, var data skrivs, konsistensregler
+| Bilaga | Beskrivning |
+|--------|-------------|
+| `ragpipe_test.md` | **Bilaga A:** RAG Pipeline - komponenter, dataflöde, test-scenarion, kända problem |
+| `datapipe_test.md` | **Bilaga B:** Data Pipeline - MASTER-källor, var data skrivs, konsistensregler |
+
+### Övriga dokument
+
+| Dokument | Beskrivning |
+|----------|-------------|
+| `p_bot_ai_risk_assessment_internal_v0.1.md` | AI-riskbedömning |
+| `p_bot_koncept_arbetsstation_resurs.md` | Koncept för arbetsstation/resurs |

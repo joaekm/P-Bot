@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Erik Johanssons berättelse
+║  Arkitektledare på Inera AB
+║  
+║  Samtal: 30 meddelanden
+║  Datum: 2025-12-06 14:41
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag satt fast i det där avropseländet igår igen," suckade jag och tog en klunk av mitt kaffe. "Inera, du vet, vi behöver en integrationsarkitekt *igår*. Den förra stack ju mitt i projektet, en riktig mardröm. Så jag var tvungen att snacka med den där P-Bot på Adda, deras AI-assistent. Jag hoppades mest att det skulle gå snabbt och smärtfritt, att jag bara kunde mata in kraven och sen få ut en lista på konsulter. Men det var ju inte riktigt så enkelt, direkt."
+
+"Den började ju med att fråga om kompetensnivå, geografiskt område och hur länge vi behövde personen. Nivå 5, Stockholm, 6 månader. Ganska rakt på sak, inget att klaga på där. Men sen började den gräva djupare. Startdatum, timvolym, prismodell, kvalitetsvikning… Jag kände hur stressen ökade. Allt det där tar ju tid. Och speciellt det där med kvalitetsvikningen – 60/40 till prisets fördel kändes lite snålt, men jag var tvungen att kompromissa lite. Jag vill ju ha rätt person, inte bara den billigaste. Det var ju viktigt att den förstod vad vi behövde."
+
+"Det var just den biten, att P-Bot hela tiden bekräftade saker, som var både bra och lite irriterande. Den upprepade typ allt jag sa, som om den ville vara jättetydlig. 'Integrationsarkitekt, Kompetensnivå 5, med uppdrag i Stockholm'. Jag förstod, tack! Men det var också bra, för då kände jag mig trygg med att den faktiskt fattade vad jag ville. Men ja, jag erkänner att jag höll på att få griller när den envisades med att ta upp samma saker om och om igen. Det var som att prata med en överdrivet noggrann kollega, du vet, såna som aldrig litar på att du hört vad de sagt."
+
+"Det som kändes som en vändpunkt var nog när P-Bot konstaterade att vi var tvungna att köra Förnyad Konkurrensutsättning. Det suckade jag inombords åt. Mer jobb. Men samtidigt, jag vet ju att det är det enda sättet att verkligen garantera kvalitet, speciellt på nivå 5. Och P-Bot motiverade det bra, 'det bästa sättet att säkerställa att ni får den erfarna specialist ni behöver'. Okej då, tänkte jag, jag får väl bita i det sura äpplet. Just där började jag ändå känna att det kanske kunde vara värt det, att det här inte bara var en massa tidsslöseri."
+
+"När allt var klart, och P-Bot sammanfattade alla beslut... det var faktiskt lite imponerande. Allt jag hade sagt, alla mina lite spretiga önskemål, var plötsligt paketerade i en tydlig specifikation. Jag kände mig lite lugnare då, lite mer säker på att vi faktiskt skulle hitta rätt person. Men jag ärligt talat vet inte om jag kommer använda den igen, det tog ju en evighet. Å andra sidan, resultatet verkar ju bli bra och jag slipper bråka med inköpsavdelningen om felaktiga kravspecifikationer. Kanske får jag ge den en chans till, men nästa gång ska jag nog förbereda mig lite bättre, ha alla siffror och detaljer klara från början. Annars riskerar jag att få ett nervsammanbrott innan den är klar."

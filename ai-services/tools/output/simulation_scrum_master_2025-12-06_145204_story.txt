@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Maria Lindgrens berättelse
+║  Enhetschef IT-utveckling på Försäkringskassan
+║  
+║  Samtal: 30 meddelanden
+║  Datum: 2025-12-06 14:52
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade ett riktigt intressant samtal med Addas P-Bot igår. Jag var faktiskt lite skeptisk i början, en AI-assistent för att hitta en Scrum Master? Det kändes lite... opersonligt. Men vi är i skriande behov av en riktigt bra person som kan få fart på den här agila transformationen. Vi har ju kämpat med det här internt i evigheter, och jag tänkte att det kanske kunde vara värt ett försök, att få lite draghjälp. Jag hoppades mest att det inte skulle vara en total katastrof, att jag åtminstone skulle få ut något användbart som jag kunde ta vidare till teamet.
+
+Först var det lite stelt, du vet, bara en massa frågor om plats, volym, sånt där. Men när jag började trycka på om vikten av erfarenhet av skalad agil och förändringsledning, då hände det något. P-Bot hängde med! Faktiskt så bra att den rekommenderade att vi skulle uppgradera till Kompetensnivå 5. Det var en vändpunkt. Jag menar, jag hade tänkt tanken, men att en AI skulle identifiera det behovet... Imponerande. Jag blev lite nervös för all dokumentation som krävdes, men samtidigt kändes det rätt. Vi behöver en guru, inte en junior.
+
+Det som verkligen fick mig att gilla P-Bot var hur den hela tiden sammanfattade och bekräftade informationen. Det kändes som att den lyssnade, även om det var en algoritm. Och sen, alla de där små påminnelserna om att "eftersom ni har ett takpris...", "med tanke på att det är en expertroll..." Det visade att den förstod kontexten och gav råd utifrån den. Lite som en riktigt bra konsult, faktiskt. Jag var dock lite stressad över alla frågor, det kändes som ett långt förhör emellanåt, men jag förstod ju att det var nödvändigt för att få fram rätt underlag.
+
+När det var klart kände jag mig faktiskt ganska lättad och hoppfull. Det var en ganska smidig process, trots allt. Visst, det var inte samma sak som att prata med en människa, men P-Bot var effektiv och ställde de rätta frågorna. Jag tror faktiskt att jag kommer att använda Adda igen. Speciellt om vi behöver hitta någon med spetskompetens. Det sparar ju tid och resurser, och jag känner mig trygg med att vi får ett bra underlag för avropet. Sen får vi se hur bra de anbuden blir, det är ju en annan femma..."

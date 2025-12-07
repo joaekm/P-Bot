@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Magnus Eks berättelse
+║  IT-driftchef på Inera AB
+║  
+║  Samtal: 10 meddelanden
+║  Datum: 2025-12-05 13:28
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag testade den där P-Bot på Adda igår för att få till ett avrop. Helt ärligt, jag gick in med en ganska skeptisk inställning. Med vår nuvarande driftleverantör som stuckit och en deadline som kryper närmare för varje dag, är jag inte direkt i stämning för att sitta och prata med en robot. Allt jag ville var att få in två seniora konsulter – en nätverksarkitekt och en IT-arkitekt – så fort som möjligt.
+
+Det började ju okej, P-Bot var snabb att svara och verkade fatta att det var bråttom. Jag spottade ur mig vad jag behövde och förväntade mig att det skulle bli strul. Men den snappade upp rollerna och kompetensnivån rätt snabbt. Sedan kom det där startdatumet, 2026-02-01. Alltså, det är ju inte så det ska vara. Vi behöver dem NU, inte om ett halvår! Men jag insåg att jag inte hade specificerat det ordentligt, så jag fick bita ihop och hoppas att vi kan pressa det datumet senare.
+
+Den stora vändpunkten var nog när vi kom till priset och volymen. Jag gav den siffrorna och blev faktiskt imponerad över hur snabbt den sammanfattade allt. Sedan att den promptade om FKU (Förnyad Konkurrensutsättning) var ju bra, för det är ju så regelverket ser ut, men i det läget kändes det bara som ytterligare ett steg som försenade processen. Jag hatar FKU:er! Men, jag vet ju att vi måste följa reglerna. Det som däremot var bra var att den tog upp takpriset och den ekonomiska kontrollen, det är viktigt för mig.
+
+I slutet, den där sammanfattningen den gjorde, var faktiskt riktigt bra. Allt stod ju där, svart på vitt. Det fick mig att känna att jag hade kontroll över situationen igen. Men jag känner fortfarande ett sting av irritation över att det inte går snabbare. "Är det något ni vill justera i denna översikt innan vi tar nästa steg?" frågade den. Ja, jag vill justera leveranstiden så den är typ… igår! Men jag svalde min frustration.
+
+Skulle jag använda P-Bot igen? Jo, kanske. Den är systematisk och verkar veta vad den gör. Men jag önskar att jag kunde prata med en riktig person ibland, någon som förstår stressen och som kanske kan tänka utanför boxen. Men under omständigheterna så sparade P-Bot nog mig lite tid och energi, trots allt."

@@ -1,0 +1,230 @@
+{
+  "total_tested": 20,
+  "stats": {
+    "ok": 0,
+    "improve": 0,
+    "gap": 20
+  },
+  "results": [
+    {
+      "question": "Vilken roll behöver vi? Är det en projektledare, utvecklare eller någon annan typ av konsult?",
+      "phase": "step_1_intake",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om detta i den valda kontexten, vilket indikerar att den inte kunde hitta några relevanta källor för att svara på frågan.",
+      "anonymized_example": "Avropet specificerar inte exakt vilken roll som efterfrågas.",
+      "source_avrop_id": "Avropsförfrågan konsultstöd Åmåls Melleruds  Färjelanda kommun",
+      "decision_type": "roll"
+    },
+    {
+      "question": "Inom vilket kompetensområde ligger detta uppdrag? Vilket av de sju områdena passar bäst?",
+      "phase": "step_1_intake",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om detta i den valda kontexten, vilket indikerar att den inte kunde hitta några relevanta källor för att svara på frågan.",
+      "anonymized_example": "Avropet nämner inte vilket av Addas kompetensområden som är relevant.",
+      "source_avrop_id": "Avropsförfrågan konsultstöd Åmåls Melleruds  Färjelanda kommun",
+      "decision_type": "kompetensomrade"
+    },
+    {
+      "question": "Vilken kompetensnivå krävs för uppdraget? Behöver vi en junior, medel eller senior konsult (nivå 1-5)?",
+      "phase": "step_2_level",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om frågan i den valda kontexten, vilket indikerar att inga källor hittades.",
+      "anonymized_example": "Avropet definierar inte vilken kompetensnivå som krävs.",
+      "source_avrop_id": "Avropsförfrågan konsultstöd Åmåls Melleruds  Färjelanda kommun",
+      "decision_type": "kompetensniva"
+    },
+    {
+      "question": "Hur många timmar uppskattar vi att konsulten kommer att arbeta totalt?",
+      "phase": "step_3_volume",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten hittade inga källor och svarade att den inte hittade information om frågan.",
+      "anonymized_example": "Avropet anger inte den totala uppskattade volymen i timmar.",
+      "source_avrop_id": "Avropsförfrågan konsultstöd Åmåls Melleruds  Färjelanda kommun",
+      "decision_type": "volym_timmar"
+    },
+    {
+      "question": "När önskar vi att uppdraget ska starta och avslutas? Vilken tidsram har vi?",
+      "phase": "step_3_volume",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om frågan i den givna kontexten, vilket indikerar att den inte hittat några relevanta källor.",
+      "anonymized_example": "Avropet anger inte start- eller slutdatum för uppdraget.",
+      "source_avrop_id": "Avropsförfrågan konsultstöd Åmåls Melleruds  Färjelanda kommun",
+      "decision_type": "tidsram_start"
+    },
+    {
+      "question": "Vilken budget har vi för detta uppdrag? Finns det ett takpris?",
+      "phase": "step_3_volume",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om budget eller takpris i den valda kontexten, vilket indikerar att den inte hittat några relevanta källor.",
+      "anonymized_example": "Avropet nämner ingen budget eller takpris.",
+      "source_avrop_id": "Avropsförfrågan konsultstöd Åmåls Melleruds  Färjelanda kommun",
+      "decision_type": "budget"
+    },
+    {
+      "question": "Vi kör en förnyad konkurrensutsättning (FKU), men hur ska vi vikta pris kontra kvalitet i utvärderingen?",
+      "phase": "step_4_strategy",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om frågan i den givna kontexten, vilket indikerar att den inte kunde hitta några relevanta källor.",
+      "anonymized_example": "Avropet anger inte viktningen mellan pris och kvalitet.",
+      "source_avrop_id": "Avropsförfrågan konsultstöd Åmåls Melleruds  Färjelanda kommun",
+      "decision_type": "viktning"
+    },
+    {
+      "question": "Vilka mervärden ska vi utvärdera utöver erfarenhet? Finns det andra specifika kompetenser eller egenskaper vi värdesätter?",
+      "phase": "step_4_strategy",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om detta i den valda kontexten, vilket indikerar att den inte hittat några relevanta källor.",
+      "anonymized_example": "Avropet nämner 'Mervärde 1 – Erfarenhet', men inga andra mervärden.",
+      "source_avrop_id": "Avropsförfrågan konsultstöd Åmåls Melleruds  Färjelanda kommun",
+      "decision_type": "mervardeskriterier"
+    },
+    {
+      "question": "Hur ska vi säkerställa att leverantören uppfyller alla våra krav? Vilka konsekvenser blir det om kraven inte efterlevs?",
+      "phase": "step_4_strategy",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om frågan i den valda kontexten, vilket indikerar att den inte kunde hitta några relevanta källor.",
+      "anonymized_example": "Avropet beskriver inte hur efterlevnad av kraven ska säkerställas.",
+      "source_avrop_id": "Avropsförfrågan konsultstöd Åmåls Melleruds  Färjelanda kommun",
+      "decision_type": "efterlevnad"
+    },
+    {
+      "question": "Var ska konsulten vara placerad? Är det på plats, distans eller en kombination?",
+      "phase": "step_1_intake",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten hittade inga källor och kunde därför inte svara på frågan.",
+      "anonymized_example": "Avropet anger inte om konsulten ska vara placerad på plats eller på distans.",
+      "source_avrop_id": "Avropsförfrågan konsultstöd Åmåls Melleruds  Färjelanda kommun",
+      "decision_type": "placeringskrav"
+    },
+    {
+      "question": "Vilket kompetensområde (KO1-KO7) passar bäst för en lösningsarkitekt inom detta område?",
+      "phase": "step_1_intake",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten hittade inga källor och kunde därför inte svara på frågan om vilket kompetensområde som passar bäst för en lösningsarkitekt.",
+      "anonymized_example": "Avropet specificerar rollen som lösningsarkitekt men inte kompetensområde.",
+      "source_avrop_id": "Lösningsarkitekt för datalager_v2",
+      "decision_type": "kompetensomrade"
+    },
+    {
+      "question": "Vilken kompetensnivå (1-5) krävs för lösningsarkitekten baserat på uppdragets komplexitet och självständighet?",
+      "phase": "step_2_level",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om frågan i den givna kontexten, vilket indikerar att den inte kunde hitta några relevanta källor.",
+      "anonymized_example": "Avropet nämner kompetenskrav men inte specifik nivå (1-5).",
+      "source_avrop_id": "Lösningsarkitekt för datalager_v2",
+      "decision_type": "kompetensniva"
+    },
+    {
+      "question": "Är 160 timmar + eventuellt 320 timmar en realistisk uppskattning för att genomföra förstudien och leverera de förväntade resultaten?",
+      "phase": "step_3_volume",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om frågan i den valda kontexten, vilket indikerar att den inte kunde hitta några relevanta källor.",
+      "anonymized_example": "Avropet anger 160 timmar + ev. 320 timmar.",
+      "source_avrop_id": "Lösningsarkitekt för datalager_v2",
+      "decision_type": "volym_timmar"
+    },
+    {
+      "question": "Borde vi specificera ett slutdatum för uppdraget, eller är det okej att det är öppet?",
+      "phase": "step_3_volume",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten hittade inga källor och kunde därför inte svara på frågan.",
+      "anonymized_example": "Avropet anger startdatum men inget slutdatum.",
+      "source_avrop_id": "Lösningsarkitekt för datalager_v2",
+      "decision_type": "tidsram_slut"
+    },
+    {
+      "question": "Hur ska vi vikta timpris, erfarenhet, intervju och referensuppdrag mot varandra i utvärderingen?",
+      "phase": "step_4_strategy",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om frågan i den valda kontexten, vilket indikerar att inga källor hittades.",
+      "anonymized_example": "Avropet nämner dessa som utvärderingskriterier men inte hur de viktas.",
+      "source_avrop_id": "Lösningsarkitekt för datalager_v2",
+      "decision_type": "viktning"
+    },
+    {
+      "question": "Vilka geografiska områden (A-G) är relevanta för detta uppdrag, med tanke på att viss del kan utföras på distans?",
+      "phase": "step_1_intake",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten hittade inga källor och kunde därför inte svara på frågan om geografiska områden.",
+      "anonymized_example": "Avropet nämner distansarbete men inte någon specifik region.",
+      "source_avrop_id": "Lösningsarkitekt för datalager_v2",
+      "decision_type": "region"
+    },
+    {
+      "question": "Vilka specifika intervjukriterier ska vi använda för att bedöma konsultens lämplighet för uppdraget?",
+      "phase": "step_4_strategy",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om intervjukriterier i den valda kontexten, vilket indikerar att den inte hittat några relevanta källor.",
+      "anonymized_example": "Avropet nämner intervju som ett kriterium, men inte exakt vad som ska bedömas.",
+      "source_avrop_id": "Lösningsarkitekt för datalager_v2",
+      "decision_type": "intervjukriterier"
+    },
+    {
+      "question": "Hur många referensuppdrag behöver vi, och vilken typ av uppdrag är mest relevanta för att bedöma konsultens kompetens?",
+      "phase": "step_4_strategy",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om frågan i den valda kontexten, vilket indikerar att inga källor hittades.",
+      "anonymized_example": "Avropet nämner referensuppdrag men inte antal eller typ.",
+      "source_avrop_id": "Lösningsarkitekt för datalager_v2",
+      "decision_type": "referenser"
+    },
+    {
+      "question": "Vilka åtgärder kan vi vidta om konsulten inte lever upp till våra förväntningar eller bryter mot avtalet?",
+      "phase": "step_4_strategy",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten svarar att den inte hittar någon information om frågan i den valda kontexten, vilket indikerar att den inte hittat några relevanta källor.",
+      "anonymized_example": "Avropet nämner inga specifika sanktioner eller viten.",
+      "source_avrop_id": "Lösningsarkitekt för datalager_v2",
+      "decision_type": "efterlevnad"
+    },
+    {
+      "question": "Borde vi specificera om arbetet ska utföras på plats eller på distans?",
+      "phase": "step_1_intake",
+      "bot_response": "Jag hittar ingen information om detta i din valda kontext.",
+      "sources": [],
+      "verdict": "GAP",
+      "judge_reasoning": "Botten hittade inga källor och kunde därför inte svara på frågan.",
+      "anonymized_example": "Avropet nämner både distans och kontor.",
+      "source_avrop_id": "Lösningsarkitekt för datalager_v2",
+      "decision_type": "placeringskrav"
+    }
+  ]
+}

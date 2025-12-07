@@ -1,0 +1,14 @@
+{
+  "started_at": "2025-12-04T23:04:42.068200",
+  "completed_at": "2025-12-04T23:09:03.933543",
+  "duration_seconds": 261.865339,
+  "questions_extracted": 20,
+  "questions_tested": 20,
+  "test_stats": {
+    "ok": 0,
+    "improve": 0,
+    "gap": 20
+  },
+  "blocks_created": 33,
+  "blocks_refined": 0
+}

@@ -528,7 +528,8 @@ class AddaSearchEngine:
                         "volume": current_state.get('extracted_entities', {}).get('volume'),
                         "avropsform": current_state.get('extracted_entities', {}).get('avropsform'),
                         "prismodell": current_state.get('extracted_entities', {}).get('prismodell'),
-                        "utvarderingsmodell": current_state.get('extracted_entities', {}).get('utvarderingsmodell'),
+                        "pris_vikt": current_state.get('extracted_entities', {}).get('pris_vikt'),
+                        "kvalitet_vikt": current_state.get('extracted_entities', {}).get('kvalitet_vikt'),
                         "location_text": current_state.get('extracted_entities', {}).get('location_text'),
                         "anbudsomrade": current_state.get('extracted_entities', {}).get('anbudsomrade')
                     }

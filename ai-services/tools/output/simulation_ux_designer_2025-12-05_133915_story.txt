@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Sofia Bergs berättelse
+║  Digital strateg på Göteborgs stad
+║  
+║  Samtal: 12 meddelanden
+║  Datum: 2025-12-05 13:39
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+”Alltså, jag måste berätta om igår. Jag tänkte att jag äntligen skulle ta tag i det här med avropet av UX-designern. Ni vet, den där med fokus på tillgänglighet som vi verkligen behöver. Jag menar, jag vill verkligen lyfta våra tjänster och göra dem tillgängliga för alla, men jag har inte tiden eller den specifika kompetensen själv. Så jag tänkte att P-Bot på Adda skulle vara räddaren i nöden. Jag hoppades verkligen att det skulle vara smidigt och snabbt. Att jag bara skulle mata in lite information och sedan skulle allt rulla på av sig självt.
+
+Först gick det ju åt skogen, totalt. Jag fyllde i alla uppgifter om nivå och tid och sånt, och sen bara ”ERROR! ERROR!”. Två gånger! Jag blev så frustrerad! Jag tänkte direkt på cheferna och politikerna som tjatar om att vi måste bli bättre på tillgänglighet, NU! Och här sitter jag och kämpar med en AI-robot som inte ens kan hantera en simpel input. Jag var nära att ge upp och bara skriva ihop en manuell förfrågan, men jag tänkte att jag skulle ge den en sista chans. Man vill ju tro på tekniken, liksom.
+
+Till slut, efter en stund, så verkade den fatta. Eller i alla fall, den sa att den hade loggat min information och bekräftade massa saker. Det kändes lite konstigt att den pratade om "FAS-protokollet" och sånt. Jag bryr mig inte så mycket om protokoll, jag vill bara ha en bra UX-designer! Men okej, den höll ju koll på takpriset och att det var 1280 timmar. Det var ju bra. Sen sa den något om att eftersom det var så många timmar så behövdes en "Förnyad Konkurrensutsättning", vilket låter jättejobbigt. Varför kan inte allt bara vara enkelt? Det var ändå skönt att den liksom förklarade varför det behövdes. Jag blev lite lugnare när den sedan sammanfattade allt en sista gång. Det kändes som att jag faktiskt hade kontroll över processen.
+
+När det var över kände jag mig… lättad, tror jag. Men också lite trött. Det tog längre tid än jag hade hoppats på, och jag var rädd för att den skulle krascha igen. Men P-Bot verkar ha koll på läget och att det är en ordentlig process. Jag vet inte om jag skulle använda tjänsten igen, ärligt talat. Kanske. Om jag verkligen inte hinner göra det manuellt. Men jag hoppas innerligt att de fixar de där buggarna först. Och att den inte pratar så mycket om protokoll nästa gång. Jag är ju trots allt en kreativ och användarfokuserad person, jag är inte en robotexpert."

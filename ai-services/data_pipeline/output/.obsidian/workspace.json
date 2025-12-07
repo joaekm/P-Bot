@@ -11,14 +11,10 @@
             "id": "09e3a3292c994275",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2_level_RULE_PRIMARY_a786de28.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "2_level_RULE_PRIMARY_a786de28"
+              "title": "New tab"
             }
           }
         ]
@@ -182,6 +178,16 @@
   },
   "active": "09e3a3292c994275",
   "lastOpenFiles": [
+    "1_intake_RULE_PRIMARY_be1fc5dd.md",
+    "1_intake_RULE_PRIMARY_b6d290b2.md",
+    "1_intake_RULE_PRIMARY_d1c24bb1.md",
+    "1_intake_RULE_PRIMARY_d1f80839.md",
+    "1_intake_RULE_PRIMARY_f89e89ba.md",
+    "1_intake_RULE_PRIMARY_473cb620.md",
+    "1_intake_RULE_PRIMARY_59ca14c5.md",
+    "1_intake_RULE_PRIMARY_6cdc9b1d.md",
+    "1_intake_RULE_PRIMARY_5fc465dd.md",
+    "2_level_RULE_PRIMARY_a786de28.md",
     "vocabulary_stats.txt",
     "vocabulary.json",
     "1_intake_DATA_POINTER_PRIMARY_66993fae.md",
@@ -190,10 +196,8 @@
     "4_strategy_RULE_PRIMARY_a7cd1062.md",
     "1_intake_DEFINITION_PRIMARY_8173c631.md",
     "4_strategy_RULE_PRIMARY_bb281469.md",
-    "1_intake_RULE_PRIMARY_b6d290b2.md",
     "1_intake_DATA_POINTER_PRIMARY_2185f9e7.md",
     "3_volume_RULE_PRIMARY_869b0197.md",
-    "1_intake_RULE_PRIMARY_d1c24bb1.md",
     "2_level_RULE_PRIMARY_2e553ef7.md",
     "3_volume_RULE_PRIMARY_effb573d.md",
     "general_FULL_DOCUMENT_PRIMARY_avropsberattigade-parter---it-_f3d2.md",
@@ -201,13 +205,6 @@
     "3_volume_RULE_SECONDARY_f4909e8e.md",
     "1_intake_RULE_SECONDARY_79ce4607.md",
     "1_intake_RULE_SECONDARY_afd8971b.md",
-    "4_strategy_DEFINITION_SECONDARY_a029f582.md",
-    "4_strategy_RULE_SECONDARY_71c19715.md",
-    "3_volume_RULE_SECONDARY_13107a5d.md",
-    "1_intake_RULE_SECONDARY_a14c4fec.md",
-    "2_level_RULE_SECONDARY_03ddddd1.md",
-    "2_level_RULE_SECONDARY_cd5b30cf.md",
-    "1_intake_DEFINITION_SECONDARY_9814bca9.md",
-    "1_intake_DEFINITION_SECONDARY_6e80ba36.md"
+    "4_strategy_DEFINITION_SECONDARY_a029f582.md"
   ]
 }

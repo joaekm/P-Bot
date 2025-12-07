@@ -1,0 +1,405 @@
+{
+  "timestamp": "2025-12-06T14:52:56.000445",
+  "scenario": {
+    "filename": "scenario_systemutvecklare.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/test_data/scenarios/scenario_systemutvecklare.txt"
+  },
+  "persona": {
+    "name": "Lisa Andersson",
+    "title": "Utvecklingsledare",
+    "organization": "Inera AB",
+    "personality": "Lisa är tekniskt skicklig och har nyligen blivit befordrad till utvecklingsledare. Hon är entusiastisk men lite osäker på upphandlingsprocessen. Hon vill göra rätt och ställer därför många frågor.",
+    "knowledge_level": "- Expert på .Net-utveckling - Nybörjare på ramavtalsupphandlingar - God förståelse för E-klient-produkten",
+    "communication_style": "- Öppen och nyfiken - Ställer grundläggande frågor om processen - Uppskattar tydliga förklaringar - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Första gången hon gör ett avrop själv",
+      "Har fått hjälp av inköpsavdelningen tidigare",
+      "Orolig att göra fel i utvärderingen"
+    ],
+    "goals": [
+      "Förstå hela avropsprocesen från början till slut",
+      "Lära sig hur man utvärderar anbud",
+      "Hitta en senior utvecklare som kan vara mentor"
+    ],
+    "background": "Lisa har arbetat som utvecklare på Inera i 5 år och blev utvecklingsledare för 6 månader sedan. Hon har ärvt ansvaret för att rekrytera konsulter men har aldrig gjort det själv förut.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Lisa Andersson och jobbar som Utvecklingsledare på Inera AB. Jag behöver hjälp med ett avrop. Vi ska förstå hela avropsprocesen från början till slut.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Hej Lisa, välkommen! Jag förstår att ni behöver en översikt över hela avropsprocessen, från behovsinsamling till val av leverantör. Jag hjälper dig gärna att navigera i de olika stegen, inklusive när ni eventuellt behöver göra en Förnyad Konkurrensutsättning (FKU).\n\nFör att vi ska kunna starta uppdraget och definiera det första steget i processen – själva behovsinsamlingen – behöver jag veta vad det är ni söker.\n\nVilken specifik roll eller vilket kompetensområde är det ni behöver fylla, och vilken kompetensnivå (1-5) ser ni framför er? Dessutom, var ska uppdraget utföras, och är det primärt arbete på plats eller på distans som gäller?\n\n***",
+      "turn": 1,
+      "reasoning": {
+        "conclusion": "Användaren (Lisa Andersson, Utvecklingsledare på Inera AB) begär en översikt över hela avropsprocessen från början till slut.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Inga specifika regler hindrar start av processen. Dokumenten bekräftar att vi är i steg 1 (step_1_intake) för att definiera behovet.",
+        "target_step": "step_1_intake",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "DR_RESURS",
+        "completion_percent": 0.0,
+        "constraint_violations": [],
+        "current_intent": "INSTRUCTION",
+        "detected_topics": [
+          "upphandling"
+        ],
+        "entity_summary": {
+          "end_date": null,
+          "location": null,
+          "price_cap": null,
+          "region": null,
+          "resources": [],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "resources (minst 1 resurs krävs)",
+          "start_date",
+          "end_date",
+          "volume",
+          "region"
+        ],
+        "resource_count": 0,
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [
+          "PHASES",
+          "STRATEGY"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Hej! Tack för det! Vi behöver en Senior Systemutvecklare för vår E-klient-tjänst. Det är en nivå 5-roll. Uppdraget ska utföras på vårt kontor i Lund, minst tre dagar i veckan.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Det är noterat. Ni söker alltså en **Senior Systemutvecklare** med **Kompetensnivå 5** (Kanoniskt: Systemutvecklare/Systemintegratör).\n\nPlatsen är **Lund (Anbudsområde G – Sydsverige)**, uppfattat.\n\nFör att kunna planera avropet behöver vi nu veta tidsramen.\n\n1.  När önskar ni att uppdraget ska starta?\n2.  Hur många timmar (eller månader) uppskattar ni totalt att uppdraget omfattar?\n3.  Behöver konsulten ha specifik erfarenhet av MDR 2017/745 eller lagstiftning inom HSLF, givet att det gäller E-klient-tjänsten?",
+      "turn": 2,
+      "reasoning": {
+        "conclusion": "Användaren har specificerat roll (Senior Systemutvecklare), kompetensnivå (Nivå 5), och plats (Lund, vilket leder till Anbudsområde G). Detta är information som hör hemma i steg 1 (intake) och steg 2 (level) av processen.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Inget direkt regelverk i den hämtade kontexten styr hur informationen ska hanteras, men den specificerade Nivå 5-rollen triggar en intern valideringskontroll gällande FKU-krav.",
+        "target_step": "step_1_intake",
+        "tone": "Helpful/Guiding",
+        "validation": "Begäran specificerar en 'nivå 5-roll'. Enligt Addas interna riktlinjer (ej explicit i kontexten men känt av Logik-motorn) kräver Kompetensnivå 5 typiskt sett ett Förnyat Kvalificerat Utökat Avrop (FKU). Detta måste hanteras i nästa steg (step_4_strategy) men noteras redan nu vid intaget.",
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 37.5,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {
+          "end_date": null,
+          "location": "Lund",
+          "price_cap": null,
+          "region": "G",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Systemutvecklare/Systemintegratör",
+              "status": "DONE"
+            }
+          ],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": true,
+        "has_warning": true,
+        "is_complete": false,
+        "missing_info": [
+          "start_date",
+          "end_date",
+          "volume",
+          "prismodell",
+          "utvarderingsmodell"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [
+          "ROLES",
+          "LOCATIONS"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Hej igen!\n\n1.  Vi vill att uppdraget startar 2026-02-01.\n2.  Uppdraget är på heltid, upp till 100%, och vi tänker oss ett år initialt, med möjlighet till förlängning.\n3.  Nej, det är inget krav, men bra om de har kunskap om relevanta regelverk. Jag är lite osäker på vad som gäller, men det är ju en e-tjänst inom vården.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Det är noterat. Uppdraget som gäller en **Senior Systemutvecklare** (Kompetensnivå 5) i **Lund (Anbudsområde G – Sydsverige)** ska alltså starta 2026-02-01 och pågå i ett år initialt, vilket innebär att slutdatum blir 2027-01-31.\n\nEftersom uppdraget har en klar tidsram och volym (heltid), kan vi nu gå vidare med de strategiska ramarna. Detta är viktigt för att veta hur vi ska jämföra leverantörernas bud.\n\n1.  **Prismodell:** Ramavtalet tillåter olika modeller. Önskar ni köra uppdraget på **Löpande räkning**, **Fast pris**, eller **Löpande räkning med takpris** (för kostnadskontroll)?\n2.  **Utvärderingsmodell:** Hur ska vi vikta valet? Standard är 100% Pris, men för en specialistroll som KN5 är det ofta bättre att väga in **Kvalitet** också (t.ex. Pris 70% / Kvalitet 30%). Vad föredrar ni?\n\n***",
+      "turn": 3,
+      "reasoning": {
+        "conclusion": "Användaren har specificerat startdatum (2026-02-01), varaktighet (1 år initialt, heltid/100%), och inkluderat viss osäkerhet kring kunskapskrav (e-tjänst inom vården). Detta är information som direkt hör hemma i nästa steg (step_1_needs) som handlar om att specificera uppdragets innehåll och krav utöver roll/nivå/plats.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Inget regelbrott har inträffat. Information om startdatum och volym är tillåtet i detta steg om det inte direkt leder till en FKU-situation (vilket 1 år/heltid inte gör baserat på nuvarande kontext).",
+        "target_step": "step_1_needs",
+        "tone": "Helpful/Guiding",
+        "validation": "Begäran är inte orimlig. Kompetensnivå 5 (KN5) har noterats, men eftersom användaren inte har begärt en avropstid som kräver FKU (t.ex. >320 timmar/månad eller längre än 12 månader utan tydligt förlängningsbeslut), kan vi fortsätta till nästa steg. Dock måste Synthesizer vara beredd på att informera om FKU-kravet när tidsramar eller nivåer diskuteras mer ingående.",
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 75.0,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "resursuppdrag",
+          "upphandling"
+        ],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Lund",
+          "price_cap": null,
+          "region": "G",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Systemutvecklare/Systemintegratör",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 1760
+        },
+        "ghost_mode": true,
+        "has_warning": true,
+        "is_complete": false,
+        "missing_info": [
+          "prismodell",
+          "utvarderingsmodell"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_1_needs",
+        "taxonomy_branches": [
+          "FINANCIALS",
+          "GOVERNANCE"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Åh, okej. Härligt! Låt oss se...\n\n1.  Vi vill nog köra på **Löpande räkning med takpris**. Det känns tryggt för oss.\n2.  Hmm, hur funkar det där med utvärderingen? Jag är inte så insatt i det. Kanske **Pris 70% / Kvalitet 30%** låter rimligt, med tanke på att vi behöver en senior person. Jag vill ju ändå ha den bästa personen för jobbet.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Det var bra, Lisa. De valen förflyttar oss framåt i avropsprocessen.\n\n1.  **Prismodell:** Valet **Löpande räkning med takpris** är noterat. Detta ger er en övre gräns för kostnaden, vilket är särskilt lämpligt då ni har en uppskattad tidsåtgång på 1760 timmar.\n2.  **Utvärderingsmodell:** Modellen **Pris 70% / Kvalitet 30%** är bekräftad. Denna fördelning är vanlig när kompetensnivån är hög (Nivå 5) och ni vill säkerställa att ni får den bäst lämpade leverantören.\n\nFör att slutföra strategin behöver vi nu definiera de sista parametrarna kopplade till dessa val.\n\n1.  **Vad är det faktiska takpriset (maxbudget) i SEK** som ni sätter för detta uppdrag?\n2.  **Vilka konkreta kriterier** ska ingå i de 30% Kvalitet? Ska ni till exempel utvärdera specifik erfarenhet i CV:t, referenser, eller genomföra en muntlig intervju?\n\n***",
+      "turn": 4,
+      "reasoning": {
+        "conclusion": "Användaren har valt avropsform 'Löpande räkning med takpris' och specificerat utvärderingsfördelningen 'Pris 70% / Kvalitet 30%'. Dessa val tillhör process-steg step_4_strategy (Avropsform) och step_3_volume (Pris/Volym). Eftersom kontexten indikerar att vi nu hanterar strategiska val för avropet, flyttas fokus till step_4_strategy. Inga direkta regler i kontexten motsäger dessa val.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Valet av avropsform (Löpande räkning med takpris) stämmer överens med att tillgängliga ramavtal (se 3_volume_RULE_PRIMARY_e1e441a5.md) hanterar takpris. Utvärderingsvikterna (70/30) är ett strategiskt beslut som hanteras i step_4_strategy.",
+        "target_step": "step_1_needs",
+        "tone": "Informative",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 100.0,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Lund",
+          "price_cap": null,
+          "region": "G",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Systemutvecklare/Systemintegratör",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 1760
+        },
+        "ghost_mode": true,
+        "has_warning": false,
+        "is_complete": true,
+        "missing_info": [],
+        "resource_count": 1,
+        "set_active_process_step": "step_1_needs",
+        "taxonomy_branches": [
+          "FINANCIALS",
+          "STRATEGY"
+        ],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    }
+  ],
+  "final_state": {
+    "avrop_data": {
+      "anbudsomrade": null,
+      "avrop_typ": "FKU_RESURS",
+      "end_date": "2027-01-31",
+      "godkannandevillkor": null,
+      "hanterar_personuppgifter": null,
+      "location_text": "Lund",
+      "prismodell": "LOPANDE_MED_TAK",
+      "region": "G",
+      "resources": [
+        {
+          "antal": 1,
+          "id": "res_1",
+          "is_complete": true,
+          "kompetensomrade": null,
+          "level": 5,
+          "roll": "Systemutvecklare/Systemintegratör"
+        }
+      ],
+      "resultatbeskrivning": null,
+      "sakerhetsklassad": null,
+      "start_date": "2026-02-01",
+      "takpris": null,
+      "uppdragsbeskrivning": null,
+      "utvarderingsmodell": "PRIS_70_KVALITET_30",
+      "volume": 1760
+    },
+    "avrop_progress": {
+      "avrop_typ": "FKU_RESURS",
+      "completed_fields": 8,
+      "completion_percent": 100.0,
+      "constraint_violations": [],
+      "is_complete": true,
+      "missing_fields": [],
+      "total_fields": 8
+    },
+    "current_state": {
+      "confidence": 0.9,
+      "current_intent": "FACT",
+      "current_step": "step_1_needs",
+      "extracted_entities": {
+        "end_date": "2027-01-31",
+        "location": "Lund",
+        "price_cap": null,
+        "region": "G",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 5,
+            "quantity": 1,
+            "role": "Systemutvecklare/Systemintegratör",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1760
+      },
+      "missing_info": []
+    },
+    "message": "Det var bra, Lisa. De valen förflyttar oss framåt i avropsprocessen.\n\n1.  **Prismodell:** Valet **Löpande räkning med takpris** är noterat. Detta ger er en övre gräns för kostnaden, vilket är särskilt lämpligt då ni har en uppskattad tidsåtgång på 1760 timmar.\n2.  **Utvärderingsmodell:** Modellen **Pris 70% / Kvalitet 30%** är bekräftad. Denna fördelning är vanlig när kompetensnivån är hög (Nivå 5) och ni vill säkerställa att ni får den bäst lämpade leverantören.\n\nFör att slutföra strategin behöver vi nu definiera de sista parametrarna kopplade till dessa val.\n\n1.  **Vad är det faktiska takpriset (maxbudget) i SEK** som ni sätter för detta uppdrag?\n2.  **Vilka konkreta kriterier** ska ingå i de 30% Kvalitet? Ska ni till exempel utvärdera specifik erfarenhet i CV:t, referenser, eller genomföra en muntlig intervju?\n\n***",
+    "reasoning": {
+      "conclusion": "Användaren har valt avropsform 'Löpande räkning med takpris' och specificerat utvärderingsfördelningen 'Pris 70% / Kvalitet 30%'. Dessa val tillhör process-steg step_4_strategy (Avropsform) och step_3_volume (Pris/Volym). Eftersom kontexten indikerar att vi nu hanterar strategiska val för avropet, flyttas fokus till step_4_strategy. Inga direkta regler i kontexten motsäger dessa val.",
+      "conflicts": null,
+      "forced_strategy": null,
+      "policy": "Valet av avropsform (Löpande räkning med takpris) stämmer överens med att tillgängliga ramavtal (se 3_volume_RULE_PRIMARY_e1e441a5.md) hanterar takpris. Utvärderingsvikterna (70/30) är ett strategiskt beslut som hanteras i step_4_strategy.",
+      "target_step": "step_1_needs",
+      "tone": "Informative",
+      "validation": null,
+      "validation_warnings": []
+    },
+    "session_state": {
+      "confidence": 0.9,
+      "current_intent": "FACT",
+      "current_step": "step_1_needs",
+      "extracted_entities": {
+        "end_date": "2027-01-31",
+        "location": "Lund",
+        "price_cap": null,
+        "region": "G",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 5,
+            "quantity": 1,
+            "role": "Systemutvecklare/Systemintegratör",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1760
+      },
+      "missing_info": []
+    },
+    "sources": [
+      "3_volume_RULE_PRIMARY_e1e441a5.md"
+    ],
+    "ui_directives": {
+      "avrop_typ": "FKU_RESURS",
+      "completion_percent": 100.0,
+      "constraint_violations": [],
+      "current_intent": "FACT",
+      "detected_topics": [],
+      "entity_summary": {
+        "end_date": "2027-01-31",
+        "location": "Lund",
+        "price_cap": null,
+        "region": "G",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 5,
+            "quantity": 1,
+            "role": "Systemutvecklare/Systemintegratör",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1760
+      },
+      "ghost_mode": true,
+      "has_warning": false,
+      "is_complete": true,
+      "missing_info": [],
+      "resource_count": 1,
+      "set_active_process_step": "step_1_needs",
+      "taxonomy_branches": [
+        "FINANCIALS",
+        "STRATEGY"
+      ],
+      "tone": "Informative",
+      "update_sticky_header": "Steg 1: Beskriv Behov"
+    }
+  },
+  "summary": {
+    "total_turns": 4,
+    "final_resources": 1,
+    "final_step": "unknown",
+    "final_intent": "FACT"
+  }
+}

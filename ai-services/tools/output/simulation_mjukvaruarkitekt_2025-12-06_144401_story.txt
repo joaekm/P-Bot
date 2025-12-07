@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Karin Svenssons berättelse
+║  Produktägare E-klient på Inera AB
+║  
+║  Samtal: 16 meddelanden
+║  Datum: 2025-12-06 14:44
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag snackade med den där P-Bot igår på Adda för att försöka få tag på en arkitekt till E-klient. Jag var ju lite skeptisk, ärligt talat. AI, liksom... men vi är ju så underbemannade nu att jag tänkte att jag måste ge det ett försök. Hoppades väl innerst inne att det skulle vara smidigt och snabbt, få in någon som kan köra på direkt utan en massa krångel. Vi har ju deadlines som skriker och jag har inte tid att leka barnvakt med en junior.
+
+I början gick det väl okej. Ganska basic frågor om kompetensnivå och sånt. Men sen började det... alltså, det var ju otroligt detaljerat! Jag förstår ju att de behöver info för att matcha rätt konsult, men det kändes som att jag fick svara på hundra frågor. Det där med ramavtalets slutdatum var ju bra att P-Bot flaggade, det hade jag missat. Men sen kom det ju en lavin av frågor om prismodeller och utvärderingskriterier. Alltså, jag vill ju bara ha en bra utvecklare, inte doktorera i upphandling! Jag fick ju panik när P-Bot ville börja vikta CV och referenser i procent, det kändes så byråkratiskt.
+
+En sak jag faktiskt gillade var när P-Bot pushade på kring specifika certifieringar och erfarenheter inom klienthantering. Det visade att den faktiskt förstod vad vi behövde, att den inte bara spottade ur sig standardfrågor. Det gav mig lite hopp. Och sen att den kom ihåg allt jag sagt och sammanfattade det på ett tydligt sätt hela tiden. Det var imponerande. Men herregud vad lång tid det tog! Jag satt ju säkert en timme och svarade på frågor.
+
+När det äntligen var klart kände jag mig helt slutkörd, men samtidigt lite lättad. Jag vet ju inte om vi kommer att få tag på rätt person, men jag känner att jag i alla fall gjort mitt. Nu är det upp till P-Bot att leverera. Om jag skulle använda det igen? Ja, antagligen. Vi har ju inget val, egentligen. Men jag hoppas verkligen att det går snabbare nästa gång. Och att jag har bättre koll på alla detaljer redan från början. Annars kommer jag att gå i taket!"

@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Karin Svenssons berättelse
+║  Produktägare E-klient på Inera AB
+║  
+║  Samtal: 8 meddelanden
+║  Datum: 2025-12-05 13:29
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag snackade med den där P-Bot på Adda igår, den där AI-assistenten för avrop. Herregud, vilken grej… Jag gick in med ganska höga förväntningar, faktiskt. Tänkte att det här skulle bli smidigt, liksom. Att jag bara skulle mata in lite info och *poff* så skulle jag ha ett avrop klart. Vi är ju så sjukt underbemannade just nu och deadlinen för nästa release av E-klient flåsar oss i nacken, så jag behövde verkligen en senior utvecklare ASAP.
+
+Först lät det ju bra. Jag förklarade vad jag behövde, och P-Bot fattade direkt att det var en nivå 5-roll vi snackade om och att det krävdes en FKU. Det var ju liksom basic, men ändå, ett plus att den inte behövde den förklarat för sig. Men sen började det. Fråga efter fråga, och jag kände hur stressen började krypa. Varje liten grej skulle liksom vändas och vridas på. Okej, jag förstår ju att den behöver info, men herregud, kunde den inte ha ställt alla frågor på en gång istället för i små etapper? Och varför prata i fetstil hela tiden?! "Kompetensnivå 5", "Förnyad Konkurrensutsättning (FKU)" - det kändes som att jag blev matad med byråkratiska termer istället för att faktiskt få hjälp.
+
+Det värsta var när den började gräva i detaljerna kring timmarna. Jag förklarade ju tydligt att det var 1800 timmar per år, men den var tvungen att dubbelkolla om det verkligen var *hela* perioden. Jag tänkte "Snälla nån, fatta!". Men jag bet ihop och förklarade igen. Jag ville ju bara få det här överstökat. Sedan den här grejen med utvärderingsmodellen. Jo, jag vet att 70/30 brukar funka, men det är ju liksom inte mejslat i sten! Kändes som att jag behövde argumentera för något som redan var standard.
+
+När den till slut sa att "underlaget är nu komplett" så kände jag mest... lättnad. Inte direkt lycka, mest bara att det var över. Vet du vad, jag är inte säker på om jag kommer använda P-Bot igen. Visst, den samlade ihop all information, men hela processen kändes bara så himla... opersonlig och ineffektiv. Jag menar, jag hade kunnat få samma resultat genom att ringa Adda direkt och prata med en människa. Det hade kanske tagit lite längre tid, men jag hade förmodligen sluppit den här känslan av att prata med en trögrostad robot. Och viktigast av allt - det hade nog blivit mindre stressigt! Jag behöver ju en utvecklare NU, inte om en vecka när AI:n har fattat vad jag menar. Nej, nästa gång ringer jag direkt, det är garanterat värt det."

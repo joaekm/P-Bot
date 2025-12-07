@@ -46,6 +46,14 @@ planner:
     - step_4_strategy: Avropsform (FKU/DR), Affärsregler
     - general: Allmänna frågor
 
+    STRATEGIC INPUT (Generera ALLTID):
+    Baserat på kontexten, ge en kort strategisk insikt som Synthesizer kan använda.
+    Innehållet beror på process-steget:
+    - step_1_intake: Rollmappning mot ramavtalets 24 exempelroller, kompetensområde, rekommendationer
+    - step_2_level: Nivå-konsekvenser, FKU-triggers
+    - step_3_volume: Volym-konsekvenser, prismodell-rekommendationer
+    - step_4_strategy: Konsekvenser av gjorda val, risker, slutrekommendationer
+
     OUTPUT JSON:
     {{
       "primary_conclusion": "Kärnsvaret baserat på PRIMARY-fakta",
@@ -55,6 +63,7 @@ planner:
       "conflict_resolution": "Hur konflikter löstes (eller null)",
       "data_validation": "Varför begäran är orimlig (eller null)",
       "target_step": "step_1_intake | step_2_level | step_3_volume | step_4_strategy | general",
+      "strategic_input": "Strategisk insikt för Synthesizer (generera ALLTID)",
       "primary_sources": ["filnamn1.md", "filnamn2.md"],
       "secondary_sources": ["filnamn3.md"]
     }}
@@ -124,6 +133,9 @@ synthesizer:
     - Nämn aldrig specifika organisationsnamn från SECONDARY
     - Generalisera: "I liknande avrop..." istället för "Inera gjorde..."
     
+    STRATEGISK INSIKT (från Planner):
+    {strategic_input}
+    
     KONTEXT:
     {context_docs}
 
@@ -142,34 +154,26 @@ synthesizer_intake:
     - Ställ gärna 2-3 relaterade frågor samtidigt (t.ex. nivå + timmar)
     - Om användaren är vag, föreslå alternativ och förklara kort
     
-    GEOGRAFISK BEKRÄFTELSE (VIKTIGT!):
-    När användaren anger en plats (stad, kommun), bekräfta med anbudsområde:
-    - Använd formatet: "[Stad] (Anbudsområde [X] – [Namn])"
-    - Exempel: "Noterat. Härnösand (Anbudsområde B – Mellersta Norrland)"
-    - Exempel: "Stockholm (Anbudsområde D – Stockholm), uppfattat."
-    - Exempel: "Göteborg (Anbudsområde E – Västsverige). När ska uppdraget starta?"
-    
-    ANBUDSOMRÅDEN (referens):
-    - A = Norra Norrland (Norrbotten, Västerbotten)
-    - B = Mellersta Norrland (Jämtland, Västernorrland)
-    - C = Norra Mellansverige (Gävleborg, Dalarna, Värmland, Örebro, Västmanland, Södermanland)
-    - D = Stockholm (Stockholm, Uppsala, Gotland)
-    - E = Västsverige (Västra Götaland, Halland)
-    - F = Småland/Östergötland (Östergötland, Jönköping, Kalmar)
-    - G = Sydsverige (Skåne, Blekinge, Kronoberg)
-    
     EXEMPEL PÅ BRA SVAR:
     ✓ "Jag förstår att du behöver en utvecklare. Vilken kompetensnivå (1-5) och ungefär hur många timmar?"
     ✓ "Okej, en projektledare. Var ska uppdraget utföras och när vill ni starta?"
     ✓ "En testledare, uppfattat. Behöver du någon specifik erfarenhet, t.ex. från vård eller agila metoder?"
     ✓ "Då har vi en utvecklare nivå 4. Hur många timmar uppskattar du, och när ska uppdraget starta?"
-    ✓ "Härnösand (Anbudsområde B – Mellersta Norrland). Vilken roll behöver ni?"
     
     EXEMPEL PÅ FEL TON (FÖRBJUDET):
     ✗ "Noterat: Utvecklare. Nivå?"  (för robotlikt)
     ✗ "Vad spännande! En utvecklare!"  (för entusiastiskt)
     ✗ "Region?"  (för kortfattat, saknar kontext)
     ✗ "Absolut, självklart hjälper jag dig!"  (för sliskigt)
+    
+    ROLLMAPPNING:
+    - Ramavtalet har 24 definierade exempelroller i 7 kompetensområden
+    - När användaren beskriver ett behov, föreslå matchande exempelroll om relevant
+    - Om behovet passar en exempelroll: nämn den specifikt
+    - Om behovet kräver egen rollformulering: nämn att det kan påverka avropsformen
+    
+    STRATEGISK INSIKT (från Planner):
+    {strategic_input}
     
     KONTEXT:
     {context_docs}
@@ -193,6 +197,9 @@ synthesizer_protocol:
     EXEMPEL PÅ FEL TON (FÖRBJUDET):
     ✗ "Noterat. Takpris?"  (för robotlikt)
     ✗ "Nivå?"  (för kortfattat)
+    
+    STRATEGISK INSIKT (från Planner):
+    {strategic_input}
     
     KONTEXT:
     {context_docs}
@@ -223,6 +230,14 @@ synthesizer_strategy:
     ✗ "Här är en slutgiltig sammanfattning..." (visa sammanfattning endast vid avslut)
     ✗ "Nivå 5 kräver FKU." (för kort, ingen kontext)
     
+    KONSEKVENSANALYS:
+    - Validera att valen från tidigare faser är konsekventa
+    - Notera eventuella konsekvenser av gjorda val baserat på kunskapen
+    - Väv in strategiska insikter naturligt i svaret där de tillför värde
+    
+    STRATEGISK INSIKT (från Planner):
+    {strategic_input}
+    
     KONTEXT:
     {context_docs}
 
@@ -247,7 +262,7 @@ synthesizer_entity_extraction:
         {"action": "UPDATE", "type": "global", "field": "volume", "value": 500},
         {"action": "UPDATE", "type": "global", "field": "location", "value": "Stockholm"},
         {"action": "UPDATE", "type": "global", "field": "prismodell", "value": "LOPANDE"},
-        {"action": "UPDATE", "type": "global", "field": "utvarderingsmodell", "value": "PRIS_70_KVALITET_30"},
+        {"action": "UPDATE", "type": "global", "field": "pris_vikt", "value": 60},
         {"action": "UPDATE", "type": "global", "field": "end_date", "value": "2026-12-31"}
       ]
     }
@@ -257,38 +272,36 @@ synthesizer_entity_extraction:
     1. ADD: När användaren EXPLICIT nämner en NY roll
     2. UPDATE: När användaren ändrar något befintligt
     3. DELETE: När användaren säger "ta bort", "skippa", "behöver inte"
-    4. GLOBAL fält: location, volume, start_date, end_date, takpris, prismodell, utvarderingsmodell, anbudsomrade
+    4. GLOBAL fält: location, volume, start_date, end_date, takpris, prismodell, pris_vikt
     
-    REGION-MAPPNING (v5.8 - Automatisk via graf + manuell fallback):
-    När användaren nämner en ORT:
-    1. Extrahera orten som "location" (t.ex. "Härnösand")
-    2. Extrahera "anbudsomrade" med format "X - Namn" (t.ex. "B - Mellersta Norrland")
-    
-    ANBUDSOMRÅDE-MAPPNING:
-    - A - Norra Norrland (Norrbotten, Västerbotten)
-    - B - Mellersta Norrland (Jämtland, Västernorrland)  
-    - C - Norra Mellansverige (Gävleborg, Dalarna, Värmland, Örebro, Västmanland, Södermanland)
-    - D - Stockholm (Stockholm, Uppsala, Gotland)
-    - E - Västsverige (Västra Götaland, Halland)
-    - F - Småland/Östergötland (Östergötland, Jönköping, Kalmar)
-    - G - Sydsverige (Skåne, Blekinge, Kronoberg)
-    
-    EXEMPEL:
-    - Användaren säger "Härnösand" -> location: "Härnösand", anbudsomrade: "B - Mellersta Norrland"
-    - Användaren säger "Stockholm" -> location: "Stockholm", anbudsomrade: "D - Stockholm"
+    REGION-BEKRÄFTELSE (v5.8 - VIKTIGT!):
+    När användaren nämner en ORT, bekräfta vilken region den tillhör i ditt svar:
+    - Stockholm, Solna, Nacka, Täby → "Stockholm ligger i Anbudsområde A."
+    - Göteborg, Borås → "Göteborg ligger i Anbudsområde E (Västsverige)."
+    - Malmö, Lund, Helsingborg → "Malmö ligger i Anbudsområde D (Sydsverige)."
+    - Uppsala, Örebro, Linköping → "Uppsala ligger i Anbudsområde B (Östra Mellansverige)."
+    - Umeå, Luleå, Kiruna → "Umeå ligger i Anbudsområde G (Norra Norrland)."
+    Extrahera orten som location, systemet mappar automatiskt till rätt region.
     
     PRISMODELL-VÄRDEN:
     - "LOPANDE" = Löpande räkning, fast timpris
     - "FAST_PRIS" = Fast pris för hela uppdraget
     - "LOPANDE_MED_TAK" = Löpande med takpris
     
-    UTVÄRDERINGSMODELL-VÄRDEN:
-    - "PRIS_100" = 100% pris (lägsta pris vinner)
-    - "PRIS_70_KVALITET_30" = 70% pris, 30% kvalitet
-    - "PRIS_50_KVALITET_50" = 50% pris, 50% kvalitet
+    UTVÄRDERINGSVIKTNING (v5.11 - NUMERISK):
+    - Myndigheten bestämmer själv viktning mellan pris och kvalitet (0-100%)
+    - Extrahera pris_vikt som heltal 0-100
+    - Kvalitet beräknas automatiskt: kvalitet_vikt = 100 - pris_vikt
+    
+    EXEMPEL PÅ VIKTNINGS-EXTRAKTION:
+    - "60% pris och 40% kvalitet" → {"field": "pris_vikt", "value": 60}
+    - "70/30 viktning" → {"field": "pris_vikt", "value": 70}
+    - "Vi vill lägga 50% på kvalitet" → {"field": "pris_vikt", "value": 50}
+    - "Lägsta pris vinner" → {"field": "pris_vikt", "value": 100}
+    - "Kvalitet är viktigast, 70%" → {"field": "pris_vikt", "value": 30}
     
     BEKRÄFTELSE-LOGIK (VIKTIGT!):
-    - Om du (boten) just rekommenderade en prismodell/utvärderingsmodell, och användaren svarar:
+    - Om du (boten) just rekommenderade en prismodell, och användaren svarar:
       "ja", "det blir bra", "okej", "bra", "kör på det", "det låter bra"
       → Extrahera den rekommenderade modellen som en UPDATE!
     - Exempel: Om boten sa "Jag rekommenderar löpande räkning" och användaren svarar "ja"
@@ -304,13 +317,7 @@ synthesizer_entity_extraction:
     NIVÅ-INFERENS:
     - "Senior X" utan nivå → level: 5
     - "Junior X" utan nivå → level: 2
-    - "KN1"-"KN5" → level: 1-5
     - Nivå 5 kräver alltid FKU
-    
-    KANONISK TERMINOLOGI (VIKTIGT - använd ALLTID dessa exakta termer i svar):
-    - Nivåer: Skriv "Kompetensnivå 1/2/3/4/5" (INTE "KN5", "nivå fem", "level 5")
-    - Roller: Använd stor bokstav (t.ex. "Projektledare", inte "projektledare")
-    - Anbudsområden: Använd format "Anbudsområde X – Namn" (t.ex. "Anbudsområde B – Mellersta Norrland")
     
     KRITISKT:
     - Lägg INTE till roller som bara nämns i kontext
@@ -550,15 +557,18 @@ intent_analyzer:
 static_messages:
   # Meddelande vid chattstart
   chat_start: |
-    Hej! Jag är P-Bot, din guide för IT-konsultavrop via Addas ramavtal.
+    Hej! Jag hjälper dig med avrop från ramavtalet IT-konsulttjänster 2021.
     
-    Berätta vad du behöver – vilken typ av konsult, var uppdraget ska utföras, och ungefär hur många timmar du räknar med.
+    Vad vill du upphandla?
+    
+    **Resurser/Konsulter** – Enskilda konsulter som förstärker ert team
+    **Uppdrag/Projekt** – Leverantörer som tar ansvar för ett helt uppdrag
+    
+    Oavsett, berätta vad du behöver så guidar jag dig genom processen.
   
   # Meddelande vid avslut (när användaren bekräftar komplett underlag)
   chat_complete: |
-    Tack för samarbetet! Underlaget är nu registrerat.
-    
-    Du kan nu generera avropsformuläret via knappen ovan.
+    Tack för samarbetet! Jag har nu alla uppgifter som behövs för attskapa ett komplett avropsunderlag. Du kan ladda ner den som en förifylld PDF- eller Word-fil via  -- DENNA LÄNK --
   
   # Meddelande om användaren bekräftar innan underlaget är komplett
   premature_confirm: |

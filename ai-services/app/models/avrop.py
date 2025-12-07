@@ -57,11 +57,9 @@ class Prismodell(str, Enum):
     LOPANDE_MED_TAK = "LOPANDE_MED_TAK"  # Löpande med takpris
 
 
-class Utvarderingsmodell(str, Enum):
-    """Evaluation models for FKU."""
-    PRIS_100 = "PRIS_100"         # 100% pris
-    PRIS_70_KVALITET_30 = "PRIS_70_KVALITET_30"  # 70% pris, 30% kvalitet
-    PRIS_50_KVALITET_50 = "PRIS_50_KVALITET_50"  # 50% pris, 50% kvalitet
+# Utvarderingsmodell enum REMOVED in v5.11
+# Replaced with numeric pris_vikt/kvalitet_vikt fields for flexibility
+# Myndigheten bestämmer själv viktningen (t.ex. 60/40, 70/30, etc.)
 
 
 # =============================================================================
@@ -144,8 +142,21 @@ class AvropsData(BaseModel):
     prismodell: Optional[Prismodell] = Field(default=None, description="Pricing model")
     takpris: Optional[int] = Field(default=None, description="Price cap per hour (kr)")
     
-    # Evaluation (for FKU)
-    utvarderingsmodell: Optional[Utvarderingsmodell] = Field(default=None)
+    # Evaluation (for FKU) - v5.11: Numeric weights instead of enum
+    # Myndigheten bestämmer själv viktningen (t.ex. 60/40, 70/30, etc.)
+    pris_vikt: Optional[int] = Field(default=None, ge=0, le=100, description="Price weight in evaluation (0-100%)")
+    kvalitet_vikt: Optional[int] = Field(default=None, ge=0, le=100, description="Quality weight in evaluation (0-100%)")
+    
+    @field_validator('kvalitet_vikt', mode='after')
+    @classmethod
+    def validate_weights_sum(cls, v, info):
+        """Validate that pris_vikt + kvalitet_vikt = 100 when both are set."""
+        pris_vikt = info.data.get('pris_vikt')
+        if v is not None and pris_vikt is not None:
+            if pris_vikt + v != 100:
+                # Auto-correct kvalitet_vikt to make sum = 100
+                return 100 - pris_vikt
+        return v
     
     # Descriptions (for FKU)
     uppdragsbeskrivning: Optional[str] = Field(default=None, description="Assignment description")
@@ -208,7 +219,7 @@ REQUIRED_FIELDS: Dict[AvropsTyp, Dict[str, Any]] = {
         }
     },
     AvropsTyp.FKU_RESURS: {
-        "global": ["start_date", "end_date", "volume", "prismodell", "utvarderingsmodell"],
+        "global": ["start_date", "end_date", "volume", "prismodell", "pris_vikt"],
         "per_resource": ["roll", "level"],
         "constraints": {
             "level_max": 5,

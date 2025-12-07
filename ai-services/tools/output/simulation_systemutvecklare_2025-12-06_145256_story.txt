@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Lisa Anderssons berättelse
+║  Utvecklingsledare på Inera AB
+║  
+║  Samtal: 8 meddelanden
+║  Datum: 2025-12-06 14:53
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Alltså, du vet ju att jag blivit utvecklingsledare nu, vilket är superkul, men också… läskigt. Förra veckan sa chefen att jag skulle göra ett avrop på en senior systemutvecklare till E-klient-tjänsten, helt själv! Tidigare har jag ju alltid kunnat bolla med inköpsavdelningen, men nu skulle jag alltså använda den här AI-assistenten, P-Bot på Adda. Jag var sjukt nervös, jag menar, tänk om jag gör fel och vi får nån helt inkompetent snubbe?! Jag ville ju framför allt förstå processen från början till slut och hitta nån riktigt bra, gärna en mentor-typ som kan hjälpa de andra utvecklarna också.
+
+Jag loggade in och började chatta med P-Bot. Det var lite stelt i början, du vet, som att prata med en robot… Men P-Bot var faktiskt rätt bra på att guida mig genom stegen. Den frågade om rollen, kompetensnivån och platsen. Det kändes bra, strukturerat. Sedan kom de lite knepigare frågorna om tidsram och lagstiftning. Jag svarade så gott jag kunde, men jag var lite osäker på det där med regelverken. Jag erkände det också, och P-Bot verkade inte döma mig för det. Det var faktiskt lite skönt.
+
+Det var vid frågan om prismodell och utvärdering som jag kände att "shit, det här är på riktigt". Jag hade ju ingen aning om vad som var bäst! Jag valde "Löpande räkning med takpris" mest för att det lät säkert, och sedan tyckte jag "Pris 70% / Kvalitet 30%" lät rimligt. Det viktiga var ju ändå att få tag i en riktigt bra utvecklare. P-Bot bekräftade bara mina val utan att egentligen förklara varför de var bra eller dåliga. Det hade jag önskat. Jag ville ju inte bara välja, jag ville *förstå*!
+
+Det som verkligen stressade mig var när P-Bot frågade om takpriset. Alltså, hur ska jag veta det?! Jag har ju ingen aning om vad en senior systemutvecklare ska kosta per timme! Jag fick panik och tänkte att jag skulle googla runt lite och kolla med några kollegor innan jag svarar. Och sen kom frågan om kvalitetskriterier. Jag insåg att jag inte hade tänkt så långt. Hur skulle jag bedöma kvaliteten? CV:t? Intervju? Referenser? Allt kändes plötsligt jättekrångligt och jag blev orolig för att göra fel.
+
+När samtalet var över kände jag mig både lättad och stressad. Lättad för att jag hade kommit en bit på vägen, men stressad för att jag fortfarande hade en massa frågor och funderingar. Jag vet inte riktigt om jag skulle använda P-Bot igen. Det var bra för att strukturera processen, men det saknades någon form av vägledning och förklaringar, speciellt kring pris och kvalitetsbedömning. Jag tror jag behöver prata med inköpsavdelningen i alla fall, för att få lite mer kött på benen. Man kan inte bara förlita sig på en robot, även om den är ganska smart. Jag vill ju inte bara göra ett avrop, jag vill göra ett *bra* avrop!

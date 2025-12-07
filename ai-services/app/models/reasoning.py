@@ -1,6 +1,8 @@
 """
-Reasoning Models for Adda Search Engine v5.2
+Reasoning Models for Adda Search Engine v5.15
 Output models from the Planner (Logic Layer).
+
+v5.15: Added strategic_input field for fas 1/4 insights
 """
 from pydantic import BaseModel, Field
 from typing import List, Optional, Literal
@@ -64,6 +66,12 @@ class ReasoningPlan(BaseModel):
         description="Strategi som tvingats av regelvalidering (t.ex. 'FKU' vid >320h)"
     )
     
+    # NEW v5.15: Strategic input for Synthesizer (generated ALWAYS)
+    strategic_input: Optional[str] = Field(
+        default=None,
+        description="Strategiska insikter från Planner (genereras ALLTID)"
+    )
+    
     # Derived step for persona selection
     target_step: str = Field(
         default="general",
@@ -100,6 +108,10 @@ class ReasoningPlan(BaseModel):
     def has_forced_strategy(self) -> bool:
         """Check if a strategy was forced by validation."""
         return self.forced_strategy is not None
+    
+    def has_strategic_input(self) -> bool:
+        """Check if Planner provided strategic insights."""
+        return self.strategic_input is not None and len(self.strategic_input) > 0
 
 
 class ReasoningContext(BaseModel):

@@ -1,0 +1,60 @@
+# Avrop: Servicedesk-team (8 tekniker)
+
+## Organisation
+Skatteverket, Solna
+
+## Behov
+Team om 8 IT-tekniker för att bemanna servicedesk under övergångsperiod.
+Nuvarande leverantör avslutas och ny upphandling pågår - detta är en bryggningslösning.
+Teamet ska hantera första linjens support för 10 000 användare.
+
+## Roller och Nivåer
+- 2 st Teknikstöd, Nivå 3 (teamledare, 40 tim/vecka vardera)
+- 6 st Teknikstöd, Nivå 2 (tekniker, 40 tim/vecka vardera)
+
+## Omfattning
+- 8 konsulter x 40 tim/vecka x 26 veckor = 8 320 timmar totalt
+- Kontraktsvärde: 5 824 000 SEK
+- Avropsområde D (Stockholm)
+- Takpris Nivå 3: 850 kr/timme
+- Takpris Nivå 2: 650 kr/timme
+
+## Arbetstider
+- Servicedesk öppet: 07:00-18:00 vardagar
+- Jourtid kvällar: 18:00-22:00 (2 tekniker)
+- OB-ersättning enligt ramavtal för obekväm tid
+
+## Teknisk miljö
+- Windows 11 och Microsoft 365
+- ServiceNow för ärendehantering
+- Cisco telefoni
+- Azure AD och Intune
+- SAP-integration
+
+## Specifika krav
+- Erfarenhet av storskalig servicedesk (>5000 användare)
+- ServiceNow-erfarenhet obligatoriskt
+- ITIL-certifiering meriterande
+- Flytande svenska i tal och skrift
+- Säkerhetsprövning krävs (myndighetsdata)
+
+## Lokalisering
+- Arbete på plats i Skatteverkets lokaler i Solna
+- Ingen möjlighet till distansarbete
+
+## Kontraktstid
+- Start: 2026-02-01
+- Slut: 2026-07-31
+- Option: 3 månader förlängning
+
+## Utvärdering
+- 70% pris, 30% kvalitet
+- Gruppintervju med teamledarna (30 min)
+- Referenstagning från liknande uppdrag
+
+## Särskilda villkor
+- Samma leverantör för alla 8 konsulter
+- Leverantören ansvarar för schemaläggning
+- Krav på backup vid sjukdom
+
+

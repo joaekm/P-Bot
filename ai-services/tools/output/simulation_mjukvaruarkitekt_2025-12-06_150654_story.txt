@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Karin Svenssons berättelse
+║  Produktägare E-klient på Inera AB
+║  
+║  Samtal: 12 meddelanden
+║  Datum: 2025-12-06 15:07
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag måste bara berätta om det här samtalet jag hade med P-Bot igår! Jag var ju tvungen att göra ett avrop på en senior utvecklare via Adda, du vet, för E-klienten. Deadline närmar sig med stormsteg, och teamet är ju så underbemannat just nu att det är löjligt. Så jag tänkte, 'perfekt, en AI-assistent, det här kommer gå snabbt och smidigt'. Jag hoppades verkligen att det skulle vara en rak och tydlig process, jag har verkligen inte tid med krångel just nu.
+
+I början var det faktiskt helt okej. P-Bot verkade ha koll på läget, frågade om kompetensnivå och tid, det flöt på. Men sen, efter att jag svarat på allt, kom det här snacket om Förnyad Konkurrensutsättning, FKU. Suck! Jag vet ju att det är obligatoriskt för KN5, men det är ju alltid så omständligt! Och sen började frågorna hagla – volym, takpris, viktning... Det kändes som att det aldrig skulle ta slut. Jag var tvungen att hålla tungan rätt i mun så att jag inte skulle råka säga något fel, eller missa någon viktig detalj. Jag började bli stressad.
+
+En sak som verkligen irriterade mig var att P-Bot hela tiden sammanfattade allt. Jag fattar att det är meningen att det ska vara tydligt, men hallå, jag är inte dum! Jag kan komma ihåg att vi behöver en utvecklare på KN5 som ska jobba 1200 timmar. Behövde den verkligen upprepa det tio gånger? Det kändes bara som att det tog onödigt lång tid. Och just den där "Regelkontroll Slutförd" sektionen?! Okej, tack, jag förstår att alla kritiska parametrar är fastställda. Jag behöver inte en robot som berättar det för mig.
+
+Men alltså, på ett sätt var det också bra. När den till slut, efter en evighet, gjorde den där slutgiltiga sammanfattningen i tabellform, då kände jag mig faktiskt lite lugnare. Då kunde jag verkligen dubbelkolla allt och vara säker på att det stämde. Jag menar, det hade ju varit katastrof om vi hade missat något viktigt. Så det var väl värt den extra tiden ändå.
+
+Skulle jag använda P-Bot igen? Kanske. Jag vet inte riktigt. Det var smidigt på ett sätt, men också väldigt... opersonligt. Jag saknade att kunna bolla idéer och kanske komma fram till en snabbare lösning genom att improvisera lite. Men å andra sidan, nu har jag ju i alla fall ett underlag som är korrekt ifyllt, och det är ju en bra start. Så jag antar att jag får ge P-Bot en godkänt, om än ett motvilligt sådant. Nu hoppas jag bara att FKU-processen går snabbt och att vi hittar en bra konsult, annars har allt det här varit helt bortkastat."

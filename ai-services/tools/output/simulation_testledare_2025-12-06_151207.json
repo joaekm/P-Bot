@@ -1,0 +1,601 @@
+{
+  "timestamp": "2025-12-06T15:12:07.472589",
+  "scenario": {
+    "filename": "scenario_testledare.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/test_data/scenarios/scenario_testledare.txt"
+  },
+  "persona": {
+    "name": "Anna Nilsson",
+    "title": "Projektledare",
+    "organization": "Region Skåne",
+    "personality": "Anna är strukturerad och kvalitetsmedveten. Hon har lett många projekt men detta är det största hittills. Hon är lite stressad över tidsplanen och vill säkerställa att testningen inte blir en flaskhals.",
+    "knowledge_level": "- Expert på projektledning - Grundläggande förståelse för test - Medelhög kunskap om ramavtal",
+    "communication_style": "- Professionell och strukturerad - Ställer frågor om process och tidplan - Vill ha tydliga leveranser - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Projektet är redan försenat",
+      "Tidigare testledare slutade mitt i projektet",
+      "Budget är begränsad"
+    ],
+    "goals": [
+      "Hitta en erfaren testledare snabbt",
+      "Förstå hur nivåkraven fungerar",
+      "Säkerställa att konsulten har rätt erfarenhet"
+    ],
+    "background": "Anna har arbetat i Region Skåne i 15 år och leder nu implementationen av ett nytt journalsystem. Projektet är kritiskt för regionens digitalisering.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Anna Nilsson och jobbar som Projektledare på Region Skåne. Jag behöver hjälp med ett avrop. Vi ska hitta en erfaren testledare snabbt.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Jag förstår att ni snabbt behöver hitta en erfaren Testledare för uppdrag inom Region Skåne. Det är noterat.\n\nFör att jag ska kunna gå vidare med behovsinsamlingen, skulle du kunna specificera följande:\n\n1.  **Kompetensnivå:** Vilken kompetensnivå (1–5) söker ni? (En erfaren testledare brukar ligga på nivå 4 eller 5.)\n2.  **Volym och Start:** Hur många timmar eller månader uppskattar ni att uppdraget omfattar, och vilket är det tidigaste startdatumet ni ser framför er?\n3.  **Specifik Erfarenhet:** Behöver personen ha erfarenhet av just vårdmiljö/offentlig sektor, eller någon specifik typ av testning, till exempel systemtestning eller integrationstestning?",
+      "turn": 1,
+      "reasoning": {
+        "conclusion": "Användaren har presenterat sig, sin organisation (Region Skåne) och sitt initiala behov (erfaren testledare för snabbt avrop). Detta matchar initialfasen för behovsinsamling (step_1_intake). Vi saknar information om exakt kompetensnivå, volym/tid och avropsform.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Inga specifika regler (RULES) eller strikta policys har triggats ännu, då ingen volym eller nivå specificerats.",
+        "target_step": "step_1_intake",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "DR_RESURS",
+        "completion_percent": 25.0,
+        "constraint_violations": [],
+        "current_intent": "INSPIRATION",
+        "detected_topics": [],
+        "entity_summary": {
+          "end_date": null,
+          "location": null,
+          "price_cap": null,
+          "region": null,
+          "resources": [
+            {
+              "id": "res_1",
+              "level": null,
+              "quantity": 1,
+              "role": "Testledare",
+              "status": "PENDING"
+            }
+          ],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "start_date",
+          "end_date",
+          "volume",
+          "region",
+          "level för Testledare",
+          "kompetensomrade för Testledare"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [
+          "ROLES",
+          "STRATEGY"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi söker en testledare på **nivå 4**. Startdatum är **2026-02-01** och omfattningen är 80% av heltid i 12 månader, med option på ytterligare 12 månader. Personen behöver ha erfarenhet från **hälso- och sjukvård**, det är ett krav.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Det är utmärkt, Anna. Jag har nu specificerat att vi söker en **Testledare på nivå 4**, med start **2026-02-01** för 12 månaders uppdrag på 80% (med option). Det är också noterat att erfarenhet från **hälso- och sjukvård** är ett obligatoriskt krav.\n\nRegion Skåne är noterat som platsen för uppdraget, vilket ligger i **Anbudsområde D (Sydsverige)**.\n\nFör att jag ska kunna ta fram en skarpare kravprofil, behöver jag ställa ett par följdfrågor, särskilt med tanke på hälso- och sjukvårdskravet:\n\n1.  **Testtyp:** Vilken typ av testning ska testledaren primärt ansvara för? Är det fokus på **systemtestning**, **integrationstestning** (mellan olika system), eller **acceptanstestning** mot verksamhetskrav?\n2.  **Regelverk/Säkerhet:** Med tanke på uppdraget inom hälso- och sjukvård, behöver testledaren ha kunskap om specifika regelverk som till exempel **MDR 2017/745** (Medicintekniska förordningen) eller krävs det att konsulten genomgår en **säkerhetsprövning**?\n\n***",
+      "turn": 2,
+      "reasoning": {
+        "conclusion": "Användaren har specificerat kompetensnivå (4), startdatum (2026-02-01), volym (80% av heltid i 12 månader + option) och ett specifikt domänkrav (erfarenhet från hälso- och sjukvård). Detta är tillräckligt med information för att gå vidare från det initiala insamlingssteget (step_1_intake) till att specificera behoven närmare (step_1_needs) och bekräfta uppdragets natur.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Inga direkta regler om nivå 4 eller volym bryts initialt, men Nivå 5 och >320 timmar skulle trigga FKU-krav i senare steg. Inget regelverk har utformats för att hantera 'hälso- och sjukvårdserfarenhet' i kontexten, men det är ett viktigt krav att notera.",
+        "target_step": "step_1_needs",
+        "tone": "Helpful/Guiding",
+        "validation": "Ingen orimlighet upptäckt. Nivå 4 är specificerad, vilket ligger under tröskeln för FKU-krav (Nivå 5). Volymen (ca 1978 timmar per år) är inte specificerad som ett tim-/prisbaserat tak i kontexten, så den är acceptabel för nu.",
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "DR_RESURS",
+        "completion_percent": 75.0,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "nivå 1",
+          "nivå"
+        ],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Malmö",
+          "price_cap": null,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 4,
+              "quantity": 1,
+              "role": "Testledare",
+              "status": "PENDING"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": null
+        },
+        "ghost_mode": true,
+        "has_warning": true,
+        "is_complete": false,
+        "missing_info": [
+          "volume",
+          "kompetensomrade för Testledare"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_1_needs",
+        "taxonomy_branches": [
+          "ROLES",
+          "FINANCIALS",
+          "LOCATIONS"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Tack för frågorna.\n\n1.  **Testtyp:** Det blir nog en kombination, men fokus ligger på **systemtestning** och **acceptanstestning** eftersom det är ett nytt journalsystem.\n2.  **Regelverk/Säkerhet:** Vi behöver ingen säkerhetsprövning, men det är viktigt att konsulten har god förståelse för **GDPR** och hur vi hanterar känslig information inom vår förvaltning.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Anna. Det är bra att få den preciseringen.\n\nDå har vi en tydlig kravprofil för Testledaren på Nivå 4, med fokus på **systemtestning** och **acceptanstestning** för det nya journalsystemet. Jag noterar också kravet på god förståelse för **GDPR** i hanteringen av känslig information.\n\nVi har nu fastställt **nivå** (4), **startdatum** (2026-02-01), och **slutdatum** (2027-01-31, baserat på 12 månader).\n\nNu behöver jag bekräfta volym och pris för att färdigställa protokollet:\n\n1.  **Volym (Timmar):** Baserat på 80% i 12 månader räknar jag med att uppdragets volym uppgår till cirka **1613 timmar**. Stämmer den volymuppskattningen för den initiala 12-månadersperioden?\n2.  **Pris:** Har ni satt ett **takpris per timme** för denna kompetensnivå, eller planerar ni att låta priset viktas mot kvalitet i en FKU-upphandling?\n3.  **Kompetensområde:** Testledarrollen tillhör vanligen kompetensområdet **Systemutveckling/-förvaltning och infrastruktur** enligt ramavtalet. Är det detta område ni avser att avropa inom?\n\n***",
+      "turn": 3,
+      "reasoning": {
+        "conclusion": "Användaren har tillhandahållit detaljerad information om önskad testtyp (systemtestning och acceptanstestning) och nödvändig kunskap (GDPR) för Testledaren på Nivå 4. Informationen bekräftar de tidigare specificerade kraven och tillför ytterligare detaljer för kravprofilen.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Inga regler kring timmar eller maxnivåer utmanas i detta steg, men den tidigare specificerade Nivå 4 bekräftas vara målet.",
+        "target_step": "step_2_level",
+        "tone": "Informative",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "DR_RESURS",
+        "completion_percent": 75.0,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "digitaliseringsroller",
+          "nivå",
+          "planering"
+        ],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Malmö",
+          "price_cap": null,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 4,
+              "quantity": 1,
+              "role": "Testledare",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": null
+        },
+        "ghost_mode": true,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "volume",
+          "kompetensomrade för Testledare"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_2_level",
+        "taxonomy_branches": [
+          "ROLES",
+          "FINANCIALS",
+          "GOVERNANCE"
+        ],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 2: Kompetensnivå"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Hej!\n\n1.  Ja, 1613 timmar stämmer bra.\n2.  Vi har ett takpris på 1100 kr/timme.\n3.  Ja, vi avropar inom kompetensområde Systemutveckling/-förvaltning och infrastruktur.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Det är utmärkt, Anna. Tack för dessa viktiga bekräftelser.\n\nJag har nu uppdaterat protokollet med följande information:\n\n*   **Volym:** Bekräftad till **1613 timmar** för den initiala 12-månadersperioden.\n*   **Takpris:** Fastställt till **1100 kr/timme**. Prismodellen blir därmed Löpande räkning med Takpris.\n*   **Kompetensområde:** **Systemutveckling/-förvaltning och infrastruktur**.\n\nDå har vi Volym, Pris, Datum och Nivå.\n\nFör att vi ska kunna starta upphandlingen behöver vi nu fastställa hur ni ska utvärdera de anbud ni får in. Hur har ni tänkt er viktningen mellan **Pris** och **Kvalitet** i den förnyade konkurrensutsättningen (FKU)?\n\nTill exempel: Kommer ni att använda en 60% kvalitet / 40% pris-viktning, eller föredrar ni en annan fördelning?",
+      "turn": 4,
+      "reasoning": {
+        "conclusion": "Användaren bekräftar volymuppskattningen (1613 timmar), fastställer ett takpris (1100 kr/timme) och bekräftar kompetensområdet (Systemutveckling/-förvaltning och infrastruktur). Eftersom alla frågor i step_3_volume är besvarade och bekräftade, ska systemet gå vidare till nästa steg.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Regel 3_volume_RULE_PRIMARY_e1e441a5.md och INSTRUCTION 3_volume_INSTRUCTION_PRIMARY_4bdab543.md styr hanteringen av volym och pris/takpris, vilka nu har bekräftats.",
+        "target_step": "step_3_volume",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 87.5,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "volymberäkning"
+        ],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Malmö",
+          "price_cap": 1100,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 4,
+              "quantity": 1,
+              "role": "Testledare",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 1613
+        },
+        "ghost_mode": true,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "pris_vikt"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_3_volume",
+        "taxonomy_branches": [
+          "FINANCIALS",
+          "ROLES"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 3: Volym & Pris"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Hej! Ja, det är viktigt att vi får in bra konsulter. Jag skulle säga att vi prioriterar kvalitet. Låt oss köra med 60% kvalitet och 40% pris. Jag vill ju säkerställa att vi får rätt kompetens.",
+      "turn": 5
+    },
+    {
+      "role": "assistant",
+      "content": "Det är noterat. Att vikta **Kvalitet till 60%** och **Pris till 40%** är ett starkt fokus på att säkerställa rätt kompetens, vilket är lämpligt med tanke på uppdraget med det nya journalsystemet och kravet på GDPR-förståelse.\n\nEftersom uppdragets volym överstiger gränsen för direktavrop, måste avropet genomföras som en **Förnyad Konkurrensutsättning (FKU)**. Detta är nu fastställt.\n\nNu när vi har satt viktningen behöver vi fastställa de konkreta utvärderingskriterierna för den 60-procentiga kvalitetsdelen. Enligt ramavtalet kan vi använda en mervärdesmodell, där mervärden som uppvisas av konsulten kan ge prisavdrag på utvärderingspriset.\n\nFör att säkerställa att vi hittar den ekonomiskt mest fördelaktiga konsulten, behöver jag veta:\n\n1.  **Utvärderingsmetod:** Utöver granskning av CV och referenser, önskar ni genomföra **intervjuer** med de högst rankade kandidaterna för att bedöma kommunikativ förmåga och kunskapsöverföring?\n2.  **Kvalitetsfokus:** Vilka **specifika mervärden** ska vi premiera? Ska vi lägga extra vikt vid exempelvis dokumenterad erfarenhet av ledning av storskaliga systemtester, eller är erfarenhet av Cosmic/DIS särskilt viktig i detta uppdrag?\n\n***",
+      "turn": 5,
+      "reasoning": {
+        "conclusion": "Användaren har specificerat viktningsfördelningen för FKU till 60% för Kvalitet och 40% för Pris, vilket är ett beslut som hör till strategi-steget (step_4_strategy).",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Alla tillgängliga PRIMARY-källor är instruktioner som gäller för 'step_4_strategy' och fokuserar på utvärderingskriterier, viktning mellan pris och kvalitet.",
+        "target_step": "step_4_strategy",
+        "tone": "Informative",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 87.5,
+        "constraint_violations": [],
+        "current_intent": "INSTRUCTION",
+        "detected_topics": [
+          "uppdragsbudget"
+        ],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Malmö",
+          "price_cap": 1100,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 4,
+              "quantity": 1,
+              "role": "Testledare",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 1613
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "prismodell"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_4_strategy",
+        "taxonomy_branches": [
+          "STRATEGY",
+          "FINANCIALS"
+        ],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 4: Avropsform"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Hej! Ja, jag tycker definitivt att vi ska intervjua de högst rankade kandidaterna. Det är ju viktigt att vi får in en testledare som kan kommunicera effektivt och dela med sig av sin kunskap.\n\nNär det gäller mervärden så är erfarenhet av att leda storskaliga systemtester ett stort plus. Jag skulle också säga att erfarenhet av **Cosmic/DIS** är mycket meriterande. Det är ju den plattformen vi använder idag.",
+      "turn": 6
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Anna. Det är en mycket tydlig strategi.\n\nJag har nu noterat att utvärderingskriterierna för Kvalitetsdelen (60% viktning) innefattar:\n\n1.  **Intervjuer:** Intervjuer kommer att genomföras med de högst rankade kandidaterna för att säkerställa kommunikativ förmåga och kunskapsöverföring.\n2.  **Mervärden:** Extra vikt kommer att läggas vid:\n    *   Erfarenhet av ledning av **storskaliga systemtester**.\n    *   Dokumenterad erfarenhet av **Cosmic/DIS** plattformen.\n\nDå har vi en komplett strategi för avropet, som genomförs som en **Förnyad Konkurrensutsättning (FKU)**, med fokus på **60% Kvalitet** och **40% Pris** baserat på prismodellen Löpande räkning med Takpris (1100 kr/h).\n\nUnderlaget för FAS: Strategi är nu komplett.\n\nVill du att jag sammanfattar alla insamlade parametrar innan vi formellt slutför avropsprotokollet, eller vill du gå direkt till nästa steg?",
+      "turn": 6,
+      "reasoning": {
+        "conclusion": "Användaren bekräftar och specificerar utvärderingskriterier för kvalitetsdelen (60% viktning): Intervjuer ska genomföras med högst rankade kandidater, och specifika mervärden som erfarenhet av storskaliga systemtester och kunskap om Cosmic/DIS ska premieras.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Regel 4_strategy_INSTRUCTION_PRIMARY_d705d5d8.md och 4_strategy_INSTRUCTION_PRIMARY_f538962d.md styr utvärderingskriterierna för FKU:n.",
+        "target_step": "step_4_strategy",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 75.0,
+        "constraint_violations": [],
+        "current_intent": "INSTRUCTION",
+        "detected_topics": [
+          "uppdragsbudget",
+          "volymberäkning",
+          "utvärderingspris"
+        ],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Malmö",
+          "price_cap": 1100,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 4,
+              "quantity": 1,
+              "role": "Testledare",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 1613
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "prismodell",
+          "pris_vikt"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_4_strategy",
+        "taxonomy_branches": [
+          "ROLES",
+          "STRATEGY"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 4: Avropsform"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag tycker det är bra om du sammanfattar allt. Det är viktigt att vi har koll på läget innan vi går vidare. Jag vill ju vara säker på att vi inte missat något.",
+      "turn": 7
+    },
+    {
+      "role": "assistant",
+      "content": "Jag förstår det. En sammanfattning säkerställer att vi har ett robust underlag innan vi går vidare till att skapa förfrågningsunderlaget.\n\nHär är en sammanställning av de beslutade parametrarna för avropet:\n\n### Sammanfattning av Avropsprotokollet: Testledare\n\n| Kategori | Parameter | Detaljer |\n| :--- | :--- | :--- |\n| **Resurs** | **Roll & Nivå** | 1 x Testledare, Kompetensnivå 4. |\n| **Område** | **Kompetensområde** | Systemutveckling/-förvaltning och infrastruktur. |\n| **Region** | **Plats** | Region Skåne (Malmö), Anbudsområde D. |\n| **Tid & Volym** | **Startdatum** | 2026-02-01 |\n| | **Slutdatum** | 2027-01-31 (12 månader på 80%). |\n| | **Volym** | 1613 timmar (initial period). |\n| **Finans** | **Prismodell** | Löpande räkning med Takpris. |\n| | **Takpris** | 1100 kr/timme. |\n| **Strategi** | **Avropsform** | Förnyad Konkurrensutsättning (FKU). |\n| | **Viktning** | 60% Kvalitet / 40% Pris. |\n| **Kvalitetskrav** | **Obligatoriska** | Erfarenhet av hälso- och sjukvård, god förståelse för GDPR, fokus på system- och acceptanstestning. |\n| | **Mervärden** | Erfarenhet av ledning av storskaliga systemtester, samt erfarenhet av Cosmic/DIS plattformen. |\n| | **Utvärdering** | Intervjuer genomförs med de högst rankade kandidaterna. |\n\n***\n\nSer detta komplett ut? Om allt stämmer kan vi nu formalisera detta underlag och förbereda utskick till ramavtalsleverantörerna.",
+      "turn": 7,
+      "reasoning": {
+        "conclusion": "Användaren önskar en sammanfattning av alla insamlade parametrar för att säkerställa att inget har missats innan protokollet slutförs. Detta indikerar att processen är redo att avslutas.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Regel för stegbyte: Eftersom användaren bekräftar/ber om sammanfattning efter att step_4_strategy är slutförd, ska steget bytas till 'complete'.",
+        "target_step": "complete",
+        "tone": "Informative",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 100.0,
+        "constraint_violations": [],
+        "current_intent": "INSTRUCTION",
+        "detected_topics": [
+          "avropsprocess"
+        ],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Malmö",
+          "price_cap": 1100,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 1,
+              "quantity": 1,
+              "role": "Testledare",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 1613
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "is_complete": true,
+        "missing_info": [],
+        "resource_count": 1,
+        "set_active_process_step": "complete",
+        "taxonomy_branches": [
+          "STRATEGY"
+        ],
+        "tone": "Informative",
+        "update_sticky_header": "Resursupphandling"
+      }
+    }
+  ],
+  "final_state": {
+    "avrop_data": {
+      "anbudsomrade": null,
+      "avrop_typ": "FKU_RESURS",
+      "end_date": "2027-01-31",
+      "godkannandevillkor": null,
+      "hanterar_personuppgifter": null,
+      "kvalitet_vikt": 60,
+      "location_text": "Malmö",
+      "pris_vikt": 40,
+      "prismodell": "LOPANDE_MED_TAK",
+      "region": "D",
+      "resources": [
+        {
+          "antal": 1,
+          "id": "res_1",
+          "is_complete": true,
+          "kompetensomrade": null,
+          "level": 1,
+          "roll": "Testledare"
+        }
+      ],
+      "resultatbeskrivning": null,
+      "sakerhetsklassad": null,
+      "start_date": "2026-02-01",
+      "takpris": 1100,
+      "uppdragsbeskrivning": null,
+      "volume": 1613
+    },
+    "avrop_progress": {
+      "avrop_typ": "FKU_RESURS",
+      "completed_fields": 8,
+      "completion_percent": 100.0,
+      "constraint_violations": [],
+      "is_complete": true,
+      "missing_fields": [],
+      "total_fields": 8
+    },
+    "current_state": {
+      "confidence": 0.95,
+      "current_intent": "INSTRUCTION",
+      "current_step": "complete",
+      "extracted_entities": {
+        "end_date": "2027-01-31",
+        "location": "Malmö",
+        "price_cap": 1100,
+        "region": "D",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 1,
+            "quantity": 1,
+            "role": "Testledare",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1613
+      },
+      "missing_info": []
+    },
+    "message": "Jag förstår det. En sammanfattning säkerställer att vi har ett robust underlag innan vi går vidare till att skapa förfrågningsunderlaget.\n\nHär är en sammanställning av de beslutade parametrarna för avropet:\n\n### Sammanfattning av Avropsprotokollet: Testledare\n\n| Kategori | Parameter | Detaljer |\n| :--- | :--- | :--- |\n| **Resurs** | **Roll & Nivå** | 1 x Testledare, Kompetensnivå 4. |\n| **Område** | **Kompetensområde** | Systemutveckling/-förvaltning och infrastruktur. |\n| **Region** | **Plats** | Region Skåne (Malmö), Anbudsområde D. |\n| **Tid & Volym** | **Startdatum** | 2026-02-01 |\n| | **Slutdatum** | 2027-01-31 (12 månader på 80%). |\n| | **Volym** | 1613 timmar (initial period). |\n| **Finans** | **Prismodell** | Löpande räkning med Takpris. |\n| | **Takpris** | 1100 kr/timme. |\n| **Strategi** | **Avropsform** | Förnyad Konkurrensutsättning (FKU). |\n| | **Viktning** | 60% Kvalitet / 40% Pris. |\n| **Kvalitetskrav** | **Obligatoriska** | Erfarenhet av hälso- och sjukvård, god förståelse för GDPR, fokus på system- och acceptanstestning. |\n| | **Mervärden** | Erfarenhet av ledning av storskaliga systemtester, samt erfarenhet av Cosmic/DIS plattformen. |\n| | **Utvärdering** | Intervjuer genomförs med de högst rankade kandidaterna. |\n\n***\n\nSer detta komplett ut? Om allt stämmer kan vi nu formalisera detta underlag och förbereda utskick till ramavtalsleverantörerna.",
+    "reasoning": {
+      "conclusion": "Användaren önskar en sammanfattning av alla insamlade parametrar för att säkerställa att inget har missats innan protokollet slutförs. Detta indikerar att processen är redo att avslutas.",
+      "conflicts": null,
+      "forced_strategy": null,
+      "policy": "Regel för stegbyte: Eftersom användaren bekräftar/ber om sammanfattning efter att step_4_strategy är slutförd, ska steget bytas till 'complete'.",
+      "target_step": "complete",
+      "tone": "Informative",
+      "validation": null,
+      "validation_warnings": []
+    },
+    "session_state": {
+      "confidence": 0.95,
+      "current_intent": "INSTRUCTION",
+      "current_step": "complete",
+      "extracted_entities": {
+        "end_date": "2027-01-31",
+        "location": "Malmö",
+        "price_cap": 1100,
+        "region": "D",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 1,
+            "quantity": 1,
+            "role": "Testledare",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1613
+      },
+      "missing_info": []
+    },
+    "sources": [
+      "4_strategy_INSTRUCTION_PRIMARY_MERGED_571a0429.md"
+    ],
+    "ui_directives": {
+      "avrop_typ": "FKU_RESURS",
+      "completion_percent": 100.0,
+      "constraint_violations": [],
+      "current_intent": "INSTRUCTION",
+      "detected_topics": [
+        "avropsprocess"
+      ],
+      "entity_summary": {
+        "end_date": "2027-01-31",
+        "location": "Malmö",
+        "price_cap": 1100,
+        "region": "D",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 1,
+            "quantity": 1,
+            "role": "Testledare",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1613
+      },
+      "ghost_mode": false,
+      "has_warning": false,
+      "is_complete": true,
+      "missing_info": [],
+      "resource_count": 1,
+      "set_active_process_step": "complete",
+      "taxonomy_branches": [
+        "STRATEGY"
+      ],
+      "tone": "Informative",
+      "update_sticky_header": "Resursupphandling"
+    }
+  },
+  "summary": {
+    "total_turns": 7,
+    "final_resources": 1,
+    "final_step": "unknown",
+    "final_intent": "INSTRUCTION"
+  }
+}

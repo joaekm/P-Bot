@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Erik Johanssons berättelse
+║  Arkitektledare på Inera AB
+║  
+║  Samtal: 14 meddelanden
+║  Datum: 2025-12-06 15:04
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag satt med P-Bot på Adda igår för att försöka få tag på en ny integrationsarkitekt. Hela grejen kändes som ett nödvändigt ont. Efter att den förra konsulten bara drog utan förvarning är projektet rökt om vi inte får in förstärkning *snabbt*. Jag hade ju ett avropsunderlag klart, men jag var skeptisk. Det är alltid en massa byråkrati och otydlighet med de här ramavtalen. Jag hoppades väl mest på att P-Bot inte skulle vara en fullständig katastrof, typ att det skulle ta dagar att få ett vettigt svar.
+
+Det började ganska bra, faktiskt. Den fattade direkt att det var bråttom och styrde in på rätt spår, integrationsarkitekt och sånt. Frågade om kompetensnivå och startdatum, sådant som jag redan hade klart för mig. Men sedan började det. En massa frågor om budget och takpris. Okej, det är väl standard, men jag började direkt tänka på att "jaha, nu ska vi väl börja pruta på kvaliteten igen". När den började räkna om mina heltidstjänster till timmar och takpris per timme höll jag på att få spader. Jag vet att det är nödvändigt, men alltså, *varför* måste det vara så omständligt? Jag har ju redan sagt vad budgeten är!
+
+Vändpunkten kom nog när jag var tvungen att erkänna att vi behövde någon tidigare än planerat. Det var ju pinsamt att säga att den förra stack. Det är ju ett tecken på dålig planering från vår sida. Jag blev positivt överraskad när P-Bot inte verkade döma mig. Istället fokuserade den på att lösa problemet, men sedan kom ju nästa berg av frågor. Den här gången om kvalitetskriterier och utvärderingsmodeller. Jag förstår att det är viktigt, men jag kände verkligen hur min "arkitektledare"-hjärna aktiverades. Jag ville ju inte bara fylla en stol. Jag ville ha någon som *verkligen* kunde jobbet och som hade erfarenhet av vårdsektorn. Jag blev faktiskt lite imponerad av att P-Bot drev på och att den på ett bra sätt fokuserade på kvalitén.
+
+När vi till slut landade i en poängmodell med intervjuer och hade viktat kompetensområdena kändes det som att vi hade tagit oss igenom en labyrint. Jag kände mig både lättad och utmattad. Det var mycket mer engagemang än jag hade trott, men jag kände mig rätt säker på att P-Bot hade förstått vad vi behöver och att vi faktiskt har en chans att hitta en bra kandidat.
+
+Skulle jag använda P-Bot igen? Jo, förmodligen. Trots att det var frustrerande ibland så kändes det ändå som ett effektivt sätt att komma framåt. Det är skönt att den är opartisk och fokuserar på det som är viktigt. Det är bättre än att snacka med en säljare som bara vill sälja på en någon. Men jag hoppas att det kan bli lite mindre omständligt i framtiden. Kanske mer fokus på att *verkligen* förstå våra behov och mindre på att räkna timmar. Om jag slapp sitta själv med allt så är jag ännu mer nöjd. Men det lär ju inte hända!"

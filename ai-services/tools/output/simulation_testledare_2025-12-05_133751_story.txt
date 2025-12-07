@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anna Nilssons berättelse
+║  Projektledare på Region Skåne
+║  
+║  Samtal: 10 meddelanden
+║  Datum: 2025-12-05 13:37
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade det där mötet med P-Bot igår, Addas AI-assistent för avrop. Jag var ju sjukt stressad redan innan. Du vet hur det är, projektet är efter schemat, gamla testledaren drog och budgeten skriker efter andrum. Jag tänkte: "Hjälp, nu ska jag dessutom brottas med en robot..." Men jag var tvungen att försöka, vi behövde ju den där testledaren igår.
+
+Det började faktiskt ganska bra. Den fattade direkt att jag behövde en testledare i Skåne och snappade upp det där med "erfaren" och nivåerna. Men sen kom det där med startdatum och sånt, jag vet inte varför men det kändes som ett evigt frågande. Jag fick panik att jag skulle glömma något viktigt. Det var skönt att den sammanfattade allt sen, så jag kunde kolla att jag inte missat nåt. Det bästa var nog när den fattade att vi hade ett takpris, så att jag inte behövde bråka om det. Jag är ju inte inköpare.
+
+Men sen blev jag irriterad igen. Allt det där med utvärderingsmodell och optioner. Alltså, jag vill bara ha en bra testledare, inte doktorera i upphandling! Men jag antar att det är nödvändigt ont. Jag var lite orolig att jag skulle välja fel och sabba allt, men P-Bot verkade ändå hålla koll. Och det var skönt att den automatiskt föreslog FKU, för det hade jag typ glömt bort. Nu känns det lite som att jag har ett underlag som faktiskt funkar.
+
+Jag måste säga, det var bättre än jag trodde. Jag är fortfarande inte säker på att allt kommer att gå smidigt, men nu känns det åtminstone som att bollen är i rullning. Jag skulle nog använda P-Bot igen, speciellt om jag behöver hjälp med ett liknande avrop. Det sparade ändå en hel del tid, och det är guld värt just nu. Men jag hoppas att den blir lite mer intuitiv nästa gång, så jag slipper känna mig som en datainmatare hela tiden. Men på det stora hela: godkänt. Nu får vi se om det blir en bra testledare också, annars var ju allt det här förgäves."

@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Magnus Eks berättelse
+║  IT-driftchef på Inera AB
+║  
+║  Samtal: 10 meddelanden
+║  Datum: 2025-12-06 15:05
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag pratade med den där P-Bot på Adda igår, den där AI-assistenten för avrop. Hela grejen kändes som ytterligare en grej på min redan överfulla tallrik. Jag var stressad som fan, deadline för det här jävla projektet är om fyra månader och nu har gamla driftleverantören kastat in handduken. Jag behövde verkligen få in de här konsulterna, och jag behövde dem typ igår. Jag tänkte, "Fine, jag testar den här roboten, hur svårt kan det vara?" Jag hoppades på att det skulle gå smidigt, att den skulle fatta direkt vad jag behövde och bara spotta ut ett färdigt avrop.
+
+Det började väl okej. Den frågade om roller och kompetensnivåer, vilket var ju standard. Nätverksarkitekt och IT-arkitekt på nivå 5, that's it. Men sen kom det där "Förnyad Konkurrensutsättning (FKU)". Suck. Jag visste att det skulle bli krångligt, men jag hade hoppats att roboten skulle kunna snabba upp processen lite. Sen var det frågor om timmar, plats, slutdatum, takpris… Det kändes som att jag satt i ett ändlöst formulär. Jag fattar att den behöver all information, men det tog tid, och tid är det enda jag inte har just nu. Det som var bra var att den verkligen hängde med, repeterade liksom allt jag sa så jag var säker på att den inte missförstod något. Det är lätt hänt annars, ju.
+
+Det där med viktningen mellan pris och kvalitet var en vändpunkt. När P-Bot konstaterade att 70% kvalitet var "en lämplig viktning" kände jag mig faktiskt lite lugnare. Jag tänkte "Okej, den fattar läget. Det är inte bara en dumbot som letar efter billigaste alternativet." Det var skönt att känna att jag inte behövde förklara allt från grunden, den verkade ha koll på att det här är ett tidskritiskt projekt.
+
+Men sen när den frågade om jag ville ha en sammanfattning… Alltså, herregud. Jag hade ju precis suttit och lyssnat på alla frågor och svar! Jag vill inte ha en sammanfattning, jag vill ha KONSULTER PÅ PLATS! Jag vet inte varför jag störde mig så mycket på det, men jag antar att det var en kombination av stressen och känslan av att jag bara blir ett steg närmare ett formulär som skickas någonstans, men ingen action.
+
+När det var över var jag utmattad. Det kändes inte som att jag sparat så mycket tid jämfört med att göra det manuellt, men jag måste erkänna att det var strukturerat och att jag inte riskerar att missa något viktigt. Skulle jag använda den igen? Tja, jag vet inte. Kanske. Om jag har lite mer tid och inte är lika stressad. Men just nu känns det som att jag hade kunnat ringa runt själv och komma lika långt på kortare tid. Men det är klart, om den här FKU:n går smidigt och jag får in de rätta konsulterna inom tre arbetsdagar, då kanske jag ändrar mig. Då kan jag faktiskt tänka mig att rekommendera P-Bot. Men vi får se, vi får se..."

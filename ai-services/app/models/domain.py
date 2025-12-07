@@ -197,3 +197,55 @@ class SessionState(BaseModel):
     confidence: float = Field(default=0.0)
     forced_strategy: Optional[str] = Field(default=None, description="Strategy forced by validator")
 
+
+# =============================================================================
+# CONTEXT RESULT MODELS (v5.7 - Enriched context with graph relations)
+# =============================================================================
+
+class ResolvedLocation(BaseModel):
+    """Resolved geographic relation from graph: City → County → Area."""
+    city: str = Field(..., description="City/kommun name")
+    county: str = Field(..., description="County/län name")
+    area_code: str = Field(..., description="Anbudsområde code (A-G)")
+    area_name: str = Field(..., description="Anbudsområde name")
+
+
+class ResolvedRole(BaseModel):
+    """Resolved role relation from graph: Exempelroll → Kompetensområde."""
+    role: str = Field(..., description="Role name")
+    kompetensomrade: str = Field(..., description="Kompetensområde the role belongs to")
+
+
+class LearnedRule(BaseModel):
+    """Learned business rule from graph."""
+    subject: str = Field(..., description="What the rule is about")
+    predicate: str = Field(..., description="Relation type (e.g., 'kräver', 'begränsar')")
+    object: str = Field(..., description="Consequence/target")
+    confidence: float = Field(default=0.8, description="Confidence score")
+
+
+class ContextResult(BaseModel):
+    """
+    Enriched context with documents AND resolved graph relations.
+    
+    v5.7: Replaces plain dict return from ContextBuilder.build_context().
+    Now includes all resolved learnings from the knowledge graph.
+    """
+    # Document hits from Lake/Vector/Graph search
+    documents: Dict[str, Dict] = Field(default_factory=dict)
+    
+    # Resolved relations from graph (learnings)
+    resolved_locations: List[ResolvedLocation] = Field(default_factory=list)
+    resolved_roles: List[ResolvedRole] = Field(default_factory=list)
+    resolved_aliases: Dict[str, str] = Field(default_factory=dict, description="alias → canonical")
+    learned_rules: List[LearnedRule] = Field(default_factory=list)
+    
+    def has_graph_knowledge(self) -> bool:
+        """Check if any graph relations were resolved."""
+        return bool(
+            self.resolved_locations or 
+            self.resolved_roles or 
+            self.resolved_aliases or 
+            self.learned_rules
+        )
+

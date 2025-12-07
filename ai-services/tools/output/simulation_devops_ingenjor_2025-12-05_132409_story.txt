@@ -1,0 +1,19 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Peter Holms berättelse
+║  Systemansvarig på Trafikverket
+║  
+║  Samtal: 30 meddelanden
+║  Datum: 2025-12-05 13:24
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag testade den där P-Bot på Adda igår. Skulle avropa en DevOps-ingenjör, ett rent helvete annars med alla blanketter. Började med att jag förklarade att jag ville ha en senior DevOps, typ en Nivå 4, som kunde bygga från grunden. Mina förhoppningar var väl att det skulle vara smidigare än att fylla i tio papper och vänta i veckor på svar. Jag tänkte 'AI, det borde fatta vad jag behöver direkt!'
+
+Det började väl okej. Den hakade direkt på att "bygga från grunden" indikerade erfarenhet, vilket stämde. Men sen började den jävla frågekarusellen. Jag fattar ju att den behöver information, men herregud, det var som att bli förhörd. Varje gång jag svarade kom det tre nya frågor. Jag tappade nästan tålamodet när den frågade om timmarna. Visst, 1660 är en bra uppskattning, men varför måste jag bekräfta det fem gånger? Jag ville bara få det här överstökat. Det var inte så att jag satt och räknade varenda minut.
+
+En sak som faktiskt imponerade var att den lyfte att vi behöver tänka på säkerhetskontroll. Det hade jag faktiskt inte tänkt på själv i stunden, men det är ju superviktigt. Och att den så tydligt påpekade att utbildning var ett måste, det var skönt. Det är ju en dealbreaker för mig. Teamet är skitskeptiska till den här DevOps-grejen, så konsulten måste verkligen kunna övertyga dem och visa att det funkar.
+
+Men sen när vi började snacka budget och utvärdering… alltså, jag höll på att trilla av stolen. Först 70% pris, 30% kvalitet, och jag ba 'NEJ!'. Jag var tvungen att trycka på att kvalitet var viktigast, för att få den att fatta att vi behöver någon som *kan*. Och när den sedan började fråga om hur vi skulle utvärdera kvaliteten – CV, metodik, intervjuer – då kände jag att jag fick lite mer kontroll. Att jag kunde styra processen lite mer. Först kändes det bara som en automatisk frågegenerator.
+
+När det till slut var klart och den där sammanställningen kom upp kändes det faktiskt bra. Allt var ju där: DevOps-ingenjör Nivå 4, Borlänge, remote, 1660 timmar, rätt pris, rätt viktning. Den hade fattat vad jag ville. Hade kanske tagit lite längre tid än jag hoppats på, men resultatet var ju bra.
+
+Skulle jag använda den igen? Absolut, tror jag. Den sparade mig nog en hel del tid och pappersarbete. Men jag hoppas att den kan bli lite smidigare, lite mer lyhörd. Och kanske sluta fråga samma sak på fem olika sätt. Men ja, det var värt det. Jag tror det blir en bra konsult den här gången."

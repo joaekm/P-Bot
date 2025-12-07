@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anders Lindqvists berättelse
+║  IT-säkerhetschef på Inera AB
+║  
+║  Samtal: 8 meddelanden
+║  Datum: 2025-12-06 15:07
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+”Du vet, jag satt ju och pratade med den där P-Bot på Adda igår. Det skulle ju vara så smidigt, ett sätt att snabbt få till ett avrop på en IT-konsult till IdP-projektet. Stressen har ju legat på sen innan jul, vi måste verkligen få fart på det här. Jag hoppades väl att det skulle gå snabbt och smärtfritt, att jag bara kunde mata in lite data och sen skulle boten spotta ut ett färdigt underlag för förnyad konkurrensutsättning. Det är ju nivå 5 vi pratar om här, så jag visste att det inte kunde göras automatiskt, men jag hade ändå förväntat mig mer… assistans.
+
+Det började väl okej. Den var ganska bra på att ställa följdfrågor. Men sen, när vi kom in på de kommersiella villkoren, kändes det som att den bara rabblade upp standardfraser. Jag hade ju redan koll på att det skulle vara löpande med takpris, men att den inte kunde hjälpa mig att bedöma om det totala takpriset var rimligt, det var frustrerande. Jag satt ju lite med en klump i magen redan innan, eftersom budgeten är tight och jag är rädd att buden kommer in högre än beräknat. Jag vill ju helst ha den där gamla kollegan från Knowit, han vet precis vad vi behöver, men jag måste ju följa reglerna. Dessutom att jag måste specificera hantering av överskridande? Men jag vet ju inte det - jag är chef - jag jobbar med säkerhet, inte med budgetprognoser.
+
+Sen när det gäller utvärderingsviktningen så är jag inte säker på om 50/50 är optimalt. Visst, priset är viktigt, men med den här typen av specialistkompetens är ju kvaliteten A och O. Jag borde kanske ha pressat den mer på det, men jag kände att jag fick så lite vägledning. Det kändes mer som att jag matade in data i ett formulär än att jag fick hjälp. Det enda jag kände mig säker på var att vi behövde få med att konsulten skulle vara på plats i Stockholm minst tre dagar i veckan, annars kommer samarbetet att bli lidande. Det fick jag i alla fall tryckt på.
+
+När det var klart kände jag mig bara mer stressad än innan. Jag är inte säker på om kravspecifikationen är tillräcklig, och jag känner mig inte trygg med utvärderingsmodellen. Jag skulle nog hellre ha pratat med en riktig person på Adda, någon som verkligen förstod behoven och kunde ge mig råd. Om jag ska vara ärlig så tror jag inte att jag kommer att använda P-Bot igen, det känns som bortkastad tid. Jag får väl ringa till någon på Adda direkt nästa gång. Det tar ju lite mer tid, men det känns i alla fall som att man får något konkret gjort."

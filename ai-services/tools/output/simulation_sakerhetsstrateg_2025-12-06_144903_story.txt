@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anders Lindqvists berättelse
+║  IT-säkerhetschef på Inera AB
+║  
+║  Samtal: 30 meddelanden
+║  Datum: 2025-12-06 14:49
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade det där samtalet med P-Bot på Adda igår. Herregud, vad jag gruvade mig. Jag behövde ju reda ut det här med avropet av en konsult, en säkerhetsstrateg, ni vet, IdP-projektet som ligger efter. Jag hoppades väl att det skulle gå smidigt, att jag snabbt skulle få svar på mina frågor och kunna gå vidare. Jag hade ju redan en kandidat i åtanke, en kille jag jobbat med tidigare, så jag ville mest bara checka av att jag gjorde rätt formellt."
+
+"Det började ju okej, P-Bot var artig och frågade efter de vanliga sakerna: roll, plats, tid. Sedan började det, det var ju bara frågor och följdfrågor. Jättebra att den var så noggrann men ibland kändes det som jag bara fastnade i detaljer, och jag som är så stressad med tidplanen. Det kom ju upp om takpris och utvärderingsmodeller, och jag kände mig lite pressad att specificera allt exakt. Jag vet ju att budgeten är lite snävare än det uppskattade värdet, så det var en balansgång att få det att gå ihop."
+
+"Det som var bra var att P-Bot verkligen tog sig tid att förklara skillnaden mellan FKU och direktavrop. Det var ju just det jag var lite osäker på. Och att P-Bot sammanfattade allt på slutet var också hjälpsamt. Då kunde jag i alla fall andas ut lite och känna att jag inte missat något viktigt. Samtidigt tänkte jag: 'Herregud, vad många steg det är'. Det är ju bra att det är tydligt, men det känns onödigt krångligt för ett resursuppdrag. Allt det här med mervärdesavdrag kändes som rena grekiskan. Även om jag förstår vad det handlar om så är jag fortfarande inte säker på hur det skulle se ut i praktiken."
+
+"Sen var det där med närvaron, jag behövde ju få in att konsulten måste vara på plats i Stockholm minst tre dagar i veckan. Visst, P-Bot tog upp det, men jag var ändå orolig för att det inte skulle bli tydligt nog i beskrivningen. Det känns som att det lätt kan missas och det skulle bli ett himla strul om vi får en konsult som inte kan vara här tillräckligt."
+
+"När det väl var klart så kändes det som att en stor sten lättade från bröstet, men samtidigt var jag ju helt slut. Alltså, det var ju bra att jag fick svar på mina frågor och att jag nu vet hur jag ska göra avropet. Men det tog så himla lång tid! Och jag är inte säker på att jag skulle använda P-Bot igen. Det var lite för opersonligt och stelt. Jag hade nog hellre pratat med en riktig person, någon som kanske kunde läsa mellan raderna och komma med lite mer konkreta råd. Å andra sidan, det är ju Adda så det är nog så det ska vara. Men i alla fall, nu har jag lite mer koll på läget, så jag kan fokusera på att få tag på rätt konsult och få igång det här projektet ordentligt."

@@ -44,9 +44,9 @@ from ..models import (
     EntityAction, 
     EntityChange,
     Prismodell,
-    Utvarderingsmodell,
     ContextResult,
 )
+# Note: Utvarderingsmodell removed in v5.11 - now using pris_vikt/kvalitet_vikt
 
 logger = logging.getLogger("ADDA_ENGINE")
 
@@ -255,7 +255,9 @@ class SynthesizerComponent:
         history_context = self._build_history_context(history, current_avrop)
         
         # 7. Build final prompt with entity extraction instructions
-        prompt = raw_prompt.format(context_docs=context_docs)
+        # v5.15: Include strategic_input for fas 1 and 4 (harmless for other phases)
+        strategic_input = plan.strategic_input or "Ingen strategisk insikt tillgänglig."
+        prompt = raw_prompt.format(context_docs=context_docs, strategic_input=strategic_input)
         
         # 8. Build date context (v5.6 - bot needs to know current date)
         today = date.today()
@@ -477,13 +479,24 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
                         except ValueError:
                             logger.warning(f"Invalid prismodell value: {value}")
                     
-                    # Handle utvarderingsmodell enum
-                    elif mapped_field == "utvarderingsmodell" and value:
+                    # v5.11: Handle pris_vikt/kvalitet_vikt (numeric weights)
+                    elif mapped_field == "pris_vikt" and value is not None:
                         try:
-                            avrop.utvarderingsmodell = Utvarderingsmodell(value)
-                            logger.info(f"Set utvarderingsmodell: {value}")
-                        except ValueError:
-                            logger.warning(f"Invalid utvarderingsmodell value: {value}")
+                            pris_vikt = int(value)
+                            avrop.pris_vikt = max(0, min(100, pris_vikt))
+                            avrop.kvalitet_vikt = 100 - avrop.pris_vikt
+                            logger.info(f"Set pris_vikt: {avrop.pris_vikt}%, kvalitet_vikt: {avrop.kvalitet_vikt}%")
+                        except (ValueError, TypeError):
+                            logger.warning(f"Invalid pris_vikt value: {value}")
+                    
+                    elif mapped_field == "kvalitet_vikt" and value is not None:
+                        try:
+                            kvalitet_vikt = int(value)
+                            avrop.kvalitet_vikt = max(0, min(100, kvalitet_vikt))
+                            avrop.pris_vikt = 100 - avrop.kvalitet_vikt
+                            logger.info(f"Set kvalitet_vikt: {avrop.kvalitet_vikt}%, pris_vikt: {avrop.pris_vikt}%")
+                        except (ValueError, TypeError):
+                            logger.warning(f"Invalid kvalitet_vikt value: {value}")
                     
                     # v5.8: Handle location -> also set region automatically
                     # v5.7: Try graph lookup first, then fallback to hardcoded dict
@@ -595,6 +608,9 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
         else:
             lines.append("\nℹ️ INSTRUKTION: Ge ett informativt, faktabaserat svar.")
         
+        # v5.15: Strategic input (always present)
+        lines.append(f"\n🎯 STRATEGISK INSIKT: {plan.strategic_input or 'Ingen strategisk insikt tillgänglig.'}")
+        
         return "\n".join(lines)
     
     def _format_context(self, context: Dict[str, Dict]) -> str:
@@ -660,28 +676,65 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
         return "\n".join(lines)
     
     def _build_avrop_context(self, avrop: Optional[AvropsData]) -> str:
-        """Build avrop context to prevent re-asking and show current state."""
+        """
+        Build avrop context to prevent re-asking and show current state.
+        
+        v5.11: Now includes ALL fields (prismodell, utvarderingsmodell, end_date, etc.)
+        """
         if not avrop:
             return "\nNUVARANDE VARUKORG: (tom)"
         
         lines = ["\nNUVARANDE VARUKORG (fråga INTE efter detta igen):"]
         
+        # Resources with all fields
         if avrop.resources:
             lines.append("Resurser:")
             for res in avrop.resources:
                 level_str = f"Nivå {res.level}" if res.level else "Nivå ej angiven"
-                lines.append(f"  - {res.roll} ({level_str}) x{res.antal}")
+                kompetens_str = f" [{res.kompetensomrade}]" if res.kompetensomrade else ""
+                lines.append(f"  - {res.roll} ({level_str}){kompetens_str} x{res.antal}")
         
+        # Location & Region
         if avrop.location_text:
             lines.append(f"Ort: {avrop.location_text}")
+        if avrop.region:
+            lines.append(f"Region: Anbudsområde {avrop.region.value}")
+        if avrop.anbudsomrade:
+            lines.append(f"Anbudsområde: {avrop.anbudsomrade}")
+        
+        # Volume & Dates
         if avrop.volume:
             lines.append(f"Volym: {avrop.volume} timmar")
         if avrop.start_date:
             lines.append(f"Startdatum: {avrop.start_date}")
+        if avrop.end_date:
+            lines.append(f"Slutdatum: {avrop.end_date}")
+        
+        # Pricing
         if avrop.takpris:
             lines.append(f"Takpris: {avrop.takpris} kr/h")
+        if avrop.prismodell:
+            lines.append(f"Prismodell: {avrop.prismodell.value}")
+        
+        # Evaluation (v5.11: numeric weights)
+        if avrop.pris_vikt is not None and avrop.kvalitet_vikt is not None:
+            lines.append(f"Utvärdering: {avrop.pris_vikt}% pris / {avrop.kvalitet_vikt}% kvalitet")
+        
+        # Avrop type
         if avrop.avrop_typ:
             lines.append(f"Avropstyp: {avrop.avrop_typ.value}")
+        
+        # Descriptions (for FKU)
+        if avrop.uppdragsbeskrivning:
+            lines.append(f"Uppdragsbeskrivning: {avrop.uppdragsbeskrivning[:200]}...")
+        if avrop.resultatbeskrivning:
+            lines.append(f"Resultatbeskrivning: {avrop.resultatbeskrivning[:200]}...")
+        
+        # Flags
+        if avrop.hanterar_personuppgifter is not None:
+            lines.append(f"Hanterar personuppgifter: {'Ja' if avrop.hanterar_personuppgifter else 'Nej'}")
+        if avrop.sakerhetsklassad is not None:
+            lines.append(f"Säkerhetsklassad: {'Ja' if avrop.sakerhetsklassad else 'Nej'}")
         
         return "\n".join(lines)
     
@@ -777,7 +830,7 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
         date_fields = [f for f in progress.missing_fields if "date" in f.lower() or "datum" in f.lower()]
         region_fields = [f for f in progress.missing_fields if "region" in f.lower()]
         strategy_fields = [f for f in progress.missing_fields 
-                          if "prismodell" in f.lower() or "utvarderingsmodell" in f.lower()]
+                          if "prismodell" in f.lower() or "pris_vikt" in f.lower() or "kvalitet_vikt" in f.lower()]
         other_fields = [f for f in progress.missing_fields 
                        if f not in level_fields and f not in volume_fields 
                        and f not in date_fields and f not in region_fields
@@ -824,17 +877,18 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
         
         v5.7: Enhanced to detect bot recommendations for confirmation logic.
         v5.8: Added start_date context for end_date calculation.
+        v5.11: Full history - no truncation (Gemini has 1M token context)
         """
         if not history:
             return ""
         
-        lines = ["\nKONVERSATIONSHISTORIK (senaste meddelanden):"]
+        lines = ["\nKONVERSATIONSHISTORIK (hela konversationen):"]
         last_recommendation = None
         recommendation_type = None
         
-        for msg in history[-6:]:  # Last 6 messages for more context
+        for msg in history:  # Full history - Gemini can handle it
             role = msg.get('role', 'unknown').upper()
-            content = msg.get('content', '')[:300]  # More content
+            content = msg.get('content', '')  # Full content
             lines.append(f"{role}: {content}")
             
             # Detect bot recommendations
@@ -849,12 +903,7 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
                     elif 'fast pris' in content_lower and 'timpris' not in content_lower:
                         last_recommendation = "FAST_PRIS"
                         recommendation_type = "prismodell"
-                    elif 'bästa förhållande' in content_lower or 'pris och kvalitet' in content_lower:
-                        last_recommendation = "PRIS_70_KVALITET_30"
-                        recommendation_type = "utvarderingsmodell"
-                    elif 'lägsta pris' in content_lower or '100% pris' in content_lower:
-                        last_recommendation = "PRIS_100"
-                        recommendation_type = "utvarderingsmodell"
+                    # v5.11: Removed enum-based recommendations - now numeric
         
         # Add recommendation context for entity extraction
         if last_recommendation and recommendation_type:

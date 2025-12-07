@@ -1,0 +1,50 @@
+# Avrop: Team för RPA-migrering i Cosmic journalsystem
+
+## Organisation
+Region Östergötland, Linköping
+
+## Behov
+Tre konsulter för att genomföra RPA-migrering från äldre journalsystem till Cosmic.
+Projektet innebär hantering av känsliga patientuppgifter (personuppgiftsbiträdesavtal krävs).
+Konsulterna behöver genomgå säkerhetsprövning.
+
+## Roller och Nivåer
+- Projektledare, Nivå 4 (ca 400 timmar)
+- Teknisk projektledare, Nivå 4 (ca 600 timmar)  
+- Systemutvecklare/Systemintegratör, Nivå 4 (ca 800 timmar)
+
+## Omfattning
+- Totalt ca 1800 timmar
+- Kontraktsvärde: 2 160 000 SEK
+- Avropsområde C (Östergötland ingår)
+- Takpris: 1200 kr/timme
+
+## Teknisk miljö
+- Cosmic journalsystem
+- RPA-plattform (UiPath)
+- HL7 FHIR-integration
+- SQL Server databaser
+
+## Specifika krav
+- Erfarenhet av Cosmic journalsystem (minst 2 år)
+- Erfarenhet av RPA-utveckling (UiPath eller Blue Prism)
+- Erfarenhet av vårdintegration (HL7, FHIR)
+- Kunskap om GDPR och patientdatalagen
+- Säkerhetsprövning krävs för alla tre konsulter
+
+## Kontraktstid
+- Start: 2026-03-01
+- Slut: 2026-12-31
+- Option: 6 månader förlängning
+
+## Känslig data
+- Projektet hanterar personuppgifter (patientdata)
+- Personuppgiftsbiträdesavtal (PUB) ska tecknas
+- Säkerhetsskyddsavtal krävs
+
+## Utvärdering
+- 60% pris, 40% kvalitet
+- Intervju med alla tre konsulter (30 min vardera)
+- Referenstagning från tidigare vårdprojekt
+
+

@@ -1,0 +1,540 @@
+{
+  "timestamp": "2025-12-06T14:42:01.579742",
+  "scenario": {
+    "filename": "scenario_it_drift_team.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/test_data/scenarios/scenario_it_drift_team.txt"
+  },
+  "persona": {
+    "name": "Magnus Ek",
+    "title": "IT-driftchef",
+    "organization": "Inera AB",
+    "personality": "Magnus är pragmatisk och handlingskraftig. Han har mycket på sitt bord och behöver snabbt få in rätt kompetens. Han är van vid att fatta beslut under press men vill ändå följa regelverket.",
+    "knowledge_level": "- Expert på IT-drift och infrastruktur - God kunskap om ramavtal - Erfaren beställare",
+    "communication_style": "- Rakt på sak - Vill ha snabba svar - Fokuserar på det praktiska - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Projektet är tidskritiskt - deadline om 4 månader",
+      "Nuvarande driftleverantör har sagt upp avtalet",
+      "Behöver konsulterna på plats inom 3 arbetsdagar"
+    ],
+    "goals": [
+      "Snabbt få in två kompetenta konsulter",
+      "Förstå hur man hanterar team-avrop",
+      "Säkerställa att timfördelningen kan justeras"
+    ],
+    "background": "Magnus har ansvarat för IT-driften på Inera i 10 år. Nu står han inför den största omställningen - att gå från en gammal driftmiljö till en modern hybrid-lösning. Han har fått grönt ljus från ledningen men tiden är knapp.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Magnus Ek och jobbar som IT-driftchef på Inera AB. Jag behöver hjälp med ett avrop. Vi ska snabbt få in två kompetenta konsulter.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Magnus, jag förstår att ni på Inera AB behöver snabbt få in två kompetenta konsulter. Jag hjälper dig gärna att få klarhet i de grundläggande behoven.\n\nFör att jag ska kunna specificera avropet:\n\n1.  **Vilka roller** rör det sig om? (Är det till exempel två Systemutvecklare, eller kanske en Testare och en Projektledare?)\n2.  **Var** ska uppdraget primärt utföras (vilken stad/kommun)?\n3.  Vilken **kompetensnivå (1-5)** ser ni framför er för respektive konsult, och när önskar ni att de **tidigast kan starta** uppdraget?\n\n***",
+      "turn": 1,
+      "reasoning": {
+        "conclusion": "Användaren Magnus Ek, IT-driftchef på Inera AB, har initierat ett avrop och behöver snabbt få in två kompetenta konsulter. Detta indikerar att processen ska starta med att fastställa behovet och rollerna.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Ingen specifik bindande regel (RULE) eller definition har applicerats direkt på begäran ännu, då intentionen är INSPIRATION/INITIERING, inte en specifik handling under ett pågående steg. De tillgängliga instruktionerna (PRIMARY) pekar mot att vi ska gå vidare till steg 3 (volym) och steg 4 (strategi) vid senare tillfällen, men just nu är steg 1 (intake) det relevanta startsteget.",
+        "target_step": "step_1_intake",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "DR_RESURS",
+        "completion_percent": 0.0,
+        "constraint_violations": [],
+        "current_intent": "INSPIRATION",
+        "detected_topics": [
+          "resursuppdrag"
+        ],
+        "entity_summary": {
+          "end_date": null,
+          "location": null,
+          "price_cap": null,
+          "region": null,
+          "resources": [],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "resources (minst 1 resurs krävs)",
+          "start_date",
+          "end_date",
+          "volume",
+          "region"
+        ],
+        "resource_count": 0,
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [
+          "ROLES",
+          "STRATEGY"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "1.  Vi behöver en Senior Nätverksarkitekt och en Senior IT-arkitekt Infrastruktur.\n2.  Uppdraget ska primärt utföras i Stockholm.\n3.  Båda konsulterna ska vara på nivå 5 och vi vill att de ska kunna börja så snart som möjligt, helst inom 3 arbetsdagar.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Tack för den detaljerade informationen, Magnus. Det låter som ett viktigt och brådskande uppdrag!\n\nJag har noterat era krav:\n\n1.  **Roller:** En Senior Nätverksarkitekt och en Senior IT-arkitekt Infrastruktur.\n2.  **Nivå:** Båda konsulterna ska ha Kompetensnivå 5.\n3.  **Plats:** Stockholm (Anbudsområde D – Stockholm), uppfattat.\n\nVi kan absolut hantera önskemålet om snabb start. För att jag ska kunna gå vidare med tidsplaneringen behöver jag veta:\n\n1.  **Volym och varaktighet:** Hur länge uppskattar ni att uppdraget kommer att pågå (månader/till vilket datum)?\n2.  **Omfattning:** Ungefär hur många timmar per vecka eller totalt räknar ni med för respektive konsult under den perioden?\n3.  **Exakt startdatum:** \"Helst inom 3 arbetsdagar\" är tydligt, men vilket exakt datum är det tidigaste möjliga ni skulle vilja se dem på plats?",
+      "turn": 2,
+      "reasoning": {
+        "conclusion": "Användaren har specificerat roller (Senior Nätverksarkitekt, Senior IT-arkitekt Infrastruktur), region (Stockholm) och en preliminär kompetensnivå (Nivå 5). Informationen som samlats in hör hemma i steg 1 (Intake).",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Inga motstridiga regler eller instruktioner från dokumenten har direkt påverkat identifieringen av steg 1-informationen. Konteksten indikerar dock att Nivå 5 (ALIAS_MAPPING) och Rollerna mappas till IT-drift, vilket är relevant för nästa steg (step_1_needs).",
+        "target_step": "step_1_needs",
+        "tone": "Helpful/Guiding",
+        "validation": "Begäran om 'nivå 5' noteras. Enligt Addas interna regler (som vanligtvis inkluderas i kontexten för att trigga FKU-krav) kräver Nivå 5 normalt en Fördjupad Kvalificerad Utlysning (FKU). Detta kommer att bekräftas i ett senare steg.",
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 50.0,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "resursuppdrag"
+        ],
+        "entity_summary": {
+          "end_date": null,
+          "location": "Stockholm",
+          "price_cap": null,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Senior Nätverksarkitekt",
+              "status": "DONE"
+            },
+            {
+              "id": "res_2",
+              "level": 5,
+              "quantity": 1,
+              "role": "Senior IT-arkitekt Infrastruktur",
+              "status": "DONE"
+            }
+          ],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": true,
+        "has_warning": true,
+        "is_complete": false,
+        "missing_info": [
+          "start_date",
+          "end_date",
+          "volume",
+          "prismodell",
+          "utvarderingsmodell"
+        ],
+        "resource_count": 2,
+        "set_active_process_step": "step_1_needs",
+        "taxonomy_branches": [
+          "ROLES",
+          "LOCATIONS",
+          "FINANCIALS"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "1.  Vi räknar med att uppdraget ska pågå till och med 2026-09-30, med en möjlig förlängning på 2 månader.\n2.  Total omfattning är cirka 500 timmar. Senior Nätverksarkitekt beräknas till cirka 150 timmar, och Senior IT-arkitekt Infrastruktur cirka 350 timmar.\n3.  Vi vill ha dem på plats senast om 3 arbetsdagar, vilket borde bli runt den 5 februari.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Det var tydliga besked, tack Magnus!\n\nJag har nu noterat tidsramarna och volymerna:\n*   **Start:** 2026-02-05\n*   **Slut:** 2026-09-30, med en möjlig **option** på 2 månader.\n*   **Volym:** Total omfattning är 500 timmar (150 h Nätverksarkitekt, 350 h IT-arkitekt Infrastruktur).\n\nNu saknas den ekonomiska rammen.\n\n1.  Har ni ett **takpris** (maximal budget) satt för dessa 500 timmar?\n2.  Och vilken **prismodell** önskar ni använda för avropet? Är det Löpande räkning, Löpande med takpris, eller Fast pris?",
+      "turn": 3,
+      "reasoning": {
+        "conclusion": "Användaren har nu specificerat tidshorisont, volym och startdatum. Detta indikerar att steg 1 (Behov, Roller, Regioner) är komplett och att vi nu ska gå vidare till Steg 2 (Kompetensnivåer).",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Ingen specifik regel från de hämtade dokumenten (som alla fokuserar på FINANCIALS/step_3_volume eller strategy/step_4_strategy) triggas direkt av tidsangivelser, men informationen är relevant för att förbereda volymkalkylen i nästa steg.",
+        "target_step": "step_2_level",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 80.0,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "resursuppdrag"
+        ],
+        "entity_summary": {
+          "end_date": "2026-09-30",
+          "location": "Stockholm",
+          "price_cap": null,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Senior Nätverksarkitekt",
+              "status": "DONE"
+            },
+            {
+              "id": "res_2",
+              "level": 5,
+              "quantity": 1,
+              "role": "Senior IT-arkitekt Infrastruktur",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-05",
+          "volume": 500
+        },
+        "ghost_mode": true,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "prismodell",
+          "utvarderingsmodell"
+        ],
+        "resource_count": 2,
+        "set_active_process_step": "step_2_level",
+        "taxonomy_branches": [
+          "FINANCIALS",
+          "LOCATIONS",
+          "ROLES"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 2: Kompetensnivå"
+      }
+    },
+    {
+      "role": "user",
+      "content": "1. Takpriset är 1300 kr per timme.\n2. Vi kör löpande räkning.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Magnus! Då har vi en tydlig ekonomisk ram för uppdraget.\n\nJag noterar att ni väljer **Löpande räkning** och sätter ett **Takpris** på 1300 kr per timme. Detta innebär att vi formellt specificerar uppdraget som *Löpande räkning med tak*.\n\nNu är i princip all information om volym, roller och priser samlad. För att vi ska kunna slutföra avropsdokumentationen och gå vidare med Förnyad Konkurrensutsättning (FKU), saknas endast den strategiska delen:\n\n**1. Utvärdering:** Hur vill ni att anbuden ska utvärderas? (Till exempel 100% pris, eller en kombination av pris och kvalitet, t.ex. Pris 70% / Kvalitet 30%).\n\n**2. Nästa steg:** När denna information är klar, ska jag då sammanfatta hela avropet för en sista genomgång?\n\n***",
+      "turn": 4,
+      "reasoning": {
+        "conclusion": "Användaren har nu specificerat Volym/Pris-relaterad information (Takpris: 1300 kr/timme, Löpande räkning). Detta behandlas i step_3_volume.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Dokument som hanterar 'Takpris vid avrop' (3_volume_RULE_PRIMARY_e1e441a5.md) är relevanta för denna input, vilket placerar inputen i step_3_volume.",
+        "target_step": "step_3_volume",
+        "tone": "Informative",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 90.0,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [],
+        "entity_summary": {
+          "end_date": "2026-09-30",
+          "location": "Stockholm",
+          "price_cap": 1300,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Senior Nätverksarkitekt",
+              "status": "DONE"
+            },
+            {
+              "id": "res_2",
+              "level": 5,
+              "quantity": 1,
+              "role": "Senior IT-arkitekt Infrastruktur",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-05",
+          "volume": 500
+        },
+        "ghost_mode": true,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "utvarderingsmodell"
+        ],
+        "resource_count": 2,
+        "set_active_process_step": "step_3_volume",
+        "taxonomy_branches": [
+          "FINANCIALS"
+        ],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 3: Volym & Pris"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi kör på en kombination av pris och kvalitet, 70/30. Ja, sammanfatta allt och skicka över. Vi har bråttom, så ju fortare desto bättre.",
+      "turn": 5
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Magnus. Då är upphandlingsstrategin fastställd till en viktning av **70% Pris och 30% Kvalitet**.\n\n### FAS: Regelkontroll och Avslut\n\nMed tanke på att ni efterfrågar konsulter på **Kompetensnivå 5 (KN5)** för båda rollerna, fastställer systemet automatiskt att avropsformen måste vara **Förnyad Konkurrensutsättning (FKU)**. Detta är obligatoriskt enligt ramavtalets regler vid avrop av de högsta kompetensnivåerna.\n\nVi har nu en komplett uppsättning av parametrar för avropet:\n\n1.  **Avropsform:** Förnyad Konkurrensutsättning (FKU).\n2.  **Roller & Nivåer:** Två konsulter på Kompetensnivå 5 (Senior Nätverksarkitekt och Senior IT-arkitekt Infrastruktur).\n3.  **Ekonomisk Ram:** Löpande räkning med ett Takpris på 1300 kr/h.\n4.  **Strategi:** Utvärdering sker 70% på Pris och 30% på Kvalitet.\n\nUnderlaget är nu komplett. Vi kan bekräfta att avropet följer de generella prisvillkoren och inkluderar tydliga instruktioner för hur eventuella budgetöverskridanden hanteras via skriftlig överenskommelse med leverantören.\n\nVill du att jag sammanfattar alla insamlade parametrar en sista gång, eller kan vi skicka ut den formella förfrågan (FKU) till berörda leverantörer nu, givet att ni har bråttom?",
+      "turn": 5,
+      "reasoning": {
+        "conclusion": "Användaren har bekräftat att de kör på en kombination av pris och kvalitet (70/30) och begär en sammanfattning samt att processen ska fortgå snabbt. Då alla parametrar för step_3_volume (Volym/Pris) verkar vara avslutade och användaren bekräftar detta samt ber om sammanfattning, ska processen gå vidare till nästa logiska steg, step_4_strategy.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Regel 4_strategy_RULE_PRIMARY_MERGED_53d86ec1.md (som är en del av nästa steg) är relevant då användaren specificerat en viktning (70/30) som rör avropsstrategin (kvalitet/pris-förhållande).",
+        "target_step": "step_4_strategy",
+        "tone": "Informative",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 90.0,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "bästa förhållandet mellan pris och kvalitet"
+        ],
+        "entity_summary": {
+          "end_date": "2026-09-30",
+          "location": "Stockholm",
+          "price_cap": 1300,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Senior Nätverksarkitekt",
+              "status": "DONE"
+            },
+            {
+              "id": "res_2",
+              "level": 5,
+              "quantity": 1,
+              "role": "Senior IT-arkitekt Infrastruktur",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-05",
+          "volume": 500
+        },
+        "ghost_mode": true,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "prismodell"
+        ],
+        "resource_count": 2,
+        "set_active_process_step": "step_4_strategy",
+        "taxonomy_branches": [
+          "FINANCIALS",
+          "STRATEGY"
+        ],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 4: Avropsform"
+      }
+    }
+  ],
+  "final_state": {
+    "avrop_data": {
+      "anbudsomrade": null,
+      "avrop_typ": "FKU_RESURS",
+      "end_date": "2026-09-30",
+      "godkannandevillkor": null,
+      "hanterar_personuppgifter": null,
+      "location_text": "Stockholm",
+      "prismodell": null,
+      "region": "D",
+      "resources": [
+        {
+          "antal": 1,
+          "id": "res_1",
+          "is_complete": true,
+          "kompetensomrade": null,
+          "level": 5,
+          "roll": "Senior Nätverksarkitekt"
+        },
+        {
+          "antal": 1,
+          "id": "res_2",
+          "is_complete": true,
+          "kompetensomrade": null,
+          "level": 5,
+          "roll": "Senior IT-arkitekt Infrastruktur"
+        }
+      ],
+      "resultatbeskrivning": null,
+      "sakerhetsklassad": null,
+      "start_date": "2026-02-05",
+      "takpris": 1300,
+      "uppdragsbeskrivning": null,
+      "utvarderingsmodell": "PRIS_70_KVALITET_30",
+      "volume": 500
+    },
+    "avrop_progress": {
+      "avrop_typ": "FKU_RESURS",
+      "completed_fields": 9,
+      "completion_percent": 90.0,
+      "constraint_violations": [],
+      "is_complete": false,
+      "missing_fields": [
+        "prismodell"
+      ],
+      "total_fields": 10
+    },
+    "current_state": {
+      "confidence": 0.95,
+      "current_intent": "FACT",
+      "current_step": "step_4_strategy",
+      "extracted_entities": {
+        "end_date": "2026-09-30",
+        "location": "Stockholm",
+        "price_cap": 1300,
+        "region": "D",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 5,
+            "quantity": 1,
+            "role": "Senior Nätverksarkitekt",
+            "status": "DONE"
+          },
+          {
+            "id": "res_2",
+            "level": 5,
+            "quantity": 1,
+            "role": "Senior IT-arkitekt Infrastruktur",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-05",
+        "volume": 500
+      },
+      "missing_info": [
+        "prismodell"
+      ]
+    },
+    "message": "Utmärkt, Magnus. Då är upphandlingsstrategin fastställd till en viktning av **70% Pris och 30% Kvalitet**.\n\n### FAS: Regelkontroll och Avslut\n\nMed tanke på att ni efterfrågar konsulter på **Kompetensnivå 5 (KN5)** för båda rollerna, fastställer systemet automatiskt att avropsformen måste vara **Förnyad Konkurrensutsättning (FKU)**. Detta är obligatoriskt enligt ramavtalets regler vid avrop av de högsta kompetensnivåerna.\n\nVi har nu en komplett uppsättning av parametrar för avropet:\n\n1.  **Avropsform:** Förnyad Konkurrensutsättning (FKU).\n2.  **Roller & Nivåer:** Två konsulter på Kompetensnivå 5 (Senior Nätverksarkitekt och Senior IT-arkitekt Infrastruktur).\n3.  **Ekonomisk Ram:** Löpande räkning med ett Takpris på 1300 kr/h.\n4.  **Strategi:** Utvärdering sker 70% på Pris och 30% på Kvalitet.\n\nUnderlaget är nu komplett. Vi kan bekräfta att avropet följer de generella prisvillkoren och inkluderar tydliga instruktioner för hur eventuella budgetöverskridanden hanteras via skriftlig överenskommelse med leverantören.\n\nVill du att jag sammanfattar alla insamlade parametrar en sista gång, eller kan vi skicka ut den formella förfrågan (FKU) till berörda leverantörer nu, givet att ni har bråttom?",
+    "reasoning": {
+      "conclusion": "Användaren har bekräftat att de kör på en kombination av pris och kvalitet (70/30) och begär en sammanfattning samt att processen ska fortgå snabbt. Då alla parametrar för step_3_volume (Volym/Pris) verkar vara avslutade och användaren bekräftar detta samt ber om sammanfattning, ska processen gå vidare till nästa logiska steg, step_4_strategy.",
+      "conflicts": null,
+      "forced_strategy": null,
+      "policy": "Regel 4_strategy_RULE_PRIMARY_MERGED_53d86ec1.md (som är en del av nästa steg) är relevant då användaren specificerat en viktning (70/30) som rör avropsstrategin (kvalitet/pris-förhållande).",
+      "target_step": "step_4_strategy",
+      "tone": "Informative",
+      "validation": null,
+      "validation_warnings": []
+    },
+    "session_state": {
+      "confidence": 0.95,
+      "current_intent": "FACT",
+      "current_step": "step_4_strategy",
+      "extracted_entities": {
+        "end_date": "2026-09-30",
+        "location": "Stockholm",
+        "price_cap": 1300,
+        "region": "D",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 5,
+            "quantity": 1,
+            "role": "Senior Nätverksarkitekt",
+            "status": "DONE"
+          },
+          {
+            "id": "res_2",
+            "level": 5,
+            "quantity": 1,
+            "role": "Senior IT-arkitekt Infrastruktur",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-05",
+        "volume": 500
+      },
+      "missing_info": [
+        "prismodell"
+      ]
+    },
+    "sources": [
+      "3_volume_RULE_PRIMARY_e1e441a5.md",
+      "4_strategy_RULE_PRIMARY_MERGED_53d86ec1.md",
+      "3_volume_INSTRUCTION_PRIMARY_MERGED_c8645605.md",
+      "3_volume_INSTRUCTION_PRIMARY_4bdab543.md",
+      "3_volume_RULE_PRIMARY_ccd06413.md"
+    ],
+    "ui_directives": {
+      "avrop_typ": "FKU_RESURS",
+      "completion_percent": 90.0,
+      "constraint_violations": [],
+      "current_intent": "FACT",
+      "detected_topics": [
+        "bästa förhållandet mellan pris och kvalitet"
+      ],
+      "entity_summary": {
+        "end_date": "2026-09-30",
+        "location": "Stockholm",
+        "price_cap": 1300,
+        "region": "D",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 5,
+            "quantity": 1,
+            "role": "Senior Nätverksarkitekt",
+            "status": "DONE"
+          },
+          {
+            "id": "res_2",
+            "level": 5,
+            "quantity": 1,
+            "role": "Senior IT-arkitekt Infrastruktur",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-05",
+        "volume": 500
+      },
+      "ghost_mode": true,
+      "has_warning": false,
+      "is_complete": false,
+      "missing_info": [
+        "prismodell"
+      ],
+      "resource_count": 2,
+      "set_active_process_step": "step_4_strategy",
+      "taxonomy_branches": [
+        "FINANCIALS",
+        "STRATEGY"
+      ],
+      "tone": "Informative",
+      "update_sticky_header": "Steg 4: Avropsform"
+    }
+  },
+  "summary": {
+    "total_turns": 5,
+    "final_resources": 2,
+    "final_step": "unknown",
+    "final_intent": "FACT"
+  }
+}

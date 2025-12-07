@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Johan Erikssons berättelse
+║  Verksamhetsutvecklare på Stockholms läns landsting
+║  
+║  Samtal: 16 meddelanden
+║  Datum: 2025-12-06 14:36
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade ett samtal med Addas P-Bot igår, angående det här avropet på en analytiker. Jag var väl måttligt optimistisk, ärligt talat. AI-assistenter, visst, det låter ju bra på pappret, men jag var rädd att det skulle bli ett meningslöst klickande och pratande utan att komma någonvart. Vi behöver ju faktiskt någon som förstår vårddata, inte bara någon som kan googla "dataanalys". Mitt mål var ju att få en vettig kravspecifikation på plats, så att vi inte slösar tid på massa felrekryteringar. Ledningen tjatar ju om bättre beslutsunderlag hela tiden, och vi sitter på en jävla massa data som bara samlar damm.
+
+Det började väl som väntat, lite stelt. P-Bot var artig, bekräftade allt, frågade om kompetensnivå och timmar. Standardfrågor. Men sedan, när vi började prata om utvärderingen av leverantörernas anbud, då hände något. Jag betonade ju vikten av kompetens, att vi inte bara skulle gå på lägsta pris. Och P-Bot fattade direkt! Det var nästan som att den *hörde* att jag ville något mer än bara spara pengar. Den förklarade tydligt hur vi kunde väga in kvalitet, 70/30, och det kändes faktiskt bra. Att jag kunde specificera vikten av kvalitét, det var viktigt.
+
+Det som verkligen imponerade var diskussionen om urvalsprocessen. När P-Bot föreslog obligatoriska intervjuer och minst två referenser, då kände jag att vi var på rätt spår. Det var ju precis det jag ville! Jag vill sitta ner med de här kandidaterna och se om de kan förklara sina insikter så att *jag* förstår. Jag är ingen data scientist, men jag måste kunna förstå vad de kommer fram till. Just det att P-Bot lyfte fram intervjuerna som ett sätt att bedöma kommunikativ förmåga, det var klockrent. Det kändes som att den förstod mitt problem. Sen när den började prata om att referenserna inte fick vara äldre än tre år, det visade att det finns någon form av förståelse för konsultmarknaden, att det faktiskt finns affärsregler bakom.
+
+När det var klart, efter sammanfattningen, kände jag mig faktiskt ganska lättad. Allt kändes genomtänkt och ordentligt. Det var långt ifrån en perfekt upplevelse, men det var *överraskande* bra. Skulle jag använda P-Bot igen? Ja, troligtvis. Jag menar, det tog mig genom en process som annars hade tagit mig flera timmar av möten och mailkonversationer. Visst, det är en AI, men den verkar vara kalibrerad för att faktiskt hjälpa till, inte bara kryssa i boxar. Sen får vi ju se om vi faktiskt hittar en bra analytiker, men jag har i alla fall en bättre känsla nu än vad jag hade igår morse."

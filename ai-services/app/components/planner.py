@@ -20,7 +20,7 @@ from typing import List, Dict, Optional, Any, Tuple
 
 from google.genai import types
 
-from ..models import IntentTarget, ReasoningPlan, ReasoningContext
+from ..models import IntentTarget, ReasoningPlan, ReasoningContext, ContextResult
 
 logger = logging.getLogger("ADDA_ENGINE")
 
@@ -213,7 +213,7 @@ class PlannerComponent:
     def create_plan(
         self, 
         intent: IntentTarget, 
-        context: Dict[str, Dict],
+        context: ContextResult,
         current_step: str = "step_1_intake",
         history: List[Dict] = None
     ) -> ReasoningPlan:
@@ -222,7 +222,7 @@ class PlannerComponent:
         
         Args:
             intent: IntentTarget from IntentAnalyzer
-            context: Dict of doc_id -> doc_data from ContextBuilder
+            context: ContextResult with documents AND resolved graph relations (v5.7)
             current_step: Current process step (v5.8 - for preventing backward jumps)
             history: Conversation history (v5.9 - for understanding confirmations)
             
@@ -234,9 +234,9 @@ class PlannerComponent:
         # For now, pass empty dict - validation will be done after entity extraction
         validation_warnings, forced_strategy = [], None
         
-        # 1. Prepare structured context summary
-        reasoning_context = self._prepare_context(context)
-        context_summary = self._format_context_for_llm(context, reasoning_context)
+        # 1. Prepare structured context summary (v5.7: use context.documents)
+        reasoning_context = self._prepare_context(context.documents)
+        context_summary = self._format_context_for_llm(context.documents, reasoning_context, context)
         
         # 2. Build prompt (v5.8: include current_step, v5.9: include history)
         prompt = self._build_prompt(intent, context_summary, reasoning_context, current_step, history)
@@ -271,6 +271,7 @@ class PlannerComponent:
                 data_validation=clean_null(result.get('data_validation')),
                 validation_warnings=validation_warnings,  # NEW
                 forced_strategy=forced_strategy,  # NEW
+                strategic_input=result.get('strategic_input', ''),  # v5.15: Always present
                 target_step=validated_step,  # v5.8: Use validated step
                 primary_sources=result.get('primary_sources', []),
                 secondary_sources=result.get('secondary_sources', [])
@@ -280,13 +281,14 @@ class PlannerComponent:
                        f"step={plan.target_step}, "
                        f"conflicts={plan.has_conflicts()}, "
                        f"warning={plan.requires_warning()}, "
-                       f"forced_strategy={forced_strategy}")
+                       f"forced_strategy={forced_strategy}, "
+                       f"strategic_input={plan.strategic_input[:50] if plan.strategic_input else 'None'}...")
             
             return plan
             
         except Exception as e:
             logger.error(f"Reasoning failed: {e}")
-            return self._fallback_plan(intent, context, validation_warnings, forced_strategy)
+            return self._fallback_plan(intent, context.documents, validation_warnings, forced_strategy)
     
     def _validate_against_rules(self, normalized_entities: Dict) -> Tuple[List[str], Optional[str]]:
         """
@@ -345,9 +347,14 @@ class PlannerComponent:
     def _format_context_for_llm(
         self, 
         context: Dict[str, Dict], 
-        reasoning_context: ReasoningContext
+        reasoning_context: ReasoningContext,
+        full_context: ContextResult = None
     ) -> str:
-        """Format context documents for LLM consumption."""
+        """
+        Format context documents and graph knowledge for LLM consumption.
+        
+        v5.7: Now includes resolved graph relations (geo, roles, aliases, rules).
+        """
         lines = []
         
         # Summary
@@ -356,7 +363,46 @@ class PlannerComponent:
         lines.append(f"- SECONDARY-dokument: {len(reasoning_context.secondary_docs)}")
         lines.append(f"- RULE-dokument: {reasoning_context.rule_count}")
         lines.append(f"- Konflikt mellan scopes: {'JA' if reasoning_context.has_conflicting_scopes else 'NEJ'}")
+        
+        # v5.7: Graph knowledge summary
+        if full_context and full_context.has_graph_knowledge():
+            lines.append(f"- Geografisk mappning: {len(full_context.resolved_locations)} platser")
+            lines.append(f"- Rollmappningar: {len(full_context.resolved_roles)}")
+            lines.append(f"- Aliasmappningar: {len(full_context.resolved_aliases)}")
+            lines.append(f"- Inlärda regler: {len(full_context.learned_rules)}")
         lines.append("")
+        
+        # =================================================================
+        # v5.7: GRAPH KNOWLEDGE (highest priority - factual mappings)
+        # =================================================================
+        if full_context and full_context.has_graph_knowledge():
+            lines.append("--- GRAF-KUNSKAP (FAKTISKT VERIFIERAD) ---")
+            
+            # Geographic mappings
+            if full_context.resolved_locations:
+                lines.append("\n📍 GEOGRAFISK MAPPNING:")
+                for loc in full_context.resolved_locations:
+                    lines.append(f"  • {loc.city} → {loc.county} → Anbudsområde {loc.area_code} ({loc.area_name})")
+            
+            # Role mappings
+            if full_context.resolved_roles:
+                lines.append("\n👤 ROLL-MAPPNING:")
+                for role in full_context.resolved_roles:
+                    lines.append(f"  • {role.role} → {role.kompetensomrade}")
+            
+            # Alias mappings
+            if full_context.resolved_aliases:
+                lines.append("\n🔄 ALIAS-MAPPNING:")
+                for alias, canonical in full_context.resolved_aliases.items():
+                    lines.append(f"  • {alias} = {canonical}")
+            
+            # Learned rules
+            if full_context.learned_rules:
+                lines.append("\n📋 AFFÄRSREGLER:")
+                for rule in full_context.learned_rules[:10]:  # Max 10 rules
+                    lines.append(f"  • {rule.subject} {rule.predicate} {rule.object}")
+            
+            lines.append("")
         
         # PRIMARY documents first (most important)
         if reasoning_context.primary_docs:
@@ -407,13 +453,13 @@ Du MÅSTE ange i conflict_resolution vilken källa som gäller och varför.
         allowed_steps.append('general')
         
         # v5.9: Build history context for understanding confirmations
+        # v5.11: Full history - no truncation (Gemini has 1M token context)
         history_context = ""
         if history:
-            recent = history[-4:]  # Last 4 messages
             history_lines = []
-            for msg in recent:
+            for msg in history:  # Full history
                 role = msg.get('role', 'unknown').upper()
-                content = msg.get('content', '')[:200]
+                content = msg.get('content', '')  # Full content
                 history_lines.append(f"  {role}: {content}")
             
             history_context = f"""
@@ -556,6 +602,7 @@ VIKTIGT: target_step MÅSTE vara ett av: {allowed_steps}
             data_validation=None,
             validation_warnings=validation_warnings or [],
             forced_strategy=forced_strategy,
+            strategic_input="Fallback-läge aktivt. Ingen specifik strategisk insikt tillgänglig.",
             target_step=self._derive_step(intent),
             primary_sources=primary_sources[:5],
             secondary_sources=secondary_sources[:3]

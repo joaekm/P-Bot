@@ -1,0 +1,726 @@
+{
+  "timestamp": "2025-12-06T15:10:32.750019",
+  "scenario": {
+    "filename": "scenario_systemutvecklare.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/test_data/scenarios/scenario_systemutvecklare.txt"
+  },
+  "persona": {
+    "name": "Lisa Andersson",
+    "title": "Utvecklingsledare",
+    "organization": "Inera AB",
+    "personality": "Lisa är tekniskt skicklig och har nyligen blivit befordrad till utvecklingsledare. Hon är entusiastisk men lite osäker på upphandlingsprocessen. Hon vill göra rätt och ställer därför många frågor.",
+    "knowledge_level": "- Expert på .Net-utveckling - Nybörjare på ramavtalsupphandlingar - God förståelse för E-klient-produkten",
+    "communication_style": "- Öppen och nyfiken - Ställer grundläggande frågor om processen - Uppskattar tydliga förklaringar - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Första gången hon gör ett avrop själv",
+      "Har fått hjälp av inköpsavdelningen tidigare",
+      "Orolig att göra fel i utvärderingen"
+    ],
+    "goals": [
+      "Förstå hela avropsprocesen från början till slut",
+      "Lära sig hur man utvärderar anbud",
+      "Hitta en senior utvecklare som kan vara mentor"
+    ],
+    "background": "Lisa har arbetat som utvecklare på Inera i 5 år och blev utvecklingsledare för 6 månader sedan. Hon har ärvt ansvaret för att rekrytera konsulter men har aldrig gjort det själv förut.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Lisa Andersson och jobbar som Utvecklingsledare på Inera AB. Jag behöver hjälp med ett avrop. Vi ska förstå hela avropsprocesen från början till slut.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Välkommen, Lisa. Jag hjälper dig gärna att navigera genom avropsprocessen från behov till kontrakt.\n\nVi börjar med att specificera det grundläggande behovet, eftersom dessa parametrar styr hur vi sedan måste utforma avropsförfrågan och om vi behöver genomföra en förnyad konkurrensutsättning (FKU).\n\nFörst och främst: **Vilken typ av kompetens behöver ni tillsätta** (t.ex. Utvecklare, Testledare, Arkitekt)? Och vilken **kompetensnivå** (skala 1 till 5) efterfrågar ni för den rollen?\n\nOm du samtidigt kan uppskatta **uppdragets totala volym i timmar** får jag en bättre bild av omfattningen.",
+      "turn": 1,
+      "reasoning": {
+        "conclusion": "Användaren Lisa Andersson, Utvecklingsledare på Inera AB, har initierat processen och begär vägledning för hela avropsprocessen från början till slut. Detta placerar oss i det första steget av processen, 'step_1_intake', där grundläggande information om behov, roller och regioner ska samlas in.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Dokument 1_intake_INSTRUCTION_PRIMARY_d725ccf4.md och 1_intake_INSTRUCTION_PRIMARY_d0827405.md definierar innehållet som ska hanteras i 'step_1_intake' (t.ex. kompetensområde, avropsförfrågan, plats/distans).",
+        "target_step": "step_1_intake",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "DR_RESURS",
+        "completion_percent": 0.0,
+        "constraint_violations": [],
+        "current_intent": "INSTRUCTION",
+        "detected_topics": [],
+        "entity_summary": {
+          "end_date": null,
+          "location": null,
+          "price_cap": null,
+          "region": null,
+          "resources": [],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "resources (minst 1 resurs krävs)",
+          "start_date",
+          "end_date",
+          "volume",
+          "region"
+        ],
+        "resource_count": 0,
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [
+          "PHASES",
+          "STRATEGY"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Hej! Vi behöver en Senior Systemutvecklare. Nivå 5 är den kompetensnivå vi behöver. Jag är lite osäker på den totala volymen i timmar, men jag har en uppskattning i vårt avropsunderlag.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Jag uppfattar det som att ni söker en **Senior Systemutvecklare** på kompetensnivå 5. Det är noterat. Kompetensnivå 5 är den högsta nivån och indikerar att vi sannolikt behöver genomföra en Förnyad Konkurrensutsättning (FKU) för att säkerställa högsta kvalitet.\n\nFör att kunna precisera uppdragets omfattning behöver jag några detaljer till:\n\n1.  **Volym:** Kan du ange den totala uppskattade volymen i timmar för hela uppdraget?\n2.  **Start & Slutdatum:** När önskar ni att uppdraget ska starta, och hur länge beräknas det pågå?\n3.  **Region:** I vilken ort eller region ska konsulten huvudsakligen utföra sitt arbete?",
+      "turn": 2,
+      "reasoning": {
+        "conclusion": "Användaren har specificerat roll (Senior Systemutvecklare) och kompetensnivå (Nivå 5). Detta innebär att vi har tillräcklig information för att gå vidare från det initiala insamlingssteget (step_1_intake) till nästa steg som hanterar behovsdetaljerna (step_1_needs), även om volymen är osäker. Observera dock att Nivå 5 kräver en FKU (Förnyad Konkurrensutsättning).",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Dokument '1_intake_INSTRUCTION_PRIMARY_6d0ef33f.md' styr att kompetensbehov är en del av processen som leder fram till behovsdefinitionen.",
+        "target_step": "step_1_needs",
+        "tone": "Helpful/Guiding",
+        "validation": "Begäran om Nivå 5 kompetens indikerar att en Förnyad Konkurrensutsättning (FKU) är nödvändig enligt upphandlingsreglerna (detta är en implicit validering mot FKU-tröskeln för nivåer).",
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 37.5,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "digitaliseringsroller",
+          "nivå"
+        ],
+        "entity_summary": {
+          "end_date": null,
+          "location": null,
+          "price_cap": null,
+          "region": null,
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Systemutvecklare/Systemintegratör",
+              "status": "DONE"
+            }
+          ],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": true,
+        "has_warning": true,
+        "is_complete": false,
+        "missing_info": [
+          "start_date",
+          "end_date",
+          "volume",
+          "prismodell",
+          "pris_vikt"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_1_needs",
+        "taxonomy_branches": [
+          "ROLES",
+          "FINANCIALS",
+          "PHASES"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Okej, låt mig se... Jag är lite osäker på timmarna, men vi har ett kontraktsvärde på 2 000 000 kr per år. Startdatum är 2026-02-01 och uppdraget ska pågå i 12 månader, med en eventuell förlängning på 24 månader. Konsulten ska jobba på vårt kontor i Lund.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Det var tydlig information, tack!\n\nJag har nu noterat att ni söker en Senior Systemutvecklare på **Nivå 5** i **Lund**, som ligger i Anbudsområde D (Sydsverige). Uppdraget har en budgetram på **2 000 000 SEK per år** och löper initialt 12 månader, med start **2026-02-01**.\n\nMed tanke på den höga kompetensnivån och budgeten behöver vi nu definiera de finansiella och strategiska villkoren för den Förnyade Konkurrensutsättningen (FKU).\n\n1.  **Prisstruktur:** Är de 2 000 000 SEK/år det totala takpriset för uppdraget, eller behöver vi även sätta ett **takpris per timme** för löpande räkning?\n2.  **Prismodell:** Vilken prismodell vill ni använda? **Löpande räkning** (fast timpris) eller **Löpande räkning med takpris**? (Fast pris för hela uppdraget är sällan lämpligt för ett 12-månaders uppdrag.)\n3.  **Utvärderingsviktning:** Eftersom vi ska genomföra FKU: Hur stor vikt ska **priset** ha i utvärderingen jämfört med kvalitet/kompetens (t.ex. 60% pris och 40% kvalitet)?\n\n***",
+      "turn": 3,
+      "reasoning": {
+        "conclusion": "Uppdraget specificerar en årskostnad på 2 000 000 SEK, en startdatum 2026-02-01, en initial varaktighet på 12 månader med en option på 24 månader, och platsen Lund. Dessa uppgifter kompletterar informationen om rollen (Senior Systemutvecklare, Nivå 5) och gör att vi kan gå vidare till strategival för avropet.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Inget specifikt regelverk kontrollerat då fokus låg på informationsinsamling (steg 1). Dock noteras att Nivå 5 kräver FKU, vilket kommer att valideras i senare steg.",
+        "target_step": "step_2_level",
+        "tone": "Informative",
+        "validation": "Ingen direkt orimlig begäran baserat på de nya siffrorna, men Nivå 5 är noterat som en parameter som kommer att utlösa krav på FKU i nästa steg (step_4_strategy).",
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 62.5,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "uppdragsbudget",
+          "ange kontraktstid",
+          "option",
+          "datum",
+          "plats eller distans"
+        ],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Lund",
+          "price_cap": 2000000,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Systemutvecklare/Systemintegratör",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": null
+        },
+        "ghost_mode": true,
+        "has_warning": true,
+        "is_complete": false,
+        "missing_info": [
+          "volume",
+          "prismodell",
+          "pris_vikt"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_2_level",
+        "taxonomy_branches": [
+          "FINANCIALS",
+          "LOCATIONS",
+          "PHASES"
+        ],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 2: Kompetensnivå"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Okej, tack för att du frågar! Jag är lite osäker på de här frågorna, men jag ska försöka svara så gott jag kan.\n\n1.  **Takpris per timme:** Ja, vi har ett takpris per timme. Enligt vårt underlag är det 1250 kr/timme.\n2.  **Prismodell:** Jag antar att vi ska använda löpande räkning med takpris, eftersom vi inte vet exakt hur många timmar det blir.\n3.  **Utvärderingsviktning:** Hmm... Det här är jag lite osäker på. Jag skulle vilja att vi lägger ganska stor vikt på kvalitet och kompetens, kanske 60% kvalitet och 40% pris? Jag behöver nog lite hjälp med det här.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Tack för de tydliga svaren, Lisa. Det hjälper oss att fastställa strategin för den Förnyade Konkurrensutsättningen (FKU).\n\nJag bekräftar att vi nu har de finansiella ramarna och strategin på plats:\n*   **Takpris per timme:** 1250 kr/timme.\n*   **Prismodell:** Löpande räkning med takpris.\n*   **Utvärderingsviktning:** 60% kvalitet och 40% pris.\n\nDet enda som återstår för att validera budgeten (2 000 000 SEK) mot timpriset är den **uppskattade totala volymen i timmar** för uppdraget. Utan denna siffra kan vi inte säkerställa att takpriset 1250 kr/timme ryms inom den totala budgeten.\n\n1.  **Volym:** Har ni en uppskattning av den totala volymen i timmar för uppdraget (12 månader)?\n2.  **Sammanfattning:** När vi har volymen kan vi sammanfatta hela avropsförfrågan och gå vidare till att skriva utvärderingskriterierna. Låter det som ett bra nästa steg?",
+      "turn": 4,
+      "reasoning": {
+        "conclusion": "Vi har nu fastställt: Takpris per timme är 1250 kr/timme. Prismodellen är Löpande räkning med takpris. Utvärderingsviktningen föreslås vara 60% kvalitet och 40% pris.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Regel 3_volume_RULE_PRIMARY_e1e441a5.md styr hantering av takpris. Steg 3 (Volym/Pris) hanteras nu.",
+        "target_step": "step_3_volume",
+        "tone": "Helpful/Guiding",
+        "validation": "Inget indikerar att Nivå 5-kravet (som kräver FKU) är i konflikt med de finansiella ramarna (2 000 000 SEK/år). Budgetramen måste dock omvandlas till timmar för att validera att 1250 kr/timme är rimligt inom budgeten.",
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 87.5,
+        "constraint_violations": [],
+        "current_intent": "INSPIRATION",
+        "detected_topics": [
+          "utvärderingspris"
+        ],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Lund",
+          "price_cap": 1250,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Systemutvecklare/Systemintegratör",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": null
+        },
+        "ghost_mode": false,
+        "has_warning": true,
+        "is_complete": false,
+        "missing_info": [
+          "volume"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_3_volume",
+        "taxonomy_branches": [
+          "FINANCIALS",
+          "STRATEGY"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 3: Volym & Pris"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag har tyvärr ingen exakt uppskattning på antalet timmar just nu, men jag kan försöka räkna på det. Låt mig återkomma med det. Och ja, att sammanfatta och gå vidare med utvärderingskriterierna låter som ett bra nästa steg!",
+      "turn": 5
+    },
+    {
+      "role": "assistant",
+      "content": "Det är utmärkt. Vi noterar att den exakta timvolymen återstår att räkna fram, men vi har nu tillräckligt med underlag för att forma avropsstrategin och gå vidare.\n\n### FAS: Strategi (Avropsform, Regelkontroll, Avslut)\n\n**Avropsform: Förnyad Konkurrensutsättning (FKU)**\n\nEftersom ni efterfrågar en Systemutvecklare på **Nivå 5** är **Förnyad Konkurrensutsättning (FKU)** den obligatoriska avropsformen enligt ramavtalet. Detta är nödvändigt för att säkerställa att ni får in de bästa tillgängliga kompetenserna på marknaden.\n\n**Nuvarande upplägg:**\n*   **Avropsform:** FKU.\n*   **Prismodell:** Löpande räkning med takpris (1250 kr/timme).\n*   **Utvärderingsviktning:** Kvalitet 60% / Pris 40%.\n\n***\n\n**Regelkontroll & Utvärderingsstrategi**\n\nNu när vi har satt viktningen (60% kvalitet), måste vi specificera *hur* vi kommer att mäta och utvärdera den kvaliteten.\n\nVi behöver nu definiera de specifika utvärderingskriterierna och den metod vi kommer att använda för att bedöma leverantörernas kompetens (CV:n, intervjuer, referenser) för den resterande 60% av vikten.\n\nHar ni några preliminära tankar kring vilka **obligatoriska krav** och **utvärderingskriterier** som är viktigast för er Seniora Systemutvecklare? Till exempel:\n*   Minst 8 års erfarenhet av specifik plattform?\n*   Certifieringar inom vissa teknologier?\n\n***\n**Nästa steg:** Vill ni att jag sammanfattar de viktigaste punkterna i ert uppdrag (inklusive budget och takpris) och sedan hjälper er att formulera de specifika kvalitetskraven för FKU:n?",
+      "turn": 5,
+      "reasoning": {
+        "conclusion": "Användaren bekräftar att vi har tillräcklig information för att slutföra steg 3 (Volym) genom att ange att de saknar exakt timantal men accepterar att gå vidare till att sammanfatta och skriva utvärderingskriterierna (steg 4). Detta innebär att vi ska byta steg till step_4_strategy.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Regel 3_volume_INSTRUCTION_PRIMARY_MERGED_f2ed38cd.md och 3_volume_INSTRUCTION_PRIMARY_MERGED_c8645605.md styrde behovet av volym i step_3_volume, men användarens bekräftelse styr steghanteringen.",
+        "target_step": "step_4_strategy",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 87.5,
+        "constraint_violations": [],
+        "current_intent": "INSTRUCTION",
+        "detected_topics": [
+          "planering",
+          "avtalsvillkor"
+        ],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Lund",
+          "price_cap": 1250,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Systemutvecklare/Systemintegratör",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": null
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "volume"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_4_strategy",
+        "taxonomy_branches": [
+          "FINANCIALS",
+          "STRATEGY"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 4: Avropsform"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det låter jättebra! Jag behöver verkligen hjälp med att formulera de specifika kraven och kriterierna. Jag har ju inte gjort det här själv förut, så en sammanfattning och lite guidning vore toppen. Jag vill ju göra rätt!",
+      "turn": 6
+    },
+    {
+      "role": "assistant",
+      "content": "Jag förstår det, Lisa, och det är helt naturligt att behöva guidning i denna del av processen. Att definiera utvärderingskriterierna är avgörande, särskilt när vi har en hög kvalitetsviktning (60%).\n\nEftersom ni söker en Senior Systemutvecklare (Nivå 5), måste vi fokusera på att definiera mätbara krav som säkerställer att vi får in toppkompetens. Kraven kommer ligga till grund för den intervju och referenskontroll vi genomför senare.\n\nVi fokuserar nu på de kriterier som kommer att utgöra de 60% av vikten i er Förnyade Konkurrensutsättning.\n\nFör att kunna formulera lämpliga obligatoriska krav och utvärderingskriterier, behöver jag veta:\n\n1.  **Teknisk kompetens:** Vilka specifika tekniska färdigheter, programmeringsspråk eller ramverk (t.ex. .NET, Java, Kubernetes) är absolut nödvändiga för uppdraget, och hur många års erfarenhet krävs inom dessa?\n2.  **Domänkunskap:** Är erfarenhet inom en specifik bransch, som till exempel *vård* eller *offentlig sektor*, ett krav eller ett stort mervärde?\n3.  **Säkerhet/Certifieringar:** Finns det krav på att konsulten måste genomgå **säkerhetskontroll** eller inneha specifika, formella certifieringar relaterade till rollen eller IT-säkerhet?\n\nGenom att specificera detta kan vi säkerställa att vi endast får in relevanta kandidater.",
+      "turn": 6,
+      "reasoning": {
+        "conclusion": "Sammanfatta uppdraget och fokusera på att definiera specifika, mätbara utvärderingskriterier för de 60% kvalitetsviktningen.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "PROCESS-STEG: Nuvarande steg är 'step_4_strategy'. Användarens svar ('Ja, det låter jättebra!') är en bekräftelse på att strategin (FKU, 60/40 viktning) är accepterad, vilket indikerar att processen ska gå vidare till nästa logiska steg.",
+        "target_step": "complete",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 75.0,
+        "constraint_violations": [],
+        "current_intent": "INSTRUCTION",
+        "detected_topics": [
+          "digitaliseringsroller"
+        ],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Lund",
+          "price_cap": 1250,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Systemutvecklare/Systemintegratör",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": null
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "volume",
+          "prismodell"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "complete",
+        "taxonomy_branches": [
+          "ROLES",
+          "GOVERNANCE",
+          "STRATEGY"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Resursupphandling"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det låter vettigt! Jag vill verkligen att vi får in rätt kompetens.\n\n1.  **Teknisk kompetens:** Absolut nödvändigt är minst 5 års erfarenhet av C#/.Net Core, SQL och REST-API:er. Djup kunskap i Visual Studio, TypeScript, och React/Fluent UI är också ett krav. Vi vill även ha minst 1 års erfarenhet av Microsoft Graph API och minst 3 års erfarenhet av Git.\n2.  **Domänkunskap:** Nej, det är inget krav, men erfarenhet inom vården är meriterande.\n3.  **Säkerhet/Certifieringar:** Nej, inga specifika certifieringar krävs, men vi behöver såklart en säkerhetskontroll.",
+      "turn": 7
+    },
+    {
+      "role": "assistant",
+      "content": "Det var mycket specifika och bra krav, tack! De kommer att utgöra en solid grund för utvärderingen av de 60% kvalitet i FKU:n.\n\nJag sammanfattar de tekniska kraven för den Seniora Systemutvecklaren (Nivå 5):\n\n| Typ | Krav |\n| :--- | :--- |\n| **Obligatorisk teknisk erfarenhet** | Minst 5 års erfarenhet av C#/.Net Core, SQL och REST-API:er. Djup kunskap i Visual Studio, TypeScript, React/Fluent UI. |\n| **Specifik teknik** | Minst 1 års erfarenhet av Microsoft Graph API. Minst 3 års erfarenhet av Git. |\n| **Domänkunskap** | Erfarenhet inom vården är meriterande. |\n| **Säkerhet** | Konsulten måste genomgå säkerhetskontroll. |\n\nNu när vi har de kvalitativa kraven på plats kan vi gå vidare och formalisera avropsförfrågan. Det enda som återstår är att fylla i den sista pusselbiten gällande omfattning, vilket är nödvändigt för att validera om ert takpris (1250 kr/h) ryms inom den totala årsbudgeten (2 000 000 SEK).\n\n1.  Har du lyckats räkna fram den **uppskattade totala volymen i timmar** för uppdraget (12 månader)?\n2.  Planerar ni att konsulten ska arbeta **heltid (100%)**, vilket motsvarar ungefär 1680 timmar/år, eller är det ett lägre uttag som ni ska basera volymen på?\n\nGenom att besvara dessa frågor kan vi låsa volymen och gå direkt till att utforma den formella avropsförfrågan.",
+      "turn": 7,
+      "reasoning": {
+        "conclusion": "Användaren har nu specificerat de tekniska och domänspecifika kraven för den Seniora Systemutvecklaren (Nivå 5), vilket är den sista pusselbiten för att kunna utforma utvärderingskriterierna för den pågående FKU:n. Kraven fokuserar på C#/.Net Core, SQL, REST-API:er, samt frontend-teknologier som TypeScript/React/Fluent UI. Domänkunskap är meriterande men inte obligatoriskt. Säkerhetskontroll krävs.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Inga regler kring timvolym eller nivå har överträtts i denna tur, men den initiala bedömningen att FKU krävs (pga Nivå 5) har bekräftats och nu implementeras genom kravsättning.",
+        "target_step": "complete",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 62.5,
+        "constraint_violations": [],
+        "current_intent": "INSTRUCTION",
+        "detected_topics": [
+          "digitaliseringsroller"
+        ],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Lund",
+          "price_cap": 1250,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Systemutvecklare/Systemintegratör",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": null
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "volume",
+          "prismodell",
+          "pris_vikt"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "complete",
+        "taxonomy_branches": [
+          "ROLES",
+          "GOVERNANCE",
+          "ARTIFACTS"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Resursupphandling"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag har inte hunnit räkna på det exakta antalet timmar ännu, men jag vill att konsulten ska jobba så nära heltid som möjligt, kanske 80-100%. Jag behöver nog lite mer tid för att få en exakt siffra. Men jag förstår att det är viktigt för att se om takpriset ryms inom budgeten.",
+      "turn": 8
+    },
+    {
+      "role": "assistant",
+      "content": "Jag förstår det, Lisa. Att sätta en exakt volym när man jobbar med en flexibel löpande räkning är svårt, men vi behöver ett tak för att uppfylla ramavtalskraven.\n\nEr intention att arbeta med konsulten mellan **80% och 100% heltid** är en utmärkt utgångspunkt, då vi kan använda den för att validera om er totala budget håller.\n\n**Budgetvalidering:**\nMed er budget på **2 000 000 SEK** och ett avtalat takpris på **1250 kr/timme** innebär det att den maximala volymen ni kan köpa inom denna budget är:\n\n$$2,000,000\\ \\text{SEK} / 1250\\ \\text{kr/timme} = \\mathbf{1 600\\ \\text{timmar}}$$\n\nEftersom 100% heltid över 12 månader normalt ligger på cirka 1680 timmar, måste vi justera ner det uppskattade uttaget något för att hålla er budget.\n\n**För att formellt kunna gå vidare och skriva avropsförfrågan:**\n\n1.  **Föreslår jag att vi låser den uppskattade totala volymen till max 1600 timmar.** Detta motsvarar ungefär 95% uttag och säkerställer att ni håller er inom den ekonomiska ramen ni angett (2 MSEK).\n2.  **Bekräftar du att vi ska använda 1600 timmar som den uppskattade volymen** för den initiala 12-månadersperioden?\n\nNär volymen är låst kan jag sammanfatta hela förfrågan (Behov, Volym och Strategi) och sedan hjälpa dig att slutgiltigt formulera utvärderingskriterierna för FKU:n.",
+      "turn": 8,
+      "reasoning": {
+        "conclusion": "Uppdraget måste baseras på en uppskattad volym inom intervallet 80-100% av heltid för att kunna validera om timtaket (1250 kr/h) håller sig inom den totala budgeten (2 000 000 SEK/år). Eftersom den exakta volymen saknas kan vi inte formellt slutföra steg 3 (Volym) eller gå vidare till steg 4 (Strategi/Avropsform).",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Regel 3_volume_RULE_PRIMARY_e1e441a5.md styr att takpris/budget måste valideras mot beräknad resursåtgång, vilket kräver en uppskattad volym.",
+        "target_step": "complete",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 75.0,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "uppdragsvolym",
+          "timmar"
+        ],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Lund",
+          "price_cap": 1250,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Systemutvecklare/Systemintegratör",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 1600
+        },
+        "ghost_mode": true,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "prismodell",
+          "pris_vikt"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "complete",
+        "taxonomy_branches": [
+          "FINANCIALS",
+          "ROLES"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Resursupphandling"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det låter rimligt. Jag bekräftar att vi använder 1600 timmar som den uppskattade volymen för den initiala 12-månadersperioden. Det är ju viktigt att vi håller oss inom budgeten, och det här verkar vara en bra lösning. Jag är redo att gå vidare med att formulera utvärderingskriterierna nu.",
+      "turn": 9
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Lisa. 1600 timmar är noterat som den uppskattade volymen för den initiala 12-månadersperioden. Detta är en mycket viktig siffra, eftersom den formellt säkerställer att ert takpris på 1250 kr/timme ryms strikt inom den totala budgeten på 2 000 000 SEK.\n\nNu har vi alla finansiella och volymmässiga parametrar på plats:\n\n*   **Roll & Nivå:** Senior Systemutvecklare (Nivå 5)\n*   **Volym:** Max 1600 timmar (under 12 månader)\n*   **Takpris:** 1250 kr/timme\n*   **Prismodell:** Löpande räkning med takpris\n*   **Utvärderingsviktning:** 60% Kvalitet / 40% Pris\n\nVi går nu vidare till FAS: Krav och Kriterier, där vi specificerar **hur** vi ska utvärdera den kvalitet som utgör 60% av vikten. Vi har redan de tekniska kraven, men vi behöver veta hur ni vill utvärdera kandidaterna.\n\nFör att färdigställa utvärderingskriterierna för den Förnyade Konkurrensutsättningen (FKU):\n\n1.  **Utvärderingsmetod:** Vilken utvärderingsmetod föredrar ni ska ha störst vikt? Ska vi lägga störst fokus på **CV:n och referenser** (dokumentation) eller på **intervju/tester** (personlig presentation)?\n2.  **Rapportering:** Finns det några specifika krav kring **rapportering, statusmöten eller leveransspecifikationer** som måste ingå i uppdraget?\n\nGenom att besvara dessa kan vi formulera de sista formella dokumenten innan vi går vidare till att skicka ut förfrågan.",
+      "turn": 9,
+      "reasoning": {
+        "conclusion": "Användaren har bekräftat att den uppskattade volymen för den initiala 12-månadersperioden ska låsas till max 1600 timmar för att säkerställa att takpriset (1250 kr/timme) håller sig inom den totala budgeten (2 000 000 SEK). Detta slutför steg 3 (Volym/Finans).",
+        "conflicts": "Ingen konflikt identifierad. Användarens bekräftelse löste den tidigare osäkerheten kring volym kontra budget.",
+        "forced_strategy": null,
+        "policy": "RULE 3_volume_RULE_PRIMARY_e1e441a5.md styrde beslutet om att låsa volymen baserat på budget och takpris för att uppfylla kostnadskontrollen.",
+        "target_step": "complete",
+        "tone": "Informative",
+        "validation": "Volymen (1600 timmar) är validerad mot budget (2 000 000 SEK) och takpris (1250 kr/timme), vilket gör uppdragets ekonomiska ramar formellt kompletta för FKU-utförandet.",
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 100.0,
+        "constraint_violations": [],
+        "current_intent": "INSTRUCTION",
+        "detected_topics": [],
+        "entity_summary": {
+          "end_date": "2027-01-31",
+          "location": "Lund",
+          "price_cap": 1250,
+          "region": "D",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "Systemutvecklare/Systemintegratör",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 1600
+        },
+        "ghost_mode": false,
+        "has_warning": true,
+        "is_complete": true,
+        "missing_info": [],
+        "resource_count": 1,
+        "set_active_process_step": "complete",
+        "taxonomy_branches": [
+          "FINANCIALS",
+          "STRATEGY",
+          "ARTIFACTS"
+        ],
+        "tone": "Informative",
+        "update_sticky_header": "Resursupphandling"
+      }
+    }
+  ],
+  "final_state": {
+    "avrop_data": {
+      "anbudsomrade": null,
+      "avrop_typ": "FKU_RESURS",
+      "end_date": "2027-01-31",
+      "godkannandevillkor": null,
+      "hanterar_personuppgifter": null,
+      "kvalitet_vikt": 60,
+      "location_text": "Lund",
+      "pris_vikt": 40,
+      "prismodell": "LOPANDE_MED_TAK",
+      "region": "D",
+      "resources": [
+        {
+          "antal": 1,
+          "id": "res_1",
+          "is_complete": true,
+          "kompetensomrade": null,
+          "level": 5,
+          "roll": "Systemutvecklare/Systemintegratör"
+        }
+      ],
+      "resultatbeskrivning": null,
+      "sakerhetsklassad": null,
+      "start_date": "2026-02-01",
+      "takpris": 1250,
+      "uppdragsbeskrivning": null,
+      "volume": 1600
+    },
+    "avrop_progress": {
+      "avrop_typ": "FKU_RESURS",
+      "completed_fields": 8,
+      "completion_percent": 100.0,
+      "constraint_violations": [],
+      "is_complete": true,
+      "missing_fields": [],
+      "total_fields": 8
+    },
+    "current_state": {
+      "confidence": 0.95,
+      "current_intent": "INSTRUCTION",
+      "current_step": "complete",
+      "extracted_entities": {
+        "end_date": "2027-01-31",
+        "location": "Lund",
+        "price_cap": 1250,
+        "region": "D",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 5,
+            "quantity": 1,
+            "role": "Systemutvecklare/Systemintegratör",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1600
+      },
+      "missing_info": []
+    },
+    "message": "Utmärkt, Lisa. 1600 timmar är noterat som den uppskattade volymen för den initiala 12-månadersperioden. Detta är en mycket viktig siffra, eftersom den formellt säkerställer att ert takpris på 1250 kr/timme ryms strikt inom den totala budgeten på 2 000 000 SEK.\n\nNu har vi alla finansiella och volymmässiga parametrar på plats:\n\n*   **Roll & Nivå:** Senior Systemutvecklare (Nivå 5)\n*   **Volym:** Max 1600 timmar (under 12 månader)\n*   **Takpris:** 1250 kr/timme\n*   **Prismodell:** Löpande räkning med takpris\n*   **Utvärderingsviktning:** 60% Kvalitet / 40% Pris\n\nVi går nu vidare till FAS: Krav och Kriterier, där vi specificerar **hur** vi ska utvärdera den kvalitet som utgör 60% av vikten. Vi har redan de tekniska kraven, men vi behöver veta hur ni vill utvärdera kandidaterna.\n\nFör att färdigställa utvärderingskriterierna för den Förnyade Konkurrensutsättningen (FKU):\n\n1.  **Utvärderingsmetod:** Vilken utvärderingsmetod föredrar ni ska ha störst vikt? Ska vi lägga störst fokus på **CV:n och referenser** (dokumentation) eller på **intervju/tester** (personlig presentation)?\n2.  **Rapportering:** Finns det några specifika krav kring **rapportering, statusmöten eller leveransspecifikationer** som måste ingå i uppdraget?\n\nGenom att besvara dessa kan vi formulera de sista formella dokumenten innan vi går vidare till att skicka ut förfrågan.",
+    "reasoning": {
+      "conclusion": "Användaren har bekräftat att den uppskattade volymen för den initiala 12-månadersperioden ska låsas till max 1600 timmar för att säkerställa att takpriset (1250 kr/timme) håller sig inom den totala budgeten (2 000 000 SEK). Detta slutför steg 3 (Volym/Finans).",
+      "conflicts": "Ingen konflikt identifierad. Användarens bekräftelse löste den tidigare osäkerheten kring volym kontra budget.",
+      "forced_strategy": null,
+      "policy": "RULE 3_volume_RULE_PRIMARY_e1e441a5.md styrde beslutet om att låsa volymen baserat på budget och takpris för att uppfylla kostnadskontrollen.",
+      "target_step": "complete",
+      "tone": "Informative",
+      "validation": "Volymen (1600 timmar) är validerad mot budget (2 000 000 SEK) och takpris (1250 kr/timme), vilket gör uppdragets ekonomiska ramar formellt kompletta för FKU-utförandet.",
+      "validation_warnings": []
+    },
+    "session_state": {
+      "confidence": 0.95,
+      "current_intent": "INSTRUCTION",
+      "current_step": "complete",
+      "extracted_entities": {
+        "end_date": "2027-01-31",
+        "location": "Lund",
+        "price_cap": 1250,
+        "region": "D",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 5,
+            "quantity": 1,
+            "role": "Systemutvecklare/Systemintegratör",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1600
+      },
+      "missing_info": []
+    },
+    "sources": [
+      "3_volume_RULE_PRIMARY_e1e441a5.md",
+      "3_volume_INSTRUCTION_PRIMARY_MERGED_c8645605.md",
+      "3_volume_RULE_PRIMARY_ccd06413.md",
+      "3_volume_INSTRUCTION_PRIMARY_4bdab543.md"
+    ],
+    "ui_directives": {
+      "avrop_typ": "FKU_RESURS",
+      "completion_percent": 100.0,
+      "constraint_violations": [],
+      "current_intent": "INSTRUCTION",
+      "detected_topics": [],
+      "entity_summary": {
+        "end_date": "2027-01-31",
+        "location": "Lund",
+        "price_cap": 1250,
+        "region": "D",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 5,
+            "quantity": 1,
+            "role": "Systemutvecklare/Systemintegratör",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1600
+      },
+      "ghost_mode": false,
+      "has_warning": true,
+      "is_complete": true,
+      "missing_info": [],
+      "resource_count": 1,
+      "set_active_process_step": "complete",
+      "taxonomy_branches": [
+        "FINANCIALS",
+        "STRATEGY",
+        "ARTIFACTS"
+      ],
+      "tone": "Informative",
+      "update_sticky_header": "Resursupphandling"
+    }
+  },
+  "summary": {
+    "total_turns": 9,
+    "final_resources": 1,
+    "final_step": "unknown",
+    "final_intent": "INSTRUCTION"
+  }
+}

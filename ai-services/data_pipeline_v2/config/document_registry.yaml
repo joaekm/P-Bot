@@ -1,0 +1,211 @@
+# Document Registry for Pipeline 2.0
+# Summaries av PRIMARY FULL_DOCUMENTs så Creator kan välja rätt dokument
+
+documents:
+  - id: avropsvagledning
+    file: general_FULL_DOCUMENT_PRIMARY_avropsvagledning---it-konsultt_35df.md
+    summary: |
+      HUVUDDOKUMENT för avrop. Innehåller:
+      - Hur avrop görs (DR vs FKU)
+      - Delområden A-G (geografisk indelning)
+      - Kompetensområden 1-7
+      - Kompetensnivåer 1-5
+      - 24 exempelroller
+      - Utvärderingskriterier vid FKU
+      - Prismodeller och takpriser
+      - Svarstider (2 dagar DR, 10 dagar FKU)
+      - 320-timmarsregeln
+    topics:
+      - avrop
+      - DR
+      - FKU
+      - regioner
+      - delområden
+      - kompetensnivåer
+      - roller
+      - utvärdering
+      - viktning
+      - pris
+      - takpris
+      - svarstid
+      - 320_timmar
+
+  - id: kompetensomraden_roller
+    file: general_FULL_DOCUMENT_PRIMARY_kompetensomraden-och-exempelro_4370.md
+    summary: |
+      Bilaga A - Detaljerade beskrivningar av:
+      - 7 kompetensområden
+      - 24 exempelroller med uppgiftsbeskrivningar
+      - Vilka roller tillhör vilka kompetensområden
+    topics:
+      - roller
+      - exempelroller
+      - kompetensområden
+      - projektledare
+      - systemutvecklare
+      - arkitekt
+      - testare
+
+  - id: kontraktsvillkor_dr
+    file: general_FULL_DOCUMENT_PRIMARY_kontraktsvillkor-dynamisk-rang_122b.md
+    summary: |
+      Kontraktsvillkor för Dynamisk Rangordning:
+      - Leveransvillkor
+      - Prisregler (takpris gäller)
+      - Byte av konsult
+      - Hävning
+      - Viten
+      - Force majeure
+    topics:
+      - kontrakt
+      - DR
+      - leverans
+      - vite
+      - hävning
+      - takpris
+
+  - id: kontraktsvillkor_fku
+    file: general_FULL_DOCUMENT_PRIMARY_allmanna-kontraktsvillkor-forn_2667.md
+    summary: |
+      Allmänna kontraktsvillkor för FKU:
+      - Ändringshantering
+      - Fakturering
+      - Ansvar och ansvarsbegränsning
+      - Hävning vid avtalsbrott
+      - Dokumenthierarki
+      - Force majeure
+    topics:
+      - kontrakt
+      - FKU
+      - fakturering
+      - hävning
+      - ansvar
+      - ändring
+
+  - id: avtalskort
+    file: general_FULL_DOCUMENT_PRIMARY_avtalskort---it-konsulttjanste_ed81.md
+    summary: |
+      Övergripande avtalsinformation:
+      - Avtalsperiod (2022-09-26 till 2026-09-25)
+      - Ramavtalsleverantörer per delområde
+      - Kontaktuppgifter till Adda
+    topics:
+      - avtal
+      - avtalsperiod
+      - leverantörer
+      - kontakt
+
+  - id: upphandlingsdokument
+    file: general_FULL_DOCUMENT_PRIMARY_Upphandlingsdokument_(GDPR)_d77d.md
+    summary: |
+      Ursprungligt upphandlingsdokument (GDPR-version):
+      - Upphandlingsförfarande
+      - Kvalificeringskrav på leverantörer
+      - Utvärdering av ramavtalsanbud
+      - GDPR-krav
+    topics:
+      - upphandling
+      - kvalificering
+      - GDPR
+      - krav
+
+  - id: resursbehov_bilaga_b
+    file: general_FULL_DOCUMENT_PRIMARY_efterfragat-resursbehov-bilaga_69e7.md
+    summary: |
+      Bilaga B - Beräkningsverktyg för DR:
+      - Hur rangordning beräknas
+      - Prislistor per kompetensområde och nivå
+      - Hur totalpris räknas ut
+    topics:
+      - rangordning
+      - beräkning
+      - prislista
+      - totalpris
+      - DR
+
+  - id: mall_avropsforfragan
+    file: general_FULL_DOCUMENT_PRIMARY_mall-for-avropsforfragan-resur_0ccb.md
+    summary: |
+      Mall för avropsförfrågan (resursuppdrag FKU):
+      - Struktur för avropsförfrågan
+      - Obligatoriska och valfria delar
+      - Utvärderingsmodell-exempel
+    topics:
+      - mall
+      - avropsförfrågan
+      - FKU
+      - utvärdering
+
+  - id: mall_kontrakt
+    file: general_FULL_DOCUMENT_PRIMARY_mall-for-kontrakt---it-konsult_0ab0.md
+    summary: |
+      Kontraktsmall:
+      - Struktur för kontrakt
+      - Bilagor som ska ingå
+      - Underskriftsrader
+    topics:
+      - mall
+      - kontrakt
+      - struktur
+
+  - id: avropsberattigade_parter
+    file: general_FULL_DOCUMENT_PRIMARY_avropsberattigade-parter---it-_2ecc.md
+    summary: |
+      Lista över avropsberättigade myndigheter:
+      - 1155 organisationer som får använda ramavtalet
+    topics:
+      - myndigheter
+      - avropsberättigade
+      - organisationer
+
+  - id: sandlista_fku
+    file: general_FULL_DOCUMENT_PRIMARY_sandlista-for-fornyad-konkurre_4546.md
+    summary: |
+      Kontaktlista för FKU:
+      - E-postadresser till ramavtalsleverantörer per delområde
+      - Vart avropsförfrågan ska skickas
+    topics:
+      - kontakt
+      - e-post
+      - leverantörer
+      - FKU
+
+  - id: underleverantorer
+    file: general_FULL_DOCUMENT_PRIMARY_sammanstallning-underleveranto_9c1b.md
+    summary: |
+      Sammanställning av underleverantörer:
+      - Vilka underleverantörer respektive ramavtalsleverantör använder
+    topics:
+      - underleverantörer
+      - leverantörer
+
+  - id: kommunkopplingar
+    file: general_FULL_DOCUMENT_PRIMARY_knkopplingar_2025.xls_-_Kommun_2a49.md
+    summary: |
+      Geografisk data:
+      - Alla 290 kommuner
+      - Vilket län de tillhör
+      - Vilket delområde (A-G) de tillhör
+    topics:
+      - kommuner
+      - län
+      - delområden
+      - geografi
+
+  - id: fragor_svar
+    file: general_FULL_DOCUMENT_PRIMARY_Fr†gor_och_svar_under_anbudsti_2502.md
+    summary: |
+      Frågor och svar under anbudstiden:
+      - Förtydliganden från Adda
+      - Klargöranden om regler
+    topics:
+      - FAQ
+      - förtydliganden
+      - regler
+
+
+
+
+
+
+

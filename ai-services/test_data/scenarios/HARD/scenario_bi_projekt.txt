@@ -1,0 +1,67 @@
+# Avrop: BI-projektuppdrag med resultatansvar
+
+## Organisation
+Trafikverket, Borlänge
+
+## Behov
+Projektuppdrag (inte resursuppdrag!) för att leverera ett komplett BI-datalager.
+Leverantören har resultatansvar - fast pris för definierade leverabler.
+Trafikverket vill inte styra hur arbetet utförs, bara godkänna slutresultatet.
+
+## Uppdragstyp
+**PROJEKTUPPDRAG** - Leverantören ansvarar för att leverera ett färdigt resultat.
+
+## Roller (leverantörens val)
+Leverantören avgör själv teamsammansättning, men följande kompetenser behövs:
+- Teknisk projektledare
+- BI-utvecklare / Dataingenjör
+- Datamodellerare
+
+## Omfattning
+- Fast pris: 1 800 000 SEK
+- Prismodell: Fastpris med milstolpar
+- Avropsområde C (Dalarna)
+- Ej löpande räkning
+
+## Leverabler med godkännandevillkor
+1. **Milstolpe 1 (30%):** Datamodell och arkitekturdokument - Godkänd av IT-arkitekt
+2. **Milstolpe 2 (40%):** Implementerat datalager med ETL-flöden - Godkänd efter UAT
+3. **Milstolpe 3 (30%):** Dokumentation och överlämning - Godkänd efter driftsättning
+
+## Teknisk miljö
+- Azure Synapse Analytics
+- Power BI
+- Azure Data Factory
+- SQL Server on-prem (källa)
+
+## Resultatbeskrivning
+Leverera ett fungerande datalager som:
+- Integrerar data från 5 källsystem
+- Stödjer 20 fördefinierade rapporter
+- Har dokumenterad datamodell
+- Inkluderar drifts- och förvaltningsdokumentation
+- Klarar prestandakrav (<5 sek för standardrapporter)
+
+## Specifika krav på leverantören
+- Erfarenhet av Azure Synapse (minst 2 projekt)
+- Erfarenhet av offentlig sektor
+- Projektledare med PMP eller PRINCE2
+- Minst 3 konsulter i teamet
+
+## Kontraktstid
+- Start: 2026-03-01
+- Slutleverans: 2026-09-30
+- Garantitid: 6 månader efter godkännande
+
+## Utvärdering
+- 50% pris, 50% kvalitet
+- Presentation av projektplan (30 min)
+- Referenstagning från 2 liknande projekt
+- Krav på demo av tidigare BI-lösning
+
+## Särskilda villkor
+- Vite vid försening: 0,5% per vecka (max 10%)
+- Ändringshantering via ÄTA-process
+- Leverantören ansvarar för projektledning
+
+

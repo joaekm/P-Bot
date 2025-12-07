@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Maria Lindgrens berättelse
+║  Enhetschef IT-utveckling på Försäkringskassan
+║  
+║  Samtal: 8 meddelanden
+║  Datum: 2025-12-06 15:08
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag måste berätta om det här samtalet med P-Bot igår. Jag var ju tvungen att göra det här avropet via Adda, och det är ju den här AI-assistenten som ska hjälpa en. Jag var lite skeptisk, ska jag erkänna. Tänkte mest att det skulle bli en massa klickande och formella svar, men jag hoppades ju ändå att det skulle vara smidigare än att sitta i telefon med någon säljare i en timme. Jag ville liksom bara få tag på en vass Scrum Master, så snabbt som möjligt. Vi har ju hela den här agila transformationen på gång, och jag behöver någon som kan komma in och hjälpa oss få fart på det hela. Och snabbt måste det gå.
+
+I början var det rätt okej. Den förstod direkt vad jag ville, det var ju bra. Och den ställde de där inledande frågorna om nivå och timmar och sånt, det var ju standard. Men sen när den började prata om slutdatum och certifieringar, då kände jag att det började ta lite tid. Alltså, jag förstår ju att det är viktigt att vara tydlig, men ibland kändes det som att den var lite väl detaljerad. Jag kände mig lite stressad över att vi redan pratade så länge. 
+
+Den där grejen med Förnyad Konkurrensutsättning... Jag suckade inombords. Jag vet ju att det är så, men jag hade nästan hoppats att jag kunde slippa den här gången. Det är ju så himla mycket mer jobb. Men P-Bot var bra på att påminna om det. Jag var lite frustrerad, jag vill ju bara ha tag i rätt person NU. Jag blev lite ställd över frågan om viktningen mellan pris och kvalitet. Egentligen vill jag ju bara ha den bästa, oavsett pris, men jag vet ju att jag inte kan säga det. 70% kvalitet kändes ändå som ett bra sätt att signalera att vi menar allvar med att hitta en kompetent person.
+
+Sammanfattningsvis? Tja, det var väl okej. Det var inte den revolution jag hade hoppats på, men det var inte heller så illa som jag befarade. Det var i alla fall ett bra sätt att se till att jag inte missade något viktigt. Jag vet inte om jag kommer använda P-Bot igen, det beror nog lite på hur bråttom jag har. Om jag bara behöver en standardkonsult så kanske det är smidigt. Men om det är något riktigt strategiskt viktigt, då tror jag nog hellre att jag pratar med en riktig människa, någon som förstår mina dolda bekymmer och kan läsa mellan raderna. För det är ju en riktig person kan plocka upp, till exempel det här interna motståndet jag möter. P-Bot kan ju inte hjälpa mig att navigera i den politiska soppan."

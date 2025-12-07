@@ -1,0 +1,13 @@
+{
+  "started_at": "2025-12-04T23:45:26.254896",
+  "completed_at": "2025-12-05T05:49:26.354257",
+  "duration_seconds": 21840.099361,
+  "avrop_processed": 175,
+  "total_questions": 1624,
+  "total_ok": 148,
+  "total_improve": 80,
+  "total_gap": 1396,
+  "total_blocks_created": 1672,
+  "dedup_runs": 175,
+  "final_block_count": 342
+}

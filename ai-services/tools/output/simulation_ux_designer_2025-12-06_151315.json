@@ -1,0 +1,481 @@
+{
+  "timestamp": "2025-12-06T15:13:15.982534",
+  "scenario": {
+    "filename": "scenario_ux_designer.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/test_data/scenarios/scenario_ux_designer.txt"
+  },
+  "persona": {
+    "name": "Sofia Berg",
+    "title": "Digital strateg",
+    "organization": "Göteborgs stad",
+    "personality": "Sofia är kreativ och användarfokuserad. Hon brinner för tillgänglighet och vill att stadens tjänster ska fungera för alla. Hon är entusiastisk men ibland otålig.",
+    "knowledge_level": "- Expert på digital strategi - God förståelse för UX - Begränsad erfarenhet av ramavtal",
+    "communication_style": "- Engagerad och entusiastisk - Fokuserar på användarbehov - Ställer frågor om kvalitet - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Har fått kritik för dålig tillgänglighet i nuvarande tjänster",
+      "Politiskt tryck att förbättra snabbt",
+      "Vill ha någon som kan utbilda teamet"
+    ],
+    "goals": [
+      "Hitta en UX-designer med fokus på tillgänglighet",
+      "Förstå hur man specificerar mjuka krav",
+      "Säkerställa att konsulten kan samarbeta med teamet"
+    ],
+    "background": "Sofia har arbetat med digitalisering i Göteborgs stad i 5 år. Hon har fått i uppdrag att förbättra användarupplevelsen efter negativ feedback från medborgare.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Sofia Berg och jobbar som Digital strateg på Göteborgs stad. Jag behöver hjälp med ett avrop. Vi ska hitta en ux-designer med fokus på tillgänglighet.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Tack Sofia. Jag bekräftar att ni söker en UX-designer med specialisering på tillgänglighet. Jag har noterat att uppdraget är för Göteborgs stad, vilket ligger i Anbudsområde E (Västsverige).\n\nFör att precisera avropet:\n\n1.  Vilken **kompetensnivå (1-5)** söker ni för denna UX-designer?\n2.  Ungefär hur många **timmar eller månader** uppskattar ni att uppdraget kommer att pågå?\n3.  När är det **önskade startdatumet**?",
+      "turn": 1,
+      "reasoning": {
+        "conclusion": "Användaren, Sofia Berg från Göteborgs stad, har initierat ett avrop för att hitta en UX-designer med fokus på tillgänglighet. Detta är ett ärende som landar i det första steget (step_1_intake) då vi behöver definiera behovet och rollen.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Dokumenten 1_intake_RULE_PRIMARY_6a78cb27.md, 1_intake_DEFINITION_PRIMARY_b6c9c79c.md, 1_intake_DEFINITION_PRIMARY_594c93de.md och 1_intake_RULE_PRIMARY_0e87f731.md är alla FRAMEWORK_SPECIFIC och styr för detta steg, vilket bekräftar att ämnet (UX-design/Digitalisering) är relevant för systemet.",
+        "target_step": "step_1_intake",
+        "tone": "Helpful/Guiding",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "DR_RESURS",
+        "completion_percent": 37.5,
+        "constraint_violations": [],
+        "current_intent": "INSPIRATION",
+        "detected_topics": [
+          "digitaliseringsroller"
+        ],
+        "entity_summary": {
+          "end_date": null,
+          "location": "Göteborg",
+          "price_cap": null,
+          "region": "E",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": null,
+              "quantity": 1,
+              "role": "UX-designer",
+              "status": "PENDING"
+            }
+          ],
+          "start_date": null,
+          "volume": null
+        },
+        "ghost_mode": false,
+        "has_warning": false,
+        "is_complete": false,
+        "missing_info": [
+          "start_date",
+          "end_date",
+          "volume",
+          "level för UX-designer",
+          "kompetensomrade för UX-designer"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_1_intake",
+        "taxonomy_branches": [
+          "ROLES",
+          "LOCATIONS",
+          "STRATEGY"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Hej! Ja, det stämmer bra.\n\n1.  Vi söker en UX-designer på **nivå 4**.\n2.  Uppdraget beräknas pågå i **8 månader** initialt, med möjlighet till förlängning.\n3.  Önskat startdatum är **2026-02-01**.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Jag tackar för dessa uppgifter. Jag uppfattar det som att ni söker en UX-designer på **Nivå 4**, med start 2026-02-01 för en uppskattad period på 8 månader. Nivå 4 innebär som sagt en mycket senior och självständig roll.\n\nFör att precisera kraven, särskilt med tanke på tillgänglighetsfokuset:\n\n1.  **Kompetensområde:** Eftersom fokus ligger på tillgänglighet och webb: kan vi specificera att konsulten ska ha expertis inom **Kompetensområde 6 – Tillgänglighet och webb**? Och finns det krav på till exempel kunskap om specifik WCAG-version eller testverktyg?\n2.  **Avropsform:** Med tanke på den höga kompetensnivån: Ser ni detta primärt som ett **resursuppdrag (DR)** där konsulten arbetar under er ledning, eller handlar det om ett **projektuppdrag (FKU)** med definierat resultat?\n3.  **Säkerhet:** Med tanke på att ni är Göteborgs stad: Behövs någon form av **säkerhetskontroll eller särskilda behörighetskrav** för att konsulten ska få utföra uppdraget?",
+      "turn": 2,
+      "reasoning": {
+        "conclusion": "Användaren har bekräftat att informationen från steg 1 (roll och region) stämmer och har nu specificerat kompetensnivå (4), volym (8 månader) och startdatum (2026-02-01). Detta indikerar att vi har tillräckligt med information för att gå vidare till nästa logiska steg i processen, som rör specificering av behov.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Ingen specifik regel från de hämtade dokumenten utgör en direkt konflikt, men informationen om Nivå 4 (PRIMARY-källor 19, 4, 2, 1) bekräftar att det är en giltig nivå att efterfråga.",
+        "target_step": "step_1_needs",
+        "tone": "Helpful/Guiding",
+        "validation": "Begäran om Nivå 4 är giltig enligt ramavtalets definitioner (Nivå 1-5 finns definierade). Ingen valideringsflagga utlöses.",
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "DR_RESURS",
+        "completion_percent": 87.5,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "digitaliseringsroller"
+        ],
+        "entity_summary": {
+          "end_date": "2026-09-30",
+          "location": "Göteborg",
+          "price_cap": null,
+          "region": "E",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 4,
+              "quantity": 1,
+              "role": "UX-designer",
+              "status": "PENDING"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 8
+        },
+        "ghost_mode": true,
+        "has_warning": true,
+        "is_complete": false,
+        "missing_info": [
+          "kompetensomrade för UX-designer"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_1_needs",
+        "taxonomy_branches": [
+          "ROLES",
+          "FINANCIALS",
+          "LOCATIONS"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 1: Beskriv Behov"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det stämmer bra, fokus är verkligen på tillgänglighet. \n\n1.  **Kompetensområde 6 – Tillgänglighet och webb** låter perfekt! Vi vill att konsulten har god kunskap om WCAG och vi ser gärna att de är vana vid att använda olika testverktyg.\n2.  Jag ser det primärt som ett **resursuppdrag (DR)**. Vi behöver hjälp med att förbättra våra befintliga tjänster, så konsulten kommer att arbeta nära vårt team.\n3.  Inga särskilda säkerhetskontroller är nödvändiga i nuläget.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Tack Sofia. Då har vi fastställt rollen som **UX-designer på Nivå 4** med fokus på **Kompetensområde 6 (Tillgänglighet och webb)**, som ska utföras som ett resursuppdrag.\n\nDå går vi vidare till de kvantitativa aspekterna: Volym och Pris.\n\n1.  **Datum:** Med start den 2026-02-01 och en längd på 8 månader beräknar jag slutdatumet till **2026-09-30**. Stämmer det?\n2.  **Volym/Procedur:** Åtta månader motsvarar en betydande timvolym. För att säkerställa att vi väljer rätt avropsförfarande (DR eller FKU) – vad är den **uppskattade totala timvolymen** för uppdraget, och har ni i så fall en budget eller ett **takpris per timme**?",
+      "turn": 3,
+      "reasoning": {
+        "conclusion": "Användaren har bekräftat alla detaljer som definierar uppdragets natur: Kompetensnivå 4, Fokus på Kompetensområde 6 (Tillgänglighet och webb), och Avropsform som Resursuppdrag (DR). Detta avslutar steg 1 (step_1_needs) och nästa logiska steg är att bekräfta Volym/Tid (step_3_volume), även om volymen redan angivits som 8 månader i ett tidigare meddelande. Eftersom användaren bekräftade alla frågor från föregående svar, ska vi gå vidare.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "INSTRUCTION 1_intake_INSTRUCTION_PRIMARY_MERGED_13b1fb5a.md (Nivå 4 krav) och INSTRUCTION 1_intake_INSTRUCTION_PRIMARY_MERGED_13b1fb5a.md (DR/FKU val) har beaktats. Informationen om DR (resursuppdrag) styr mot att det inte automatiskt krävs FKU baserat på avropsform, men nästa steg måste hantera tidsvolymen.",
+        "target_step": "step_2_level",
+        "tone": "Informative",
+        "validation": "Inga orimliga begäranden har presenterats. Nivå 4 är specificerad, vilket undviker FKU-kravet för Nivå 5. Volymen (8 månader) är inte specificerad i timmar men avropsformen (DR) är valt, vilket ofta används för längre uppdrag, men vi måste verifiera timmar i nästa steg (step_3_volume) för att vara säkra på LOU/Ramavtalsvillkor.",
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "DR_RESURS",
+        "completion_percent": 87.5,
+        "constraint_violations": [
+          "Nivå 6 för UX-designer överstiger max 4 för DR_RESURS"
+        ],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "digitaliseringsroller",
+          "nivå"
+        ],
+        "entity_summary": {
+          "end_date": "2026-09-30",
+          "location": "Göteborg",
+          "price_cap": null,
+          "region": "E",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 6,
+              "quantity": 1,
+              "role": "UX-designer",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 8
+        },
+        "ghost_mode": true,
+        "has_warning": true,
+        "is_complete": false,
+        "missing_info": [
+          "kompetensomrade för UX-designer"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_2_level",
+        "taxonomy_branches": [
+          "ROLES",
+          "LOCATIONS"
+        ],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 2: Kompetensnivå"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, slutdatumet stämmer, 2026-09-30.\n\nVi har ett takpris på 1050 kr per timme, vilket också är maxpriset enligt ramavtalet. Jag tror inte vi har räknat ut den exakta timvolymen, men vi behöver en person på heltid.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt. Jag bekräftar slutdatumet **2026-09-30** och takpriset på **1050 kr/timme**. Det takpriset är noterat och ligger i linje med ramavtalets maxpriser för denna kompetens.\n\nEn heltidstjänst under åtta månader motsvarar ungefär 1280 timmar (8 månader x 160 timmar/månad). Vi använder den siffran som en preliminär volym i avropsunderlaget.\n\nNu när vi har volym, datum och takpris, behöver vi definiera uppdragets strategi och utvärderingskriterier:\n\n1.  **Prismodell:** Med ett uttalat takpris föreslår jag modellen **Löpande räkning med tak (LOPANDE_MED_TAK)**. Bekräftar ni att detta är den önskade prismodellen?\n2.  **Utvärderingsviktning:** För att kunna utvärdera anbuden: Hur ska ni vikta mellan **Pris** och **Kvalitet** i utvärderingen? Till exempel 60% kvalitet och 40% pris, eller omvänt?\n3.  **Rollspecifikation:** Utöver de generella kompetenskraven för Nivå 4, finns det några specifika **leveranskrav eller viktiga referenser** ni vill lägga till för att säkerställa högsta kvalitet?",
+      "turn": 4,
+      "reasoning": {
+        "conclusion": "Slutdatumet 2026-09-30 bekräftas. Takpriset 1050 kr/timme är godkänt enligt ramavtalets maxpris. En heltidstjänst under 8 månader måste nu omvandlas till en uppskattad timvolym för att fullfölja steg 3.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "RULE 3_volume_RULE_PRIMARY_e1e441a5.md styr att ramavtalets takpris (1050 kr/timme) gäller. INSTRUCTION 3_volume_INSTRUCTION_PRIMARY_MERGED_f2ed38cd.md styr att timmar och totalpris ska uppskattas i detta steg.",
+        "target_step": "step_3_volume",
+        "tone": "Helpful/Guiding",
+        "validation": "Inget indikerar att begäran är orimlig. Takpriset 1050 kr/timme ligger inom de gränser som brukar kopplas till de högre nivåerna, men ingen specifik regel om KN4/KN5-prisgräns hittades för att motbevisa det i kontexten. Däremot ska Nivå 4/5 kontrolleras mot FKU-tröskeln senare om volymen överskrider 320 timmar.",
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 75.0,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "uppdragsbudget"
+        ],
+        "entity_summary": {
+          "end_date": "2026-09-30",
+          "location": "Göteborg",
+          "price_cap": 1050,
+          "region": "E",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "UX-designer",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 1280
+        },
+        "ghost_mode": true,
+        "has_warning": true,
+        "is_complete": false,
+        "missing_info": [
+          "prismodell",
+          "pris_vikt"
+        ],
+        "resource_count": 1,
+        "set_active_process_step": "step_3_volume",
+        "taxonomy_branches": [
+          "FINANCIALS",
+          "PHASES"
+        ],
+        "tone": "Helpful/Guiding",
+        "update_sticky_header": "Steg 3: Volym & Pris"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, LOPANDE_MED_TAK låter bra. Vi vill också ha en tydlig uppdelning där **kvalitet är viktigast**, så vi säger 70% kvalitet och 30% pris.\n\nNär det gäller leveranskrav så vill jag framförallt att konsulten **ska kunna jobba tätt med vårt team**. Det är jätteviktigt att de kan samarbeta och dela med sig av sin kunskap.",
+      "turn": 5
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Sofia. Prismodellen **Löpande räkning med tak** är nu satt, liksom utvärderingsviktningen **70% Kvalitet och 30% Pris**.\n\nEftersom detta är ett resursuppdrag (DR) med fokus på att förstärka ert befintliga team under er ledning, är det avgörande att de 70% kvalitet speglar era krav på samarbete och expertis.\n\nVi behöver nu precisera hur leverantörernas anbud ska utvärderas inom de 70% kvalitet. Baserat på ert krav på kunskapsdelning och integration i teamet, föreslår jag följande:\n\n1.  **Kriterier för Kvalitet:** Förutom det generella kravet på Nivå 4/Tillgänglighet, hur vill ni utvärdera kompetens inom de 70%? Ska vi fokusera på **Konsultens relevanta erfarenhet (referenser)**, eller vill ni inkludera en obligatorisk **intervju/presentation** för att testa förmågan till kunskapsöverföring?\n2.  **Regelkontroll (Viten/Sanktioner):** Inga specifika viten eller sanktioner utöver de som redan finns i ramavtalet gäller för avropet. Behöver ni lägga till några särskilda leveranskonsekvenser relaterade till leveransprecision eller tidsåtgång? (Notera: Ramavtalet innehåller redan fastställda villkor för avtalsbrott, men ni kan specificera krav på rapportering/uppföljning).\n\nNär vi har definierat dessa kriterier är underlaget komplett och vi kan slutföra avropsdokumentet.",
+      "turn": 5,
+      "reasoning": {
+        "conclusion": "Användaren bekräftar prismodellen LOPANDE_MED_TAK och specificerar utvärderingsviktningen till 70% kvalitet och 30% pris. Ett centralt leveranskrav är konsultens förmåga att arbeta tätt med teamet och dela kunskap.",
+        "conflicts": null,
+        "forced_strategy": null,
+        "policy": "Inga direkta regler är flaggade som bryts, men utvärderingsviktningen (70/30) bekräftar valet av DR (resursuppdrag) som tidigare specificerats. Kravet på teamarbete faller under Kvalitetsaspekten.",
+        "target_step": "step_4_strategy",
+        "tone": "Informative",
+        "validation": null,
+        "validation_warnings": []
+      },
+      "ui_directives": {
+        "avrop_typ": "FKU_RESURS",
+        "completion_percent": 100.0,
+        "constraint_violations": [],
+        "current_intent": "FACT",
+        "detected_topics": [
+          "uppdragsbudget"
+        ],
+        "entity_summary": {
+          "end_date": "2026-09-30",
+          "location": "Göteborg",
+          "price_cap": 1050,
+          "region": "E",
+          "resources": [
+            {
+              "id": "res_1",
+              "level": 5,
+              "quantity": 1,
+              "role": "UX-designer",
+              "status": "DONE"
+            }
+          ],
+          "start_date": "2026-02-01",
+          "volume": 1280
+        },
+        "ghost_mode": true,
+        "has_warning": false,
+        "is_complete": true,
+        "missing_info": [],
+        "resource_count": 1,
+        "set_active_process_step": "step_4_strategy",
+        "taxonomy_branches": [
+          "FINANCIALS",
+          "STRATEGY"
+        ],
+        "tone": "Informative",
+        "update_sticky_header": "Steg 4: Avropsform"
+      }
+    }
+  ],
+  "final_state": {
+    "avrop_data": {
+      "anbudsomrade": null,
+      "avrop_typ": "FKU_RESURS",
+      "end_date": "2026-09-30",
+      "godkannandevillkor": null,
+      "hanterar_personuppgifter": null,
+      "kvalitet_vikt": 70,
+      "location_text": "Göteborg",
+      "pris_vikt": 30,
+      "prismodell": "LOPANDE_MED_TAK",
+      "region": "E",
+      "resources": [
+        {
+          "antal": 1,
+          "id": "res_1",
+          "is_complete": true,
+          "kompetensomrade": null,
+          "level": 5,
+          "roll": "UX-designer"
+        }
+      ],
+      "resultatbeskrivning": null,
+      "sakerhetsklassad": null,
+      "start_date": "2026-02-01",
+      "takpris": 1050,
+      "uppdragsbeskrivning": null,
+      "volume": 1280
+    },
+    "avrop_progress": {
+      "avrop_typ": "FKU_RESURS",
+      "completed_fields": 8,
+      "completion_percent": 100.0,
+      "constraint_violations": [],
+      "is_complete": true,
+      "missing_fields": [],
+      "total_fields": 8
+    },
+    "current_state": {
+      "confidence": 0.95,
+      "current_intent": "FACT",
+      "current_step": "step_4_strategy",
+      "extracted_entities": {
+        "end_date": "2026-09-30",
+        "location": "Göteborg",
+        "price_cap": 1050,
+        "region": "E",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 5,
+            "quantity": 1,
+            "role": "UX-designer",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1280
+      },
+      "missing_info": []
+    },
+    "message": "Tack, Sofia. Prismodellen **Löpande räkning med tak** är nu satt, liksom utvärderingsviktningen **70% Kvalitet och 30% Pris**.\n\nEftersom detta är ett resursuppdrag (DR) med fokus på att förstärka ert befintliga team under er ledning, är det avgörande att de 70% kvalitet speglar era krav på samarbete och expertis.\n\nVi behöver nu precisera hur leverantörernas anbud ska utvärderas inom de 70% kvalitet. Baserat på ert krav på kunskapsdelning och integration i teamet, föreslår jag följande:\n\n1.  **Kriterier för Kvalitet:** Förutom det generella kravet på Nivå 4/Tillgänglighet, hur vill ni utvärdera kompetens inom de 70%? Ska vi fokusera på **Konsultens relevanta erfarenhet (referenser)**, eller vill ni inkludera en obligatorisk **intervju/presentation** för att testa förmågan till kunskapsöverföring?\n2.  **Regelkontroll (Viten/Sanktioner):** Inga specifika viten eller sanktioner utöver de som redan finns i ramavtalet gäller för avropet. Behöver ni lägga till några särskilda leveranskonsekvenser relaterade till leveransprecision eller tidsåtgång? (Notera: Ramavtalet innehåller redan fastställda villkor för avtalsbrott, men ni kan specificera krav på rapportering/uppföljning).\n\nNär vi har definierat dessa kriterier är underlaget komplett och vi kan slutföra avropsdokumentet.",
+    "reasoning": {
+      "conclusion": "Användaren bekräftar prismodellen LOPANDE_MED_TAK och specificerar utvärderingsviktningen till 70% kvalitet och 30% pris. Ett centralt leveranskrav är konsultens förmåga att arbeta tätt med teamet och dela kunskap.",
+      "conflicts": null,
+      "forced_strategy": null,
+      "policy": "Inga direkta regler är flaggade som bryts, men utvärderingsviktningen (70/30) bekräftar valet av DR (resursuppdrag) som tidigare specificerats. Kravet på teamarbete faller under Kvalitetsaspekten.",
+      "target_step": "step_4_strategy",
+      "tone": "Informative",
+      "validation": null,
+      "validation_warnings": []
+    },
+    "session_state": {
+      "confidence": 0.95,
+      "current_intent": "FACT",
+      "current_step": "step_4_strategy",
+      "extracted_entities": {
+        "end_date": "2026-09-30",
+        "location": "Göteborg",
+        "price_cap": 1050,
+        "region": "E",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 5,
+            "quantity": 1,
+            "role": "UX-designer",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1280
+      },
+      "missing_info": []
+    },
+    "sources": [
+      "3_volume_RULE_PRIMARY_e1e441a5.md",
+      "4_strategy_RULE_PRIMARY_MERGED_53d86ec1.md"
+    ],
+    "ui_directives": {
+      "avrop_typ": "FKU_RESURS",
+      "completion_percent": 100.0,
+      "constraint_violations": [],
+      "current_intent": "FACT",
+      "detected_topics": [
+        "uppdragsbudget"
+      ],
+      "entity_summary": {
+        "end_date": "2026-09-30",
+        "location": "Göteborg",
+        "price_cap": 1050,
+        "region": "E",
+        "resources": [
+          {
+            "id": "res_1",
+            "level": 5,
+            "quantity": 1,
+            "role": "UX-designer",
+            "status": "DONE"
+          }
+        ],
+        "start_date": "2026-02-01",
+        "volume": 1280
+      },
+      "ghost_mode": true,
+      "has_warning": false,
+      "is_complete": true,
+      "missing_info": [],
+      "resource_count": 1,
+      "set_active_process_step": "step_4_strategy",
+      "taxonomy_branches": [
+        "FINANCIALS",
+        "STRATEGY"
+      ],
+      "tone": "Informative",
+      "update_sticky_header": "Steg 4: Avropsform"
+    }
+  },
+  "summary": {
+    "total_turns": 5,
+    "final_resources": 1,
+    "final_step": "unknown",
+    "final_intent": "FACT"
+  }
+}

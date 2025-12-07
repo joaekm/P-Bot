@@ -1,6 +1,16 @@
 """
-Context Builder Component - Deterministic Context Retrieval (v5.5)
+Context Builder Component - Deterministic Context Retrieval (v5.7)
 Replaces Hunter with taxonomy-aware dual retrieval.
+
+v5.7 Changes:
+- Returns ContextResult instead of plain dict
+- Automatically resolves ALL detected entities via graph during context build
+- Includes resolved_locations, resolved_roles, resolved_aliases, learned_rules
+
+v5.6 Changes:
+- Added resolve_location() for geo lookups (City -> County -> Area)
+- Added resolve_role() for role lookups (Exempelroll -> Kompetensomrade)
+- Added resolve_alias() for alias/synonym lookups
 
 v5.5 Changes:
 - Uses search_strategy from IntentTarget to decide which sources to query
@@ -11,6 +21,7 @@ Retrieval Strategy (controlled by IntentTarget.search_strategy):
 1. LAKE: Keyword search on topic_tags (if search_strategy.lake = true)
 2. VECTOR: Semantic search with taxonomy filters (if search_strategy.vector = true)
 3. GRAPH: Entity-based traversal via Kuzu (if search_strategy.graph = true)
+4. RELATIONS: Auto-resolve detected entities via graph (always on)
 """
 import logging
 import yaml
@@ -19,7 +30,15 @@ from typing import List, Dict, Optional, Set
 
 import kuzu
 
-from ..models import IntentTarget, TaxonomyBranch, ScopeContext
+from ..models import (
+    IntentTarget, 
+    TaxonomyBranch, 
+    ScopeContext,
+    ContextResult,
+    ResolvedLocation,
+    ResolvedRole,
+    LearnedRule,
+)
 
 logger = logging.getLogger("ADDA_ENGINE")
 
@@ -47,15 +66,25 @@ class ContextBuilderComponent:
         self.collection = collection
         self.kuzu_conn = kuzu_conn
     
-    def build_context(self, intent: IntentTarget) -> Dict[str, Dict]:
+    def build_context(self, intent: IntentTarget) -> ContextResult:
         """
         Build context based on IntentTarget.
         
+        v5.7: Returns ContextResult with documents AND resolved graph relations.
         v5.5: Uses search_strategy and search_terms from IntentTarget.
         
-        Returns dict of document_id -> document_data
+        Returns ContextResult with:
+        - documents: Dict of document_id -> document_data
+        - resolved_locations: List of City->County->Area mappings
+        - resolved_roles: List of Role->Kompetensområde mappings
+        - resolved_aliases: Dict of alias->canonical mappings
+        - learned_rules: List of business rules
         """
         candidates = {}
+        resolved_locations = []
+        resolved_roles = []
+        resolved_aliases = {}
+        learned_rules = []
         
         # Determine allowed authorities (Ghost Mode)
         allowed_authorities = ["PRIMARY"]
@@ -120,10 +149,73 @@ class ContextBuilderComponent:
         # This happens when user is modifying their cart (ADD/DELETE) not searching for info
         if not candidates and not any([intent.should_search_lake(), intent.should_search_vector(), intent.should_search_graph()]):
             logger.info("No search strategy enabled - likely a cart operation")
-            # Return empty dict - Synthesizer will handle entity extraction without context
         
-        logger.info(f"Total context candidates: {len(candidates)}")
-        return candidates
+        # =====================================================================
+        # 6. RESOLVE GRAPH RELATIONS (v5.7 - ALWAYS ON)
+        # Resolve ALL detected entities via graph, regardless of search strategy
+        # This ensures geo/role/alias information flows to Planner/Synthesizer
+        # =====================================================================
+        # v5.7.1: Combine detected_entities + search_terms for better coverage
+        # The LLM sometimes puts entities in search_terms instead of detected_entities
+        all_entities_to_resolve = set(intent.detected_entities or [])
+        all_entities_to_resolve.update(intent.search_terms or [])
+        
+        if self.kuzu_conn and all_entities_to_resolve:
+            logger.info(f"🔍 Resolving {len(all_entities_to_resolve)} entities: {list(all_entities_to_resolve)[:5]}")
+            for entity in all_entities_to_resolve:
+                # 6a. Geo resolution (City -> County -> Area)
+                geo = self.resolve_location(entity)
+                if geo:
+                    resolved_locations.append(ResolvedLocation(
+                        city=geo["city"],
+                        county=geo["county"],
+                        area_code=geo["area_code"],
+                        area_name=geo["area_name"]
+                    ))
+                
+                # 6b. Role resolution (Exempelroll -> Kompetensområde)
+                role_info = self.resolve_role(entity)
+                if role_info:
+                    resolved_roles.append(ResolvedRole(
+                        role=role_info["role"],
+                        kompetensomrade=role_info["kompetensomrade"]
+                    ))
+                
+                # 6c. Alias resolution
+                canonical = self.resolve_alias(entity)
+                if canonical:
+                    resolved_aliases[entity] = canonical
+                
+                # 6d. Learned rules
+                rules = self.get_learned_relations(entity)
+                for rule in rules:
+                    learned_rules.append(LearnedRule(
+                        subject=rule["predicate"],  # Note: get_learned_relations returns different structure
+                        predicate=rule.get("predicate", "relates_to"),
+                        object=rule["object"],
+                        confidence=rule.get("confidence", 0.8)
+                    ))
+        
+        # Log resolved relations
+        if resolved_locations:
+            logger.info(f"📍 Resolved locations: {[loc.city for loc in resolved_locations]}")
+        if resolved_roles:
+            logger.info(f"👤 Resolved roles: {[r.role for r in resolved_roles]}")
+        if resolved_aliases:
+            logger.info(f"🔄 Resolved aliases: {list(resolved_aliases.keys())}")
+        if learned_rules:
+            logger.info(f"📋 Learned rules: {len(learned_rules)}")
+        
+        logger.info(f"Total context: {len(candidates)} docs, {len(resolved_locations)} locations, "
+                   f"{len(resolved_roles)} roles, {len(resolved_aliases)} aliases")
+        
+        return ContextResult(
+            documents=candidates,
+            resolved_locations=resolved_locations,
+            resolved_roles=resolved_roles,
+            resolved_aliases=resolved_aliases,
+            learned_rules=learned_rules
+        )
     
     # =========================================================================
     # SEARCH STRATEGIES
@@ -382,6 +474,233 @@ class ContextBuilderComponent:
             
         except Exception:
             return ""
+    
+    # =========================================================================
+    # GRAPH RESOLVERS (v5.6) - Lookup learned relations
+    # =========================================================================
+    
+    def resolve_location(self, location: str) -> Optional[Dict]:
+        """
+        Resolve a location (city/kommun) to its anbudsområde via the graph.
+        
+        Graph traversal: City -> County -> Area
+        
+        Args:
+            location: Name of city/kommun (e.g., "Härnösand")
+            
+        Returns:
+            Dict with city, county, area_code, area_name or None if not found
+        """
+        if not self.kuzu_conn:
+            logger.debug("No Kuzu connection available for geo lookup")
+            return None
+        
+        safe_loc = location.replace("'", "''")
+        
+        try:
+            # Try exact match first
+            result = self.kuzu_conn.execute(f"""
+                MATCH (c:City {{name: '{safe_loc}'}})-[:LOCATED_IN]->(county:County)-[:BELONGS_TO_AREA]->(area:Area)
+                RETURN c.name, county.name, area.code, area.name
+            """)
+            
+            if result.has_next():
+                row = result.get_next()
+                return {
+                    "city": row[0],
+                    "county": row[1],
+                    "area_code": row[2],
+                    "area_name": row[3]
+                }
+            
+            # Try case-insensitive match
+            result = self.kuzu_conn.execute(f"""
+                MATCH (c:City)-[:LOCATED_IN]->(county:County)-[:BELONGS_TO_AREA]->(area:Area)
+                WHERE lower(c.name) = lower('{safe_loc}')
+                RETURN c.name, county.name, area.code, area.name
+            """)
+            
+            if result.has_next():
+                row = result.get_next()
+                return {
+                    "city": row[0],
+                    "county": row[1],
+                    "area_code": row[2],
+                    "area_name": row[3]
+                }
+                
+        except Exception as e:
+            logger.debug(f"Geo lookup failed for '{location}': {e}")
+        
+        return None
+    
+    def resolve_role(self, role: str) -> Optional[Dict]:
+        """
+        Resolve an exempelroll to its kompetensområde via the graph.
+        
+        Graph traversal: Exempelroll -> Kompetensomrade
+        
+        Args:
+            role: Name of role (e.g., "Fullstackutvecklare")
+            
+        Returns:
+            Dict with role, kompetensomrade or None if not found
+        """
+        if not self.kuzu_conn:
+            logger.debug("No Kuzu connection available for role lookup")
+            return None
+        
+        safe_role = role.replace("'", "''")
+        
+        try:
+            # Try exact match
+            result = self.kuzu_conn.execute(f"""
+                MATCH (r:Exempelroll {{name: '{safe_role}'}})-[:BELONGS_TO_OMRADE]->(k:Kompetensomrade)
+                RETURN r.name, k.name
+            """)
+            
+            if result.has_next():
+                row = result.get_next()
+                return {
+                    "role": row[0],
+                    "kompetensomrade": row[1]
+                }
+            
+            # Try case-insensitive match
+            result = self.kuzu_conn.execute(f"""
+                MATCH (r:Exempelroll)-[:BELONGS_TO_OMRADE]->(k:Kompetensomrade)
+                WHERE lower(r.name) = lower('{safe_role}')
+                RETURN r.name, k.name
+            """)
+            
+            if result.has_next():
+                row = result.get_next()
+                return {
+                    "role": row[0],
+                    "kompetensomrade": row[1]
+                }
+                
+        except Exception as e:
+            logger.debug(f"Role lookup failed for '{role}': {e}")
+        
+        return None
+    
+    def resolve_alias(self, term: str) -> Optional[str]:
+        """
+        Resolve an alias/synonym to its canonical form via the graph.
+        
+        Graph lookup: Alias -> canonical name
+        
+        Args:
+            term: Potential alias or alternate spelling
+            
+        Returns:
+            Canonical form if alias found, else None
+        """
+        if not self.kuzu_conn:
+            logger.debug("No Kuzu connection available for alias lookup")
+            return None
+        
+        safe_term = term.replace("'", "''")
+        
+        try:
+            # Try exact match
+            result = self.kuzu_conn.execute(f"""
+                MATCH (a:Alias {{alias: '{safe_term}'}})
+                RETURN a.canonical, a.entity_type
+            """)
+            
+            if result.has_next():
+                row = result.get_next()
+                logger.info(f"Resolved alias: '{term}' -> '{row[0]}' ({row[1]})")
+                return row[0]
+            
+            # Try case-insensitive match
+            result = self.kuzu_conn.execute(f"""
+                MATCH (a:Alias)
+                WHERE lower(a.alias) = lower('{safe_term}')
+                RETURN a.canonical, a.entity_type
+            """)
+            
+            if result.has_next():
+                row = result.get_next()
+                logger.info(f"Resolved alias (case-insensitive): '{term}' -> '{row[0]}' ({row[1]})")
+                return row[0]
+                
+        except Exception as e:
+            logger.debug(f"Alias lookup failed for '{term}': {e}")
+        
+        return None
+    
+    def get_area_from_county(self, county: str) -> Optional[Dict]:
+        """
+        Get anbudsområde directly from county name.
+        Useful when we have county but not city.
+        
+        Args:
+            county: Name of county (e.g., "Västernorrland")
+            
+        Returns:
+            Dict with county, area_code, area_name or None if not found
+        """
+        if not self.kuzu_conn:
+            return None
+        
+        safe_county = county.replace("'", "''")
+        
+        try:
+            result = self.kuzu_conn.execute(f"""
+                MATCH (c:County {{name: '{safe_county}'}})-[:BELONGS_TO_AREA]->(a:Area)
+                RETURN c.name, a.code, a.name
+            """)
+            
+            if result.has_next():
+                row = result.get_next()
+                return {
+                    "county": row[0],
+                    "area_code": row[1],
+                    "area_name": row[2]
+                }
+                
+        except Exception as e:
+            logger.debug(f"County->Area lookup failed for '{county}': {e}")
+        
+        return None
+    
+    def get_learned_relations(self, subject: str) -> List[Dict]:
+        """
+        Get all learned relations for a subject.
+        
+        Args:
+            subject: Entity to look up
+            
+        Returns:
+            List of dicts with predicate, object, confidence
+        """
+        if not self.kuzu_conn:
+            return []
+        
+        relations = []
+        safe_subject = subject.replace("'", "''")
+        
+        try:
+            result = self.kuzu_conn.execute(f"""
+                MATCH (lr:LearnedRelation {{subject: '{safe_subject}'}})
+                RETURN lr.predicate, lr.object, lr.confidence
+            """)
+            
+            while result.has_next():
+                row = result.get_next()
+                relations.append({
+                    "predicate": row[0],
+                    "object": row[1],
+                    "confidence": row[2]
+                })
+                
+        except Exception as e:
+            logger.debug(f"Learned relations lookup failed for '{subject}': {e}")
+        
+        return relations
     
     # =========================================================================
     # LEGACY COMPATIBILITY (for gradual migration)

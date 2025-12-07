@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anders Lindqvists berättelse
+║  IT-säkerhetschef på Inera AB
+║  
+║  Samtal: 14 meddelanden
+║  Datum: 2025-12-05 13:31
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag hade ett snack med Addas P-Bot igår angående det där avropet för IdP-projektet. Du vet, säkerhetsstrategen vi behöver. Jag var lite skeptisk i början, ärligt talat. En AI? Jag är ju van att prata med riktiga människor när det gäller sånt här, men jag tänkte att jag måste ge det en chans. Tidsplanen är tight och om det här kunde spara tid så vore det guld värt. Målet var ju att få kläm på hur man gör ett korrekt avrop på nivå 5 och få lite bekräftelse på att min kravspec är vettig. Jag har ju en kandidat i åtanke, du vet, Anna från Consid, men jag måste ju göra rätt för mig."
+
+"Först var det faktiskt rätt smidigt. Den fattade snabbt vad jag var ute efter, alltså ett avrop på kompetensnivå 5. Den frågade om rollen, platsen och tiden, så jag fyllde i det. Säkerhetsstrateg i Stockholm i sju månader med start i februari 2026. Den var bra på att bekräfta vad jag sa, liksom återkoppla. Det kändes lite som en bra handläggare. Och den hajade direkt att det var FKU som gällde på den nivån. Men sen kom det ju ett litet strul. Jag uppskattade volymen till 50% och kontraktsvärdet till 2.7 miljoner, men då hängde den liksom upp sig. "Ett fel uppstod vid generering av svaret..." Ja, det var ju typiskt. Kändes direkt som att "här har vi en människa som försöker ersättas av en maskin!". "
+
+"Men jag lyckades ju få den på banan igen. Jag tryckte på vikten av att hålla budget och då tog den det. Den spottade ut en bekräftelse på allt igen: FKU, löpande timpris med tak på 2.7 mille, uppskattad volym. Och sen kom frågan om utvärderingsmodellen. Då blev jag faktiskt lite imponerad. Den presenterade alternativen – lägsta pris, pris 70/kvalitet 30, och pris 50/kvalitet 50. Jag sa direkt att jag ville ha 50/50, för kompetensen är ju superviktig. Och det fattade den! Den konstaterade att det var "en utmärkt strategi" för roller på nivå 5. Det kändes som att den förstod vad jag var ute efter, inte bara följde ett manus."
+
+"I slutet fick jag en sammanfattning i tabellform med alla villkor. Det var faktiskt väldigt bra. Roll, kompetensnivå, volym, startdatum, ort, ekonomi, avropsform, utvärderingsmodell. Allt tydligt och snyggt presenterat. Den påminde mig också om budgetkontrollen och hur leverantören ska agera om vi riskerar att spräcka takpriset. Det var ju det jag var mest orolig för. Jag kände mig faktiskt lite lugnare efteråt. Jag hade ju fått någon slags bekräftelse på att jag är på rätt väg, och att jag inte missat något viktigt. Om jag skulle använda den igen? Ja, kanske. Det sparade ju lite tid, även om det strulade lite. Men jag skulle nog dubbelkolla allt med någon kollega i alla fall. Man vill ju vara säker."

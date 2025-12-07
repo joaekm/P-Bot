@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Maria Lindgrens berättelse
+║  Enhetschef IT-utveckling på Försäkringskassan
+║  
+║  Samtal: 30 meddelanden
+║  Datum: 2025-12-05 13:34
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag satt typ en timme igår och babblade med P-Bot på Adda. Vi skulle göra ett avrop på en Scrum Master, du vet, någon som kan hjälpa oss med den här agila transformationen. Jag hoppades på att det skulle vara smidigt, typ mata in lite info och sen skulle den spotta ut ett avrop. Vi är ju redan så sena med allt, och det är som att allt tar trippel tid med alla interna processer."
+
+"Det började ju ganska bra. Den fattade direkt att jag ville ha en Scrum Master och fattade till och med att erfarenhet var viktigt. Men sen blev det detaljer… Herregud! Geografisk plats, volym, startdatum… Alltså, det är ju grundläggande saker, men det kändes som att varje svar jag gav skapade tre nya frågor. Jag förstår ju att den behöver info, men alltså, det var som att skala en lök – lager på lager av frågor. Och sen började den prata om kompetensnivåer. Jag är ju ganska grön på det här med Adda och deras system, så jag var tvungen att kolla upp vad de menade med KN3 och KN4. Det tog ju också typ 10 minuter extra."
+
+"Sen blev jag lite irriterad när den hela tiden tjötade om "Certifierad SCRUM Master". Alltså, jag fattar, det är viktigt, men det kändes som att den upprepade det bara för att. Jag började fundera på hur jag skulle beskriva våra interna utmaningar och det motståndet mot förändring från de gamla cheferna. Jag behövde ju få fram att den här personen inte bara ska vara en Scrum Master utan typ en förändringsguru och politisk strateg. Det var ju tur att jag tänkte igenom kvalitetskriterierna ordentligt innan, för annars hade det blivit pannkaka av alltihop."
+
+"Det värsta var nog när jag insåg att jag hade blandat ihop budget och volym. Alltså, jag vet inte vad jag tänkte på! P-Bot påpekade ju det snabbt. "Här uppstår en viktig konflikt som vi måste lösa." Tack för den! Jag kände mig som en idiot. Men det var ju bra att den fångade upp det. Det hade ju blivit katastrof om jag hade missat det. Men jag började fundera på vad som hade hänt om jag inte hade så stor koll på grejerna. Den är ju mer en dokumenterare än en rådgivare kändes det som."
+
+"På det stora hela? Jag vet inte. Det blev ju ett avrop till slut. Jag hoppas att det blir bra. Men det tog längre tid än jag hade hoppats och det var mer detaljerat än jag hade förväntat mig. Skulle jag använda det igen? Tja, jag vet inte. Om jag vet precis vad jag vill ha och är supersäker på alla detaljer, kanske. Men om jag behöver någon form av vägledning eller hjälp att tänka igenom saker ordentligt... Nej, då ringer jag nog hellre till en riktig människa. P-Bot är bra på att vara exakt och hitta saker i ramavtalen, men jag behöver nog nån som kan hjälpa mig tänka lite strategiskt också."

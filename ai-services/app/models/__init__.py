@@ -26,6 +26,12 @@ from .domain import (
     ResourceEntity,
     ExtractedEntities,
     SessionState,
+    
+    # Context Result Models (v5.7)
+    ResolvedLocation,
+    ResolvedRole,
+    LearnedRule,
+    ContextResult,
 )
 
 from .reasoning import (
@@ -35,11 +41,11 @@ from .reasoning import (
 )
 
 from .avrop import (
-    # Avrop Models (v5.4)
+    # Avrop Models (v5.4, updated v5.11)
     AvropsTyp,
     Region,
     Prismodell,
-    Utvarderingsmodell,
+    # Utvarderingsmodell removed in v5.11 - now using pris_vikt/kvalitet_vikt fields
     Resurs,
     AvropsData,
     AvropsProgress,
@@ -62,14 +68,19 @@ __all__ = [
     "ResourceEntity",
     "ExtractedEntities",
     "SessionState",
+    # Context Result (v5.7)
+    "ResolvedLocation",
+    "ResolvedRole",
+    "LearnedRule",
+    "ContextResult",
     # Reasoning
     "ReasoningPlan",
     "ReasoningContext",
-    # Avrop (v5.4)
+    # Avrop (v5.4, updated v5.11)
     "AvropsTyp",
     "Region",
     "Prismodell",
-    "Utvarderingsmodell",
+    # "Utvarderingsmodell" removed in v5.11
     "Resurs",
     "AvropsData",
     "AvropsProgress",

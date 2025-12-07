@@ -1,0 +1,19 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Peter Holms berättelse
+║  Systemansvarig på Trafikverket
+║  
+║  Samtal: 8 meddelanden
+║  Datum: 2025-12-06 14:37
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag pratade med den där AI-botten på Adda igår, P-Bot tror jag den hette. Hela grejen var ju att jag skulle göra ett avrop på en DevOps-ingenjör via ramavtal. Jag var lite skeptisk från början, alltså. Jag är ju van vid att sitta i långa möten med upphandlare och leverantörer där alla pratar runt frågan istället för att komma till kritan. Jag hoppades väl egentligen bara på att det skulle gå snabbare än vanligt, slippa en massa pappersarbete direkt.
+
+Först kändes det helt okej. Den var snabb, P-Bot. Inga långa väntetider som när man mailar fram och tillbaka. Den ställde rätt basic frågor om kompetensnivå och sånt, vilket jag ju hade koll på. Jag svarade ärligt och snabbt, en nivå 4 ville jag ha och Borlänge funkar, helst remote. Det var här jag började känna att det fanns potential.
+
+Men sen kom det där med kompetensområdet, om det var systemutveckling eller infrastruktur. Jag fattade inte riktigt varför det var så viktigt, det är ju ändå en DevOps-roll, de ska ju kunna båda! Jag var nära på att bli irriterad, men lugnade mig. Jag förklarade att det lutade mer åt infrastruktur, men att det behövdes utvecklingskunskaper för CI/CD-pipelinen. Jag kände mig nästan tvungen att förklara mig, det är ju jag som är systemansvarig, klart jag vet vad jag behöver.
+
+Sen blev det ekonomiska. Takpris, prismodell, utvärdering. Alltså, det är ju standardfrågor, men det kändes lite som att bocka av en lista. Jag gav svaren, men jag saknade någon form av... flexibilitet. Jag menar, tänk om jag hade velat diskutera priset lite? Eller varför inte ha en diskussion om hur viktigt det är med kvalitet kontra pris? Men det var bara rakt på sak, svara på frågan, nästa. Fast jag måste ändå säga att det var skönt att få det överstökat snabbt.
+
+Slutfrågorna var lite konstiga också. "Maxgräns för remote-dagar?" Det är väl upp till oss och konsulten att komma överens om, jag tänker inte bestämma det innan! Och det där med dokumentation – jag vill ju ha en konsult som kan lära upp mitt team, inte bara skriva rapporter. Jag sa inget om det, men jag hade gärna velat lägga till det som en viktig del i utvärderingen. Men jag antar att jag bara kunde sagt det istället för att gå och vara sur.
+
+När det var över kände jag mig mest... tom. Det var inte direkt en positiv upplevelse, men inte heller katastrofal. Det gick fort, det är ett plus. Men det saknades mänsklig interaktion, förståelse för mina dolda bekymmer. Och jag fick aldrig fram mina egentliga önskemål som är teamets skepticism och den gamla infrastrukturen. Frågan är om jag skulle använda tjänsten igen. Kanske. Det beror på om vi hittar någon bra konsult genom avropet, men nästa gång ska jag vara tydligare med vad jag vill ha. Och jag ska definitivt inte vara rädd för att ifrågasätta P-Bots frågor, och försöka lägga till saker som är viktiga för oss."

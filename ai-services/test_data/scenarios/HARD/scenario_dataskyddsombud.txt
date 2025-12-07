@@ -1,0 +1,55 @@
+# Avrop: Dataskyddsombud / GDPR-specialist
+
+## Organisation
+Malmö Stad, Malmö
+
+## Behov
+Konsult som externt dataskyddsombud (DPO) för att stödja stadens GDPR-arbete.
+Rollen kräver både juridisk kompetens och IT-förståelse.
+OBS: "Dataskyddsombud" finns inte som exempelroll i ramavtalet - egen rollformulering krävs.
+
+## Roller och Nivåer
+- Dataskyddsombud (egen roll), Nivå 5
+
+## Omfattning
+- Ca 20 timmar per vecka (deltid)
+- Kontraktstid: 12 månader + 12 månader option
+- Kontraktsvärde: 1 200 000 SEK
+- Avropsområde G (Skåne)
+- Takpris: 1150 kr/timme
+
+## Kompetensområde
+Rollen passar bäst under Kompetensområde 5 (IT-, informations- och cybersäkerhet) 
+alternativt Kompetensområde 1 (Verksamhetsutveckling och strategi).
+
+## Specifika krav
+- Certifierad dataskyddsspecialist (CIPP/E eller motsvarande)
+- Minst 5 års erfarenhet av GDPR-arbete i offentlig sektor
+- Erfarenhet av kommunal verksamhet
+- Juridisk utbildning är meriterande
+- Erfarenhet av att hålla utbildningar och workshops
+- Kunskap om molntjänster och IT-säkerhet
+
+## Arbetsuppgifter
+- Fungera som externt dataskyddsombud enligt GDPR artikel 37-39
+- Genomföra DPIA (konsekvensbedömningar)
+- Granska personuppgiftsbiträdesavtal
+- Utbilda personal i GDPR
+- Hantera incidentrapportering till IMY
+
+## Kontraktstid
+- Start: 2026-01-15
+- Slut: 2027-01-14
+- Option: 12 månader förlängning
+
+## Känslig data
+- Konsulten får tillgång till information om stadens alla personuppgiftsbehandlingar
+- Tystnadsplikt krävs
+- Säkerhetsprövning kan bli aktuellt
+
+## Utvärdering
+- 50% pris, 50% kvalitet
+- Krav på presentation av GDPR-case (20 min)
+- Referenstagning från minst 2 kommuner
+
+

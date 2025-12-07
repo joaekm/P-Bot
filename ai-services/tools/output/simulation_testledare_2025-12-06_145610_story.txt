@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anna Nilssons berättelse
+║  Projektledare på Region Skåne
+║  
+║  Samtal: 30 meddelanden
+║  Datum: 2025-12-06 14:56
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag måste bara berätta om gårdagens bravad… eller snarare, min kamp med P-Bot på Adda. Du vet, den där AI-assistenten som ska rädda oss från pappersarbetet med ramavtalen. Rädda oss, ja. Jag gick in med en gnutta optimism, faktiskt. Tänkte att nu ska det bli lätt att hitta en testledare. Behöver ju en *erfaren* sådan, helst igår. Projektet är ju redan efter schemat och förra testledaren drog mitt i alltihop. Stressen är enorm och budgeten skriker efter syrgas. Min förhoppning var att P-Bot skulle vara som en kompetent assistent som fattar snabbt och inte ställer en massa onödiga frågor."
+
+"Det började väl okej, men det kändes direkt som att jag var tvungen att vara hyperfokuserad. Första gissningen från P-Bot var helt fel nivå på testledaren, nivå 3? Hallå? Det är ju ett senior-projekt! Sen var det en massa frågor om timmar och datum, jag vet inte, det kändes som att man var tvungen att mata den med varje liten detalj, fastän den ju egentligen borde förstå sammanhanget direkt. Det var ju inte direkt raketforskning. Frågorna var många och de flesta var väl relevanta men jag kände mig stressad av frågorna. Det var liksom hela tiden ett behov av att korrigera och förtydliga. Jag började känna mig frustrerad, det var ju inte meningen att jag skulle agera både projektledare och kravanalytiker för en robot!"
+
+"Sen kom det ju till det här med "Förnyad Konkurrensutsättning". Jag har ju hört talas om det, men aldrig riktigt fattat hur det funkar i praktiken. Och jag måste säga, förklaringen från P-Bot var faktiskt helt okej. Den bröt ner processen i steg och det verkade ju faktiskt logiskt att det borde komma in kvalificerade kandidater. Sen kom den ju med ett takpris och tyckte att vikten mellan pris och kvalitet kunde vara 70% kvalitet och 30% pris. Det var då jag fick säga ifrån. Priset var ju viktigare, min budget skriker ju efter hjälp. Det var bra att den tog hänsyn till detta önskemål, men jag kände mig tvungen att vara på min vakt."
+
+"Det som verkligen tärde på mig var den där oändliga strömmen av följdfrågor. Typ, "Är du *säker* på att du vill ha det såhär?" eller "Bekräfta *igen* att du vill ha löpande räkning med takpris". Alltså, jag sa det ju för fem minuter sen! Det kändes som att jag satt fast i en loop av bekräftelser och det tog en evighet att komma framåt. Jag vet inte om det är min stress eller om P-Bot bara är extremt noggrann, men det var frustrerande. Det var liksom en evighetsmaskin som skulle ta fram alla upptänkliga scenarion."
+
+"När jag äntligen fick ett bekräftande att allt var klart, kändes det som en seger, men samtidigt var jag helt slut. Jag hoppas verkligen att det kommer in bra kandidater nu, annars har jag ju slösat bort en massa tid. Kommer jag använda P-Bot igen? Jag vet inte. Å ena sidan är det ju bra att ha ett strukturerat verktyg som garanterar att alla krav är med. Å andra sidan krävs det ju extremt mycket tid och ork. Jag hade ju hellre velat ha en vanlig människa att prata med, någon som fattar läget snabbt och kan komma med proaktiva förslag. Just nu känns det mest som att jag har fyllt i ett avancerat formulär istället för att ha haft en konstruktiv diskussion."

@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Sofia Bergs berättelse
+║  Digital strateg på Göteborgs stad
+║  
+║  Samtal: 10 meddelanden
+║  Datum: 2025-12-06 15:13
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+”Du, jag måste bara berätta om det här avropet igår. Alltså, P-Bot på Adda...det var en upplevelse. Jag gick in med en ganska klar bild, jag behövde ju en UX-designer med järnkoll på tillgänglighet. Det är ju det som är hett just nu, efter all kritik vi fått. Och ärligt talat, jag hoppades att det skulle vara snabbt och smidigt. Man har ju liksom inte tid att sitta i evigheter med sånt här.
+
+Först var jag faktiskt ganska imponerad. Snabbt fattade den vad jag ville, att det var en UX-designer för Göteborgs stad, anbudsområde E och allt det där. Sen kom ju alla frågorna. Kompetensnivå, timmar, startdatum... Okej, tänkte jag, standardgrejer. Men sen började det bli lite mer intressant. När den frågade om kompetensområde och kom med ”Tillgänglighet och webb”, då kände jag ”yes!”, den förstod verkligen. Och att den direkt tog upp WCAG och testverktyg – bingo! Det var ett stort plus. Sen frågan om resursuppdrag eller projektuppdrag… där var jag lite osäker först, men insåg snabbt att resursuppdrag var bäst. Vi behöver ju någon som kan komma in och bli en del av teamet, inte bara leverera något färdigt.
+
+Vändpunkten, om man kan kalla det så, var nog när den började prata om "kvantitativa aspekterna". Jag blev lite stressad, jag hade ju inte exakta timvolymer. Jag hade bara en känsla och ett takpris. Tur att jag hade koll på takpriset! Jag var rädd för att det skulle köra fast där, men den räknade ju snabbt ut timmarna baserat på heltid. Puh! Det som faktiskt irriterade mig lite var när den började prata om "utvärderingsviktning" och jag var tvungen att bestämma procentfördelningen mellan kvalitet och pris. Jag kände mig lite pressad att komma med ett bra svar snabbt. Men jag är glad att jag lyckades trycka på att kvalitet var viktigast, 70% kvalitet och 30% pris, det speglar ju vad jag verkligen vill ha. Och det att den tog upp att konsulten skulle kunna jobba tätt med teamet – det var som att den läste mina tankar. Det är det viktigaste för mig, att de kan dela med sig av sin kunskap och inte bara vara en isolerad expert.
+
+I slutändan kändes det ändå rätt bra. Jag kände mig lite trött, det ska erkännas, men också lättad. Den hade fångat upp det viktigaste och struttat på med det. Att den liksom förstod att det inte bara handlade om teknisk kompetens utan också om samarbetsförmåga. Om jag skulle använda den igen? Tja, troligtvis. Den sparade ju ändå tid jämfört med att sitta och bläddra i massa dokument. Men jag önskar att det gick att vara ännu tydligare med de mjuka kraven från början, utan att man behövde bli "grillad" med så många frågor. Och jag önskar att den hade lite mer flexibilitet att anpassa frågorna efter mina svar, istället för att köra på samma mall hela tiden. Men som sagt, helhetsintrycket var ändå positivt. Nu får vi se vilka UX-designers vi får napp på! "

@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Lisa Anderssons berättelse
+║  Utvecklingsledare på Inera AB
+║  
+║  Samtal: 20 meddelanden
+║  Datum: 2025-12-05 13:36
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag måste bara berätta om det här avropet jag håller på med. Herregud, vilken resa! Jag var så himla nervös innan jag började prata med den här P-Bot på Adda. Alltså, jag är ju ny som utvecklingsledare och det här är första gången jag gör ett avrop helt själv. Tidigare har inköpsavdelningen alltid hjälpt till, men nu är det liksom mitt ansvar. Jag tänkte väl att P-Bot skulle ge mig en snabb genomgång, typ en checklista att följa, och att jag skulle slippa tänka så mycket själv. Jag ville bara få det gjort, liksom.
+
+Men det blev ju inte riktigt så. P-Bot började direkt att ställa massa frågor om kompetensnivåer, takpriser och utvärderingsmodeller. Jag kände mig helt lost! Jag vet ju vad vi behöver, en grym senior systemutvecklare, men att faktiskt definiera allt så detaljerat… Det var jobbigt. Jag blev lite frustrerad när P-Bot började prata om 70/30 eller 50/50 fördelning mellan pris och kvalitet. Jag ba, ”Men hur ska jag veta det?!” Jag är ju utvecklare, inte upphandlare! Men sen tänkte jag att ”okej, det är ju viktigt med kompetensen, så jag kanske borde satsa mer på det”. Jag föreslog 50/50 och det kändes faktiskt bra.
+
+Det var nog en vändpunkt, när jag insåg att jag faktiskt kunde vara med och påverka. P-Bot var rätt bra på att förklara varför vissa saker var viktiga och att det var bra att prioritera kvalitet när det gällde en senior roll. Den sa typ: ”Det är ett klokt val, Lisa. Att prioritera kvalitet på en Kompetensnivå 5 är avgörande för att säkerställa att ni får den spetskompetens ni behöver.” Det gjorde att jag kände mig lite mer självsäker. Det hjälpte också att den sammanfattade allting efter varje steg. Jag behövde höra det, så att jag kunde se att vi var på rätt spår.
+
+Mot slutet blev det faktiskt riktigt bra. Vi pratade om referenser och teknisk intervju, och då kände jag att jag hade koll. Jag är ju van att hålla intervjuer, så det kunde jag verkligen bidra med. När P-Bot sa att det var bra att jag själv skulle hålla den tekniska intervjun, för att se om kunskaperna matchade våra behov, då kände jag mig stolt. 
+
+Jag ska vara ärlig, jag var ganska utmattad när det var över. Men jag kände mig också mycket säkrare på vad jag höll på med. Jag skulle absolut använda P-Bot igen, fast nästa gång kommer jag nog att vara lite mer förberedd. Jag vet ju nu vilka frågor som kommer att ställas. Och jag vet att jag faktiskt klarar av det här. Jag ska bara snacka ihop mig med inköp om de här mallarna för viten först."

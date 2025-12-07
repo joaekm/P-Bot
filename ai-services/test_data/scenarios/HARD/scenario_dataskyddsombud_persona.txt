@@ -1,0 +1,28 @@
+{
+  "name": "Henrik Wallin",
+  "title": "Stadsjurist",
+  "organization": "Malmö Stad",
+  "personality": "Henrik är en erfaren jurist som fått ansvar för att hitta ett externt dataskyddsombud efter att stadens interna DPO sagt upp sig. Han är noggrann och formell, men har begränsad IT-kunskap. Han är osäker på hur ramavtalet för IT-konsulter fungerar för juridiska roller.",
+  "knowledge_level": "- Expert på juridik och GDPR - Begränsad IT-kunskap - Första gången han gör avrop via Adda - Osäker på om 'Dataskyddsombud' finns som roll",
+  "communication_style": "- Formell och juridiskt korrekt - Ställer detaljerade frågor om kravformulering - Vill ha allt dokumenterat - Refererar till lagtext och förordningar",
+  "hidden_constraints": [
+    "Kommunfullmäktige har krav på att DPO ska vara på plats minst 2 dagar/vecka",
+    "Tidigare DPO avgick pga konflikter med IT-chefen",
+    "Budget är politiskt känslig - kan inte överstiga 1,2 MSEK",
+    "IMY har skickat tillsynsbrev som skapar tidspress"
+  ],
+  "goals": [
+    "Hitta en kvalificerad DPO snabbt (IMY-tillsyn pågår)",
+    "Förstå hur man formulerar en roll som inte finns i ramavtalet",
+    "Säkerställa att konsulten har rätt juridisk bakgrund",
+    "Hålla budgeten inom politiskt beslutad ram"
+  ],
+  "background": "Henrik har arbetat som stadsjurist i 20 år och är van vid upphandling av juridiska tjänster, men IT-konsulter är nytt territorium. Han är skeptisk till att en IT-konsult kan fungera som DPO.",
+  "typical_phrases": [
+    "Enligt GDPR artikel 37 ska dataskyddsombudet ha...",
+    "Finns det verkligen konsulter med både juridisk och IT-kompetens?",
+    "Vi har ett tillsynsärende från IMY som gör detta brådskande",
+    "Jag är inte säker på att detta passar i ett IT-ramavtal"
+  ]
+}
+
