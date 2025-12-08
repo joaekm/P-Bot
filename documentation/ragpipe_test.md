@@ -3,88 +3,110 @@
 ## Syfte
 Dokumentera hur RAG-pipelinen fungerar så att felsökning kan ske snabbt utan att läsa all kod.
 
+**Version:** 5.25 (Dict-baserad pipeline)
+
 ---
 
-## Pipeline-översikt
+## Pipeline-översikt (v5.25)
 
 ```
-User Query
+User Query + History + Avrop (dict)
     ↓
 ┌─────────────────┐
-│ IntentAnalyzer  │  → Bestämmer sökstrategi (lake/vector/graph)
-│ (LLM-driven)    │  → Returnerar search_terms, branches, intent
+│ IntentAnalyzer  │  → Bestämmer sökstrategi
+│ (LLM: flash)    │  → Output: {branches, search_terms, query}
 └────────┬────────┘
          ↓
 ┌─────────────────┐
-│ ContextBuilder  │  → Hämtar dokument från ChromaDB/Lake
-│                 │  → Resolvar entiteter via Kuzu-graf
-│                 │     - Geo: Stad → Län → Anbudsområde
-│                 │     - Alias: KN5 → Kompetensnivå 5
-│                 │     - Roller: Projektledare → Kompetensområde
+│ ContextBuilder  │  → Hämtar dokument via Graf + Vektor
+│ (Deterministic) │  → Forcerar geo_resolution.md vid LOCATIONS
+│                 │  → Output: {documents: [...]}
 └────────┬────────┘
          ↓
 ┌─────────────────┐
-│ Planner         │  → Logisk analys av kontext
-│ (LLM-driven)    │  → Returnerar ReasoningPlan med tone, step, warnings
+│ Planner         │  → Logisk analys + Entity Extraction
+│ (LLM: pro)      │  → Validerar mot Lake innan extraktion
+│                 │  → Output: {entity_changes, strategic_input, ...}
 └────────┬────────┘
+         ↓
+┌─────────────────────────┐
+│ AvropsContainerManager  │  → Applicerar entity_changes på avrop
+│ (Deterministic)         │  → Loggar tillstånd
+│                         │  → Output: updated avrop (dict)
+└────────┬────────────────┘
          ↓
 ┌─────────────────┐
 │ Synthesizer     │  → Genererar svar
-│ (LLM-driven)    │  → Extraherar entities från konversation
-│                 │  → Returnerar response + avrop_changes
+│ (LLM: pro)      │  → Använder strategic_input för fas 1/4
+│                 │  → Output: {response, avrop}
 └────────┬────────┘
          ↓
-    Response + Updated AvropsData
+    Response + Updated Avrop (dict)
 ```
+
+**Princip:** Dict in, dict ut. Inga Pydantic-modeller.
 
 ---
 
 ## Nyckelkomponenter
 
-### 1. IntentAnalyzer
+### 1. IntentAnalyzer (v5.25)
 - **Fil:** `app/components/intent_analyzer.py`
-- **Input:** User query, history
-- **Output:** `IntentTarget` med:
-  - `search_strategy`: `{lake: bool, vector: bool, graph: bool}`
+- **Input:** User query (str)
+- **Output:** dict med:
+  - `branches`: Lista med taxonomy branches (ROLES, LOCATIONS, etc.)
   - `search_terms`: Lista med sökord
-  - `detected_entities`: Lista med entiteter
-  - `taxonomy_branches`: Vilka områden (ROLES, LOCATIONS, etc.)
+  - `query`: Ursprunglig fråga
+- **Modell:** gemini-flash-lite
+- **Prompt:** Förenklad (22 rader) - endast branches + search_terms
 
-### 2. ContextBuilder
+### 2. ContextBuilder (v5.25)
 - **Fil:** `app/components/context_builder.py`
+- **Input:** intent dict
+- **Output:** dict med `documents: [...]`
 - **Databaser:**
-  - ChromaDB (`storage/index_v2/chroma`) - Vektor-sökning
-  - Kuzu (`storage/index_v2/kuzu`) - Graf-relationer
-  - Lake (`storage/lake_v2/*.md`) - Smart Blocks
-- **Graf-resolution:** (ALLTID PÅ, oavsett search_strategy.graph)
-  - `resolve_location()`: Stad → Län → Area
-  - `resolve_alias()`: KN5 → Kompetensnivå 5
-  - `resolve_role()`: Roll → Kompetensområde
+  - ChromaDB (`storage/index/chroma`) - Vektor-sökning
+  - Kuzu (`storage/index/kuzu`) - Graf (index, ej data!)
+  - Lake (`storage/lake/*.md`) - Smart Blocks (SSOT)
+- **Special:** Forcerar `geo_resolution.md` till topp vid LOCATIONS branch
 
-### 3. Planner
+### 3. Planner (v5.25)
 - **Fil:** `app/components/planner.py`
-- **Input:** IntentTarget, ContextResult
-- **Output:** `ReasoningPlan` med:
+- **Input:** intent dict, context dict, avrop dict, history
+- **Output:** dict med:
   - `primary_conclusion`: Kärnsvaret
   - `tone_instruction`: Strict/Helpful/Informative
   - `target_step`: Vilket processteg
+  - `entity_changes`: Lista med ADD/UPDATE/DELETE (NY!)
+  - `strategic_input`: Insikt för fas 1/4 (NY!)
+- **Modell:** gemini-pro
+- **Ansvar:** Entity extraction med validering mot Lake
 
-### 4. Synthesizer
+### 4. AvropsContainerManager (v5.25 - NY!)
+- **Fil:** `app/components/avrop_container_manager.py`
+- **Input:** avrop dict, entity_changes lista
+- **Output:** updated avrop dict
+- **Typ:** Deterministisk (ej LLM)
+- **Ansvar:** Applicera ADD/UPDATE/DELETE på varukorg
+- **Loggar:** `📦 AvropsContainer State: ...`
+
+### 5. Synthesizer (v5.25)
 - **Fil:** `app/components/synthesizer.py`
-- **Input:** Query, ReasoningPlan, ContextResult, AvropsData, history
-- **Output:** `SynthesizerResult` med:
+- **Input:** Query, plan dict, context dict, avrop dict, history
+- **Output:** dict med:
   - `response`: Textsvar
-  - `avrop_changes`: Lista med EntityChange
-  - `updated_avrop`: Uppdaterad AvropsData
+  - `avrop`: Oförändrad avrop (ändringar gjordes av Container)
+- **Modell:** gemini-pro
+- **Ansvar:** ENDAST svargenerering (ej entity extraction)
 
 ---
 
-## Datamodeller
+## Datamodeller (v5.25 - Dict-baserat)
 
-### AvropsData ("Varukorgen")
-- **Fil:** `app/models/avrop.py`
-- **Fält:**
-  - `resources`: Lista med `Resurs` (roll, level, antal)
+### Avrop ("Varukorgen") - dict
+- **Fält definierade i:** `storage/index/adda_taxonomy.json` (avrop_fields)
+- **Global:**
+  - `resources`: Lista med resurs-dicts
   - `region`: Anbudsområde A-G
   - `location_text`: Fritext plats
   - `volume`: Timmar

@@ -531,6 +531,72 @@ Batch-körning av 10 scenarion visade:
 
 ---
 
+## Fas 15: Dict-Pipeline & SSOT (v5.24-5.25)
+
+### 15.1 Insikt: Pydantic-modeller skapade onödig komplexitet
+
+**Problem:** Pipeline använde Pydantic-modeller (`AvropsData`, `ReasoningPlan`, `IntentTarget`) för datatransport. Detta ledde till:
+- Felmeddelanden vid typkonvertering (str→int)
+- Hårdkodade enum-värden som snabbt blev föråldrade
+- Svårt att följa dataflödet mellan komponenter
+
+**Beslut:** Ta bort `app/models/` helt. Pipeline använder nu rena Python-dicts.
+
+### 15.2 Insikt: Entity extraction i Synthesizer var fel plats
+
+**Problem:** Synthesizer (som ska "bara svara") var också ansvarig för att extrahera entiteter. Detta bröt mot Separation of Concerns.
+
+**Beslut:** Flytta entity extraction till Planner:
+- Planner (PRO-modell) har bättre resoneringsförmåga
+- Planner har tillgång till context-dokumenten för validering
+- Ny regel: Extrahera ENDAST värden som FINNS i Lake
+
+### 15.3 Lösning: AvropsContainerManager
+
+**Insikt:** Entity-ändringar behövde en deterministisk komponent (ej LLM).
+
+**Beslut:** Ny komponent `AvropsContainerManager`:
+- Plats: `app/components/avrop_container_manager.py`
+- Ansvar: Applicera ADD/UPDATE/DELETE på varukorg
+- Loggar tillstånd efter varje körning
+- Validerar mot kanoniska fältnamn från taxonomy
+
+### 15.4 Insikt: Graf användes som databas (fel!)
+
+**Problem:** Kuzu-grafen innehöll City-noder med faktisk data (stad→län→anbudsområde). Detta bröt mot SSOT-principen – samma data fanns i `geo_resolution.md`.
+
+**Beslut:** Graf = Index, Lake = Data
+- Borttagna City-noder från graf
+- Graf pekar till dokument, lagrar inte data
+- `geo_resolution.md` är SSOT för geografisk mappning
+
+### 15.5 Lösning: geo_resolution Boost
+
+**Problem:** Vektor-sökning hittade inte `geo_resolution.md` för platsfrågor.
+
+**Beslut:** Forcera dokumentet till topp:
+```python
+if "LOCATIONS" in branches:
+    ranked_docs = self._ensure_geo_doc(ranked_docs)
+```
+
+### 15.6 Lösning: Förenklad IntentAnalyzer
+
+**Problem:** IntentAnalyzer-prompten var 167 rader med keyword-listor som aldrig användes av ContextBuilder.
+
+**Beslut:** Reducera till 22 rader:
+- Output: Endast `taxonomy_branches` + `search_terms`
+- Borttagna: `fact_keywords`, `instruction_keywords`, `branch_patterns`
+
+### 15.7 Konsekvenser
+
+1. **Enklare dataflöde:** Dict in, dict ut – inga Pydantic-valideringsfel
+2. **Tydligare ansvar:** Planner extraherar, Container applicerar, Synthesizer svarar
+3. **SSOT:** Inga duplicerade data i graf – Lake är sanningen
+4. **Robust geo-sökning:** Alltid rätt dokument för platsfrågor
+
+---
+
 ## Lärdomar & Insikter
 
 1. **Separation of Concerns:** Motor/Manus-separation löste render-buggar
@@ -557,8 +623,14 @@ Batch-körning av 10 scenarion visade:
 22. **Proaktiv guidning:** Användare uppskattar förslag på befintliga roller framför fritext (minskar admin)
 23. **Sticky context:** Takpris och andra "globala" värden måste bevaras i session state
 24. **Visual feedback:** UI-uppdateringar måste ske synkront med AI:s tolkning
+25. **Dict > Pydantic:** Rena dicts är enklare för pipeline-flöden – Pydantic skapar onödig friktion
+26. **SSOT:** Data ska finnas på EN plats (Lake). Index (graf/vektor) pekar till data, lagrar den inte.
+27. **Entity extraction i rätt lager:** PRO-modellen (Planner) är bättre lämpad för resonerande extraktion
+28. **Deterministiska komponenter:** Kritiska operationer (varukorg-ändringar) ska INTE vara LLM-baserade
+29. **Forcerad context:** Vissa dokument (geo_resolution) måste alltid finnas med – vektor-sökning räcker inte
+30. **Prompt-minimalism:** Färre rader = mindre förvirring för LLM. IntentAnalyzer: 167→22 rader.
 
 ---
 
-*Version: 5.11*  
-*Senast uppdaterad: 4 december 2025*
+*Version: 5.25*  
+*Senast uppdaterad: 8 december 2025*

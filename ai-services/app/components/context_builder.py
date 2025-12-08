@@ -52,9 +52,47 @@ class ContextBuilderComponent:
         vector_query = query or " ".join(search_terms)
         ranked_docs = self._search_and_rank(vector_query, graph_doc_ids)
         
+        # STEP 3: SPECIAL - geo_resolution.md alltid med vid LOCATIONS
+        if "LOCATIONS" in branches:
+            ranked_docs = self._ensure_geo_doc(ranked_docs)
+        
         logger.info(f"Total: {len(ranked_docs)} docs")
         
         return {"documents": ranked_docs}
+    
+    def _ensure_geo_doc(self, docs: List[Dict]) -> List[Dict]:
+        """Säkerställ att geo_resolution.md finns med i toppen."""
+        # Kolla om geo redan finns
+        for doc in docs:
+            if 'geo_resolution' in doc.get('filename', ''):
+                # Flytta till toppen
+                docs.remove(doc)
+                docs.insert(0, doc)
+                logger.info("Geo: Flyttade geo_resolution till topp")
+                return docs
+        
+        # Geo finns inte - hämta den direkt från lake
+        geo_file = self.lake_path / "1_intake_DATA_POINTER_PRIMARY_geo_resolution.md"
+        if geo_file.exists():
+            try:
+                content = geo_file.read_text(encoding='utf-8')
+                geo_doc = {
+                    "id": "geo_resolution_forced",
+                    "filename": geo_file.name,
+                    "branch": "LOCATIONS",
+                    "type": "DATA_POINTER",
+                    "content": content,
+                    "source": "FORCED",
+                    "_score": -100
+                }
+                docs.insert(0, geo_doc)
+                logger.info("Geo: Lade till geo_resolution från lake")
+            except Exception as e:
+                logger.error(f"Geo: Kunde inte läsa geo_resolution: {e}")
+        else:
+            logger.warning(f"Geo: Filen finns inte: {geo_file}")
+        
+        return docs
     
     def _get_docs_from_graph(self, branches: List[str]) -> Set[str]:
         """Hämta dokument-IDs som tillhör givna branches via grafen."""
@@ -108,6 +146,7 @@ class ContextBuilderComponent:
             results = []
             for i, doc_id in enumerate(res['ids'][0]):
                 meta = res['metadatas'][0][i]
+                filename = meta.get('filename', 'unknown')
                 
                 # Beräkna score: vektor-rank + graf-boost
                 # Lägre rank = bättre (position i vektor-resultat)
@@ -117,11 +156,14 @@ class ContextBuilderComponent:
                 is_graph_match = doc_id in graph_doc_ids
                 graph_boost = -15 if is_graph_match else 0
                 
-                combined_score = vector_rank + graph_boost
+                # SPECIAL: geo_resolution.md är central för platsuppslag - alltid topp
+                geo_boost = -50 if 'geo_resolution' in filename else 0
+                
+                combined_score = vector_rank + graph_boost + geo_boost
                 
                 results.append({
                     "id": doc_id,
-                    "filename": meta.get('filename', 'unknown'),
+                    "filename": filename,
                     "branch": meta.get('taxonomy_branch', ''),
                     "type": meta.get('type', 'UNKNOWN'),
                     "content": res['documents'][0][i],

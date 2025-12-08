@@ -145,7 +145,21 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 | **EPIC-446** | Minnes-loop | ✅ DONE | Fixat: Frontend skickar avrop_data. Dubbel-resurs vid avslut blockerad. |
 | **EPIC-447** | Session Trace Utökning | ✅ DONE | Lagt till prismodell, utvarderingsmodell, location_text, anbudsomrade. |
 
-### 3c-v3. Behovsinsamling & Coachande UX (v5.14) 📝
+### 3c-v3. SSOT & Dict-Pipeline (v5.24-5.25) ✅
+
+| Epic-ID | Titel | Status | Kommentar |
+|:--------|:------|:-------|:----------|
+| **EPIC-460** | Dict-baserad Pipeline | ✅ DONE | Borttagna Pydantic models (`avrop.py`, `domain.py`, `reasoning.py`). Pipeline använder nu rena dicts. |
+| **EPIC-461** | Entity Extraction → Planner | ✅ DONE | Planner (PRO-modell) ansvarar för entity extraction. Validerar mot Lake innan extraktion. |
+| **EPIC-462** | AvropsContainerManager | ✅ DONE | Ny deterministisk komponent i `app/components/`. Hanterar varukorg-ändringar. |
+| **EPIC-463** | IntentAnalyzer v5.25 | ✅ DONE | Förenklad prompt: endast `taxonomy_branches` + `search_terms`. Borttagna keyword-listor. |
+| **EPIC-464** | geo_resolution Boost | ✅ DONE | `geo_resolution.md` forceras till topp när LOCATIONS branch är aktiv. |
+| **EPIC-465** | SSOT-princip | ✅ DONE | Lake = sanning, Graf = index. Borttagna City-noder från graf. |
+| **EPIC-466** | Canonical Field Names | ✅ DONE | Fältnamn definierade i `adda_taxonomy.json` (avrop_fields). |
+| **EPIC-467** | Kuzu Lock Fix | ✅ DONE | `use_reloader=False` i Flask. Startup-check för låsfil. |
+| **EPIC-468** | Legacy Cleanup | ✅ DONE | Borttagna: `learnings.json`, `vocabulary.json`, `VocabularyService`. |
+
+### 3c-v4. Behovsinsamling & Coachande UX (v5.26) 📝
 
 | Epic-ID | Titel | Status | Kommentar |
 |:--------|:------|:-------|:----------|
@@ -259,8 +273,8 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 
 ---
 
-*Version: 5.14*  
-*Senast uppdaterad: 5 december 2025*
+*Version: 5.25*  
+*Senast uppdaterad: 8 december 2025*
 
 ---
 
