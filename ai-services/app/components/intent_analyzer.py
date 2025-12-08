@@ -1,51 +1,52 @@
 """
-Intent Analyzer Component - Query to Search Strategy (v5.5)
-Maps user queries to IntentTarget with search strategy and taxonomy coordinates.
-Uses LLM for intelligent search planning.
+Intent Analyzer Component v5.24 - Förenklad dict-baserad
 
-v5.5 Changes:
-- Removed entity extraction (moved to Synthesizer)
-- Removed hardcoded ROLE_MAPPING, LOCATION_MAPPING, DELETE_PATTERNS
-- Now LLM-driven for search strategy and search terms
-- Returns search_strategy and search_terms for ContextBuilder
+Pipeline placering:
+    [IntentAnalyzer] → ContextBuilder → Planner → AvropsContainerManager → Synthesizer
+          ↓
+        intent
+
+IN:  query: str, history: list
+OUT: dict med:
+    {
+        "branches": ["ROLES", "LOCATIONS", ...],
+        "search_terms": ["projektledare", "Stockholm"],
+        "query": "original query"
+    }
+
+Förenkling v5.24:
+- Borttaget: intent_category (FACT/INSPIRATION/INSTRUCTION)
+- Borttaget: scope_preference
+- Borttaget: Pydantic-modeller (IntentTarget, TaxonomyBranch, etc.)
+- Returnerar ren dict som ContextBuilder kan använda direkt
 """
 import json
 import logging
-from typing import List, Dict, Optional
+from typing import List, Dict
+from pathlib import Path
 
 from google.genai import types
-
-from ..models import (
-    IntentTarget,
-    TaxonomyRoot,
-    TaxonomyBranch,
-    ScopeContext,
-    VALID_BRANCHES,
-)
-from ..services import VocabularyService
 
 logger = logging.getLogger("ADDA_ENGINE")
 
 
 class IntentAnalyzerComponent:
     """
-    Intent Analyzer - Maps user queries to search strategy.
+    Intent Analyzer - Maps user queries to search coordinates.
     
-    v5.5: Now LLM-driven for intelligent search planning.
-    
-    Pipeline:
-    1. Use LLM to analyze query and determine search strategy
-    2. Return IntentTarget with search_strategy, search_terms, branches
-    3. ContextBuilder uses this to fetch relevant documents
-    
-    NO entity extraction here - that's Synthesizer's job.
+    v5.24: Simplified to return pure dict.
     """
+    
+    # Valid branches (from taxonomy)
+    VALID_BRANCHES = ["ROLES", "LOCATIONS", "FINANCIALS", "PROCESS", "ARTIFACTS", "GENERAL"]
     
     def __init__(self, client, model: str, prompts: Dict):
         self.client = client
         self.model = model
         self.prompts = prompts
-        self.vocabulary = VocabularyService()
+        
+        # Load taxonomy for branch validation
+        self.taxonomy = self._load_taxonomy()
         
         # Load prompt template from config
         intent_config = prompts.get('intent_analyzer', {})
@@ -55,71 +56,50 @@ class IntentAnalyzerComponent:
             logger.warning("No intent_analyzer.system_prompt found, using default")
             self.system_prompt = self._default_system_prompt()
     
-    def analyze(self, query: str, history: List[Dict] = None) -> IntentTarget:
+    def _load_taxonomy(self) -> Dict:
+        """Load taxonomy for branch validation."""
+        base_dir = Path(__file__).resolve().parent.parent.parent
+        taxonomy_path = base_dir / "storage" / "index" / "adda_taxonomy.json"
+        
+        try:
+            with open(taxonomy_path, 'r', encoding='utf-8') as f:
+                tax = json.load(f)
+                # Update valid branches from taxonomy if available
+                branches = tax.get('taxonomy_branches', {}).get('values', [])
+                if branches:
+                    self.VALID_BRANCHES = branches
+                return tax
+        except Exception as e:
+            logger.warning(f"Could not load taxonomy: {e}")
+            return {}
+    
+    def analyze(self, query: str, history: List[Dict] = None) -> Dict:
         """
-        Analyze query using LLM and return IntentTarget with search strategy.
+        Analyze query and return search coordinates.
         
         Args:
             query: User's current query
             history: Conversation history (optional)
             
         Returns:
-            IntentTarget with search_strategy, search_terms, branches, intent
+            Dict with branches, search_terms, query
         """
-        # Build context from vocabulary
-        vocab_context = self.vocabulary.get_prompt_context()
-        
-        # Format history for prompt - include more context for reference resolution
+        # Format history for prompt
         history_text = ""
-        last_bot_message = ""
-        last_topic = ""
-        
         if history:
-            # Get last 6 messages for better context
             for msg in history[-6:]:
                 role = msg.get('role', 'unknown')
-                content = msg.get('content', '')[:300]  # More content for context
+                content = msg.get('content', '')[:300]
                 history_text += f"{role.upper()}: {content}\n"
-                
-                # Track last bot message for reference resolution
-                if role.lower() in ['assistant', 'bot', 'ai']:
-                    last_bot_message = content
-                    
-                    # Detect if bot made a recommendation
-                    if any(kw in content.lower() for kw in ['rekommenderar', 'föreslår', 'bör välja', 'passar bäst']):
-                        last_topic = "RECOMMENDATION"
-                    elif any(kw in content.lower() for kw in ['prismodell', 'utvärderingsmodell']):
-                        last_topic = "PRICING_MODEL"
-                    elif any(kw in content.lower() for kw in ['nivå', 'kompetensnivå']):
-                        last_topic = "LEVEL"
-                    elif any(kw in content.lower() for kw in ['roll', 'konsult', 'utvecklare', 'projektledare']):
-                        last_topic = "ROLE"
-        
-        # Build context hint for reference resolution
-        context_hint = ""
-        if last_topic:
-            context_hint = f"""
-SENASTE KONTEXT (för att förstå referenser som "det", "detta", "den"):
-- Senaste ämne: {last_topic}
-- Botens senaste meddelande: {last_bot_message[:200]}
-
-Om användaren säger "ja", "det blir bra", "rekommendera mig" etc., refererar de troligen till ämnet ovan.
-"""
         
         # Build the prompt
         prompt = f"""{self.system_prompt}
 
-VOCABULARY (kända begrepp i systemet):
-{vocab_context}
-
 KONVERSATIONSHISTORIK:
 {history_text if history_text else "(Första meddelandet)"}
-{context_hint}
 
 ANVÄNDARENS FRÅGA:
 {query}
-
-VIKTIGT: Om frågan innehåller referenser som "det", "detta", "den", "rekommendera mig" - titta på konversationshistoriken för att förstå vad användaren syftar på!
 
 Returnera JSON:
 """
@@ -132,169 +112,83 @@ Returnera JSON:
             )
             
             result = json.loads(resp.text)
+            intent = self._parse_response(query, result)
             
-            # Parse LLM response
-            intent_target = self._parse_llm_response(query, result)
-            
-            logger.info(f"Intent Analysis (LLM): {intent_target.intent_category}, "
-                       f"branches={[b.value for b in intent_target.taxonomy_branches]}, "
-                       f"search_terms={intent_target.search_terms[:3]}, "
-                       f"strategy={intent_target.search_strategy}")
-            
-            return intent_target
+            logger.info(f"Intent: branches={intent['branches']}, terms={intent['search_terms'][:3]}")
+            return intent
             
         except Exception as e:
             logger.error(f"LLM intent analysis failed: {e}, using fallback")
             return self._fallback_analysis(query)
     
-    def _parse_llm_response(self, query: str, result: Dict) -> IntentTarget:
-        """Parse LLM response into IntentTarget."""
-        # Parse branches
+    def _parse_response(self, query: str, result: Dict) -> Dict:
+        """Parse LLM response into intent dict."""
+        # Validate branches
         branches = []
         for b in result.get("taxonomy_branches", ["ROLES"]):
-            try:
-                branches.append(TaxonomyBranch(b))
-            except ValueError:
-                pass
+            b_upper = b.upper()
+            if b_upper in self.VALID_BRANCHES:
+                branches.append(b_upper)
         
         if not branches:
-            branches = [TaxonomyBranch.ROLES]
+            branches = ["ROLES"]
         
-        # Parse search strategy
-        search_strategy = result.get("search_strategy", {
-            "lake": True,
-            "vector": True,
-            "graph": False
-        })
-        
-        # Parse search terms
+        # Get search terms
         search_terms = result.get("search_terms", [])
         if not search_terms:
-            # Extract key terms from query as fallback
             search_terms = [w for w in query.split() if len(w) > 3][:5]
         
-        # Parse intent
-        intent_category = result.get("intent_category", "INSPIRATION")
-        if intent_category not in ["FACT", "INSPIRATION", "INSTRUCTION"]:
-            intent_category = "INSPIRATION"
-        
-        # Determine scope based on intent
-        scope_preference = self._determine_scope(intent_category, branches)
-        
-        # Get roots from branches
-        taxonomy_roots = self._roots_from_branches(branches)
-        
-        return IntentTarget(
-            original_query=query,
-            taxonomy_roots=taxonomy_roots,
-            taxonomy_branches=branches,
-            detected_topics=result.get("detected_topics", []),
-            detected_entities=result.get("detected_entities", []),
-            scope_preference=scope_preference,
-            intent_category=intent_category,
-            confidence=result.get("confidence", 0.7),
-            search_strategy=search_strategy,
-            search_terms=search_terms
-        )
+        return {
+            "branches": branches,
+            "search_terms": search_terms,
+            "query": query
+        }
     
-    def _fallback_analysis(self, query: str) -> IntentTarget:
-        """Fallback analysis when LLM fails."""
+    def _fallback_analysis(self, query: str) -> Dict:
+        """Fallback when LLM fails."""
         query_lower = query.lower()
         
-        # Simple intent classification
-        if any(kw in query_lower for kw in ["vad är", "hur mycket", "kostar", "måste"]):
-            intent = "FACT"
-        elif any(kw in query_lower for kw in ["hjälp", "exempel", "tips"]):
-            intent = "INSPIRATION"
-        else:
-            intent = "INSPIRATION"
-        
         # Simple branch detection
-        branches = [TaxonomyBranch.ROLES]
-        if any(kw in query_lower for kw in ["pris", "takpris", "timmar", "volym"]):
-            branches.append(TaxonomyBranch.FINANCIALS)
-        if any(kw in query_lower for kw in ["fku", "avrop", "strategi"]):
-            branches.append(TaxonomyBranch.STRATEGY)
+        branches = ["ROLES"]
+        if any(kw in query_lower for kw in ["pris", "takpris", "timmar", "volym", "kostnad"]):
+            branches.append("FINANCIALS")
+        if any(kw in query_lower for kw in ["stockholm", "malmö", "göteborg", "region", "område", "plats"]):
+            branches.append("LOCATIONS")
+        if any(kw in query_lower for kw in ["fku", "avrop", "strategi", "direktavrop"]):
+            branches.append("PROCESS")
         
-        # Extract search terms from query
+        # Extract search terms
         search_terms = [w for w in query.split() if len(w) > 3][:5]
         
-        return IntentTarget(
-            original_query=query,
-            taxonomy_roots=self._roots_from_branches(branches),
-            taxonomy_branches=branches[:3],
-            detected_topics=[],
-            detected_entities=[],
-            scope_preference=self._determine_scope(intent, branches),
-            intent_category=intent,
-            confidence=0.4,
-            search_strategy={"lake": True, "vector": True, "graph": False},
-            search_terms=search_terms
-        )
-    
-    def _determine_scope(self, intent: str, branches: List[TaxonomyBranch]) -> List[ScopeContext]:
-        """Determine scope preference based on intent and branches."""
-        if intent == "FACT":
-            return [ScopeContext.FRAMEWORK_SPECIFIC]
-        
-        if TaxonomyBranch.GOVERNANCE in branches:
-            return [ScopeContext.FRAMEWORK_SPECIFIC, ScopeContext.GENERAL_LEGAL]
-        
-        if intent == "INSPIRATION":
-            return [
-                ScopeContext.FRAMEWORK_SPECIFIC,
-                ScopeContext.DOMAIN_KNOWLEDGE,
-                ScopeContext.GENERAL_LEGAL
-            ]
-        
-        return [ScopeContext.FRAMEWORK_SPECIFIC, ScopeContext.DOMAIN_KNOWLEDGE]
-    
-    def _roots_from_branches(self, branches: List[TaxonomyBranch]) -> List[TaxonomyRoot]:
-        """Determine taxonomy roots from detected branches."""
-        roots = set()
-        for branch in branches:
-            for root, valid in VALID_BRANCHES.items():
-                if branch in valid:
-                    roots.add(root)
-                    break
-        return list(roots)
+        return {
+            "branches": branches[:3],
+            "search_terms": search_terms,
+            "query": query
+        }
     
     def _default_system_prompt(self) -> str:
-        """Default system prompt if none configured."""
+        """Default system prompt."""
         return """Du är Intent Analyzer för Addas upphandlingssystem.
 
 Din uppgift är att analysera användarens fråga och bestämma:
-1. VAR ska vi söka information? (lake/vector/graph)
+1. VILKA taxonomy branches är relevanta?
 2. VILKA söktermer ska användas?
-3. VILKEN typ av fråga är det? (FACT/INSPIRATION/INSTRUCTION)
-4. VILKA taxonomy branches är relevanta?
 
-REGLER:
-- FACT = Användaren vill veta regler, priser, villkor (t.ex. "Vad är takpriset?")
-- INSPIRATION = Användaren vill ha hjälp, exempel (t.ex. "Hur formulerar jag detta?")
-- INSTRUCTION = Användaren vill ha steg-för-steg-guide
-
-BRANCHES:
-- ROLES: Konsultroller, kompetenser, nivåer
-- FINANCIALS: Priser, takpris, volym, timmar
-- LOCATIONS: Regioner, orter, anbudsområden
-- GOVERNANCE: Regler, lagar, krav, GDPR
-- STRATEGY: FKU, direktavrop, avropsformer
+BRANCHES (välj 1-3 relevanta):
+- ROLES: Konsultroller, kompetenser, nivåer, exempelroller
+- LOCATIONS: Regioner, orter, anbudsområden, län
+- FINANCIALS: Priser, takpris, volym, timmar, kostnad
+- PROCESS: Avropsprocessen, FKU, direktavrop, steg
 - ARTIFACTS: Dokument, mallar, CV, avtal
-- PHASES: Processsteg, faser
+- GENERAL: Allmänna frågor, avtalet generellt
 
-SEARCH STRATEGY:
-- lake: true om vi behöver söka i markdown-filer
-- vector: true om vi behöver semantisk sökning
-- graph: true om vi behöver relationer mellan begrepp
+SEARCH TERMS:
+- Extrahera nyckelord från frågan
+- Inkludera synonymer och relaterade termer
+- Max 5 termer
 
 OUTPUT JSON:
 {
-  "intent_category": "FACT" | "INSPIRATION" | "INSTRUCTION",
-  "taxonomy_branches": ["ROLES", "FINANCIALS", ...],
-  "search_strategy": {"lake": true, "vector": true, "graph": false},
-  "search_terms": ["sökterm1", "sökterm2", ...],
-  "detected_topics": ["topic1", "topic2"],
-  "detected_entities": ["entity1", "entity2"],
-  "confidence": 0.0-1.0
+  "taxonomy_branches": ["ROLES", ...],
+  "search_terms": ["term1", "term2", ...]
 }"""

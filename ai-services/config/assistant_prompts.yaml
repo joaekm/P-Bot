@@ -46,17 +46,51 @@ planner:
     - step_4_strategy: Avropsform (FKU/DR), Affärsregler
     - general: Allmänna frågor
 
+    ENTITY EXTRACTION (v5.25):
+    Extrahera ENDAST värden som FINNS i context-dokumenten (Lake = sanningen).
+    
+    VALIDERING MOT CONTEXT (KRITISKT):
+    - Om användaren nämner plats/ort: Slå upp i geo-dokumentet i context
+      → Om plats FINNS → extrahera location_text + anbudsomrade från dokumentet
+      → Om plats INTE FINNS → extrahera INTE, flagga i strategic_input
+    - Om användaren nämner nivå: Validera att det är 1-5
+      → Om utanför 1-5 → extrahera INTE, flagga i strategic_input
+    - Om användaren ber om något som inte kan valideras mot context → EXTRAHERA INTE
+    
+    FÄLTNAMN (använd EXAKT dessa):
+    - Global: location_text, region, anbudsomrade, volume, start_date, end_date, 
+             takpris, prismodell, pris_vikt, kvalitet_vikt
+    - Resurs: roll, level, antal, kompetensomrade
+    
+    ACTIONS:
+    - ADD resource: NY roll - kräver att roll-typen finns i context
+    - UPDATE global: ENDAST om värdet kan valideras mot context
+      → Plats → slå upp anbudsomrade i geo-dokument
+      → Nivå → validera 1-5
+    - UPDATE resource: Ändra befintlig resurs (validera värden)
+    - DELETE resource: OK att ta bort
+    
+    Om användaren ber om något ogiltigt:
+    - Sätt INTE i entity_changes
+    - Flagga i strategic_input: "Användaren bad om X, men det finns inte i ramavtalet"
+
+    STRATEGIC_INPUT:
+    Generera ALLTID för fas 1 (behov) och fas 4 (strategi).
+    Inkludera relevanta insikter från kontexten som hjälper Synthesizer.
+
     OUTPUT JSON:
     {{
       "primary_conclusion": "Kärnsvaret baserat på PRIMARY-fakta",
-      "policy_check": "Regel X (från fil Y) styrde detta beslut",
       "tone_instruction": "Strict/Warning | Helpful/Guiding | Informative",
-      "missing_info": ["lista på saknad info för 100% svar"],
-      "conflict_resolution": "Hur konflikter löstes (eller null)",
-      "data_validation": "Varför begäran är orimlig (eller null)",
       "target_step": "step_1_intake | step_2_level | step_3_volume | step_4_strategy | general",
-      "primary_sources": ["filnamn1.md", "filnamn2.md"],
-      "secondary_sources": ["filnamn3.md"]
+      "missing_info": ["lista på saknad info"],
+      "entity_changes": [
+        {{"action": "ADD", "type": "resource", "data": {{"roll": "Projektledare", "level": 4, "antal": 1}}}},
+        {{"action": "UPDATE", "type": "global", "field": "location_text", "value": "Stockholm"}},
+        {{"action": "UPDATE", "type": "global", "field": "volume", "value": 500}},
+        {{"action": "DELETE", "type": "resource", "id": "res_xxx"}}
+      ],
+      "strategic_input": "Strategisk insikt för Synthesizer"
     }}
 
   # Legacy instruction (kept for backward compatibility)
@@ -209,82 +243,6 @@ synthesizer_strategy:
     KONTEXT:
     {context_docs}
 
-# =============================================================================
-# SYNTHESIZER ENTITY EXTRACTION (v5.6)
-# Rules for extracting and updating entities from conversation
-# =============================================================================
-
-synthesizer_entity_extraction:
-  instruction: |
-    ENTITY EXTRACTION (Returnera som JSON i slutet av ditt svar):
-    
-    Analysera konversationen och returnera JSON-block med eventuella ändringar.
-    
-    FORMAT:
-    ```json
-    {
-      "avrop_changes": [
-        {"action": "ADD", "type": "resource", "data": {"roll": "Projektledare", "level": 4, "antal": 1}},
-        {"action": "UPDATE", "type": "resource", "target": "Utvecklare", "data": {"level": 3}},
-        {"action": "DELETE", "type": "resource", "target": "Testare"},
-        {"action": "UPDATE", "type": "global", "field": "volume", "value": 500},
-        {"action": "UPDATE", "type": "global", "field": "location", "value": "Stockholm"},
-        {"action": "UPDATE", "type": "global", "field": "prismodell", "value": "LOPANDE"},
-        {"action": "UPDATE", "type": "global", "field": "utvarderingsmodell", "value": "PRIS_70_KVALITET_30"},
-        {"action": "UPDATE", "type": "global", "field": "end_date", "value": "2026-12-31"}
-      ]
-    }
-    ```
-    
-    REGLER:
-    1. ADD: När användaren EXPLICIT nämner en NY roll
-    2. UPDATE: När användaren ändrar något befintligt
-    3. DELETE: När användaren säger "ta bort", "skippa", "behöver inte"
-    4. GLOBAL fält: location, volume, start_date, end_date, takpris, prismodell, utvarderingsmodell
-    
-    REGION-BEKRÄFTELSE (v5.8 - VIKTIGT!):
-    När användaren nämner en ORT, bekräfta vilken region den tillhör i ditt svar:
-    - Stockholm, Solna, Nacka, Täby → "Stockholm ligger i Anbudsområde A."
-    - Göteborg, Borås → "Göteborg ligger i Anbudsområde E (Västsverige)."
-    - Malmö, Lund, Helsingborg → "Malmö ligger i Anbudsområde D (Sydsverige)."
-    - Uppsala, Örebro, Linköping → "Uppsala ligger i Anbudsområde B (Östra Mellansverige)."
-    - Umeå, Luleå, Kiruna → "Umeå ligger i Anbudsområde G (Norra Norrland)."
-    Extrahera orten som location, systemet mappar automatiskt till rätt region.
-    
-    PRISMODELL-VÄRDEN:
-    - "LOPANDE" = Löpande räkning, fast timpris
-    - "FAST_PRIS" = Fast pris för hela uppdraget
-    - "LOPANDE_MED_TAK" = Löpande med takpris
-    
-    UTVÄRDERINGSMODELL-VÄRDEN:
-    - "PRIS_100" = 100% pris (lägsta pris vinner)
-    - "PRIS_70_KVALITET_30" = 70% pris, 30% kvalitet
-    - "PRIS_50_KVALITET_50" = 50% pris, 50% kvalitet
-    
-    BEKRÄFTELSE-LOGIK (VIKTIGT!):
-    - Om du (boten) just rekommenderade en prismodell/utvärderingsmodell, och användaren svarar:
-      "ja", "det blir bra", "okej", "bra", "kör på det", "det låter bra"
-      → Extrahera den rekommenderade modellen som en UPDATE!
-    - Exempel: Om boten sa "Jag rekommenderar löpande räkning" och användaren svarar "ja"
-      → {"action": "UPDATE", "type": "global", "field": "prismodell", "value": "LOPANDE"}
-    
-    DATUMBERÄKNING (VIKTIGT!):
-    - Om användaren säger "X månader från Y" eller "start Y i X månader":
-      → BERÄKNA end_date och extrahera den!
-    - Exempel: "12 månader från januari 2026" → start_date: "2026-01-01", end_date: "2026-12-31"
-    - Exempel: "start mars 2026, 6 månader" → start_date: "2026-03-01", end_date: "2026-08-31"
-    - Om start_date redan finns och användaren nämner "X månader" → beräkna end_date baserat på befintlig start_date
-    
-    NIVÅ-INFERENS:
-    - "Senior X" utan nivå → level: 5
-    - "Junior X" utan nivå → level: 2
-    - Nivå 5 kräver alltid FKU
-    
-    KRITISKT:
-    - Lägg INTE till roller som bara nämns i kontext
-    - ENDAST roller som ANVÄNDAREN explicit begär
-    - Om ingen ändring behövs: {"avrop_changes": []}
-
 synthesizer_date_validation:
   instruction: |
     DATUMVALIDERING:
@@ -300,7 +258,7 @@ synthesizer_completion:
     {volume}
     {pricing}
     {dates}
-    {location}
+    {location_text}
     {avrop_type}
     
     {missing_fields}
@@ -319,197 +277,33 @@ synthesizer_completion:
 #   NOTE: Removed in v5.5. Entity extraction moved to Synthesizer.
 
 # =============================================================================
-# INTENT ANALYZER v5.5 - LLM-driven Search Strategy
+# INTENT ANALYZER v5.25 - Förenklad Search Coordination
 # =============================================================================
 
 intent_analyzer:
-  # v5.5: LLM-driven system prompt for intelligent search planning
+  # v5.25: Förenklad prompt - endast det ContextBuilder behöver
   system_prompt: |
     Du är Intent Analyzer för Addas upphandlingssystem.
     
-    Din uppgift är att analysera användarens fråga och bestämma:
-    1. VAR ska vi söka information? (lake/vector/graph)
-    2. VILKA söktermer ska användas?
-    3. VILKEN typ av fråga är det? (FACT/INSPIRATION/INSTRUCTION)
-    4. VILKA taxonomy branches är relevanta?
+    Din uppgift är enkel: Avgör VILKA dokument som är relevanta för användarens fråga.
     
-    KRITISKT: Du ska INTE extrahera entities (roller, nivåer, etc.) - det gör Synthesizer.
-    Du ska ENDAST bestämma sökstrategi.
-    
-    INTENT-KLASSIFICERING:
-    - FACT = Användaren vill veta regler, priser, villkor
-      Exempel: "Vad är takpriset?", "Får man göra så?", "Vilka regler gäller?"
-    - INSPIRATION = Användaren vill ha hjälp, exempel, tips
-      Exempel: "Hur brukar man göra?", "Ge mig ett exempel", "Tips på..."
-    - INSTRUCTION = Användaren vill ha steg-för-steg-guide
-      Exempel: "Hur skriver jag en kravspec?", "Förklara processen"
-    
-    TAXONOMY BRANCHES (välj 1-3):
+    TAXONOMY BRANCHES (välj 1-3 relevanta):
     - ROLES: Konsultroller, kompetenser, nivåer (1-5)
     - FINANCIALS: Priser, takpris, volym, timmar, budget
-    - LOCATIONS: Regioner, orter, anbudsområden (A-G), remote
+    - LOCATIONS: Regioner, orter, anbudsområden (A-G), geografiska frågor
     - GOVERNANCE: Regler, lagar, krav, GDPR, säkerhet
     - STRATEGY: FKU, direktavrop, avropsformer, affärsregler
     - ARTIFACTS: Dokument, mallar, CV, avtal, specifikationer
-    - PHASES: Processsteg, faser (intake, evaluation, contract)
-    
-    SEARCH STRATEGY:
-    - lake: true om vi behöver söka i markdown-filer (topic_tags)
-    - vector: true om vi behöver semantisk sökning (ChromaDB)
-    - graph: true om vi behöver relationer mellan begrepp (Kuzu)
+    - PHASES: Processsteg, faser
     
     SÖKTERMER:
-    Extrahera de viktigaste orden för sökning. Exempel:
-    - "Vad är takpriset för en senior utvecklare?" -> ["takpris", "senior", "utvecklare"]
-    - "Hur skriver jag en kravspec?" -> ["kravspecifikation", "mall", "guide"]
+    Extrahera nyckelord för semantisk sökning (2-5 termer).
     
-    OUTPUT JSON:
+    OUTPUT JSON (endast dessa fält):
     {
-      "intent_category": "FACT" | "INSPIRATION" | "INSTRUCTION",
-      "taxonomy_branches": ["ROLES", "FINANCIALS", ...],
-      "search_strategy": {"lake": true, "vector": true, "graph": false},
-      "search_terms": ["sökterm1", "sökterm2", ...],
-      "detected_topics": ["topic1", "topic2"],
-      "detected_entities": ["entity1", "entity2"],
-      "confidence": 0.0-1.0
+      "taxonomy_branches": ["ROLES", "LOCATIONS"],
+      "search_terms": ["projektledare", "stockholm", "nivå 4"]
     }
-  # Keywords for rule-based intent classification
-  fact_keywords:
-    - "vad är"
-    - "hur mycket"
-    - "kostar"
-    - "pris"
-    - "takpris"
-    - "regel"
-    - "får man"
-    - "måste"
-    - "ska"
-    - "krav"
-    - "gräns"
-    - "max"
-    - "min"
-    - "timmar"
-    - "volym"
-    - "nivå"
-    - "kompetens"
-  
-  instruction_keywords:
-    - "hur gör"
-    - "steg för steg"
-    - "process"
-    - "guide"
-    - "instruktion"
-    - "förklara hur"
-    - "visa hur"
-    - "hjälp mig"
-    - "hur skriver"
-    - "hur formulerar"
-  
-  inspiration_keywords:
-    - "exempel"
-    - "tips"
-    - "förslag"
-    - "inspiration"
-    - "liknande"
-    - "hur har andra"
-    - "vad brukar"
-    - "erfarenhet"
-  
-  # Branch detection patterns (keyword -> branch mapping)
-  branch_patterns:
-    ROLES:
-      - "roll"
-      - "konsult"
-      - "utvecklare"
-      - "projektledare"
-      - "arkitekt"
-      - "testare"
-      - "kompetens"
-      - "nivå"
-    FINANCIALS:
-      - "pris"
-      - "kostnad"
-      - "takpris"
-      - "budget"
-      - "timmar"
-      - "volym"
-      - "kr"
-      - "kronor"
-    LOCATIONS:
-      - "stockholm"
-      - "göteborg"
-      - "malmö"
-      - "region"
-      - "ort"
-      - "plats"
-      - "anbudsområde"
-      - "remote"
-      - "distans"
-      - "land"
-      - "sverige"
-      - "eu"
-      - "grönland"
-      - "utomlands"
-    GOVERNANCE:
-      - "regel"
-      - "lag"
-      - "krav"
-      - "gdpr"
-      - "säkerhet"
-      - "sekretess"
-      - "lou"
-    STRATEGY:
-      - "fku"
-      - "förnyad konkurrensutsättning"
-      - "direktupphandling"
-      - "avrop"
-      - "strategi"
-    ARTIFACTS:
-      - "cv"
-      - "avtal"
-      - "bilaga"
-      - "dokument"
-      - "mall"
-      - "formulär"
-      - "specifikation"
-      - "kravspec"
-      - "kravspecifikation"
-    PHASES:
-      - "steg"
-      - "fas"
-      - "process"
-      - "intake"
-      - "utvärdering"
-  
-  # LLM enhancement prompt for ambiguous queries
-  llm_enhance_prompt: |
-    Analysera följande fråga och klassificera den enligt taxonomin.
-
-    FRÅGA: {query}
-
-    {vocab_context}
-
-    RULES OF THUMB (VIKTIGT - Följ dessa exakt):
-    - IF query mentions geography (Cities, Countries, Remote work, "Grönland", "Stockholm", "utomlands") -> ADD branch 'LOCATIONS'
-    - IF query mentions documents (CV, Avtal, Specifikation, Mall, Kravspec) -> ADD branch 'ARTIFACTS'
-    - IF query mentions specific job titles (Utvecklare, Projektledare, Arkitekt, Testare) -> ADD branch 'ROLES'
-    - IF query mentions money, price, hours, volume (pris, takpris, timmar, kr) -> ADD branch 'FINANCIALS'
-    - IF query mentions rules, laws, requirements (regel, lag, krav, GDPR) -> ADD branch 'GOVERNANCE'
-    - IF query mentions procurement strategy (FKU, Direktavrop, avropsform) -> ADD branch 'STRATEGY'
-
-    NUVARANDE ANALYS (kan vara fel):
-    - Intent: {current_intent}
-    - Branches: {current_branches}
-    - Topics: {current_topics}
-
-    Returnera JSON med:
-    {{
-        "intent_category": "FACT" | "INSPIRATION" | "INSTRUCTION",
-        "taxonomy_branches": ["ROLES", "FINANCIALS", etc.],
-        "detected_topics": ["topic1", "topic2"],
-        "detected_entities": ["entity1", "entity2"],
-        "confidence": 0.0-1.0
-    }}
 
 # =============================================================================
 # STATISKA MEDDELANDEN (ej LLM-genererade)

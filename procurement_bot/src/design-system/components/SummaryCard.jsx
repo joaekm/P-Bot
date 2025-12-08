@@ -4,26 +4,27 @@ import { tokens } from '../tokens';
 import { Check, Clock, MapPin, Calendar, Banknote, Users, AlertCircle } from 'lucide-react';
 
 /**
- * SummaryCard Component ("Varukorgen")
+ * SummaryCard Component ("Varukorgen") v5.24
  * 
  * Visar en sammanfattning av användarens förfrågan med stöd för
  * FLERA resurser (team-beställningar).
  * 
- * Ny struktur:
- * - resources: Array med { id, role, level, quantity, status }
- * - Globala fält: location, volume, start_date, price_cap
+ * Kanoniska fältnamn (från adda_taxonomy.json):
+ * - resources: Array med { id, roll, level, antal, is_complete }
+ * - Globala fält: location_text, anbudsomrade, volume, start_date, end_date, takpris, prismodell
  * 
  * @example
  * <SummaryCard 
  *   data={{
  *     resources: [
- *       { id: "res_1", role: "Projektledare", level: 4, quantity: 1, status: "DONE" },
- *       { id: "res_2", role: "Utvecklare", level: null, quantity: 2, status: "PENDING" }
+ *       { id: "res_1", roll: "Projektledare", level: 4, antal: 1, is_complete: true },
+ *       { id: "res_2", roll: "Utvecklare", level: null, antal: 2, is_complete: false }
  *     ],
- *     location: "Stockholm",
- *     volume: "500 timmar",
+ *     location_text: "Stockholm",
+ *     anbudsomrade: "D – Stockholm",
+ *     volume: 500,
  *     start_date: "2025-06-01",
- *     price_cap: null
+ *     takpris: 800000
  *   }}
  * />
  */
@@ -32,13 +33,16 @@ const SummaryCard = ({
     title = "Din Förfrågan",
     style = {} 
 }) => {
-    // Extract resources array and global fields
+    // Extract resources array and global fields (v5.24 kanoniska fältnamn)
     const resources = data.resources || [];
     const globalFields = [
-        { key: 'location', label: 'Plats', icon: MapPin },
-        { key: 'volume', label: 'Volym', icon: Users },
+        { key: 'anbudsomrade', label: 'Anbudsområde', icon: MapPin },
+        { key: 'location_text', label: 'Plats', icon: MapPin },
+        { key: 'volume', label: 'Volym', icon: Users, format: (v) => v ? `${v} timmar` : null },
         { key: 'start_date', label: 'Startdatum', icon: Calendar, format: formatDate },
-        { key: 'price_cap', label: 'Takpris', icon: Banknote }
+        { key: 'end_date', label: 'Slutdatum', icon: Calendar, format: formatDate },
+        { key: 'takpris', label: 'Takpris', icon: Banknote, format: (v) => v ? `${v.toLocaleString('sv-SE')} kr` : null },
+        { key: 'prismodell', label: 'Prismodell', icon: Banknote }
     ];
 
     // Format date from YYYY-MM-DD to readable format
@@ -56,8 +60,8 @@ const SummaryCard = ({
         }
     }
 
-    // Count completed items
-    const completedResources = resources.filter(r => r.status === 'DONE').length;
+    // Count completed items (v5.24: is_complete istället för status)
+    const completedResources = resources.filter(r => r.is_complete || r.status === 'DONE').length;
     const filledGlobals = globalFields.filter(f => data[f.key] !== null && data[f.key] !== undefined).length;
     const totalItems = resources.length + globalFields.length;
     const completedItems = completedResources + filledGlobals;
@@ -123,8 +127,10 @@ const SummaryCard = ({
                         </div>
                         
                         {resources.map((resource, index) => {
-                            const isDone = resource.status === 'DONE';
-                            const quantity = resource.quantity || 1;
+                            // v5.24: stöd för både nya (is_complete, roll, antal) och gamla (status, role, quantity)
+                            const isDone = resource.is_complete || resource.status === 'DONE';
+                            const quantity = resource.antal || resource.quantity || 1;
+                            const roleName = resource.roll || resource.role || 'Okänd';
                             
                             return (
                                 <div 
@@ -184,7 +190,7 @@ const SummaryCard = ({
                                                 color: tokens.colors.neutral.text
                                             }}
                                         >
-                                            {quantity > 1 ? `${quantity}× ` : ''}{resource.role}
+                                            {quantity > 1 ? `${quantity}× ` : ''}{roleName}
                                         </span>
                                     </div>
 
@@ -208,7 +214,7 @@ const SummaryCard = ({
                                             borderRadius: tokens.borderRadius.sm
                                         }}
                                     >
-                                        {resource.level ? `Nivå ${resource.level}` : 'Nivå?'}
+                                        {resource.level ? `Kompetensnivå ${resource.level}` : 'Nivå?'}
                                     </span>
                                 </div>
                             );
@@ -307,7 +313,7 @@ const SummaryCard = ({
             </div>
 
             {/* Footer - Pending Resources Hint */}
-            {resources.some(r => r.status === 'PENDING') && (
+            {resources.some(r => !r.is_complete && r.status !== 'DONE') && (
                 <div 
                     style={{
                         backgroundColor: tokens.colors.status.warningBg,
@@ -328,18 +334,28 @@ const SummaryCard = ({
 };
 
 SummaryCard.propTypes = {
-    /** Data object with extracted entities (multi-resource format) */
+    /** Data object with extracted entities (v5.24 kanoniska fältnamn) */
     data: PropTypes.shape({
         resources: PropTypes.arrayOf(PropTypes.shape({
             id: PropTypes.string,
-            role: PropTypes.string,
+            roll: PropTypes.string,           // v5.24: roll (tidigare role)
             level: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+            antal: PropTypes.number,          // v5.24: antal (tidigare quantity)
+            is_complete: PropTypes.bool,      // v5.24: is_complete (tidigare status)
+            // Backward compat
+            role: PropTypes.string,
             quantity: PropTypes.number,
             status: PropTypes.oneOf(['DONE', 'PENDING'])
         })),
-        location: PropTypes.string,
-        volume: PropTypes.string,
+        location_text: PropTypes.string,      // v5.24: location_text (tidigare location)
+        anbudsomrade: PropTypes.string,       // v5.24: nytt fält
+        volume: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         start_date: PropTypes.string,
+        end_date: PropTypes.string,           // v5.24: nytt fält
+        takpris: PropTypes.number,            // v5.24: takpris (tidigare price_cap)
+        prismodell: PropTypes.string,         // v5.24: nytt fält
+        // Backward compat
+        location: PropTypes.string,
         price_cap: PropTypes.string
     }),
     /** Card title */

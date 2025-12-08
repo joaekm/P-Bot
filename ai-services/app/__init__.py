@@ -1,7 +1,7 @@
 """
-Adda Search Engine v5.1 - Modular Architecture
+Adda Search Engine v5.24 - Dict-based Pipeline
 """
-from .engine import AddaSearchEngine, engine
+from .engine import AddaSearchEngine
 
-__all__ = ['AddaSearchEngine', 'engine']
+__all__ = ['AddaSearchEngine']
 

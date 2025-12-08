@@ -1,18 +1,15 @@
 """
-Adda Search Engine v5.5 - Main Orchestrator
-Coordinates the pipeline: IntentAnalyzer -> ContextBuilder -> Planner -> Synthesizer
+Adda Search Engine v5.24 - Main Orchestrator
 
-v5.5 Changes:
-- IntentAnalyzer is now LLM-driven with search_strategy and search_terms
-- Entity extraction moved to Synthesizer (no more hardcoded patterns)
-- Synthesizer returns SynthesizerResult with response + avrop_changes
-- Clean separation: Intent decides WHERE to search, Synthesizer extracts entities
+Pipeline:
+    IntentAnalyzer → ContextBuilder → Planner → AvropsContainerManager → Synthesizer
+         ↓               ↓              ↓                ↓                   ↓
+       intent          context         plan         updated_avrop        response
 
-v5.4 Changes:
-- Removed ExtractorComponent - entity extraction absorbed into IntentAnalyzer
-- Uses new AvropsData model with DELETE support
-- RequiredFields-based validation replaces LLM-generated missing_info
-- AvropsProgress calculates completion percentage
+v5.24 Changes:
+- All components now use pure dicts (no Pydantic models)
+- AvropsContainerManager handles entity changes (deterministic)
+- Planner extracts entities, Synthesizer only generates response
 """
 import os
 import json
@@ -31,19 +28,13 @@ from dotenv import load_dotenv
 from .components import (
     IntentAnalyzerComponent,
     ContextBuilderComponent,
-    PlannerComponent, 
+    PlannerComponent,
+    AvropsContainerManager,
     SynthesizerComponent
-)
-from .models import (
-    ReasoningPlan,
-    AvropsData,
-    AvropsProgress,
-    Resurs,
 )
 
 # --- CONFIG LOADER ---
 def load_config():
-    # When in app/, go up one level to find config/
     base_dir = Path(__file__).resolve().parent.parent
     config_path = base_dir / "config" / "adda_config.yaml"
     
@@ -59,7 +50,8 @@ def load_config():
         'chroma': base_dir / paths['chroma_db'],
         'kuzu': base_dir / paths['kuzu_db'],
         'prompts': base_dir / paths['prompts_chat'],
-        'logs': base_dir / paths['logs']
+        'logs': base_dir / paths['logs'],
+        'taxonomy': base_dir / paths.get('taxonomy', 'storage/index/adda_taxonomy.json')
     }
     return config, resolved_paths
 
@@ -82,22 +74,21 @@ API_KEY = os.getenv("GOOGLE_API_KEY")
 
 class AddaSearchEngine:
     """
-    Main orchestrator for the Adda Search Engine v5.5.
+    Main orchestrator for the Adda Search Engine v5.24.
     
     Pipeline:
-    1. IntentAnalyzer - Query -> IntentTarget (search strategy, no entities)
-    2. ContextBuilder - IntentTarget -> Context (dual retrieval)
-    3. Planner - Intent + Context -> ReasoningPlan (logic layer)
-    4. Synthesizer - Plan + Context + Avrop -> Response + Entity Changes
-    
-    v5.5: Entity extraction moved to Synthesizer for context-aware extraction.
+    1. IntentAnalyzer - Query → intent dict
+    2. ContextBuilder - intent → context dict with documents
+    3. Planner - intent + context + avrop → plan dict with entity_changes
+    4. AvropsContainerManager - avrop + entity_changes → updated_avrop dict
+    5. Synthesizer - plan + updated_avrop → response dict
     """
     
     def __init__(self):
         self.prompts = self._load_prompts()
         self.client = genai.Client(api_key=API_KEY)
         
-        # 1. Init Chroma (Vector)
+        # Init ChromaDB (Vector)
         try:
             self.chroma_client = chromadb.PersistentClient(path=str(PATHS['chroma']))
             self.embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
@@ -107,15 +98,24 @@ class AddaSearchEngine:
                 name="adda_knowledge",
                 embedding_function=self.embedding_fn
             )
+            logger.info(f"✅ ChromaDB OK ({self.collection.count()} dokument)")
         except Exception as e:
-            logger.error(f"Chroma Init Failed: {e}")
+            logger.error(f"ChromaDB Init Failed: {e}")
             self.collection = None
             
-        # 2. Init Kuzu (Graph)
+        # Init Kuzu (Graph)
         self.conn = None
         try:
-            self.db = kuzu.Database(str(PATHS['kuzu']))
+            kuzu_path = PATHS['kuzu']
+            lock_file = kuzu_path / ".lock"
+            
+            if lock_file.exists():
+                logger.error(f"❌ KRITISKT: Kuzu är LÅST. Ta bort: {lock_file}")
+                raise RuntimeError(f"Kuzu Graph är låst. Ta bort {lock_file}")
+            
+            self.db = kuzu.Database(str(kuzu_path))
             self.conn = kuzu.Connection(self.db)
+            logger.info("✅ Kuzu OK")
         except Exception as e:
             logger.error(f"Kuzu Init Failed: {e}")
 
@@ -126,13 +126,11 @@ class AddaSearchEngine:
         # Initialize Components
         self.intent_analyzer = IntentAnalyzerComponent(self.client, model_lite, self.prompts)
         self.context_builder = ContextBuilderComponent(PATHS['lake'], self.collection, self.conn)
-        self.planner = PlannerComponent(self.client, model_lite, self.prompts)
+        self.planner = PlannerComponent(self.client, model_pro, self.prompts)
+        self.avrop_container = AvropsContainerManager(PATHS.get('taxonomy'))
         self.synthesizer = SynthesizerComponent(self.client, model_pro, self.prompts)
         
-        # Legacy alias for backward compatibility
-        self.hunter = self.context_builder
-        
-        logger.info("AddaSearchEngine v5.5 initialized (Entity extraction in Synthesizer)")
+        logger.info("AddaSearchEngine v5.24 initialized")
 
     def _load_prompts(self):
         try:
@@ -144,357 +142,225 @@ class AddaSearchEngine:
     def run(
         self, 
         query: str, 
-        history: List[Dict] = [], 
+        history: List[Dict] = None,
         session_state: Dict = None,
-        avrop_data: Optional[AvropsData] = None
+        avrop_data: Dict = None
     ) -> Dict[str, Any]:
         """
-        Main Pipeline: Intent -> Context -> Plan -> Synthesize (with entity extraction)
+        Main Pipeline: Intent → Context → Plan → AvropsContainer → Synthesize
         
         Args:
             query: User's current query
             history: Conversation history
-            session_state: Legacy session state from frontend (deprecated, use avrop_data)
-            avrop_data: Current AvropsData (shopping cart) from frontend
+            session_state: Legacy session state (for backward compat)
+            avrop_data: Current avrop dict (shopping cart)
             
         Returns:
-            Dict with response, sources, reasoning, avrop_data, ui_directives
+            Dict with response, avrop_data, ui_directives
         """
-        logger.info(f"New Query: {query}")
+        history = history or []
+        logger.info(f"Query: {query}")
         
         # =====================================================================
-        # STEP 1: INTENT ANALYSIS (LLM-driven search strategy)
-        # v5.5: No entity extraction here - just search strategy
+        # STEP 1: INTENT ANALYSIS
         # =====================================================================
-        intent_target = self.intent_analyzer.analyze(query, history)
-        logger.info(f"Intent: {intent_target.intent_category}, "
-                   f"branches={[b.value for b in intent_target.taxonomy_branches]}, "
-                   f"search_terms={intent_target.search_terms[:3]}, "
-                   f"strategy={intent_target.search_strategy}")
+        intent = self.intent_analyzer.analyze(query, history)
+        logger.info(f"Intent: branches={intent.get('branches')}, terms={intent.get('search_terms', [])[:3]}")
         
         # =====================================================================
-        # STEP 2: LOAD CURRENT AVROP (from frontend or legacy state)
-        # v5.8: Also extract previous step for step progression control
-        # v5.9: Ensure new sessions ALWAYS start at step_1_intake
+        # STEP 2: LOAD CURRENT AVROP
         # =====================================================================
-        if session_state and 'current_step' in session_state:
-            previous_step = session_state['current_step']
-        else:
-            previous_step = 'step_1_intake'  # New sessions always start here
+        current_step = (session_state or {}).get('current_step', 'step_1_intake')
         
         if avrop_data is None:
-            current_avrop = self._session_state_to_avrop(session_state)
+            avrop = self._session_state_to_avrop(session_state)
         else:
-            current_avrop = avrop_data
+            avrop = avrop_data if isinstance(avrop_data, dict) else avrop_data
         
-        logger.info(f"Current Avrop: {len(current_avrop.resources)} resources, step={previous_step}")
-        
-        # =====================================================================
-        # STEP 3: CONTEXT BUILD (Retrieve using search_strategy)
-        # =====================================================================
-        if intent_target.should_block_secondary():
-            logger.info("🛡️ GHOST MODE: Blocking SECONDARY files")
-        
-        context = self.context_builder.build_context(intent_target)
-        
-        # Check if this is a "cart operation" (no search strategy enabled)
-        is_cart_operation = not any([
-            intent_target.should_search_lake(),
-            intent_target.should_search_vector(),
-            intent_target.should_search_graph()
-        ])
-        
-        if not context and not is_cart_operation:
-            # No context found and this was a real search - return error
-            progress = AvropsProgress.calculate(current_avrop)
-            current_state = self._avrop_to_session_state(current_avrop, progress, intent_target, previous_step)
-            return self._handle_no_context(query, intent_target, current_state, current_avrop, progress)
-        
-        if is_cart_operation:
-            logger.info("Cart operation detected - proceeding without context")
-        
-        # Track hits for logging
-        lake_hits = {k: v for k, v in context.items() if v.get('source') == 'TOPIC_MATCH'}
-        vector_hits = {k: v for k, v in context.items() if 'VECTOR' in v.get('source', '')}
-        graph_hits = {k: v for k, v in context.items() if v.get('source') == 'GRAPH'}
-        
-        logger.info(f"Context: {len(lake_hits)} lake, {len(vector_hits)} vector, {len(graph_hits)} graph")
+        logger.info(f"Avrop: {len(avrop.get('resources', []))} resources, step={current_step}")
         
         # =====================================================================
-        # STEP 4: REASONING (Plan) - includes validation
-        # v5.8: Pass current_step to prevent backward jumps
-        # v5.9: Pass history so Planner understands confirmations
+        # STEP 3: CONTEXT BUILD
         # =====================================================================
-        reasoning_plan = self.planner.create_plan(intent_target, context, current_step=previous_step, history=history)
+        context = self.context_builder.build_context(intent)
+        docs = context.get('documents', [])
+        logger.info(f"Context: {len(docs)} documents")
         
-        logger.info(f"Plan: tone={reasoning_plan.tone_instruction}, "
-                   f"step={reasoning_plan.target_step}, "
-                   f"warning={reasoning_plan.requires_warning()}")
+        # Handle no context
+        if not docs:
+            return self._handle_no_context(query, avrop, current_step)
         
         # =====================================================================
-        # STEP 5: SYNTHESIS (Generate Response + Extract Entities)
-        # v5.5: Synthesizer now handles entity extraction
+        # STEP 4: REASONING (Plan) + Entity Extraction
+        # =====================================================================
+        plan = self.planner.create_plan(
+            intent=intent,
+            context=context,
+            avrop=avrop,
+            history=history,
+            current_step=current_step
+        )
+        
+        logger.info(f"Plan: tone={plan.get('tone_instruction')}, step={plan.get('target_step')}, "
+                   f"entities={len(plan.get('entity_changes', []))}")
+        
+        # =====================================================================
+        # STEP 5: APPLY ENTITY CHANGES (Deterministic)
+        # =====================================================================
+        entity_changes = plan.get('entity_changes', [])
+        updated_avrop = self.avrop_container.apply(avrop, entity_changes)
+        
+        # Calculate progress
+        progress = self.avrop_container.calculate_progress(updated_avrop)
+        
+        # =====================================================================
+        # STEP 6: SYNTHESIS (Generate Response)
         # =====================================================================
         synth_result = self.synthesizer.generate_response(
             query=query,
-            plan=reasoning_plan,
+            plan=plan,
             context=context,
-            current_avrop=current_avrop,
+            avrop=updated_avrop,
             history=history
         )
         
-        # Get updated avrop from Synthesizer
-        updated_avrop = synth_result.updated_avrop or current_avrop
-        answer = synth_result.response
-        
-        logger.info(f"Synthesizer: {len(synth_result.avrop_changes)} entity changes, "
-                   f"{len(updated_avrop.resources)} resources")
-        
-        # Calculate progress using RequiredFields
-        progress = AvropsProgress.calculate(updated_avrop)
-        
-        # Build current_state for backward compatibility
-        # v5.8: Include current_step from reasoning_plan for next turn
-        current_state = self._avrop_to_session_state(
-            updated_avrop, progress, intent_target, reasoning_plan.target_step
-        )
-        
-        # Handle forced strategy from Planner
-        if reasoning_plan.forced_strategy:
-            current_state["forced_strategy"] = reasoning_plan.forced_strategy
-            logger.info(f"📋 Strategy forced to {reasoning_plan.forced_strategy} by Planner")
-        
-        # Note: validation_warnings and data_validation are internal info for Synthesizer
-        # They are included in the reasoning injection so Synthesizer can adjust tone/content
-        # We do NOT prefix the user-facing response with these - that was confusing users
-        
-        # Only show constraint_violations if they are actual blocking issues
-        # (e.g., "Volym överstiger max tillåtet för DR") - but even these should be
-        # handled naturally by Synthesizer in its response, not as ugly prefixes
+        answer = synth_result.get('response', '')
+        logger.info(f"Response: {len(answer)} chars")
         
         # =====================================================================
-        # STEP 6: BUILD RESPONSE
+        # STEP 7: BUILD RESPONSE
         # =====================================================================
-        sources = reasoning_plan.get_all_sources()
+        target_step = plan.get('target_step', current_step)
+        
+        # Build session state for backward compatibility
+        current_state = {
+            "extracted_entities": self._avrop_to_entities(updated_avrop),
+            "missing_info": progress.get('missing_fields', []),
+            "current_step": target_step,
+        }
         
         # Build UI directives
-        ui_directives = self._build_ui_directives(
-            intent_target, reasoning_plan, current_state, updated_avrop, progress
-        )
+        ui_directives = {
+            "taxonomy_branches": intent.get('branches', []),
+            "search_terms": intent.get('search_terms', []),
+            "target_step": target_step,
+            "tone": plan.get('tone_instruction', 'Helpful/Guiding'),
+            "completion_percent": progress.get('completion_percent', 0),
+            "is_complete": progress.get('is_complete', False),
+            "missing_info": progress.get('missing_fields', []),
+            "resource_count": len(updated_avrop.get('resources', [])),
+        }
         
         # Log trace
-        self._log_trace(
-            query=query,
-            intent_target=intent_target,
-            context=context,
-            reasoning_plan=reasoning_plan,
-            current_state=current_state,
-            answer=answer,
-            entity_changes=len(synth_result.avrop_changes)
-        )
+        self._log_trace(query, intent, plan, updated_avrop, answer)
         
         return {
             "response": answer,
-            "sources": sources,
+            "sources": plan.get('primary_sources', []),
             "reasoning": {
-                "conclusion": reasoning_plan.primary_conclusion,
-                "policy": reasoning_plan.policy_check,
-                "tone": reasoning_plan.tone_instruction,
-                "conflicts": reasoning_plan.conflict_resolution,
-                "validation": reasoning_plan.data_validation,
-                "validation_warnings": reasoning_plan.validation_warnings,
-                "forced_strategy": reasoning_plan.forced_strategy,
-                "target_step": reasoning_plan.target_step
+                "conclusion": plan.get('primary_conclusion', ''),
+                "policy": plan.get('policy_check', ''),
+                "tone": plan.get('tone_instruction', ''),
+                "target_step": target_step,
+                "strategic_input": plan.get('strategic_input', '')
             },
-            # v5.5: Return avrop_data from Synthesizer
-            "avrop_data": updated_avrop.model_dump(),
-            "avrop_progress": progress.model_dump(),
-            "current_state": current_state,  # Legacy, for backward compatibility
+            "avrop_data": updated_avrop,
+            "avrop_progress": progress,
+            "current_state": current_state,
             "ui_directives": ui_directives
         }
     
-    def _session_state_to_avrop(self, session_state: Optional[Dict]) -> AvropsData:
-        """Convert legacy session_state to AvropsData."""
-        from .models import Region  # Import here to avoid circular
-        
+    def _session_state_to_avrop(self, session_state: Optional[Dict]) -> Dict:
+        """Convert legacy session_state to avrop dict."""
         if not session_state:
-            return AvropsData()
+            return self.avrop_container.create_empty_avrop()
         
         entities = session_state.get('extracted_entities', {})
         
-        # Parse region from session state
-        region_value = entities.get('region')
-        region = None
-        if region_value:
-            try:
-                region = Region(region_value)
-            except ValueError:
-                pass
+        avrop = self.avrop_container.create_empty_avrop()
+        avrop['location_text'] = entities.get('location')
+        avrop['region'] = entities.get('region')
+        avrop['volume'] = entities.get('volume')
+        avrop['start_date'] = entities.get('start_date')
+        avrop['end_date'] = entities.get('end_date')
+        avrop['takpris'] = entities.get('price_cap')
         
-        avrop = AvropsData(
-            location_text=entities.get('location'),
-            region=region,  # v5.8: Restore region from session state
-            volume=entities.get('volume'),
-            start_date=entities.get('start_date'),
-            end_date=entities.get('end_date'),  # v5.8: Restore end_date
-            takpris=entities.get('price_cap'),
-        )
-        
-        # Convert legacy resources
+        # Convert resources
         for old_res in entities.get('resources', []):
-            resurs = Resurs(
-                id=old_res.get('id', ''),
-                roll=old_res.get('role', 'Okänd'),
-                level=old_res.get('level'),
-                antal=old_res.get('quantity', 1),
-            )
-            avrop.resources.append(resurs)
+            avrop['resources'].append({
+                'id': old_res.get('id', ''),
+                'roll': old_res.get('role', 'Okänd'),
+                'level': old_res.get('level'),
+                'antal': old_res.get('quantity', 1),
+                'is_complete': bool(old_res.get('level'))
+            })
         
         return avrop
     
-    def _avrop_to_session_state(
-        self, 
-        avrop: AvropsData, 
-        progress: AvropsProgress,
-        intent_target,
-        current_step: str = "step_1_intake"
-    ) -> Dict:
-        """Convert AvropsData to legacy session_state format."""
-        return {
-            "extracted_entities": self._avrop_to_legacy_entities(avrop),
-            "missing_info": progress.missing_fields,
-            "current_intent": intent_target.intent_category,
-            "confidence": intent_target.confidence,
-            "current_step": current_step,  # v5.8: Track current step for next turn
-        }
-    
-    def _avrop_to_legacy_entities(self, avrop: AvropsData) -> Dict:
-        """Convert AvropsData to legacy extracted_entities format."""
+    def _avrop_to_entities(self, avrop: Dict) -> Dict:
+        """Convert avrop dict to legacy entities format."""
         resources = []
-        for res in avrop.resources:
+        for res in avrop.get('resources', []):
             resources.append({
-                "id": res.id,
-                "role": res.roll,
-                "level": res.level,
-                "quantity": res.antal,
-                "status": "DONE" if res.is_complete else "PENDING",
+                "id": res.get('id', ''),
+                "role": res.get('roll', 'Okänd'),
+                "level": res.get('level'),
+                "quantity": res.get('antal', 1),
+                "status": "DONE" if res.get('is_complete') else "PENDING",
             })
         
         return {
             "resources": resources,
-            "location": avrop.location_text,
-            "region": avrop.region.value if avrop.region else None,  # v5.8: Include region enum
-            "volume": avrop.volume,
-            "start_date": avrop.start_date,
-            "end_date": avrop.end_date,  # v5.8: Include end_date
-            "price_cap": avrop.takpris,
+            "location": avrop.get('location_text'),
+            "region": avrop.get('region'),
+            "volume": avrop.get('volume'),
+            "start_date": avrop.get('start_date'),
+            "end_date": avrop.get('end_date'),
+            "price_cap": avrop.get('takpris'),
         }
     
-    def _handle_no_context(
-        self, 
-        query: str, 
-        intent_target, 
-        current_state: Dict,
-        avrop: AvropsData,
-        progress: AvropsProgress
-    ) -> Dict[str, Any]:
+    def _handle_no_context(self, query: str, avrop: Dict, current_step: str) -> Dict[str, Any]:
         """Handle case when no context is found."""
+        progress = self.avrop_container.calculate_progress(avrop)
+        
         return {
-            "response": "Jag hittar ingen information om detta i din valda kontext.",
+            "response": "Jag hittar ingen information om detta. Kan du förtydliga din fråga?",
             "sources": [],
-            "reasoning": {
-                "conclusion": "No context found",
-                "policy": "N/A",
-                "tone": "Helpful/Guiding"
+            "reasoning": {"conclusion": "No context found", "tone": "Helpful/Guiding"},
+            "avrop_data": avrop,
+            "avrop_progress": progress,
+            "current_state": {
+                "extracted_entities": self._avrop_to_entities(avrop),
+                "missing_info": progress.get('missing_fields', []),
+                "current_step": current_step,
             },
-            "avrop_data": avrop.model_dump(),
-            "avrop_progress": progress.model_dump(),
-            "current_state": current_state,
-            "ui_directives": self._build_ui_directives(
-                intent_target, None, current_state, avrop, progress
-            )
+            "ui_directives": {
+                "completion_percent": progress.get('completion_percent', 0),
+                "is_complete": False,
+                "missing_info": progress.get('missing_fields', []),
+            }
         }
     
-    def _build_ui_directives(
-        self, 
-        intent_target, 
-        reasoning_plan, 
-        current_state: Dict,
-        avrop: Optional[AvropsData] = None,
-        progress: Optional[AvropsProgress] = None
-    ) -> Dict[str, Any]:
-        """Build UI directives for frontend."""
-        directives = {
-            "current_intent": intent_target.intent_category,
-            "detected_topics": intent_target.detected_topics,
-            "detected_entities": intent_target.detected_entities,
-            "taxonomy_branches": [b.value for b in intent_target.taxonomy_branches],
-            "search_terms": intent_target.search_terms,  # v5.5: Include search terms
-            "entity_summary": current_state.get('extracted_entities', {}),
-            "missing_info": current_state.get('missing_info', []),
-            "ghost_mode": intent_target.should_block_secondary()
-        }
-        
-        # Add avrop-specific directives
-        if avrop:
-            directives["avrop_typ"] = avrop.avrop_typ.value if avrop.avrop_typ else None
-            directives["resource_count"] = len(avrop.resources)
-        
-        if progress:
-            directives["completion_percent"] = progress.completion_percent
-            directives["is_complete"] = progress.is_complete
-            directives["constraint_violations"] = progress.constraint_violations
-        
-        if reasoning_plan:
-            directives["target_step"] = reasoning_plan.target_step
-            directives["tone"] = reasoning_plan.tone_instruction
-            directives["has_warning"] = reasoning_plan.requires_warning()
-        
-        return directives
-    
-    def _log_trace(
-        self, 
-        query: str, 
-        intent_target, 
-        context: Dict,
-        reasoning_plan,
-        current_state: Dict,
-        answer: str,
-        entity_changes: int = 0
-    ):
-        """Black Box Recorder - Log pipeline execution for analysis."""
+    def _log_trace(self, query: str, intent: Dict, plan: Dict, avrop: Dict, answer: str):
+        """Log pipeline execution for analysis."""
         try:
             trace_entry = {
                 "timestamp": datetime.datetime.now().isoformat(),
                 "query": query,
                 "intent": {
-                    "category": intent_target.intent_category,
-                    "branches": [b.value for b in intent_target.taxonomy_branches],
-                    "search_terms": intent_target.search_terms,
-                    "search_strategy": intent_target.search_strategy,
-                    "topics": intent_target.detected_topics,
-                    "ghost_mode": intent_target.should_block_secondary()
+                    "branches": intent.get('branches', []),
+                    "search_terms": intent.get('search_terms', []),
                 },
-                "context": {
-                    "total_docs": len(context),
-                    "primary_count": sum(1 for d in context.values() if d.get('authority') == 'PRIMARY'),
-                    "secondary_count": sum(1 for d in context.values() if d.get('authority') == 'SECONDARY')
+                "plan": {
+                    "tone": plan.get('tone_instruction', ''),
+                    "step": plan.get('target_step', ''),
+                    "entity_changes": len(plan.get('entity_changes', [])),
                 },
-                "reasoning": {
-                    "conclusion": reasoning_plan.primary_conclusion if reasoning_plan else "N/A",
-                    "policy": reasoning_plan.policy_check if reasoning_plan else "N/A",
-                    "tone": reasoning_plan.tone_instruction if reasoning_plan else "N/A",
-                    "step": reasoning_plan.target_step if reasoning_plan else "N/A",
-                    "warning": reasoning_plan.requires_warning() if reasoning_plan else False
-                } if reasoning_plan else {"status": "NO_CONTEXT"},
-                "session_state": {
-                    "resources": len(current_state.get('extracted_entities', {}).get('resources', [])),
-                    "missing_info": current_state.get('missing_info', []),
-                    "entity_changes": entity_changes  # v5.5: Track changes
+                "avrop": {
+                    "resources": len(avrop.get('resources', [])),
                 },
                 "output": {
                     "response_length": len(answer),
-                    "response_preview": answer[:150] + "..." if len(answer) > 150 else answer
                 }
             }
 
@@ -508,8 +374,7 @@ class AddaSearchEngine:
                 log_file.write(json.dumps(trace_entry, ensure_ascii=False) + "\n")
                 
         except Exception as log_error:
-            logger.error(f"Failed to write session trace: {log_error}")
-# Singleton for import
-engine = AddaSearchEngine()
+            logger.error(f"Failed to write trace: {log_error}")
 
 
+# Note: Do NOT create singleton here - main.py handles instantiation

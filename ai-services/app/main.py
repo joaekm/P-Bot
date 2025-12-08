@@ -1,16 +1,11 @@
 """
-Adda P-Bot API Server v5.5
+Adda P-Bot API Server v5.24
 Main entrypoint for the Flask API.
 
-v5.5 Changes:
-- IntentAnalyzer is now LLM-driven with search_strategy
-- Entity extraction moved to Synthesizer (context-aware)
-- DELETE support in Synthesizer ("ta bort X", "vi behöver inte X")
-
-v5.4 Changes:
-- Returns avrop_data and avrop_progress (new AvropsData model)
-- Returns completion_percent and avrop_typ in ui_directives
-- Supports DELETE operations on resources
+v5.24 Changes:
+- All components now use pure dicts (no Pydantic models)
+- AvropsContainerManager handles entity changes (deterministic)
+- Planner extracts entities, Synthesizer only generates response
 """
 import os
 import sys
@@ -19,7 +14,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 from .engine import AddaSearchEngine
-from .models import AvropsData
 
 # Configure Logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - SERVER - %(levelname)s - %(message)s')
@@ -31,7 +25,7 @@ CORS(app)  # Enable CORS for all routes
 # Initialize the Search Engine
 try:
     engine = AddaSearchEngine()
-    logger.info("AddaSearchEngine v5.5 initialized successfully")
+    logger.info("AddaSearchEngine v5.24 initialized successfully")
 except Exception as e:
     logger.critical(f"Failed to initialize AddaSearchEngine: {e}")
     sys.exit(1)
@@ -87,16 +81,10 @@ def conversation():
                 }
             })
 
-        # Get avrop_data from request (v5.4) or fall back to session_state (legacy)
-        avrop_data_dict = data.get('avrop_data')
-        avrop_data = None
-        if avrop_data_dict:
-            try:
-                avrop_data = AvropsData(**avrop_data_dict)
-            except Exception as e:
-                logger.warning(f"Failed to parse avrop_data: {e}, falling back to session_state")
-        
+        # Get avrop_data from request (v5.24: pure dict)
+        avrop_data = data.get('avrop_data')
         session_state = data.get('session_state')
+        
         result = engine.run(user_message, history, session_state, avrop_data)
         
         # Extract data from v5.4 format
@@ -175,14 +163,15 @@ def analyze_document():
 @app.route('/api/health', methods=['GET'])
 def health():
     """Health check endpoint."""
-    return jsonify({"status": "ok", "version": "5.5"})
+    return jsonify({"status": "ok", "version": "5.24"})
 
 
 def main():
     """Main entry point."""
     port = int(os.environ.get('PORT', 5000))
-    logger.info(f"Starting Adda P-Bot API v5.4 on port {port}")
-    app.run(host='0.0.0.0', port=port, debug=True)
+    logger.info(f"Starting Adda P-Bot API v5.24 on port {port}")
+    # use_reloader=False prevents double initialization (which causes Kuzu lock)
+    app.run(host='0.0.0.0', port=port, debug=True, use_reloader=False)
 
 
 if __name__ == '__main__':

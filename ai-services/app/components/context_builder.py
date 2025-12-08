@@ -1,12 +1,23 @@
 """
-Context Builder Component (v5.22 - Graph + Vector)
+Context Builder Component v5.24
 
+Pipeline placering:
+    IntentAnalyzer → [ContextBuilder] → Planner → AvropsContainerManager → Synthesizer
+         ↓                 ↓
+       intent           context
+
+IN:  intent: dict med branches, search_terms, query
+OUT: dict med documents:
+    {
+        "documents": [
+            {"id": "...", "filename": "...", "content": "...", "branch": "ROLES", "type": "RULE"}
+        ]
+    }
+
+Metod:
 1. GRAF: Hitta dokument via Block→Branch relationer
 2. VEKTOR: Semantisk ranking av hittade dokument
 3. KOMBINERA: Graf-träffar boostar vektor-ranking
-
-IN:  intent dict with branches, search_terms
-OUT: dict with documents list (ranked)
 """
 import logging
 from pathlib import Path

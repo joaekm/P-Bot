@@ -14,7 +14,7 @@ paths:
   index_root: "storage/index"
   chroma_db: "storage/index/chroma"
   kuzu_db: "storage/index/kuzu"
-  taxonomy: "config/adda_taxonomy.json"
+  taxonomy: "storage/index/adda_taxonomy.json"
   logs: "logs/adda_system.log"
   prompts_services: "config/services_prompts.yaml"
   prompts_chat: "config/assistant_prompts.yaml"
