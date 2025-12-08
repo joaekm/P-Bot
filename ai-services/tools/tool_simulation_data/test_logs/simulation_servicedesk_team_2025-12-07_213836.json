@@ -1,0 +1,47 @@
+{
+  "timestamp": "2025-12-07T21:38:36.017383",
+  "scenario": {
+    "filename": "scenario_servicedesk_team.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/HARD/scenario_servicedesk_team.txt"
+  },
+  "persona": {
+    "name": "Oscar Lindén",
+    "title": "IT-driftchef",
+    "organization": "Skatteverket",
+    "personality": "Oscar är en stressad driftchef som står inför en kritisk övergångsperiod. Han är pragmatisk och resultatinriktad, men också frustrerad över att behöva göra ännu ett avrop. Han har inte tid med långdragna processer och vill ha snabba svar.",
+    "knowledge_level": "- Expert på IT-drift och servicedesk - God förståelse för ITIL och ServiceNow - Erfaren beställare via ramavtal - Vet exakt vad han behöver men osäker på om det går att avropa så stort team",
+    "communication_style": "- Rakt på sak, ingen tid för småprat - Ger mycket information på en gång - Kan bli otålig om processen tar tid - Vill ha bekräftelse på att det går att lösa",
+    "hidden_constraints": [
+      "Nuvarande leverantör sade upp avtalet med kort varsel",
+      "Budgeten är pressad - måste hålla under 6 MSEK",
+      "HR kräver att alla konsulter har säkerhetsprövning klar innan start",
+      "VD har sagt att det inte får bli några driftstörningar"
+    ],
+    "goals": [
+      "Få 8 konsulter på plats till 1 februari utan undantag",
+      "Säkerställa att teamet kan hantera volymen (500 ärenden/dag)",
+      "Hålla budgeten inom godkänd ram",
+      "Minimera risk vid övergång från nuvarande leverantör"
+    ],
+    "background": "Oscar har arbetat på Skatteverket i 12 år och ansvarar för en IT-drift som stödjer hela myndighetens verksamhet. Han har aldrig behövt avropa så många konsulter samtidigt. - \"Vi pratar om 8 konsulter som ska vara på plats om 8 veckor\" - \"ServiceNow-erfarenhet är ett absolut krav - ingen diskussion\" - \"Kan vi verkligen avropa så många via samma avrop?\" - \"Vad händer om en konsult blir sjuk - vem backar upp?\" - \"Jourtiden är kritisk - vi måste ha täckning till 22:00\"",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Oscar Lindén och jobbar som IT-driftchef på Skatteverket. Jag behöver hjälp med ett avrop. Vi ska få 8 konsulter på plats till 1 februari utan undantag.",
+      "turn": 1
+    }
+  ],
+  "final_state": {
+    "ui_directives": {},
+    "current_state": {},
+    "message": "Konversation avbruten"
+  },
+  "summary": {
+    "total_turns": 1,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "unknown"
+  }
+}

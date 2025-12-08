@@ -1,13 +1,6 @@
-# P-Bot Arkitektur (v5.15)
+# P-Bot Arkitektur (v5.11)
 
 Detta dokument beskriver "Hur" – den tekniska implementationen av prototypen och målbilden, nu mappad mot Addas strategi.
-
-## Bilagor
-
-| Bilaga | Fil | Beskrivning |
-|--------|-----|-------------|
-| **Bilaga A** | `ragpipe_test.md` | RAG Pipeline: komponenter, dataflöde, test-scenarion, kända problem |
-| **Bilaga B** | `datapipe_test.md` | Data Pipeline: MASTER-källor, var data skrivs, konsistensregler |
 
 ## 1. Omfattning
 
@@ -28,14 +21,6 @@ Arkitekturen är vald för att agera som en konkret implementation av Addas Mål
 
 ```
 Adda P Bot/
-├── documentation/            # Projektdokumentation
-│   ├── p_bot_architecture.md # Systemarkitektur (detta dokument)
-│   ├── p_bot_summary.md      # Projektöversikt och status
-│   ├── p_bot_backlogg.md     # Backlogg och planerade features
-│   ├── p_bot_konceptlogg.md  # Designbeslut och koncept
-│   ├── ragpipe_test.md       # Bilaga A: RAG Pipeline
-│   └── datapipe_test.md      # Bilaga B: Data Pipeline
-│
 ├── procurement_bot/          # Frontend (React + Vite)
 │   └── src/
 │       ├── design-system/    # Designsystem (MASTER)
@@ -73,19 +58,18 @@ Adda P Bot/
 │   │   └── simulate_procurement.py  # Stresstestning med personas
 │   ├── test_data/            # Testdata
 │   │   └── scenarios/        # Upphandlingsscenarier + personas
-│   │       ├── NORMAL/       # Standard-scenarier (10 st)
-│   │       └── HARD/         # Komplexa scenarier (5 st)
 │   ├── _archive/             # Legacy-kod (v1-v4)
 │   ├── config/               # Konfiguration
 │   │   ├── adda_config.yaml
-│   │   ├── adda_taxonomy.json  # 7 kompetensområden + 24 exempelroller
 │   │   ├── assistant_prompts.yaml
-│   │   └── learnings.json    # Geo-mappningar, alias, roller
+│   │   └── vocabulary.json   # Taxonomy-kartan
 │   ├── data_pipeline/        # Turbo Mode Ingest (v6.5)
 │   ├── storage/              # Lake, ChromaDB, Kuzu
-│   │   └── lake_v2/          # 368 Smart Blocks (inkl. rollbeskrivningar)
 │   ├── server.py             # Wrapper (bakåtkompatibilitet)
 │   └── search_engine.py      # Wrapper (bakåtkompatibilitet)
+│
+└── docs/                     # Projektdokumentation
+    └── p_bot_*.md
 ```
 
 ---
@@ -780,14 +764,12 @@ python tools/verify_reasoning.py
 
 För detaljerade test-scenarion och diagnostik, se:
 
-| Bilaga | Fil | Syfte |
-|--------|-----|-------|
-| **Bilaga A** | `ragpipe_test.md` | RAG Pipeline: komponenter, dataflöde, test-scenarion, kända problem |
-| **Bilaga B** | `datapipe_test.md` | Data Pipeline: MASTER-källor, var data skrivs, konsistensregler |
-
-Alla dokument finns i `documentation/`-mappen i projektroten.
+| Dokument | Syfte |
+|----------|-------|
+| `ai-services/docs/ragpipe_test.md` | RAG Pipeline: komponenter, dataflöde, test-scenarion, kända problem, session trace format |
+| `ai-services/docs/datapipe_test.md` | Data Pipeline: MASTER-källor, var data skrivs, konsistensregler |
 
 ---
 
-*Version: 5.15*  
-*Senast uppdaterad: 7 december 2025*
+*Version: 5.14*  
+*Senast uppdaterad: 5 december 2025*

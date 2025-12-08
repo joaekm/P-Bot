@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Maria Lindgrens berättelse
+║  Enhetschef IT-utveckling på Försäkringskassan
+║  
+║  Samtal: 6 meddelanden
+║  Datum: 2025-12-07 20:40
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag var riktigt peppad igår när jag skulle testa den här P-Bot på Adda, den där AI-assistenten för att hitta konsulter. Jag tänkte att äntligen, ett smidigt sätt att hitta en vass Scrum Master. Vi ligger ju lite efter i agila transformationen nu och jag känner pressen från ledningen att visa resultat snabbt. En bra Scrum Master är nyckeln, så jag hoppades verkligen att det här skulle bli enkelt.
+
+Först gick det faktiskt ganska bra. Jag beskrev vad jag behövde, en erfaren Scrum Master, och P-Bot fattade galoppen direkt att det handlade om Kompetensområde 2. Det var ju smidigt att den så snabbt snappade upp att vi behövde en nivå 5-konsult, det indikerar ju att jag vet vad jag pratar om, haha! Men sen började det bli lite… utdraget. Alla de där frågorna om timmar och takpris, det är ju sånt man redan har tänkt igenom, men det känns som om det kunde ha gått snabbare. Jag menar, det är ju en AI, borde den inte kunna läsa mellan raderna lite mer?
+
+Det som verkligen fick mig att sucka var när den började prata om "Förnyad Kund Unik förfrågan". FKU! Alltså, kunde det bli mer byråkratiskt? Jag fattar ju att nivå 5 kräver lite extra, men det känns som om det tar längre tid och skapar mer trösklar än det löser problem. Jag började direkt tänka på hur jag ska motivera den här processen för de traditionella cheferna, de kommer ju att skratta åt mig. Sedan började den tjata om prismodell och viktning mellan pris och kvalitet. Självklart vill jag ha bra kvalitet, men budgeten är ju inte oändlig. Det är den ständiga balansen man får kompromissa med. Jag kände mig lite uppgiven, som att jag var tillbaka i det gamla vanliga träsket av upphandling och administration.
+
+När det var över var jag faktiskt ganska trött. Det kändes som om jag hade suttit i ett möte med en väldigt nitisk inköpare istället för att ha en smidig dialog med en intelligent assistent. Visst, den fick fram det som behövdes, men det saknades den där lilla extra hjälpen att navigera processen. Jag är inte säker på om jag kommer att använda den igen. Kanske för enklare avrop, men när det gäller något så strategiskt viktigt som en Scrum Master, så vill jag nog hellre prata med en riktig människa som förstår våra utmaningar och kan ge mig lite mer råd och stöd, inte bara en massa processer och blanketter. Man ska inte behöva känna sig som en bricka i ett spel när man försöker driva förändring framåt!"

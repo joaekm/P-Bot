@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Peter Holms berättelse
+║  Systemansvarig på Trafikverket
+║  
+║  Samtal: 6 meddelanden
+║  Datum: 2025-12-07 23:56
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag satt ju och kladdade med den där P-Bot på Adda igår, den där AI-assistenten för att göra avrop. Herregud, jag hade ju hoppats att det skulle vara smidigt, att man bara kunde knappa in det man ville ha och *poff* så kom det upp en lämplig konsult. Behöver ju en DevOps-ingenjör som kan bygga från scratch, det är inte raketforskning, eller hur? 
+
+Först verkade det ju bra. Den förstod att jag ville ha en nivå 4, vad uppdragstiden var och sådär. Men sen började det jävlas direkt med det där att ramavtalet går ut. Jag hade ju HELT glömt bort det där sista datumet! Typiskt vår organisation, massa regler som man måste hålla reda på, men som ingen faktiskt tänker på i det dagliga. "Men herregud, det får vi väl lösa!" tänkte jag och ändrade sluttiden.
+
+Sen kom det där med Förnyad Konkurrensutsättning. Visst, jag fattar att det är för att få bästa pris, men det känns ju bara som mer byråkrati. Och sen, det värsta av allt: "Prismodell: Tid och material, Fast pris, eller Takpris?". Jag menar, kom igen! Jag är systemansvarig, inte någon jävla inköpschef! Jag vet ju inte vad som är bäst! Det är ju det jag hoppades att den där jävla P-Boten skulle hjälpa mig med.
+
+Alltså, jag blev faktiskt lite uppgiven. Det kändes som att den bara frågade mig massa frågor som jag inte har svar på, istället för att faktiskt ge mig några alternativ eller rekommendationer. Typ, "Om du bygger från grunden och vill ha flexibilitet, så kanske Takpris är bäst för dig". Något sånt! Jag vet inte… Jag är inte säker på om jag kommer använda den igen. Om det bara är att fylla i samma jävla blanketter som vanligt, fast med ett snyggare gränssnitt, så kan det lika gärna kvitta. Jag vill ha hjälp att fatta beslut, inte bara bli bollplank för alla byråkratiska processer. Det känns som att den där P-Bot fortfarande behöver en hel del finjustering."

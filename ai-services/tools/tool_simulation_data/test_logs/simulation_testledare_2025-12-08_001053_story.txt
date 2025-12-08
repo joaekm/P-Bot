@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anna Nilssons berättelse
+║  Projektledare på Region Skåne
+║  
+║  Samtal: 6 meddelanden
+║  Datum: 2025-12-08 00:10
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag testade den där P-Bot:en på Adda igår, den där AI-assistenten för att hitta en testledare. Jag var ju svinnervös innan, ärligt talat. Allt hänger på den här rekryteringen, vi är redan efter schemat och den förra testledaren stack mitt i alltihop. Jag hoppades väl att P-Bot skulle vara snabb och smidig, typ mata in kraven och *poff* så har man en lista på kandidater. Budgeten är ju också tajt så jag hade lite ångest över det också.
+
+I början gick det väl okej. Den fattade direkt att det var en testledare jag var ute efter. Men sen började den fråga om nivåer, 1 till 5, och jag kände direkt paniken komma krypande. Nivåer? Hur ska jag veta exakt vilken nivå? Jag tänkte "hur detaljerat ska det vara?". Jag slängde ur mig nivå 4, hoppades att det skulle duga. Jag vet ju att vi behöver någon med bra erfarenhet. Sen kom det vanliga, timmar, startdatum och sånt. Det var ganska straight forward, men varje fråga kändes som en potentiell snubbeltråd. Tänk om jag missade något viktigt?
+
+Det som irriterade mig lite var att den var så... mekanisk. Som när den sammanfattade allting i en tabell. Det kändes opersonligt, som att jag pratade med en vägg. Men samtidigt var det ju bra att den var noggrann och bekräftade att allting stämde. Jag ville bara få det gjort och att slippa göra om saker för att jag slarvat. Den frågade "Ser detta korrekt ut, och ska vi gå vidare med detta underlag?". Då tänkte jag bara "ja, ja, snälla bara sätt igång!". Men den där tabellen påminde mig om att jag borde ha förberett mig bättre inför samtalet och kollat lite mer på hur de där nivåerna fungerar.
+
+När det var över var jag faktiskt lättad. Vi hade ju fått ihop en kravspecifikation, så det var ett steg framåt. Men jag är inte helt övertygad. Det känns som att jag fortfarande behöver lägga en massa tid på att granska kandidaterna när de väl kommer in. Jag är inte säker på om jag skulle använda P-Bot igen, det känns lite opersonligt och jag saknar att bolla idéer med en riktig person. Men om det sparar tid och pengar, så kanske jag inte har något val."

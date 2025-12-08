@@ -1,0 +1,45 @@
+{
+  "timestamp": "2025-12-07T23:16:46.384211",
+  "scenario": {
+    "filename": "scenario_testledare.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_testledare.txt"
+  },
+  "persona": {
+    "name": "Anna Nilsson",
+    "title": "Projektledare",
+    "organization": "Region Skåne",
+    "personality": "Anna är strukturerad och kvalitetsmedveten. Hon har lett många projekt men detta är det största hittills. Hon är lite stressad över tidsplanen och vill säkerställa att testningen inte blir en flaskhals.",
+    "knowledge_level": "- Expert på projektledning - Grundläggande förståelse för test - Medelhög kunskap om ramavtal",
+    "communication_style": "- Professionell och strukturerad - Ställer frågor om process och tidplan - Vill ha tydliga leveranser - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Projektet är redan försenat",
+      "Tidigare testledare slutade mitt i projektet",
+      "Budget är begränsad"
+    ],
+    "goals": [
+      "Hitta en erfaren testledare snabbt",
+      "Förstå hur nivåkraven fungerar",
+      "Säkerställa att konsulten har rätt erfarenhet"
+    ],
+    "background": "Anna har arbetat i Region Skåne i 15 år och leder nu implementationen av ett nytt journalsystem. Projektet är kritiskt för regionens digitalisering.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Anna Nilsson och jobbar som Projektledare på Region Skåne. Jag behöver hjälp med ett avrop. Vi ska hitta en erfaren testledare snabbt.",
+      "turn": 1
+    }
+  ],
+  "final_state": {
+    "ui_directives": {},
+    "current_state": {},
+    "message": "Konversation avbruten"
+  },
+  "summary": {
+    "total_turns": 1,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "unknown"
+  }
+}

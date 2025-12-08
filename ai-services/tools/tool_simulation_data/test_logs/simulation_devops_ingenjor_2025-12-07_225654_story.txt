@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Peter Holms berättelse
+║  Systemansvarig på Trafikverket
+║  
+║  Samtal: 8 meddelanden
+║  Datum: 2025-12-07 22:57
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+”Du vet, jag testade den där nya AI-grejen på Adda igår, P-Bot, för att göra ett avrop på en DevOps-ingenjör. Jag var skeptisk, ärligt talat. Alltid detta nya. Jag vill ju bara få tag på någon som kan lyfta vår gamla infrastruktur in i 2020-talet och få igång lite vettig automation. Vårt team... de är bra, men de behöver en rejäl spark i baken, en mentor, någon som kan visa vägen. Jag hoppades väl att P-Bot skulle göra processen mindre smärtsam, men jag var beredd på strul. Byråkrati och teknik, det är en dödlig kombination.”
+
+”Det började väl okej. P-Bot fattade direkt vad jag var ute efter, det är ju bra. Att den fattade att det handlade om Systemutveckling och Infrastruktur, visst, det är ju ganska självklart med tanke på att jag sa DevOps-ingenjör. Men sen började frågorna. Nivå, timmar, placering. Jag fattar ju att den behöver detaljer, men jag kände direkt hur tålamodet började tryta. Jag vill ju bara ha någon som kan lösa problemet! Men jag svarade plikttroget. Nivå 4, heltid, Borlänge eller remote. Jag sneglade på klockan hela tiden.”
+
+”Sen blev det lite värre. Start- och slutdatum, takpris. Jag hade ju koll på det, men jag hade ju inte direkt bråttom. Sen kom det där med avropsstrategi. Löpande räkning eller fast pris? Jag vet inte vad jag hade förväntat mig, men jag hoppades på något mer än en uppläsning av de vanligaste alternativen. Tur att jag hade tänkt igenom det innan och bestämt mig för löpande räkning. Men sedan kom den där smörjan om att kompetens ska väga tyngre än pris. Jaja, jag vet väl det! Jag vill ju inte ha den billigaste idioten! Men det kändes som att den bara repeterade vad jag redan sagt, utan att egentligen bidra med något. Sen kom det en liten positiv överraskning. När P-Bot förklarade varför det skulle bli en Förnyad Konkurrensutsättning, FKU, så var det faktiskt ganska bra. Den förklarade varför vi inte kunde direktavropa och hur FKU hjälper oss att utvärdera leverantörernas kompetens. Just det behövde jag veta, och det gav mig ett argument mot de i ledningen som gnäller om långdragna processer. Men varför tog det sån tid att komma dit?"
+
+”När den till slut sa att underlaget var komplett, så kände jag mig mer utmattad än lättad. Det var ju en hel del frågande fram och tillbaka. Jag vet inte om det var smidigare än att fylla i ett traditionellt formulär, kanske marginellt. Jag saknade lite mer... Jag vet inte, kreativitet? Kanske idéer om hur man bäst löser den här typen av avrop, tips om vad man bör tänka på. Det var bara frågor och svar, inget mer. Jag kände mig som en input-maskin, inte som en partner i en process. Men jag får erkänna, att efter att den sammanfattat allt så kändes det ändå som ett steg framåt. Den har ju lagt in all data så jag slipper göra det manuellt.
+
+”Skulle jag använda den igen? Tja, kanske. Om jag måste. För de enklare avropen. Men när det gäller något så viktigt som en DevOps-ingenjör som ska lyfta hela vår organisation, så vill jag nog prata med en riktig människa. Någon som förstår de dolda bekymren, någon som kan läsa mellan raderna. Någon som kan hjälpa mig att sälja in idén till teamet och till ledningen. Någon som kan skräddarsy en lösning. P-Bot är bra på att fylla i formulär, men inte på att lösa problem på riktigt.”

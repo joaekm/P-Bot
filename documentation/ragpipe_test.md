@@ -400,4 +400,109 @@ Result: level: 5 ✓
 | 2025-12-05 | FIX: Dubbel-resurs vid avslut - tidigt return utan LLM vid complete+confirm |
 | 2025-12-05 | CONF: Lagt till static_messages i assistant_prompts.yaml (chat_start, chat_complete) |
 | 2025-12-05 | FIX: Session trace saknade prismodell, utvarderingsmodell, location_text, anbudsomrade |
+| 2025-12-08 | Lagt till kanonisk fältlista (börläge) |
+
+---
+
+## Kanonisk fältlista (Börläge 2025-12-08)
+
+Fastlåst referens för vilka fält RAG-pipelinen ska fylla i genom konversationen.
+
+**SSOT:** Fältdefinitionerna ska ligga i `storage/index/adda_taxonomy.json` (sektion `avrop_fields`).
+Taxonomin läses av `AvropsContainer` vid startup för att validera fältnamn runtime.
+Detta dokument refererar till taxonomin - taxonomin är master.
+
+### Avrop (Globala fält)
+
+| Fält | Typ | Beskrivning |
+|------|-----|-------------|
+| `resources` | `List[Resurs]` | Lista med konsulter |
+| `region` | `str` (A-G) | Anbudsområde |
+| `location_text` | `str` | Fritext plats |
+| `anbudsomrade` | `str` | Berikad "D – Stockholm" |
+| `volume` | `int` | Timmar |
+| `start_date` | `str` | ISO-datum |
+| `end_date` | `str` | ISO-datum |
+| `takpris` | `int` | Kr/timme |
+| `prismodell` | `str` | LOPANDE, FAST_PRIS, LOPANDE_MED_TAK |
+| `pris_vikt` | `int` | 0-100 (%) |
+| `kvalitet_vikt` | `int` | 0-100 (%) |
+| `avrop_typ` | `str` | DR_RESURS, FKU_RESURS, FKU_PROJEKT |
+| `uppdragsbeskrivning` | `str` | Fritext |
+| `resultatbeskrivning` | `str` | Fritext |
+| `godkannandevillkor` | `str` | Fritext |
+| `hanterar_personuppgifter` | `bool` | Flagga |
+| `sakerhetsklassad` | `bool` | Flagga |
+
+### Resurs (Per konsult)
+
+| Fält | Typ | Beskrivning |
+|------|-----|-------------|
+| `id` | `str` | Unikt ID "res_1" |
+| `roll` | `str` | Rollnamn |
+| `level` | `int` | 1-5 |
+| `antal` | `int` | Antal personer |
+| `kompetensomrade` | `str` | KO1-KO7 |
+| `is_complete` | `bool` | True om roll+level satta |
+
+---
+
+## Planner Output (Arkitektur)
+
+Planner är "hjärnan" som returnerar två separata outputs:
+
+### 1. Entity Changes (Varukorg)
+- **Typ:** Strukturerad lista
+- **Syfte:** Uppdatera varukorgen deterministiskt
+- **Används:** Alla faser
+- **Format:** `[{action: "ADD", type: "resource", data: {...}}, ...]`
+
+### 2. Strategic Input (Metadiskussion)
+- **Typ:** Fritext
+- **Syfte:** Förmedla P-bots kunskap/insikter till användaren
+- **Används:** Fas 1 (behov) och fas 4 (strategi)
+- **Injiceras:** I Synthesizer-prompten för naturlig formulering
+
+### Varför separata?
+
+| Aspekt | Entity Changes | Strategic Input |
+|--------|----------------|-----------------|
+| Karaktär | Deterministisk | Rådgivande |
+| Format | JSON-struktur | Fritext |
+| Mål | Fylla varukorg | Vägleda användare |
+| Faser | Alla | 1 och 4 |
+| Synlighet | Backend (avrop_data) | Frontend (svarstexten) |
+
+---
+
+## AvropsContainer (Arkitektur)
+
+Deterministisk komponent som applicerar entity_changes på varukorgen.
+
+### Placering i pipeline
+
+```
+1. IntentAnalyzer     (LLM)
+2. ContextBuilder     (Hybrid)
+3. Planner            (LLM) → entity_changes, strategic_input
+4. AvropsContainer    (DETERMINISTISK) → updated_avrop
+5. Synthesizer        (LLM) → response (ser uppdaterad varukorg)
+```
+
+### Fil
+`app/components/avrop_container.py`
+
+### Ansvar
+- `apply(avrop, changes)` - Applicera alla ändringar
+- `add_resource(avrop, resource)` - Lägg till resurs
+- `remove_resource(avrop, id)` - Ta bort resurs
+- `update_resource(avrop, id, field, value)` - Uppdatera resurs
+- `update_global(avrop, field, value)` - Uppdatera globalt fält
+- `calculate_progress(avrop)` - Beräkna hur komplett
+
+### Karaktär
+- Ingen LLM - ren Python-logik
+- Enforcar kanoniska fältnamn
+- Enkel att testa (unit tests)
+- Loggar sitt state varje körning
 

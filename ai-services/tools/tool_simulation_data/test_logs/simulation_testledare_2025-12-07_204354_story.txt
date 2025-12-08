@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anna Nilssons berättelse
+║  Projektledare på Region Skåne
+║  
+║  Samtal: 12 meddelanden
+║  Datum: 2025-12-07 20:44
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag var ju tvungen att testa den där P-Bot på Adda igår. Helt ärligt, jag var skeptisk från början. Vi ligger ju redan efter i projektet och att behöva krångla med en robot för att få tag på en ny testledare kändes som ett onödigt hinder. Men jag tänkte att jag skulle ge det en chans, det kanske kunde spara lite tid i slutändan. Målet var ju att få igång en avropsprocess så fort som möjligt, och jag hoppades att P-Bot skulle kunna snabba på processen. Jag ville ju verkligen ha en riktigt erfaren person, en nivå 4 minst, som kunde komma in och styra upp testningen. Och dessutom var jag lite orolig för budgeten, speciellt med tanke på att den förra testledaren stack mitt i alltihop."
+
+"Det började ju okej, ganska rakt på sak. P-Bot identifierade mig och projektet direkt, det var smidigt. Men sen började det med alla dessa frågor... jag förstår ju att den behöver information, men jag kände mig lite som att jag fyllde i ett jättelångt formulär. Och när den började påminna mig om att ramavtalet gick ut 2026, alltså, jag vet ju det! Kändes lite onödigt. Det avgörande ögonblicket kom nog när vi började prata om pris och kvalitet. Att faktiskt få möjlighet att vikta kvaliteten så högt, det kändes bra. Jag var rädd att vi skulle fastna i att bara titta på priset, vilket hade varit katastrofalt. Vi behöver verkligen någon som vet vad de gör."
+
+"En sak som faktiskt imponerade mig var hur P-Bot hanterade mervärdeskriterierna. När jag nämnde erfarenhet av hälso- och sjukvård och agila metoder, så plockade den upp det direkt och förstod att det var viktigt. Det visade att den faktiskt lyssnade och inte bara rabblade en checklista. Däremot blev jag lite irriterad när den bad mig specificera kompetensområdet, alltså hallå, det är ju uppenbart att det är systemutveckling när vi pratar om en testledare. Lite sånt kändes bara som tidsspilla. Men jag gillade att den sammanfattade allt i slutet, det gav en bra överblick och bekräftade att jag inte hade missat något."
+
+"När samtalet var över kände jag mig faktiskt lite lättad. Det var inte så illa som jag hade befarat. Processen var ganska strukturerad och även om det tog lite tid, så kändes det som att vi fick med allt som behövdes. Jag känner mig lite tryggare nu med att faktiskt kunna starta avropsprocessen. Om jag skulle använda P-Bot igen? Tja, det beror på. Om det är ett liknande avrop med tydliga krav, absolut. Men om det är något mer komplext eller oklart, då tror jag att jag hellre pratar med en människa. P-Bot är bra på att följa ett manus, men jag är inte säker på att den kan hantera oväntade problem eller nyanser."

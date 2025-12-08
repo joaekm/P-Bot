@@ -10,13 +10,12 @@ system:
 paths:
   storage_root: "storage"
   assets: "storage/assets"
-  lake: "storage/lake_v2"           # LAKE V2 (pipeline 2.0)
-  index_root: "storage/index_v2"    # INDEX V2 (pipeline 2.0)
-  chroma_db: "storage/index_v2/chroma"
-  kuzu_db: "storage/index_v2/kuzu"
+  lake: "storage/lake"
+  index_root: "storage/index"
+  chroma_db: "storage/index/chroma"
+  kuzu_db: "storage/index/kuzu"
   taxonomy: "config/adda_taxonomy.json"
   logs: "logs/adda_system.log"
-  session_logs: "logs/v2"           # Session traces för aktuell version
   prompts_services: "config/services_prompts.yaml"
   prompts_chat: "config/assistant_prompts.yaml"
 

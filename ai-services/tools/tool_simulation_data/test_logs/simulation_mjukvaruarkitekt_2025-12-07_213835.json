@@ -1,0 +1,45 @@
+{
+  "timestamp": "2025-12-07T21:38:35.997223",
+  "scenario": {
+    "filename": "scenario_mjukvaruarkitekt.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_mjukvaruarkitekt.txt"
+  },
+  "persona": {
+    "name": "Karin Svensson",
+    "title": "Produktägare E-klient",
+    "organization": "Inera AB",
+    "personality": "Karin är energisk och resultatorienterad. Hon brinner för E-klient och vill att tjänsten ska bli ännu bättre. Hon är pragmatisk och vill hitta den bästa lösningen snabbt.",
+    "knowledge_level": "- Expert på E-klient-produkten - God teknisk förståelse - Begränsad erfarenhet av ramavtalsupphandlingar",
+    "communication_style": "- Direkt och effektiv - Ställer många följdfrågor - Vill ha konkreta exempel - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Har haft problem med tidigare konsulter som inte levererat",
+      "Teamet är underbemannat just nu",
+      "Deadline för nästa release är tight"
+    ],
+    "goals": [
+      "Hitta en senior utvecklare som kan bidra direkt",
+      "Förstå hur intervjuprocessen fungerar",
+      "Säkerställa att konsulten kan arbeta på plats i Lund"
+    ],
+    "background": "Karin tog över som produktägare för ett år sedan och har ambitiösa planer för E-klient. Hon behöver förstärkning i teamet för att kunna leverera på sina mål.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Karin Svensson och jobbar som Produktägare E-klient på Inera AB. Jag behöver hjälp med ett avrop. Vi ska hitta en senior utvecklare som kan bidra direkt.",
+      "turn": 1
+    }
+  ],
+  "final_state": {
+    "ui_directives": {},
+    "current_state": {},
+    "message": "Konversation avbruten"
+  },
+  "summary": {
+    "total_turns": 1,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "unknown"
+  }
+}

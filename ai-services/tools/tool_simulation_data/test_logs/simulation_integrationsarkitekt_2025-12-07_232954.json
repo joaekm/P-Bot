@@ -1,0 +1,85 @@
+{
+  "timestamp": "2025-12-07T23:29:54.322014",
+  "scenario": {
+    "filename": "scenario_integrationsarkitekt.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_integrationsarkitekt.txt"
+  },
+  "persona": {
+    "name": "Erik Johansson",
+    "title": "Arkitektledare",
+    "organization": "Inera AB",
+    "personality": "Erik är en erfaren arkitekt med djup teknisk kunskap. Han är analytisk och vill förstå alla detaljer innan han fattar beslut. Kan ibland uppfattas som petig men det beror på hans höga kvalitetskrav.",
+    "knowledge_level": "- Expert på systemarkitektur - God kunskap om ramavtal - Mycket erfaren inom offentlig sektor",
+    "communication_style": "- Teknisk och detaljerad - Ställer djupgående frågor - Vill ha motiveringar till rekommendationer - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Projektet har redan startat och de behöver förstärkning snabbt",
+      "Tidigare konsult slutade oväntat",
+      "Vill helst ha någon med erfarenhet från hälso- och sjukvård"
+    ],
+    "goals": [
+      "Hitta en arkitekt som kan ta över snabbt",
+      "Förstå vilka krav som är rimliga att ställa",
+      "Säkerställa att referensuppdrag är relevanta"
+    ],
+    "background": "Erik har lett arkitekturarbetet på Inera i 15 år. Han ser detta projekt som en av de viktigaste förändringarna i Ineras historia och vill att det ska bli rätt.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Erik Johansson och jobbar som Arkitektledare på Inera AB. Jag behöver hjälp med ett avrop. Vi ska hitta en arkitekt som kan ta över snabbt.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Jag förstår, Erik. Ni söker alltså en Arkitekt som kan vara på plats snabbt. Arkitekt är en av våra definierade exempelroller, vilket underlättar processen.\n\nFör att jag ska kunna matcha behovet mot rätt avropsform och leverantörer, behöver jag specificera uppdraget lite tydligare:\n\nRollen och Nivån: Vilken specifik typ av Arkitekt söker ni (t.ex. Lösningsarkitekt eller Verksamhetsarkitekt), och vilken kompetensnivå (1-5) ska konsulten ha?\nVolym och Start: Hur många timmar uppskattas uppdraget omfatta totalt, och när är det absolut tidigaste ni behöver konsulten på plats?\nPlats: Var ska uppdraget utföras primärt? Ska arbetet ske på plats, helt på distans, eller som en kombination?",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi söker en Integrationsarkitekt, nivå 5. Uppdraget är på heltid, vilket motsvarar 100%. Vi behöver konsulten på plats så fort som möjligt, men absolut senast den 1 februari 2026. Arbetet kommer att utföras i Stockholm, men visst distansarbete kan förekomma.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Erik. Då har jag informationen om att ni söker en Integrationsarkitekt på Nivå 5, med start så snart som möjligt och senast 2026-02-01, för arbete i Stockholm.\n\nJag behöver genast flagga att en konsult på Nivå 5 alltid kräver Förnyad Konkurrensutsättning (FKU) enligt ramavtalet. Detta innebär att vi måste initiera den processen för att hitta rätt konsult.\n\nFör att kunna påbörja FKU-förfrågan och specificera prissättningen saknas nu några detaljer:\n\nÄven om uppdraget är på heltid (100%), vilket är noterbart, behöver vi det totala uppskattade antalet timmar för att definiera volymen i avropet.\nKan ni ange det takpris per timme ni har budgeterat för Nivå 5?\nNi nämnde startdatumet 2026-02-01. När är det förväntade slutdatumet för detta uppdrag?\n\nJag ser fram emot dessa siffror så att vi kan hantera Nivå 5-kravet och initiera FKU-processen omgående.",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi räknar med en total omfattning på sex månader, med start den 1 februari 2026. Det finns en option på ytterligare sex månader om allt går som planerat. Angående timpriset, det är inget jag har framför mig just nu, men det får vi återkomma till.",
+      "turn": 3
+    }
+  ],
+  "final_state": {
+    "message": "Tack, Erik. Då har jag informationen om att ni söker en Integrationsarkitekt på Nivå 5, med start så snart som möjligt och senast 2026-02-01, för arbete i Stockholm.\n\nJag behöver genast flagga att en konsult på Nivå 5 alltid kräver Förnyad Konkurrensutsättning (FKU) enligt ramavtalet. Detta innebär att vi måste initiera den processen för att hitta rätt konsult.\n\nFör att kunna påbörja FKU-förfrågan och specificera prissättningen saknas nu några detaljer:\n\nÄven om uppdraget är på heltid (100%), vilket är noterbart, behöver vi det totala uppskattade antalet timmar för att definiera volymen i avropet.\nKan ni ange det takpris per timme ni har budgeterat för Nivå 5?\nNi nämnde startdatumet 2026-02-01. När är det förväntade slutdatumet för detta uppdrag?\n\nJag ser fram emot dessa siffror så att vi kan hantera Nivå 5-kravet och initiera FKU-processen omgående.",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 3,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

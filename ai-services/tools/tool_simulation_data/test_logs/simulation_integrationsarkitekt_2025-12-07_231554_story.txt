@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Erik Johanssons berättelse
+║  Arkitektledare på Inera AB
+║  
+║  Samtal: 7 meddelanden
+║  Datum: 2025-12-07 23:16
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+”Måste säga, det där samtalet med Addas P-Bot igår var... intressant. Jag var ju lite skeptisk från början, ni vet, en AI som ska hjälpa oss med avrop? Men vi är ju i skiten nu, tappade ju Bengtsson helt oväntat och projektet rullar på. Så jag hoppades på att det skulle vara snabbt och smidigt, typ mata in kraven och vips så spottar den ut en lämplig konsult. Jag menar, Integrationsarkitekt nivå 5 är ju inte kattskit, det är hög kompetens.
+
+Först kändes det okej. P-Bot var snabb på bollen, identifierade rollen direkt och ville ha detaljer om kompetensnivå och tidsåtgång. Det var liksom förväntat. Men sen började den prata om motivering för nivå 5. Visst, jag fattar att det är en hög nivå, men behövde verkligen *det* betonas så mycket? Blev lite orolig att jag kanske siktat för högt. Ville ju mest bara att vi skulle komma igång snabbt. Sen dök den ner i budget och timvolymer, vilket är standard, men det kändes ändå som att det tog onödigt lång tid. Det snurrade ju bara runt samma info.
+
+Det värsta var nog när den började prata om fast pris kontra löpande räkning. Jag menar, löpande med takpris är ju uppenbart det enda vettiga i det här läget. Och sen den där frågan om viktning av pris och kompetens. Trettio procent pris? Vi behöver ju någon som KAN det här, inte den billigaste hackern. Jag höll på att explodera. Jag är ju inte direkt känd för att vara den mest tålmodiga och jag är otroligt trött på att behöva förklara allt ner på atomnivå. Tur jag lyckades hålla mig i skinnet.
+
+När det äntligen var klart kändes det som att jag hade sprungit ett maraton. Jag vet inte, det var liksom... utmattande. Och jag är fortfarande inte säker på om det kommer att leda någonvart. Jag hoppas verkligen att den här Förnyade Konkurrensutsättningen resulterar i någon som verkligen kan ta över Bengtssons roll, någon med erfarenhet från hälso- och sjukvård, det är ju A och O i det här projektet. Men jag är inte helt övertygad. Skulle jag använda P-Bot igen? Tja, om jag verkligen måste, kanske. Men jag skulle hellre ringa en människa nästa gång. Åtminstone kan man ju skälla på dem om det går fel. Och jag är ju inte direkt känd för att vara den som undviker konflikter om det behövs.”

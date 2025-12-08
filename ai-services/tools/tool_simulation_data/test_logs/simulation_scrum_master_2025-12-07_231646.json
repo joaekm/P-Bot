@@ -1,0 +1,45 @@
+{
+  "timestamp": "2025-12-07T23:16:46.367864",
+  "scenario": {
+    "filename": "scenario_scrum_master.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_scrum_master.txt"
+  },
+  "persona": {
+    "name": "Maria Lindgren",
+    "title": "Enhetschef IT-utveckling",
+    "organization": "Försäkringskassan",
+    "personality": "Maria är förändringsinriktad och tror starkt på agila metoder. Hon har drivit igenom beslutet att göra en agil transformation men möter motstånd internt. Hon är diplomatisk men bestämd.",
+    "knowledge_level": "- God förståelse för agila metoder - Expert på organisationsutveckling - Erfaren beställare av konsulter",
+    "communication_style": "- Strategisk och visionär - Fokuserar på förändring och kultur - Ställer frågor om erfarenhet - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Möter motstånd från traditionella chefer",
+      "Behöver visa snabba resultat",
+      "Vill ha någon som kan hantera politik"
+    ],
+    "goals": [
+      "Hitta en erfaren Scrum Master som kan navigera i en stor organisation",
+      "Förstå hur man utvärderar förändringskompetens",
+      "Säkerställa att konsulten har erfarenhet av liknande transformationer"
+    ],
+    "background": "Maria har arbetat på Försäkringskassan i 12 år och fått uppdraget att modernisera IT-utvecklingen. Hon tror på agila metoder men vet att förändringen blir svår.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Maria Lindgren och jobbar som Enhetschef IT-utveckling på Försäkringskassan. Jag behöver hjälp med ett avrop. Vi ska hitta en erfaren scrum master som kan navigera i en stor organisation.",
+      "turn": 1
+    }
+  ],
+  "final_state": {
+    "ui_directives": {},
+    "current_state": {},
+    "message": "Konversation avbruten"
+  },
+  "summary": {
+    "total_turns": 1,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "unknown"
+  }
+}

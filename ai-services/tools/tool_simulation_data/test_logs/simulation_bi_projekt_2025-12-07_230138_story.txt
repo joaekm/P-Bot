@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anna-Karin Holms berättelse
+║  Verksamhetsutvecklare BI på Trafikverket
+║  
+║  Samtal: 4 meddelanden
+║  Datum: 2025-12-07 23:01
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+”Du, jag testade den där nya AI-assistenten på Adda igår, P-Bot, för att göra ett avrop på IT-konsulter. Jag var väl lite skeptisk från början, ärligt talat. Du vet ju hur det brukar vara med de här "smarta" lösningarna. Jag hoppades innerst inne att det skulle vara snabbare och smidigare än att tjafsa med inköpsavdelningen och alla papper, men samtidigt var jag beredd på att det skulle bli ännu en frustration. Mitt mål var glasklart: ett fastprisuppdrag där någon annan än Trafikverket tar smällen om det går åt skogen. Vi har ju haft våra misslyckanden, om man säger så… budgeten sprack ju med 40% i det där förra BI-projektet, och ledningen är inte direkt pigg på överraskningar den här gången, speciellt inte med tanke på det här regeringsuppdraget som hänger över oss.
+
+Det började ju helt okej. P-Bot fattade direkt vad jag var ute efter, det där med fast pris och resultatansvar. Det kändes som att någon hade lyssnat på alla mina frustrerade suckar om konsulter som bara vill fakturera timmar. Men sen kom ju frågorna om roller och tidsramar. Okej, det är ju nödvändigt, fattar jag ju. Men det kändes lite som att gå tillbaka till ruta ett. Jag ville ju att *de* skulle bestämma teamet, inte jag. Jag menar, det är ju därför vi betalar dem! Jag bara gav P-Bot informationen, så var det överstökat.
+
+Det som verkligen fick mig att rynka pannan var när den började prata om kompetensnivåer och budget. Jag kände direkt "här kommer det, nu ska vi ner i detaljer och diskutera timpriser igen". Jag var tvungen att bita mig i tungan för att inte explodera. Jag vill inte ha någon diskussion om timmar, jag vill ha ett fungerande datalager! Jag är fortfarande lite osäker på om den verkligen förstod min poäng, eller om den bara samlade information för att sen spotta ut ett standardavtal. Hela grejen kändes fortfarande lite för generell och riskerar att inte fånga de risker som vi ser.
+
+När samtalet var över kände jag mig mest… utmattad. Inte för att det var särskilt jobbigt att prata med P-Bot, men bara vetskapen om att den här processen antagligen kommer att dra ut på tiden och att jag kommer att behöva bråka med folk för att få dem att förstå att vi inte vill ha ett timbaserat slukhål. Skulle jag använda P-Bot igen? Jo, kanske. Det är ju ändå en början, och om det sparar mig en massa tid och pappersarbete så är det värt det. Men jag kommer nog att behöva vara extra vaksam och se till att alla villkor är vattentäta innan jag släpper iväg det här avtalet. Jag är ju fortfarande orolig att det slutar med att Trafikverket sitter med svartepetter igen.”

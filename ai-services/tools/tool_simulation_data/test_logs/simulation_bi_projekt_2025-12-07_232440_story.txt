@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anna-Karin Holms berättelse
+║  Verksamhetsutvecklare BI på Trafikverket
+║  
+║  Samtal: 16 meddelanden
+║  Datum: 2025-12-07 23:24
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag satt och funderade på det här med P-Bot igår. Vi har ju kört så många rundor med upphandlingar som slutat i katastrof, det är lätt att bli cynisk. Jag gick in i det där samtalet med inställningen att det nog bara var ännu en plattform som lovar guld och gröna skogar men levererar... ja, ingenting. Mitt mål var solklart: ett fastprisavtal där *de* tar risken, inte vi. Ett datalager som faktiskt fungerar, inte bara en tjock bunt dokumentation. Och det, tro det eller ej, verkade P-Bot fatta.
+
+Det jobbigaste var i början, när den började babbla om timvolymer och intern kalkylering. Alltså, hallå? Jag vill ju slippa det där! Jag fick nästan panik. Jag ville ju inte att det skulle bli ännu en sån där grej där de bara räknar timmar och fakturerar, och sen står vi där med Svarte Petter när budgeten är spräckt med 40%. Men jag var tydlig med att jag ville ha ett fastpris och att de själva får bemanna uppdraget. Då fattade den galoppen.
+
+Det som var avgörande var att den verkade förstå min skepsis. När den bekräftade att FKU var rätt väg att gå, Förnyad Konkurrensutsättning, och att den där detaljstyrningen med Azure Synapse-erfarenhet och projektledarcertifiering skulle vara *bindande* krav… ja, då kände jag lite hopp. Det är ju precis det vi behöver, tydliga ramar. Sen blev jag lite irriterad när den tjafsade om de där kompetensnivåerna. Jag bryr mig inte om KN1 eller KN5, jag vill bara ha kompetenta konsulter! Men när jag sa att jag ville ha de högsta nivåerna på alla, så bara fattade den och ändrade direkt. Det var skönt att slippa tjafsa om sånt.
+
+När den var klar och summerade allt kändes det faktiskt... bra. Inte jättebra, jag vågar inte ropa hej än, men bra. Som om någon faktiskt hade lyssnat och förstått vad jag ville ha. Det var inte bara en tom pratbubbla. Om det leder till att vi faktiskt får ett fungerande datalager inom budget och tidsram så kommer jag vara den första att erkänna att jag hade fel om AI-assistenter. Om jag skulle använda tjänsten igen? Absolut. Men jag kommer fortsätta vara stenhård och inte ge mig en tum. Man har lärt sig den hårda vägen att man måste vara tydlig och kräva resultat. Men det är helt klart ett steg i rätt riktning."

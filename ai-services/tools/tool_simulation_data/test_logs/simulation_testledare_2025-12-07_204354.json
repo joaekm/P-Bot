@@ -1,0 +1,148 @@
+{
+  "timestamp": "2025-12-07T20:43:54.089979",
+  "scenario": {
+    "filename": "scenario_testledare.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_testledare.txt"
+  },
+  "persona": {
+    "name": "Anna Nilsson",
+    "title": "Projektledare",
+    "organization": "Region Skåne",
+    "personality": "Anna är strukturerad och kvalitetsmedveten. Hon har lett många projekt men detta är det största hittills. Hon är lite stressad över tidsplanen och vill säkerställa att testningen inte blir en flaskhals.",
+    "knowledge_level": "- Expert på projektledning - Grundläggande förståelse för test - Medelhög kunskap om ramavtal",
+    "communication_style": "- Professionell och strukturerad - Ställer frågor om process och tidplan - Vill ha tydliga leveranser - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Projektet är redan försenat",
+      "Tidigare testledare slutade mitt i projektet",
+      "Budget är begränsad"
+    ],
+    "goals": [
+      "Hitta en erfaren testledare snabbt",
+      "Förstå hur nivåkraven fungerar",
+      "Säkerställa att konsulten har rätt erfarenhet"
+    ],
+    "background": "Anna har arbetat i Region Skåne i 15 år och leder nu implementationen av ett nytt journalsystem. Projektet är kritiskt för regionens digitalisering.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Anna Nilsson och jobbar som Projektledare på Region Skåne. Jag behöver hjälp med ett avrop. Vi ska hitta en erfaren testledare snabbt.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Det är naturligtvis något jag kan hjälpa till med.\n\nJag har noterat att ni, Region Skåne, behöver en Testledare. Det är en roll som faller under ramavtalets kompetensområde Systemutveckling/Systemförvaltning och infrastruktur. Region Skåne ligger i Anbudsområde D (Sydsverige).\n\nEftersom ni nämnde att ni behöver någon erfaren, vilken kompetensnivå (1–5) ser ni framför er för den här resursen?\n\nSamtidigt undrar jag: Hur många timmar uppskattar ni att uppdraget omfattar totalt, och när önskar ni att konsulten ska vara på plats och starta?",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Hej! Tack för hjälpen. Vi behöver en testledare på nivå 4. Uppdraget är på 80% och start önskas den 1 februari 2026.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Tack för de tydliga specifikationerna!\n\nJag har noterat att ni söker en Testledare på Nivå 4 med start 2026-02-01 i Region Skåne (Anbudsområde D).\n\nNivå 4 indikerar att ni söker en konsult med mycket hög kompetens och stor självständighet, vilket jag har dokumenterat.\n\nGällande startdatumet, vill jag bara påminna om ramavtalets tidsbegränsningar: alla uppdrag måste vara slutförda senast 2026-09-25.\n\nNu behöver vi volymen för att kunna prissätta uppdraget. Med 80% kapacitet från start, kan ni uppskatta den totala volymen i antal timmar? Och har ni satt ett takpris per timme för denna nivå 4-resurs?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det stämmer bra. Vi har ett takpris på 1100 kr per timme. Angående volymen så är uppdraget tänkt att pågå i ett år, med en option på ytterligare ett år. Vi får nog räkna med cirka 1344 timmar det första året.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Det var mycket tydligt, tack!\n\nDå har jag sammanställt protokollet gällande den ekonomiska ramen för det initiala avropet:\n\nRoll & Nivå: Testledare (Nivå 4)\nVolym (År 1): 1344 timmar\nTakpris/timme: 1100 SEK\nBeräknad total kostnad (År 1): 1 478 400 SEK\n\nJag har också noterat önskemålet om en option på ytterligare ett år.\n\nBaserat på startdatumet 2026-02-01 och ett års varaktighet, stämmer det att vi sätter slutdatumet för det första avropet till 2027-01-31?\n\nSamtidigt, för att formalisera uppdraget och gå vidare till val av leverantör, behöver jag bekräfta två punkter:\n\nVilket kompetensområde (t.ex. Systemutveckling, IT-arkitektur eller Förvaltning) kopplar ni Testledare (Nivå 4) till?\nMed en uppskattad volym på nästan 1,5 MSEK, ska vi nu inleda en Förnyad Konkurrensutsättning (FKU) för att säkerställa att vi får de bästa anbuden?",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, slutdatumet stämmer. Kompetensområdet är Systemutveckling/Systemförvaltning och infrastruktur. Ja, vi behöver inleda en FKU.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Tack för bekräftelsen. Det är nu tydligt att slutdatumet är 2027-01-31 och att uppdraget faller inom kompetensområdet Systemutveckling/Systemförvaltning och infrastruktur.\n\nValet att genomföra Förnyad Konkurrensutsättning (FKU) är strategiskt korrekt för detta uppdrag. FKU möjliggör en grundlig bedömning av leverantörernas föreslagna Testledare (Nivå 4), vilket säkerställer att kompetens och erfarenhet kan viktas högt i utvärderingen, utöver priset.\n\nNu går vi in i strategifasen där vi definierar hur kvaliteten ska bedömas. För att kunna skapa ett komplett förfrågningsunderlag behöver vi fastställa:\n\nViktning mellan Pris och Kvalitet: Hur ska vi fördela viktningen mellan Pris och Kvalitet/Kompetens i anbudsutvärderingen? För uppdrag där kvalitet är kritisk rekommenderas ofta 70% kvalitet och 30% pris. Vilken viktning önskar ni?\nKvalitetsutvärdering: Planerar ni att använda intervjuer och/eller referenstagning som en del av kvalitetsbedömningen för att verifiera konsulternas kompetens och kommunikativa förmåga?",
+      "turn": 4,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi vill nog ha 60% kvalitet och 40% pris. Ja, vi kommer absolut att använda både intervjuer och referenstagning.",
+      "turn": 5
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt! Jag har noterat att ni väljer en viktning på 60% Kvalitet och 40% Pris för avropsutvärderingen, samt att ni kommer att använda intervjuer och referenstagning för att säkerställa kompetensen.\n\nDetta är en robust strategi, särskilt för en Nivå 4-resurs, då det säkerställer att vi prioriterar rätt kompetensmatchning högt i FKU-processen. Steg 4 (Strategi) är därmed fastställt.\n\nInnan vi färdigställer förfrågningsunderlaget, behöver jag två kompletterande detaljer som påverkar den slutliga utformningen:\n\nMervärdeskriterier: Förutom grundkraven för Nivå 4, har ni identifierat några specifika mervärdeskriterier (t.ex. erfarenhet av en viss metodik eller tidigare arbete inom vårdsektorn) som ska ingå i utvärderingsmodellen för att potentiellt ge prisavdrag vid hög kvalitet?\nKostnader: Gällande det angivna takpriset på 1100 kr/h, ska detta pris inkludera alla eventuella omkostnader, som resor eller traktamenten, eller hanteras dessa separat utanför timpriset?",
+      "turn": 5,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi har redan specificerat krav på erfarenhet inom hälso- och sjukvård och agila metoder. Det är viktiga mervärdeskriterier för oss. Takpriset ska inkludera alla kostnader.",
+      "turn": 6
+    },
+    {
+      "role": "assistant",
+      "content": "Tack för att du klargör detta.\n\nJag har nu noterat följande för avropsunderlaget:\n\nMervärdeskriterier (som utvärderas inom de 60% kvalitet): Erfarenhet av Hälso- och sjukvård samt Agila metoder.\nKostnader: Takpriset på 1100 kr/h är ett fast tak som inkluderar alla omkostnader (resor, traktamenten etc.). Prismodellen är därmed fastställd som Löpande Räkning med Takpris (LOPANDE_MED_TAK).\n\nMed detta är samtliga parametrar för avropet fastställda. Vi har nu ett komplett underlag redo att användas för att initiera Förnyad Konkurrensutsättning (FKU).\n\n📋 SAMMANFATTNING AV AVROPET:\n\n| Parameter | Specifikation | | :--- | :--- | | Roll & Nivå | Testledare, Nivå 4 (Hög Kompetens) | | Volym (År 1) | 1344 timmar | | Takpris | 1100 kr/h (inklusive alla omkostnader) | | Startdatum | 2026-02-01 | | Slutdatum | 2027-01-31 | | Plats | Region Skåne (Anbudsområde D) | | Avropsform | Förnyad Konkurrensutsättning (FKU) | | Utvärdering | 60% Kvalitet / 40% Pris | | Kvalitetskriterier | Intervju, Referenstagning, samt Mervärde inom Hälso- och sjukvård & Agila metoder. |\n\nSka vi gå vidare med detta underlag och generera förfrågningsunderlaget?",
+      "turn": 6,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Tack för att du klargör detta.\n\nJag har nu noterat följande för avropsunderlaget:\n\nMervärdeskriterier (som utvärderas inom de 60% kvalitet): Erfarenhet av Hälso- och sjukvård samt Agila metoder.\nKostnader: Takpriset på 1100 kr/h är ett fast tak som inkluderar alla omkostnader (resor, traktamenten etc.). Prismodellen är därmed fastställd som Löpande Räkning med Takpris (LOPANDE_MED_TAK).\n\nMed detta är samtliga parametrar för avropet fastställda. Vi har nu ett komplett underlag redo att användas för att initiera Förnyad Konkurrensutsättning (FKU).\n\n📋 SAMMANFATTNING AV AVROPET:\n\n| Parameter | Specifikation | | :--- | :--- | | Roll & Nivå | Testledare, Nivå 4 (Hög Kompetens) | | Volym (År 1) | 1344 timmar | | Takpris | 1100 kr/h (inklusive alla omkostnader) | | Startdatum | 2026-02-01 | | Slutdatum | 2027-01-31 | | Plats | Region Skåne (Anbudsområde D) | | Avropsform | Förnyad Konkurrensutsättning (FKU) | | Utvärdering | 60% Kvalitet / 40% Pris | | Kvalitetskriterier | Intervju, Referenstagning, samt Mervärde inom Hälso- och sjukvård & Agila metoder. |\n\nSka vi gå vidare med detta underlag och generera förfrågningsunderlaget?",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 6,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

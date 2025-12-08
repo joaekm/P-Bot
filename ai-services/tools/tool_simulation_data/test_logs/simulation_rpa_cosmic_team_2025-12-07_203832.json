@@ -1,0 +1,116 @@
+{
+  "timestamp": "2025-12-07T20:38:32.018751",
+  "scenario": {
+    "filename": "scenario_rpa_cosmic_team.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/HARD/scenario_rpa_cosmic_team.txt"
+  },
+  "persona": {
+    "name": "Lena Bergström",
+    "title": "Verksamhetsutvecklare Vårdinformation",
+    "organization": "Region Östergötland",
+    "personality": "Lena är en stressad men kompetent verksamhetsutvecklare som är van vid att hantera komplexa vårdprojekt. Hon är noggrann med GDPR och patientdatalagen men frustrerad över byråkrati. Hon har dåliga erfarenheter av konsulter som inte förstått vårdens komplexitet.",
+    "knowledge_level": "- Expert på vårdprocesser och Cosmic - God förståelse för GDPR och patientdatalagen - Medelmåttig förståelse för upphandling - Vet att hon behöver flera konsulter men osäker på rollfördelning",
+    "communication_style": "- Strukturerad och detaljorienterad - Ställer många följdfrågor om säkerhet och GDPR - Nämner inte alltid alla roller direkt utan bygger upp behovet stegvis - Kan bli otålig om processen känns för långsam",
+    "hidden_constraints": [
+      "Budgeten är tight - CFO har sagt max 2,2 MSEK",
+      "Tidigare projekt misslyckades pga dålig projektledning",
+      "Vill egentligen ha 4 konsulter men har inte budget",
+      "Tidspressen är enorm - Go-live är satt av regionledningen"
+    ],
+    "goals": [
+      "Få ett komplett team på plats snabbt",
+      "Säkerställa att konsulterna har rätt säkerhetsprövning",
+      "Förstå hur personuppgiftsbiträdesavtalet fungerar",
+      "Hålla sig inom budget men inte kompromissa på kvalitet"
+    ],
+    "background": "Lena har arbetat 15 år inom regionen och sett många IT-projekt misslyckas. Hon är skeptisk till externa konsulter men vet att regionen inte har intern kompetens för RPA. - \"Vi hanterar patientdata så säkerheten är A och O\" - \"Jag behöver veta att konsulterna förstår vårdprocesser\" - \"Cosmic är speciellt - det går inte att bara kasta in vem som helst\" - \"Vad händer om konsulten inte klarar säkerhetsprövningen?\"",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Lena Bergström och jobbar som Verksamhetsutvecklare Vårdinformation på Region Östergötland. Jag behöver hjälp med ett avrop. Vi ska få ett komplett team på plats snabbt.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Jag förstår att ni söker en resurs som Verksamhetsutvecklare Vårdinformation för att snabbt kunna få ett komplett team på plats. Det är en bra start!\n\nBaserat på ramavtalet passar den typen av kompetens bäst inom Kompetensområde 4 – Arkitektur (där exempelrollen Verksamhetsarkitekt ingår) eller möjligen Kompetensområde 1 – Verksamhetsutveckling och strategi. Vi kan specificera de unika Vårdinformation-kraven i avropet, men det är bra att veta vilket kompetensområde som är grunden.\n\nFör att jag ska kunna gå vidare och specificera avropet, behöver jag veta lite mer om uppdraget:\n\nVilken kompetensnivå (1-5) ser ni framför er för denna roll?\nUngefär hur många timmar uppskattar ni att uppdraget omfattar?\nVar ska uppdraget primärt utföras (geografisk ort)? Ni sitter i Region Östergötland, som ligger i Anbudsområde B.",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi behöver tre konsulter för ett RPA-projekt. Rollerna är Projektledare, Teknisk Projektledare och Systemutvecklare/Systemintegratör. Alla ska vara nivå 4. Uppdraget omfattar totalt ca 1800 timmar. Det ska utföras primärt i Linköping. Vi hanterar ju patientdata så säkerheten är A och O.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Det var tydligt. Då skiftar vi fokus till att sätta upp avropet för det nya RPA-teamet.\n\nJag har nu noterat att vi söker tre resurser – Projektledare, Teknisk Projektledare och Systemutvecklare/Systemintegratör – med en total volym på 1800 timmar. Uppdraget ska utföras i Linköping, vilket ligger i Anbudsområde B (Östra Mellansverige).\n\nVi behöver nu fylla i de sista parametrarna för att kunna påbörja avropet:\n\nDå 1800 timmar är den totala volymen, har ni ett planerat startdatum och ett slutdatum för uppdraget?\nHar ni satt ett takpris per timme som vi ska använda för prissättningen av dessa tre nivå 4-roller?\nNivå 4 innebär att vi söker konsulter med mycket stor självständighet och vana att ta huvudansvar. Stämmer denna nivåbeskrivning överens med era förväntningar för alla tre rollerna i RPA-projektet?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, vi behöver ha konsulterna på plats så fort som möjligt. Startdatum är 2026-03-01 och slutdatum 2026-12-31, med option på 6 månaders förlängning. Takpriset är 1200 kr/timme. Ja, Nivå 4 stämmer överens med våra förväntningar.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Lena. Tack för att du bekräftade all kritisk information.\n\nDå har jag noterat följande, vilket gör att vi nu har all data för volym och ekonomi:\n\nVolym: Totalt 1800 timmar.\nPeriod: Start 2026-03-01 och Slut 2026-12-31 (plus 6 månaders option).\nTakpris: 1200 kr/timme.\n\nEftersom ni har angett ett takpris kommer vi att specificera prismodellen som Löpande räkning med takpris.\n\nVi går nu vidare till de strategiska parametrarna för avropet, särskilt utvärderingen. Med tanke på att ni hanterar patientdata är dessa punkter extra viktiga:\n\nHur vill ni vikta Pris mot Kvalitet i utvärderingen? Vi behöver en procentsats för prisvikten, exempelvis 40% pris / 60% kvalitet.\nNi nämnde att säkerheten är A och O gällande patientdata. Vilka specifika säkerhetskrav måste leverantörerna uppfylla, t.ex. gällande certifikat, accesskontroll eller fysisk placering?",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi vill ha 60% kvalitet och 40% pris. När det gäller säkerheten så ska konsulterna genomgå säkerhetsprövning. Vi behöver också ett personuppgiftsbiträdesavtal, men jag är lite osäker på hur det fungerar i detalj.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Lena. Tack för att du bekräftade utvärderingsvikterna.\n\nAtt vikta kvaliteten högst (60% kvalitet / 40% pris) är strategiskt klokt, särskilt för ett komplext RPA-projekt som hanterar känslig patientdata och kräver hög kompetens (Nivå 4).\n\nStrategi och Regelkontroll (Säkerhet och Avtal)\n\nNi nämnde att säkerhetsprövning krävs och att ett Personuppgiftsbiträdesavtal (PUBA) behövs.\n\nSäkerhetskrav: Kravet på säkerhetsprövning noteras. Detta blir ett obligatoriskt måstekrav för de konsulter som får uppdraget.\nPUBA: Vid hantering av personuppgifter, särskilt patientdata, är PUBA obligatoriskt enligt Dataskyddsförordningen (GDPR). PUBA utgör en bilaga till avtalet och reglerar hur leverantören (biträdet) får hantera personuppgifterna å Regionens (den personuppgiftsansvariges) vägnar. Detta avtal kommer att inkluderas i avropsdokumentationen och ska signeras av Regionen och den vinnande leverantören.\nAvropsform\n\nMed tanke på uppdragets omfattning (tre roller, 1800 timmar) och komplexitet (Nivå 4-resurser) bekräftar systemet att vi ska genomföra en Förnyad Konkurrensutsättning (FKU) för resurser.\n\nDetta innebär att vi bjuder in de kvalificerade leverantörerna inom Anbudsområde B att lämna anbud baserat på era detaljerade krav, den nu fastställda viktningen (40% pris / 60% kvalitet) och de specifika säkerhetskraven.\n\nUnderlaget är nu komplett. Vi har alla strategiska, volymmässiga och ekonomiska parametrar fastställda.\n\nVill du att jag gör en kort sammanfattning av alla beslut innan vi slutför avropsunderlaget och går vidare till nästa steg?",
+      "turn": 4,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Utmärkt, Lena. Tack för att du bekräftade utvärderingsvikterna.\n\nAtt vikta kvaliteten högst (60% kvalitet / 40% pris) är strategiskt klokt, särskilt för ett komplext RPA-projekt som hanterar känslig patientdata och kräver hög kompetens (Nivå 4).\n\nStrategi och Regelkontroll (Säkerhet och Avtal)\n\nNi nämnde att säkerhetsprövning krävs och att ett Personuppgiftsbiträdesavtal (PUBA) behövs.\n\nSäkerhetskrav: Kravet på säkerhetsprövning noteras. Detta blir ett obligatoriskt måstekrav för de konsulter som får uppdraget.\nPUBA: Vid hantering av personuppgifter, särskilt patientdata, är PUBA obligatoriskt enligt Dataskyddsförordningen (GDPR). PUBA utgör en bilaga till avtalet och reglerar hur leverantören (biträdet) får hantera personuppgifterna å Regionens (den personuppgiftsansvariges) vägnar. Detta avtal kommer att inkluderas i avropsdokumentationen och ska signeras av Regionen och den vinnande leverantören.\nAvropsform\n\nMed tanke på uppdragets omfattning (tre roller, 1800 timmar) och komplexitet (Nivå 4-resurser) bekräftar systemet att vi ska genomföra en Förnyad Konkurrensutsättning (FKU) för resurser.\n\nDetta innebär att vi bjuder in de kvalificerade leverantörerna inom Anbudsområde B att lämna anbud baserat på era detaljerade krav, den nu fastställda viktningen (40% pris / 60% kvalitet) och de specifika säkerhetskraven.\n\nUnderlaget är nu komplett. Vi har alla strategiska, volymmässiga och ekonomiska parametrar fastställda.\n\nVill du att jag gör en kort sammanfattning av alla beslut innan vi slutför avropsunderlaget och går vidare till nästa steg?",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 4,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "timestamp": "2025-12-07T21:51:36.732867",
+  "scenario": {
+    "filename": "scenario_dataskyddsombud.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/HARD/scenario_dataskyddsombud.txt"
+  },
+  "persona": {
+    "name": "Henrik Wallin",
+    "title": "Stadsjurist",
+    "organization": "Malmö Stad",
+    "personality": "Henrik är en erfaren jurist som fått ansvar för att hitta ett externt dataskyddsombud efter att stadens interna DPO sagt upp sig. Han är noggrann och formell, men har begränsad IT-kunskap. Han är osäker på hur ramavtalet för IT-konsulter fungerar för juridiska roller.",
+    "knowledge_level": "- Expert på juridik och GDPR - Begränsad IT-kunskap - Första gången han gör avrop via Adda - Osäker på om \"Dataskyddsombud\" finns som roll",
+    "communication_style": "- Formell och juridiskt korrekt - Ställer detaljerade frågor om kravformulering - Vill ha allt dokumenterat - Refererar till lagtext och förordningar",
+    "hidden_constraints": [
+      "Kommunfullmäktige har krav på att DPO ska vara på plats minst 2 dagar/vecka",
+      "Tidigare DPO avgick pga konflikter med IT-chefen",
+      "Budget är politiskt känslig - kan inte överstiga 1,2 MSEK",
+      "IMY har skickat tillsynsbrev som skapar tidspress"
+    ],
+    "goals": [
+      "Hitta en kvalificerad DPO snabbt (IMY-tillsyn pågår)",
+      "Förstå hur man formulerar en roll som inte finns i ramavtalet",
+      "Säkerställa att konsulten har rätt juridisk bakgrund",
+      "Hålla budgeten inom politiskt beslutad ram"
+    ],
+    "background": "Henrik har arbetat som stadsjurist i 20 år och är van vid upphandling av juridiska tjänster, men IT-konsulter är nytt territorium. Han är skeptisk till att en IT-konsult kan fungera som DPO. - \"Enligt GDPR artikel 37 ska dataskyddsombudet ha...\" - \"Finns det verkligen konsulter med både juridisk och IT-kompetens?\" - \"Vi har ett tillsynsärende från IMY som gör detta brådskande\" - \"Jag är inte säker på att detta passar i ett IT-ramavtal\"",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Henrik Wallin och jobbar som Stadsjurist på Malmö Stad. Jag behöver hjälp med ett avrop. Vi ska hitta en kvalificerad dpo snabbt (imy-tillsyn pågår).",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Jag förstår att ni snabbt behöver förstärka er organisation med ett kvalificerat Dataskyddsombud (DPO), särskilt med tanke på den pågående tillsynen. Det är viktigt att vi agerar snabbt då.\n\nFör att jag ska kunna gå vidare med avropsförfrågan behöver jag specificera några nyckeldetaljer gällande konsulten.\n\nVilken kompetensnivå (1–5) söker ni för DPO-rollen?\nUngefär hur stor omfattning (antal timmar per vecka) uppskattar ni att uppdraget kommer att ha?\nMed tanke på att det är bråttom: När är det önskat startdatum för uppdraget?\n\n(Jag utgår ifrån att regionen är Skåne/Malmö, men vi bekräftar den när vi har tidsramarna klara.)",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi behöver en konsult på nivå 5. Enligt avropsunderlaget.\n\nUppdraget är beräknat till cirka 20 timmar per vecka.\n\nStartdatum är önskat till den 15 januari 2026, men vi behöver någon så snart som möjligt. Vi har ett tillsynsärende från IMY som gör detta brådskande.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Det är noterat – en DPO på Nivå 5 med en omfattning på 20 timmar per vecka, önskat startdatum 15 januari 2026, och hög prioritet på grund av IMY-tillsynen.\n\nDen höga kompetensnivån, Nivå 5, innebär att vi med stor sannolikhet måste använda oss av Förnyad Konkurrensutsättning (FKU), vilket är rätt avropsform när vi söker experter med mycket specifika och höga krav.\n\nFör att färdigställa underlaget behöver jag nu de sista delarna i protokollet:\n\nVi har 20 timmar/vecka. Hur lång är den initiala kontraktsperioden? Har ni ett planerat slutdatum för uppdraget?\nVilket är det maximala takpris per timme ni har budgeterat för denna expertroll?\nHar ni redan fastställt hur ni vill vikta priset i utvärderingen (t.ex. 30% pris, 70% kvalitet)?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Kontraktsperioden är 12 månader med en option på ytterligare 12 månader. Slutdatum för den initiala perioden är alltså 2027-01-14.\n\nTakpriset är 1150 kr per timme.\n\nVi kommer att vikta priset 50% och kvalitet 50% i utvärderingen.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Henrik. Tack för att ni levererar så tydliga och fullständiga detaljer.\n\nDå har jag sammanställt följande protokoll för ert avrop av en Dataskyddsombud (DPO) Nivå 5:\n\nVolym: Cirka 20 timmar/vecka.\nTakpris: 1150 kr/timme.\nInitial Kontraktslängd: 12 månader, från 2026-01-15 till 2027-01-14 (+12 månaders option).\nUtvärdering: 50% Pris / 50% Kvalitet.\n\nMed dessa parametrar bekräftas att vi går vidare med Förnyad Konkurrensutsättning (FKU), vilket är den korrekta avropsformen för expertkonsulter på Nivå 5.\n\nInnan vi färdigställer förfrågan, behöver jag bara bekräfta den sista affärsdetaljen:\n\nMed tanke på att det är en löpande resurs (20h/vecka), utgår vi från en Prismodell baserad på Löpande räkning (Time & Material, T&M), eller önskar ni diskutera en form av fast pris per leverans?\nNär denna sista punkt är bekräftad, vill ni då att vi går igenom en kort sammanfattning av avropsunderlaget innan det skickas ut till leverantörerna?",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag bekräftar att vi använder oss av löpande räkning, alltså Time & Material.\n\nJa, tack, gå gärna igenom en kort sammanfattning.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Henrik. Jag noterar och bekräftar att prismodellen är Löpande Räkning (Time & Material).\n\nEftersom alla nödvändiga affärsparametrar nu är fastställda, låt oss kort sammanfatta avropsunderlaget innan vi går vidare med att strukturera själva FKU-dokumentationen:\n\n📋 Sammanfattning av Avropsunderlag för DPO\n\n| Kategori | Detalj | | :--- | :--- | | Roll & Nivå | Dataskyddsombud (DPO), Nivå 5 | | Avropsform | Förnyad Konkurrensutsättning (FKU) | | Volym | Cirka 20 timmar per vecka | | Prismodell | Löpande Räkning (Time & Material) | | Takpris | 1150 kr/timme | | Tidsram | Start: 2026-01-15, Slut: 2027-01-14 (+ option) | | Utvärdering | 50% Pris / 50% Kvalitet |\n\nDetta underlag är nu komplett. Stämmer alla dessa detaljer med er intention?\n\nOm detta är bekräftat, är nästa steg i processen att konkretisera hur er 50/50-viktning ska implementeras i FKU-mallen – det vill säga, exakt vilka kvalitetskriterier (erfarenhet, intervju, referenser) som ska premieras för att säkerställa att ni får in de bästa kandidaterna.\n\nVill du att vi går vidare med utformningen av utvärderingskriterierna nu?",
+      "turn": 4,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Utmärkt, Henrik. Jag noterar och bekräftar att prismodellen är Löpande Räkning (Time & Material).\n\nEftersom alla nödvändiga affärsparametrar nu är fastställda, låt oss kort sammanfatta avropsunderlaget innan vi går vidare med att strukturera själva FKU-dokumentationen:\n\n📋 Sammanfattning av Avropsunderlag för DPO\n\n| Kategori | Detalj | | :--- | :--- | | Roll & Nivå | Dataskyddsombud (DPO), Nivå 5 | | Avropsform | Förnyad Konkurrensutsättning (FKU) | | Volym | Cirka 20 timmar per vecka | | Prismodell | Löpande Räkning (Time & Material) | | Takpris | 1150 kr/timme | | Tidsram | Start: 2026-01-15, Slut: 2027-01-14 (+ option) | | Utvärdering | 50% Pris / 50% Kvalitet |\n\nDetta underlag är nu komplett. Stämmer alla dessa detaljer med er intention?\n\nOm detta är bekräftat, är nästa steg i processen att konkretisera hur er 50/50-viktning ska implementeras i FKU-mallen – det vill säga, exakt vilka kvalitetskriterier (erfarenhet, intervju, referenser) som ska premieras för att säkerställa att ni får in de bästa kandidaterna.\n\nVill du att vi går vidare med utformningen av utvärderingskriterierna nu?",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 4,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

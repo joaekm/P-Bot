@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Henrik Wallins berättelse
+║  Stadsjurist på Malmö Stad
+║  
+║  Samtal: 8 meddelanden
+║  Datum: 2025-12-07 23:55
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, det här med P-Bot från Adda... Jag vet inte riktigt vad jag ska säga. Jag var ju jävligt stressad när jag började, alltså. IMY flåsar oss i nacken, den där förbaskade DPO:n stack mitt i alltihop, och kommunfullmäktige har sina åsikter om allt. Jag hoppades på att det skulle gå snabbt och smidigt, att P-Bot bara skulle spotta ut en lista med lämpliga kandidater så jag kunde börja intervjua direkt.
+
+Men det var ju inte riktigt så det funkade. Det var en massa frågor, jag fattar inte varför den behövde veta så mycket. Kompetensnivåer och timvolymer... Visst, jag fattar att de behövde veta vad vi ville ha, men jag kände mig hela tiden som att jag var lite efter, att jag borde ha förberett mig bättre. Speciellt när det kom till takpriset och den där viktningen mellan pris och kvalitet. Alltså, jag har ju budgeten klar för mig, men jag tänker inte på sånt i procent. Jag vill bara ha en bra DPO som kan fixa det här IMY-ärendet så snabbt som möjligt.
+
+Det som var bra, det måste jag säga, var att den snappade upp att det var bråttom med tanke på IMY-ärendet. Det gav mig ändå en känsla av att den förstod vad som stod på spel. Och att den inkluderade indexjusteringar var ju bra, det är ju sånt man lätt glömmer bort. Det var också skönt att få allt sammanfattat i slutet. Men det kändes ändå som att det tog en evighet. Hela tiden var det en massa "För att kunna matcha rätt specialist – vilken kompetensnivå…?" och "För att färdigställa avropsunderlaget har jag följande frågor:". Alltså, det är en robot, borde den inte bara kunna *veta* sånt?
+
+När det väl var klart kändes det mest som en lättnad. Jag vet ju inte om det kommer att resultera i någon bra DPO i slutändan, men jag har i alla fall gjort det jag kan för att sätta igång processen. Jag skulle nog använda tjänsten igen, men nästa gång ska jag vara bättre förberedd och kanske till och med ta med mig någon från IT-avdelningen. Jag är jurist, inte någon jävla IT-expert."

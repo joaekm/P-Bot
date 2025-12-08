@@ -1,0 +1,45 @@
+{
+  "timestamp": "2025-12-07T21:39:28.145848",
+  "scenario": {
+    "filename": "scenario_dataanalytiker.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_dataanalytiker.txt"
+  },
+  "persona": {
+    "name": "Johan Eriksson",
+    "title": "Verksamhetsutvecklare",
+    "organization": "Stockholms läns landsting",
+    "personality": "Johan är analytisk och faktadriven. Han tror på datadrivna beslut och vill modernisera hur landstinget arbetar med information. Han kan vara lite teknisk i sin kommunikation.",
+    "knowledge_level": "- Expert på verksamhetsutveckling - God förståelse för dataanalys - Medelhög kunskap om ramavtal",
+    "communication_style": "- Analytisk och detaljerad - Ställer specifika tekniska frågor - Vill förstå metodiken - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Har stora datamängder som ingen analyserar",
+      "Ledningen kräver bättre beslutsunderlag",
+      "Vill bygga upp intern kompetens på sikt"
+    ],
+    "goals": [
+      "Hitta en analytiker som kan hantera vårddata",
+      "Förstå hur man utvärderar teknisk kompetens",
+      "Säkerställa att konsulten kan kommunicera med icke-tekniker"
+    ],
+    "background": "Johan har arbetat med verksamhetsutveckling i 20 år och ser nu möjligheten att använda data på ett helt nytt sätt. Han har fått budget för att starta ett analysprojekt.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Johan Eriksson och jobbar som Verksamhetsutvecklare på Stockholms läns landsting. Jag behöver hjälp med ett avrop. Vi ska hitta en analytiker som kan hantera vårddata.",
+      "turn": 1
+    }
+  ],
+  "final_state": {
+    "ui_directives": {},
+    "current_state": {},
+    "message": "Konversation avbruten"
+  },
+  "summary": {
+    "total_turns": 1,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "unknown"
+  }
+}

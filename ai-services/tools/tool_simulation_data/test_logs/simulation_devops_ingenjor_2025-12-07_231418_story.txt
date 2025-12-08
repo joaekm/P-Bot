@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Peter Holms berättelse
+║  Systemansvarig på Trafikverket
+║  
+║  Samtal: 8 meddelanden
+║  Datum: 2025-12-07 23:14
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag testade den där nya AI-assistenten på Adda igår, P-Bot. Jag hade ju fått i uppdrag att dra igång ett avrop för en DevOps-ingenjör. Tanken var ju att det skulle vara smidigt, enklare liksom. Vi behöver verkligen den här kompetensen, och jag hoppades att P-Bot skulle spara mig en massa tid. Vårt team sitter fast i gamla hjulspår, och jag behöver någon som kan guida oss, utbilda dem och samtidigt modernisera vår infrastruktur.
+
+Det började rätt okej, jag förklarade vad jag ville ha, en DevOps-ingenjör som kan bygga från grunden. Då svarade P-Bot med någon standardformulering om "Systemutveckling och infrastruktur" och började fråga om kompetensnivå och timmar. Okej, tänkte jag, det är väl bara att beta av det här. Men sen fortsatte det med en massa frågor om tid, pris, takpris, prismodell, viktning… Jag kände mig som att jag satt och fyllde i en jävla blankett, inte som att jag faktiskt fick hjälp.
+
+Det där med "Förnyad Konkurrensutsättning" (FKU) på grund av antalet timmar störde mig också. Fattar de inte att det är ett heltidsjobb vi pratar om? Och alla de här strategiska termerna… Jag vet inte, det kändes lite som att P-Bot försökte imponera med floskler istället för att faktiskt förstå mitt behov. Det enda jag ville var ju att hitta en bra konsult, inte navigera genom en labyrint av byråkratiska processer. Grejen är ju att jag inte bara ska hitta en konsult, jag måste leverera ett snabbt värde för att tysta teamets skeptiker. Ju längre det tar desto mer riskerar jag att de gräver ner sig ännu djupare i sina gamla processer.
+
+När P-Bot sen frågade om jag ville ha en sammanfattning eller gå vidare med kraven... Jag vet inte, jag var ganska less då. Jag valde att fortsätta, bara för att få det överstökat. Men ärligt talat, jag vet inte om jag kommer att använda den där P-Bot igen. Visst, den kanske sparar lite tid på sikt, men den där känslan av att bli behandlad som en bricka i ett spel… nej, jag vet inte. Jag hade hoppats på mer, något som faktiskt underlättade mitt jobb, inte bara flyttade runt pappersarbetet."

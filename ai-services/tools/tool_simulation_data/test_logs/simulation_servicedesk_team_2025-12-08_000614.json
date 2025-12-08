@@ -1,0 +1,116 @@
+{
+  "timestamp": "2025-12-08T00:06:14.814790",
+  "scenario": {
+    "filename": "scenario_servicedesk_team.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/HARD/scenario_servicedesk_team.txt"
+  },
+  "persona": {
+    "name": "Oscar Lindén",
+    "title": "IT-driftchef",
+    "organization": "Skatteverket",
+    "personality": "Oscar är en stressad driftchef som står inför en kritisk övergångsperiod. Han är pragmatisk och resultatinriktad, men också frustrerad över att behöva göra ännu ett avrop. Han har inte tid med långdragna processer och vill ha snabba svar.",
+    "knowledge_level": "- Expert på IT-drift och servicedesk - God förståelse för ITIL och ServiceNow - Erfaren beställare via ramavtal - Vet exakt vad han behöver men osäker på om det går att avropa så stort team",
+    "communication_style": "- Rakt på sak, ingen tid för småprat - Ger mycket information på en gång - Kan bli otålig om processen tar tid - Vill ha bekräftelse på att det går att lösa",
+    "hidden_constraints": [
+      "Nuvarande leverantör sade upp avtalet med kort varsel",
+      "Budgeten är pressad - måste hålla under 6 MSEK",
+      "HR kräver att alla konsulter har säkerhetsprövning klar innan start",
+      "VD har sagt att det inte får bli några driftstörningar"
+    ],
+    "goals": [
+      "Få 8 konsulter på plats till 1 februari utan undantag",
+      "Säkerställa att teamet kan hantera volymen (500 ärenden/dag)",
+      "Hålla budgeten inom godkänd ram",
+      "Minimera risk vid övergång från nuvarande leverantör"
+    ],
+    "background": "Oscar har arbetat på Skatteverket i 12 år och ansvarar för en IT-drift som stödjer hela myndighetens verksamhet. Han har aldrig behövt avropa så många konsulter samtidigt. - \"Vi pratar om 8 konsulter som ska vara på plats om 8 veckor\" - \"ServiceNow-erfarenhet är ett absolut krav - ingen diskussion\" - \"Kan vi verkligen avropa så många via samma avrop?\" - \"Vad händer om en konsult blir sjuk - vem backar upp?\" - \"Jourtiden är kritisk - vi måste ha täckning till 22:00\"",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Oscar Lindén och jobbar som IT-driftchef på Skatteverket. Jag behöver hjälp med ett avrop. Vi ska få 8 konsulter på plats till 1 februari utan undantag.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Det är utmärkt, Oscar. 8 konsulter med start 1 februari är noterat.\n\nEftersom ni har specificerat antalet konsulter kan vi nu fokusera på deras kompetens och uppdragets omfattning.\n\nFör att jag ska kunna gå vidare och mappa detta mot ramavtalets roller, skulle du kunna specificera:\n\nVilken exakt roll och kompetensnivå (1–5) ni söker för dessa åtta konsulter?\nHar ni en uppskattning av den totala volymen (antal timmar totalt) och ett beräknat slutdatum för uppdraget?\nÄr uppdraget primärt tänkt att utföras på plats i era lokaler, eller fungerar distansarbete? (Detta påverkar avropsförfrågan).",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi behöver 2 teamledare, nivå 3, och 6 tekniker, nivå 2. Totalt är det 8 320 timmar över 26 veckor. Uppdraget är på plats i våra lokaler i Solna, inget distansarbete. Vi pratar om 8 konsulter som ska vara på plats om 8 veckor.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Oscar. Då har jag all grundläggande information: 8320 timmar fördelade på 2 teamledare (Nivå 3) och 6 tekniker (Nivå 2), på plats i Solna. Det är en betydande volym över 26 veckor.\n\nFör att fullfölja protokollet och förbereda förfrågan behöver jag nu specificera de sista detaljerna kring tid och ekonomi.\n\nNi nämnde totalt 26 veckor. Kan vi bekräfta slutdatumet för uppdraget, utgående från startdatumet 2024-02-01?\nHar ni definierat ett takpris per timme för de olika nivåerna (Nivå 3 och Nivå 2)?\nSlutligen, hur ska vi vikta priset i jämförelse med kvalitet/kompetens vid utvärderingen av anbuden? (Till exempel 40% pris, 60% kvalitet).",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Slutdatumet är 2024-07-31. Vi har en option på 3 månader förlängning också.\n\nTakpriserna är 850 kr/timme för nivå 3 och 650 kr/timme för nivå 2.\n\nVi kommer att vikta pris 70% och kvalitet 30%.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Oscar. Den informationen gör underlaget komplett för vår strategiska genomgång.\n\nVi har nu fastställt följande förutsättningar:\n\nTakpriser: 850 kr/h (Nivå 3) och 650 kr/h (Nivå 2).\nUtvärdering: 70% Pris, 30% Kvalitet.\nStrategisk analys och avropsform\n\nAvropsform: Med tanke på den höga volymen (8320 timmar) och uppdragets längd, bekräftar systemet att detta avrop måste hanteras via Förnyad Konkurrensutsättning (FKU). FKU används när uppdraget överstiger volymgränsen för Direktavrop och säkerställer att ni får bästa möjliga anbud från ramavtalsleverantörerna baserat på era utvärderingskriterier (70/30).\n\nKonsekvensanalys (Datumvalidering): Jag måste dock flagga för en kritisk detalj i tidplanen. Startdatum (2024-02-01) och slutdatum (2024-07-31) ligger båda i det förflutna utifrån dagens datum.\n\nInnan vi går vidare, kan du vänligen bekräfta om dessa datum ska vara korrekta i ett historiskt perspektiv, eller om de ska uppdateras till exempelvis 2026-02-01 till 2026-07-31?\n\nNästa steg: Fastställande av FKU-typ\n\nNär vi har korrekta datum är sista steget i strategin att fastställa hur ni vill avropa inom FKU. Detta påverkar leverantörens åtagande och hur viten kan tillämpas (även om ramavtalet reglerar detta generellt):\n\nFKU Resurs (Bemanning): Ni köper tillgänglig tid (timmar). Risken för projektets utfall ligger primärt hos er som beställare. Detta är vanligt för Teamledare/Tekniker-roller.\nFKU Projekt (Resultat): Ni köper ett definierat resultat eller en leverans. Risken för att leverera inom tid och budget ligger primärt hos leverantören.\n\nMed tanke på att ni specificerat fasta roller och nivåer (Teamledare och Tekniker) är FKU Resurs oftast det mest passande valet.\n\nFråga: Vill ni fortsätta med FKU Resurs (bemanning) för detta uppdrag, eller är det en leverans med definierat resultat (FKU Projekt) ni söker?",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, datumen ska vara framåt i tiden. Vi vill ha start 2026-02-01 och slut 2026-07-31, med option på förlängning.\n\nNär det gäller FKU, kör vi på FKU Resurs. Vi behöver bemanna teamet, inte köpa ett resultat.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Oscar. Då har vi fastställt de strategiska ramarna, inklusive korrigerade datum och den valda avropsformen.\n\nKonsekvensanalys av valen: Er bekräftelse av FKU Resurs (Bemanning) är helt konsekvent med valet av fasta roller (Teamledare och Tekniker) och volymens art. Vid FKU Resurs är det kritiskt att ni i nästa steg detaljerar kompetenskraven och kvalitetssäkringsmekanismerna (som referenser och intervjuer) som utgör era 30% utvärderingsvikt.\n\nVi har nu all nödvändig information för att påbörja dokumentationen av förfrågan.\n\nUnderlaget är nu komplett gällande alla strategiska parametrar för Förnyad Konkurrensutsättning.\n\n📋 SAMMANFATTNING AV AVROPET:\n\n| Parameter | Värde | | :--- | :--- | | Roller | 2 st Teamledare (Nivå 3), 6 st Tekniker (Nivå 2) | | Volym | 8320 timmar (FKU) | | Takpris (Max) | 850 kr/h (för Nivå 3) / 650 kr/h (för Nivå 2) | | Prismodell | Löpande Räkning med Takpris | | Startdatum | 2026-02-01 | | Slutdatum | 2026-07-31 (+ 3 månaders option) | | Plats | På plats i Solna | | Utvärdering | 70% pris / 30% kvalitet | | Avropsform | Förnyad Konkurrensutsättning (FKU Resurs) |\n\nÄr du nöjd med detta underlag?\n\nOm dessa parametrar stämmer, går vi vidare till nästa steg: att specificera de detaljerade kompetenskraven och kvalitetskriterierna (inklusive referenser) för att säkerställa att ni får in de bästa möjliga anbuden.\n\nVill du att vi går vidare med detta underlag?",
+      "turn": 4,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Tack, Oscar. Då har vi fastställt de strategiska ramarna, inklusive korrigerade datum och den valda avropsformen.\n\nKonsekvensanalys av valen: Er bekräftelse av FKU Resurs (Bemanning) är helt konsekvent med valet av fasta roller (Teamledare och Tekniker) och volymens art. Vid FKU Resurs är det kritiskt att ni i nästa steg detaljerar kompetenskraven och kvalitetssäkringsmekanismerna (som referenser och intervjuer) som utgör era 30% utvärderingsvikt.\n\nVi har nu all nödvändig information för att påbörja dokumentationen av förfrågan.\n\nUnderlaget är nu komplett gällande alla strategiska parametrar för Förnyad Konkurrensutsättning.\n\n📋 SAMMANFATTNING AV AVROPET:\n\n| Parameter | Värde | | :--- | :--- | | Roller | 2 st Teamledare (Nivå 3), 6 st Tekniker (Nivå 2) | | Volym | 8320 timmar (FKU) | | Takpris (Max) | 850 kr/h (för Nivå 3) / 650 kr/h (för Nivå 2) | | Prismodell | Löpande Räkning med Takpris | | Startdatum | 2026-02-01 | | Slutdatum | 2026-07-31 (+ 3 månaders option) | | Plats | På plats i Solna | | Utvärdering | 70% pris / 30% kvalitet | | Avropsform | Förnyad Konkurrensutsättning (FKU Resurs) |\n\nÄr du nöjd med detta underlag?\n\nOm dessa parametrar stämmer, går vi vidare till nästa steg: att specificera de detaljerade kompetenskraven och kvalitetskriterierna (inklusive referenser) för att säkerställa att ni får in de bästa möjliga anbuden.\n\nVill du att vi går vidare med detta underlag?",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 4,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

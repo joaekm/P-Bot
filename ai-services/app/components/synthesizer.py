@@ -1,11 +1,6 @@
 """
-Synthesizer Component - Response Generation & Entity Extraction (v5.7)
+Synthesizer Component - Response Generation & Entity Extraction (v5.6)
 Generates AI responses and extracts/updates entities from conversation.
-
-v5.7 Changes:
-- Integrated graph-based geo lookup via ContextBuilder.resolve_location()
-- Falls back to hardcoded LOCATION_TO_REGION for non-indexed cities
-- Supports alias resolution for role names via ContextBuilder.resolve_alias()
 
 v5.6 Changes:
 - Added current date injection to prevent outdated date references
@@ -44,18 +39,16 @@ from ..models import (
     EntityAction, 
     EntityChange,
     Prismodell,
-    ContextResult,
+    Utvarderingsmodell,
 )
-# Note: Utvarderingsmodell removed in v5.11 - now using pris_vikt/kvalitet_vikt
 
 logger = logging.getLogger("ADDA_ENGINE")
 
 
 # v5.8: Location to Region mapping for automatic region assignment
 # When user mentions a city, we map it to the correct Anbudsområde
-# v5.7: This is now a FALLBACK - primary lookup is via graph (ContextBuilder.resolve_location)
-LOCATION_TO_REGION_FALLBACK = {
-    # Region A - Stockholm (Anbudsområde D in taxonomy)
+LOCATION_TO_REGION = {
+    # Region A - Stockholm
     "stockholm": Region.A,
     "solna": Region.A,
     "sundbyberg": Region.A,
@@ -111,16 +104,15 @@ LOCATION_TO_REGION_FALLBACK = {
     "skellefteå": Region.G,
 }
 
-# Region names - matchar adda_taxonomy.json (MASTER)
-# OBS: Använd Region[area_code] för konvertering, ingen mappning behövs!
+# Human-readable region names for confirmation messages
 REGION_NAMES = {
-    Region.A: "Norra Norrland",
-    Region.B: "Mellersta Norrland", 
-    Region.C: "Norra Mellansverige",
-    Region.D: "Stockholm",
-    Region.E: "Västsverige",
-    Region.F: "Småland/Östergötland",
-    Region.G: "Sydsverige",
+    Region.A: "Anbudsområde A (Stockholm)",
+    Region.B: "Anbudsområde B (Östra Mellansverige)",
+    Region.C: "Anbudsområde C (Småland med öarna)",
+    Region.D: "Anbudsområde D (Sydsverige)",
+    Region.E: "Anbudsområde E (Västsverige)",
+    Region.F: "Anbudsområde F (Norra Mellansverige)",
+    Region.G: "Anbudsområde G (Mellersta och Övre Norrland)",
 }
 
 
@@ -143,7 +135,6 @@ class SynthesizerComponent:
     
     v5.5: Now responsible for entity extraction (moved from IntentAnalyzer).
     v5.6: Added missing_fields injection and completion detection.
-    v5.7: Added graph-based geo/alias resolution via ContextBuilder.
     
     Personas:
     - synthesizer_intake: Coaching, curious (for needs/roles phase)
@@ -155,7 +146,6 @@ class SynthesizerComponent:
     2. Know the tone (how to say it)
     3. Know what's missing (what to ask) - NOW from RequiredFields, not LLM!
     4. Extract/Update entities from conversation (NEW in v5.5)
-    5. Resolve geo locations via graph (NEW in v5.7)
     """
     
     # Patterns that indicate user confirmation
@@ -170,11 +160,10 @@ class SynthesizerComponent:
         r'\bvi\s+kör\b',
     ]
     
-    def __init__(self, client, model: str, prompts: Dict, context_builder=None):
+    def __init__(self, client, model: str, prompts: Dict):
         self.client = client
         self.model = model
         self.prompts = prompts
-        self.context_builder = context_builder  # v5.7: For graph lookups
     
     def _detect_user_confirmation(self, query: str) -> bool:
         """Detect if user is confirming/approving the current state."""
@@ -194,53 +183,33 @@ class SynthesizerComponent:
         self, 
         query: str,
         plan: ReasoningPlan, 
-        context: ContextResult,
+        context: Dict[str, Dict],
         current_avrop: Optional[AvropsData] = None,
         history: List[Dict] = None
     ) -> SynthesizerResult:
         """
         Generate response and extract entities.
         
-        v5.7: Now receives ContextResult with resolved graph relations.
         v5.5: Now returns SynthesizerResult with both response and avrop_changes.
-        v5.10: Early return when complete + user confirms (no LLM call).
         
         Args:
             query: Original user query
             plan: ReasoningPlan with logical analysis
-            context: ContextResult with documents AND resolved graph relations (v5.7)
+            context: Dict of doc_id -> doc_data from ContextBuilder
             current_avrop: Current AvropsData (shopping cart)
             history: Conversation history
             
         Returns:
             SynthesizerResult with response and avrop_changes
         """
-        # v5.10: Early return when session is complete and user confirms
-        # This prevents re-extraction of entities from summary
-        if current_avrop:
-            progress = AvropsProgress.calculate(current_avrop)
-            if progress.is_complete and self._detect_user_confirmation(query):
-                static_messages = self.prompts.get('static_messages', {})
-                complete_msg = static_messages.get('chat_complete', 
-                    'Underlaget är registrerat. Du kan nu generera avropsformuläret.')
-                logger.info("Session complete + user confirmed -> returning static message (no LLM)")
-                return SynthesizerResult(
-                    response=complete_msg.strip(),
-                    avrop_changes=[],
-                    updated_avrop=current_avrop
-                )
-        
         # 1. Select persona based on target_step from plan
         prompt_key = self._select_persona(plan.target_step)
         raw_prompt = self._get_prompt(prompt_key)
         
         logger.info(f"Synthesizer: persona={prompt_key}, tone={plan.tone_instruction}")
         
-        # 2. Format context documents (v5.7: use context.documents)
-        context_docs = self._format_context(context.documents)
-        
-        # 2b. v5.7: Format graph knowledge for injection
-        graph_knowledge = self._format_graph_knowledge(context)
+        # 2. Format context documents
+        context_docs = self._format_context(context)
         
         # 3. Build reasoning injection
         reasoning_injection = self._build_reasoning_injection(plan)
@@ -255,9 +224,7 @@ class SynthesizerComponent:
         history_context = self._build_history_context(history, current_avrop)
         
         # 7. Build final prompt with entity extraction instructions
-        # v5.15: Include strategic_input for fas 1 and 4 (harmless for other phases)
-        strategic_input = plan.strategic_input or "Ingen strategisk insikt tillgänglig."
-        prompt = raw_prompt.format(context_docs=context_docs, strategic_input=strategic_input)
+        prompt = raw_prompt.format(context_docs=context_docs)
         
         # 8. Build date context (v5.6 - bot needs to know current date)
         today = date.today()
@@ -271,8 +238,6 @@ class SynthesizerComponent:
 {prompt}
 
 {date_context}
-
-{graph_knowledge}
 
 {reasoning_injection}
 
@@ -419,14 +384,6 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
                     new_id = f"res_{len(avrop.resources) + 1}"
                     change.new_resource.id = new_id
                     
-                    # v5.7: Resolve role alias via graph (e.g., "Klick-konsult" -> "Qlik-konsult")
-                    if self.context_builder:
-                        canonical_role = self.context_builder.resolve_alias(change.new_resource.roll)
-                        if canonical_role:
-                            original_role = change.new_resource.roll
-                            change.new_resource.roll = canonical_role
-                            logger.info(f"Resolved role alias: '{original_role}' -> '{canonical_role}'")
-                    
                     # v5.6: Infer level from "Senior" prefix if level not set
                     if change.new_resource.level is None:
                         role_lower = change.new_resource.roll.lower()
@@ -479,57 +436,24 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
                         except ValueError:
                             logger.warning(f"Invalid prismodell value: {value}")
                     
-                    # v5.11: Handle pris_vikt/kvalitet_vikt (numeric weights)
-                    elif mapped_field == "pris_vikt" and value is not None:
+                    # Handle utvarderingsmodell enum
+                    elif mapped_field == "utvarderingsmodell" and value:
                         try:
-                            pris_vikt = int(value)
-                            avrop.pris_vikt = max(0, min(100, pris_vikt))
-                            avrop.kvalitet_vikt = 100 - avrop.pris_vikt
-                            logger.info(f"Set pris_vikt: {avrop.pris_vikt}%, kvalitet_vikt: {avrop.kvalitet_vikt}%")
-                        except (ValueError, TypeError):
-                            logger.warning(f"Invalid pris_vikt value: {value}")
-                    
-                    elif mapped_field == "kvalitet_vikt" and value is not None:
-                        try:
-                            kvalitet_vikt = int(value)
-                            avrop.kvalitet_vikt = max(0, min(100, kvalitet_vikt))
-                            avrop.pris_vikt = 100 - avrop.kvalitet_vikt
-                            logger.info(f"Set kvalitet_vikt: {avrop.kvalitet_vikt}%, pris_vikt: {avrop.pris_vikt}%")
-                        except (ValueError, TypeError):
-                            logger.warning(f"Invalid kvalitet_vikt value: {value}")
+                            avrop.utvarderingsmodell = Utvarderingsmodell(value)
+                            logger.info(f"Set utvarderingsmodell: {value}")
+                        except ValueError:
+                            logger.warning(f"Invalid utvarderingsmodell value: {value}")
                     
                     # v5.8: Handle location -> also set region automatically
-                    # v5.7: Try graph lookup first, then fallback to hardcoded dict
                     elif mapped_field == "location_text" and value:
                         avrop.location_text = value
-                        location_resolved = False
-                        
-                        # 1. Try graph lookup (via ContextBuilder)
-                        if self.context_builder:
-                            geo_result = self.context_builder.resolve_location(str(value))
-                            if geo_result:
-                                area_code = geo_result.get("area_code")
-                                area_name = geo_result.get("area_name")
-                                county = geo_result.get("county")
-                                
-                                # Direkt enum-lookup (taxonomy och enum använder samma koder)
-                                if area_code in Region.__members__:
-                                    avrop.region = Region[area_code]
-                                    avrop.anbudsomrade = f"{area_code} – {area_name}"
-                                    logger.info(f"Graph lookup: '{value}' -> {county} -> Anbudsområde {area_code} ({area_name})")
-                                    location_resolved = True
-                        
-                        # 2. Fallback to hardcoded dict
-                        if not location_resolved:
-                            location_lower = str(value).lower().strip()
-                            if location_lower in LOCATION_TO_REGION_FALLBACK:
-                                avrop.region = LOCATION_TO_REGION_FALLBACK[location_lower]
-                                region_name = REGION_NAMES.get(avrop.region, avrop.region.value)
-                                avrop.anbudsomrade = f"{avrop.region.value} – {region_name}"
-                                logger.info(f"Fallback mapping: '{value}' to {region_name}")
-                                location_resolved = True
-                        
-                        if not location_resolved:
+                        # Try to map to region
+                        location_lower = str(value).lower().strip()
+                        if location_lower in LOCATION_TO_REGION:
+                            avrop.region = LOCATION_TO_REGION[location_lower]
+                            region_name = REGION_NAMES.get(avrop.region, avrop.region.value)
+                            logger.info(f"Mapped location '{value}' to {region_name}")
+                        else:
                             logger.info(f"Updated location_text: {value} (no region mapping found)")
                     
                     elif hasattr(avrop, mapped_field):
@@ -608,9 +532,6 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
         else:
             lines.append("\nℹ️ INSTRUKTION: Ge ett informativt, faktabaserat svar.")
         
-        # v5.15: Strategic input (always present)
-        lines.append(f"\n🎯 STRATEGISK INSIKT: {plan.strategic_input or 'Ingen strategisk insikt tillgänglig.'}")
-        
         return "\n".join(lines)
     
     def _format_context(self, context: Dict[str, Dict]) -> str:
@@ -636,105 +557,29 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
         
         return "\n\n".join(docs)
     
-    def _format_graph_knowledge(self, context: ContextResult) -> str:
-        """
-        Format resolved graph relations for the prompt.
-        
-        v5.7: Injects geo/role/alias/rule knowledge from the knowledge graph.
-        This is the KEY integration point where learnings become actionable.
-        """
-        if not context.has_graph_knowledge():
-            return ""
-        
-        lines = ["VERIFIERAD KUNSKAP FRÅN GRAFEN (använd denna info!):"]
-        
-        # Geographic mappings - CRITICAL for location → anbudsområde
-        if context.resolved_locations:
-            lines.append("\n📍 GEOGRAFISK MAPPNING (korrekt anbudsområde):")
-            for loc in context.resolved_locations:
-                lines.append(f"  ✓ {loc.city} ligger i {loc.county}")
-                lines.append(f"    → Tillhör Anbudsområde {loc.area_code}: {loc.area_name}")
-        
-        # Role mappings
-        if context.resolved_roles:
-            lines.append("\n👤 ROLLMAPPNING (korrekt kompetensområde):")
-            for role in context.resolved_roles:
-                lines.append(f"  ✓ {role.role} → {role.kompetensomrade}")
-        
-        # Alias mappings - for normalizing user input
-        if context.resolved_aliases:
-            lines.append("\n🔄 NAMNÖVERSÄTTNING (använd kanoniskt namn):")
-            for alias, canonical in context.resolved_aliases.items():
-                lines.append(f"  ✓ \"{alias}\" = \"{canonical}\"")
-        
-        # Learned business rules
-        if context.learned_rules:
-            lines.append("\n📋 AFFÄRSREGLER:")
-            for rule in context.learned_rules[:10]:  # Max 10
-                lines.append(f"  • {rule.subject} {rule.predicate} {rule.object}")
-        
-        return "\n".join(lines)
-    
     def _build_avrop_context(self, avrop: Optional[AvropsData]) -> str:
-        """
-        Build avrop context to prevent re-asking and show current state.
-        
-        v5.11: Now includes ALL fields (prismodell, utvarderingsmodell, end_date, etc.)
-        """
+        """Build avrop context to prevent re-asking and show current state."""
         if not avrop:
             return "\nNUVARANDE VARUKORG: (tom)"
         
         lines = ["\nNUVARANDE VARUKORG (fråga INTE efter detta igen):"]
         
-        # Resources with all fields
         if avrop.resources:
             lines.append("Resurser:")
             for res in avrop.resources:
                 level_str = f"Nivå {res.level}" if res.level else "Nivå ej angiven"
-                kompetens_str = f" [{res.kompetensomrade}]" if res.kompetensomrade else ""
-                lines.append(f"  - {res.roll} ({level_str}){kompetens_str} x{res.antal}")
+                lines.append(f"  - {res.roll} ({level_str}) x{res.antal}")
         
-        # Location & Region
         if avrop.location_text:
             lines.append(f"Ort: {avrop.location_text}")
-        if avrop.region:
-            lines.append(f"Region: Anbudsområde {avrop.region.value}")
-        if avrop.anbudsomrade:
-            lines.append(f"Anbudsområde: {avrop.anbudsomrade}")
-        
-        # Volume & Dates
         if avrop.volume:
             lines.append(f"Volym: {avrop.volume} timmar")
         if avrop.start_date:
             lines.append(f"Startdatum: {avrop.start_date}")
-        if avrop.end_date:
-            lines.append(f"Slutdatum: {avrop.end_date}")
-        
-        # Pricing
         if avrop.takpris:
             lines.append(f"Takpris: {avrop.takpris} kr/h")
-        if avrop.prismodell:
-            lines.append(f"Prismodell: {avrop.prismodell.value}")
-        
-        # Evaluation (v5.11: numeric weights)
-        if avrop.pris_vikt is not None and avrop.kvalitet_vikt is not None:
-            lines.append(f"Utvärdering: {avrop.pris_vikt}% pris / {avrop.kvalitet_vikt}% kvalitet")
-        
-        # Avrop type
         if avrop.avrop_typ:
             lines.append(f"Avropstyp: {avrop.avrop_typ.value}")
-        
-        # Descriptions (for FKU)
-        if avrop.uppdragsbeskrivning:
-            lines.append(f"Uppdragsbeskrivning: {avrop.uppdragsbeskrivning[:200]}...")
-        if avrop.resultatbeskrivning:
-            lines.append(f"Resultatbeskrivning: {avrop.resultatbeskrivning[:200]}...")
-        
-        # Flags
-        if avrop.hanterar_personuppgifter is not None:
-            lines.append(f"Hanterar personuppgifter: {'Ja' if avrop.hanterar_personuppgifter else 'Nej'}")
-        if avrop.sakerhetsklassad is not None:
-            lines.append(f"Säkerhetsklassad: {'Ja' if avrop.sakerhetsklassad else 'Nej'}")
         
         return "\n".join(lines)
     
@@ -751,7 +596,7 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
         if avrop.resources:
             for res in avrop.resources:
                 level_str = f"Nivå {res.level}" if res.level else "nivå ej angiven"
-                antal_str = f"{res.antal} st " if (res.antal or 0) > 1 else ""
+                antal_str = f"{res.antal} st " if res.antal > 1 else ""
                 lines.append(f"• Roll: {antal_str}{res.roll}, {level_str}")
         
         # Volume and dates
@@ -830,7 +675,7 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
         date_fields = [f for f in progress.missing_fields if "date" in f.lower() or "datum" in f.lower()]
         region_fields = [f for f in progress.missing_fields if "region" in f.lower()]
         strategy_fields = [f for f in progress.missing_fields 
-                          if "prismodell" in f.lower() or "pris_vikt" in f.lower() or "kvalitet_vikt" in f.lower()]
+                          if "prismodell" in f.lower() or "utvarderingsmodell" in f.lower()]
         other_fields = [f for f in progress.missing_fields 
                        if f not in level_fields and f not in volume_fields 
                        and f not in date_fields and f not in region_fields
@@ -877,18 +722,17 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
         
         v5.7: Enhanced to detect bot recommendations for confirmation logic.
         v5.8: Added start_date context for end_date calculation.
-        v5.11: Full history - no truncation (Gemini has 1M token context)
         """
         if not history:
             return ""
         
-        lines = ["\nKONVERSATIONSHISTORIK (hela konversationen):"]
+        lines = ["\nKONVERSATIONSHISTORIK (senaste meddelanden):"]
         last_recommendation = None
         recommendation_type = None
         
-        for msg in history:  # Full history - Gemini can handle it
+        for msg in history[-6:]:  # Last 6 messages for more context
             role = msg.get('role', 'unknown').upper()
-            content = msg.get('content', '')  # Full content
+            content = msg.get('content', '')[:300]  # More content
             lines.append(f"{role}: {content}")
             
             # Detect bot recommendations
@@ -903,7 +747,12 @@ Skriv först ditt naturliga svar, sedan JSON-blocket.
                     elif 'fast pris' in content_lower and 'timpris' not in content_lower:
                         last_recommendation = "FAST_PRIS"
                         recommendation_type = "prismodell"
-                    # v5.11: Removed enum-based recommendations - now numeric
+                    elif 'bästa förhållande' in content_lower or 'pris och kvalitet' in content_lower:
+                        last_recommendation = "PRIS_70_KVALITET_30"
+                        recommendation_type = "utvarderingsmodell"
+                    elif 'lägsta pris' in content_lower or '100% pris' in content_lower:
+                        last_recommendation = "PRIS_100"
+                        recommendation_type = "utvarderingsmodell"
         
         # Add recommendation context for entity extraction
         if last_recommendation and recommendation_type:

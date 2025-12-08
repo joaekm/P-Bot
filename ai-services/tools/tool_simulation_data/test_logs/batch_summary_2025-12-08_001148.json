@@ -1,0 +1,189 @@
+{
+  "timestamp": "2025-12-08T00:11:48.099205",
+  "total_scenarios": 15,
+  "successful": 15,
+  "total_turns": 71,
+  "total_resources": 0,
+  "results": [
+    {
+      "scenario": "scenario_bi_projekt.txt",
+      "persona": "Anna-Karin Holm",
+      "turns": 6,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_bi_projekt_2025-12-07_235329.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "\"Du vet, jag pratade med den här P-Bot grejen från Adda igår. Först var jag skeptisk, alltså verkligen. En robot som ska fixa avrop på konsulter? Lät ju för bra för att vara sant, särskilt med tanke p...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_bi_projekt_2025-12-07_235329_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_dataanalytiker.txt",
+      "persona": "Johan Eriksson",
+      "turns": 3,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_dataanalytiker_2025-12-07_235420.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "\"Du, jag var inne på Adda igår och snackade med den där P-Bot:en, du vet den där AI-assistenten för att avropa IT-konsulter. Jag var faktiskt lite nervös innan. Vi sitter ju på en guldgruva av vårddat...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_dataanalytiker_2025-12-07_235420_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_dataskyddsombud.txt",
+      "persona": "Henrik Wallin",
+      "turns": 4,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_dataskyddsombud_2025-12-07_235528.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "\"Du, det här med P-Bot från Adda... Jag vet inte riktigt vad jag ska säga. Jag var ju jävligt stressad när jag började, alltså. IMY flåsar oss i nacken, den där förbaskade DPO:n stack mitt i alltihop,...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_dataskyddsombud_2025-12-07_235528_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_devops_ingenjor.txt",
+      "persona": "Peter Holm",
+      "turns": 3,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_devops_ingenjor_2025-12-07_235625.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "\"Du, jag satt ju och kladdade med den där P-Bot på Adda igår, den där AI-assistenten för att göra avrop. Herregud, jag hade ju hoppats att det skulle vara smidigt, att man bara kunde knappa in det man...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_devops_ingenjor_2025-12-07_235625_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_integrationsarkitekt.txt",
+      "persona": "Erik Johansson",
+      "turns": 6,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_integrationsarkitekt_2025-12-07_235800.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "\"Du vet, jag satt ju med den där P-Bot igår, Addas AI-assistent för avrop. Hade väl hoppats på att det skulle vara en smidig lösning, att jag bara skulle mata in kraven och vips så hade jag en shortli...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_integrationsarkitekt_2025-12-07_235800_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_it_drift_team.txt",
+      "persona": "Magnus Ek",
+      "turns": 4,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_it_drift_team_2025-12-07_235907.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "\"Du, jag satt ju igår och försökte få loss de här IT-konsulterna via Adda, med den där P-Bot. Jisses, vilket företag. Jag var ju redan stressad till max, deadline om fyra månader och vår nuvarande lev...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_it_drift_team_2025-12-07_235907_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_mjukvaruarkitekt.txt",
+      "persona": "Karin Svensson",
+      "turns": 6,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_mjukvaruarkitekt_2025-12-08_000030.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "Alltså, jag måste berätta om det här samtalet med Addas AI-assistent P-Bot igår. Jag var så himla stressad innan, du vet hur det är, E-klienten måste få sin release och vi har ju haft problem med att ...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_mjukvaruarkitekt_2025-12-08_000030_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_pentest_millennium.txt",
+      "persona": "Katarina Ek",
+      "turns": 3,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_pentest_millennium_2025-12-08_000121.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "”Alltså, jag vet inte vad jag ska säga, Anna. Jag försökte använda Addas P-Bot igår för att hitta en penetrationstestare, du vet, den där revisorn gnällde ju på våra tester. Jag tänkte att det skulle ...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_pentest_millennium_2025-12-08_000121_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_rpa_cosmic_team.txt",
+      "persona": "Lena Bergström",
+      "turns": 4,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_rpa_cosmic_team_2025-12-08_000229.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "”Alltså, du vet ju hur det är, Lisa. Hela den här digitaliseringen ska ju underlätta, men det känns mest som ännu ett lager av byråkrati. Jag behövde ju få tag på de här konsulterna snabbt som attan. ...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_rpa_cosmic_team_2025-12-08_000229_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_sakerhetsstrateg.txt",
+      "persona": "Anders Lindqvist",
+      "turns": 3,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_sakerhetsstrateg_2025-12-08_000328.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "”Du vet, jag hade det här samtalet med Addas P-Bot igår angående avropet av en IT-säkerhetskonsult för IdP-projektet. Jag var sjukt stressad innan. Tidsplanen är tight och jag ville bara få det här av...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_sakerhetsstrateg_2025-12-08_000328_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_scrum_master.txt",
+      "persona": "Maria Lindgren",
+      "turns": 5,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_scrum_master_2025-12-08_000453.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "\"Alltså, du anar inte vilken soppa det har varit med den här Scrum Mastern. Jag har ju drivit det här med agil transformation stenhårt, och nu måste jag ju visa resultat, du vet? Och vissa av de gamla...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_scrum_master_2025-12-08_000453_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_servicedesk_team.txt",
+      "persona": "Oscar Lindén",
+      "turns": 4,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_servicedesk_team_2025-12-08_000614.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "\"Du, jag höll på att bli tokig igår. Vi snackade ju om det här avropet, det där jävla berget som HR och VD har lagt på mina axlar. Jag tänkte att den här P-Bot på Adda, den där AI-assistenten, kanske ...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_servicedesk_team_2025-12-08_000614_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_systemutvecklare.txt",
+      "persona": "Lisa Andersson",
+      "turns": 14,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_systemutvecklare_2025-12-08_001004.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "”Du, jag måste bara berätta om det här avropet jag höll på med igår! Alltså, P-Bot på Adda, du vet. Det var första gången jag gjorde det helt själv, utan hjälp från inköp. Jag var ju lite nervös innan...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_systemutvecklare_2025-12-08_001004_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_testledare.txt",
+      "persona": "Anna Nilsson",
+      "turns": 3,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_testledare_2025-12-08_001053.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "\"Du vet, jag testade den där P-Bot:en på Adda igår, den där AI-assistenten för att hitta en testledare. Jag var ju svinnervös innan, ärligt talat. Allt hänger på den här rekryteringen, vi är redan eft...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_testledare_2025-12-08_001053_story.txt"
+      }
+    },
+    {
+      "scenario": "scenario_ux_designer.txt",
+      "persona": "Sofia Berg",
+      "turns": 3,
+      "success": true,
+      "log_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_ux_designer_2025-12-08_001142.json",
+      "resources": 0,
+      "evaluation": {
+        "story": "\"Du, jag testade den där P-Boten på Adda igår, alltså den som ska hjälpa oss med avropen. Jag var ju lite peppad, ärligt talat. Tänk om det här kunde spara mig massa tid! Vi är ju pressade som det är ...",
+        "story_path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/test_logs/simulation_ux_designer_2025-12-08_001142_story.txt"
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Johan Erikssons berättelse
+║  Verksamhetsutvecklare på Stockholms läns landsting
+║  
+║  Samtal: 8 meddelanden
+║  Datum: 2025-12-07 22:53
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag snackade med den här P-Bot-grejen på Adda igår, du vet, den där AI-assistenten som ska hjälpa oss med avropen. Jag var väl lagom skeptisk, måste jag säga. Vi har ju så satans mycket data här på landstinget, men ingen som riktigt kan göra vettiga analyser. Ledningen tjatar om bättre beslutsunderlag och jag tänkte att om den här roboten kunde spara mig några timmar av administrativt strul så vore det en vinst. Hoppades väl mest på att det inte skulle vara ett totalt slöseri med tid, liksom."
+
+"Det började ju rätt basic. 'Hej, jag är Johan, jag behöver en analytiker'. Den fattade grejen rätt snabbt, det ska den ha. Frågade om kravanalytiker eller verksamhetsanalytiker. Jag tänkte direkt 'Herregud, måste jag verkligen förklara allt på dagisnivå?' Men sen, när jag sa 'Dataanalytiker/BI', verkade den fatta. Det där med kompetensnivå och timmar var ju rättframt, inget konstigt där. Men jag var konstant på helspänn, redo att behöva rätta till missförstånd och förenkla språket ner till stenåldersnivå."
+
+"Det där med takpriset och arbetets utförande var också ganska smidigt. Sen kom det en grej som jag faktiskt gillade. Den sammanställde allt i en tabell! 'Fält', 'Värde'... Precis min melodi! Det kändes faktiskt lite som att den förstod vad jag behövde. Sen kom frågorna om prismodell och viktningen mellan pris och kompetens. Där blev jag lite imponerad, faktiskt. Det visade att den fattade processen lite djupare. Men jag måste säga, den höll mig hela tiden på tårna. Tänkte att det nog skulle rasa ihop totalt vilken sekund som helst."
+
+"När den började prata om Förnyad Konkurrensutsättning och hur den skulle designa utvärderingen baserat på mina specifikationer, då började jag faktiskt slappna av lite. Den verkade ha koll. Och sen, det bästa av allt, den sa att underlaget var komplett och frågade om jag ville ha en sammanfattning eller gå direkt till FKU-utkastet. Det var det! Ingen långdragen diskussion, inget tjafs om detaljer. Bara rakt på sak. Det sparade mig säkert en timme, om inte mer."
+
+"Alltså, jag är fortfarande inte helt såld, men jag är definitivt mindre skeptisk. Jag tror faktiskt jag skulle använda den igen. Framför allt om det är den här typen av 'enkla' avrop, där behoven är tydliga. Det är klart att jag inte förväntar mig att den kan ersätta mänsklig interaktion helt och hållet, särskilt inte när det gäller mer komplexa projekt. Men för att slippa det initiala administrativa tragglet, absolut. Om det hjälper oss att faktiskt hitta någon som kan göra något vettigt med all data vi sitter på, så är det värt det tusen gånger om."

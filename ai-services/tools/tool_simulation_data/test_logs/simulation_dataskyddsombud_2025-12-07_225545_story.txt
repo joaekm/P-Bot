@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Henrik Wallins berättelse
+║  Stadsjurist på Malmö Stad
+║  
+║  Samtal: 24 meddelanden
+║  Datum: 2025-12-07 22:55
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade ett… intressant samtal med Addas P-Bot igår. Vi måste ju få tag på ett dataskyddsombud kvickt, du vet ju hur det ligger till med IMY-tillsynen. Jag var rätt nervös inför det. Ramavtal är inte min starka sida, speciellt inte när det gäller sånt här. Jag är ju jurist, inte IT-expert. Jag hoppades att P-Bot skulle kunna guida mig genom det här utan att jag behövde exponera min totala inkompetens. Ville mest bara att den skulle spotta ur sig ett avrop så vi kunde få det här löst.
+
+Det började väl okej, ganska rakt på sak. Jag förklarade läget och den fattade snabbt allvaret med IMY och att vi behövde någon med rätt kompetens enligt GDPR. Det kändes bra att den hänvisade till artikeln direkt. Men sen började det. Nivåer hit och timmar dit. Jag fick panik. Som tur var så hade jag ju ett dokument med mig så jag kunde ju läsa innantill. Nivå 5, check. 20 timmar i veckan, check. Men sen kom nästa fråga: slutdatum? Jag höll på att missa det helt. Tur att jag kom ihåg att vi hade tänkt oss ett år med option, annars hade vi ju fått göra om allt.
+
+Det värsta var nog när den började prata om Förnyad Konkurrensutsättning. FKU! Alltså, bara ordet får mig att rysa. Kändes som att jag hamnat mitt i en djungel av byråkrati. Men den förklarade ju att det var oundvikligt med nivå 5, så det var väl bara att gilla läget. Det som var bra var att den räknade ut att vi låg inom budgetramen direkt, det var en lättnad. Hade vi överskridit den hade kommunfullmäktige fått spader.
+
+Jag måste säga att det var skönt när den kom med sammanfattningen till slut. Jag kände mig tvungen att kolla allt, varenda liten detalj. Men sen insåg jag att den faktiskt hade koll på läget. Det var en stor lättnad. Jag var fortfarande stressad över tillsynsärendet, men jag kände att jag hade gjort vad jag kunde. Den betonade ju flera gånger vikten av de juridiska kraven och erfarenheten av offentlig sektor, så jag kände mig lite tryggare. Den där meningen om ”rätt kvalifikationer” enligt GDPR artikel 37 var ju bra. Det hade jag glömt att ta upp.
+
+Allt som allt så var det väl… okej. Det var en långdragen process, mycket mer komplicerad än jag hade hoppats på. Jag är fortfarande skeptisk till hela grejen med AI-assistenter, men jag måste erkänna att P-Bot guidade mig genom det här, trots att jag kände mig som en komplett idiot stundtals. Om jag skulle använda den igen? Tja, om jag måste. Men jag hoppas verkligen att jag slipper hamna i en liknande situation igen. Kanske man borde lära sig lite mer om IT-konsultavtal ändå. Men helst inte."

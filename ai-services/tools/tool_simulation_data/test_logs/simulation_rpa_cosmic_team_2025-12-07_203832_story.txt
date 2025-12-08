@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Lena Bergströms berättelse
+║  Verksamhetsutvecklare Vårdinformation på Region Östergötland
+║  
+║  Samtal: 8 meddelanden
+║  Datum: 2025-12-07 20:38
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Alltså, du anar inte vilket race det var igår. Jag var helt slut efter det där mötet med Addas AI-assistent, P-Bot. Du vet, den där grejen som ska underlätta avrop på IT-konsulter. Jag gick in i det med blandade känslor. Hoppades verkligen att det skulle spara mig tid, vi har ju kniven mot strupen med det här RPA-projektet. Tanken på att snabbt få ett team på plats, ett kompetent team, det var ju rena drömmen. Men ärligt talat var jag också skeptisk. Jag har bränt mig så många gånger på konsulter som inte fattar vården och alla dess speciella regler.
+
+Det började ju bra, P-Bot var snabb och effektiv. Men direkt när hen började fråga om kompetensnivåer och timmar kände jag stressen krypa på. 1800 timmar för tre konsulter, det är ju ett jävla pussel att få ihop med den där snåljåpen till CFO som håller stenhårt i plånboken. Varje timme räknas, och jag vill ju ha kvalité, inte bara nån billighetsvariant som inte kan nåt om patientdata. Jag drog mig lite för att erkänna hur tajt budgeten faktiskt är, och jag ville egentligen ha fyra konsulter, men jag vet inte hur jag ska få det att gå ihop. 
+
+Det var en vändpunkt när P-Bot började prata om säkerhet. Jag andades ut lite. Att den där AI:n verkligen fattade att säkerhetsprövning och PUBA var prio ett. Men sen kom frågan om personuppgiftsbiträdesavtalet och jag kände mig dum. Jag vet att det är viktigt, men jag kan aldrig komma ihåg exakt vad det innebär. P-Bot förklarade det bra, men samtidigt skämdes jag lite över att jag inte hade stenkoll. Det som var bra var att jag kunde erkänna att jag inte hade koll på allt, och boten verkade inte döma mig för det. Fast jag vet inte om AI:n dömer en, eller om det bara var min egen stress som gjorde mig paranoid.
+
+Efteråt var jag helt urlakad. Det kändes som jag hade sprungit ett maraton. Men samtidigt… jag tror faktiskt det här kan funka. Det är fortfarande ett stressmoment att vänta på anbuden och se om vi kan få ihop det ekonomiskt, men P-Bot verkar ha förstått våra behov och speciellt vikten av säkerhet. Om det här verkligen leder till att vi får ett kompetent team snabbt, så ja, då kommer jag absolut använda Addas P-Bot igen. Men nästa gång ska jag vara bättre förberedd och ha siffrorna klara för mig från början. Det minskar stressen, och då slipper man känna sig som en komplett idiot inför en AI."

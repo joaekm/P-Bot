@@ -1,4 +1,4 @@
-# P-Bot Backlog (v5.15)
+# P-Bot Backlog (v5.13)
 
 Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade på projektets faser.
 
@@ -160,18 +160,6 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 | **EPIC-450.8** | Rollrekommendation | 📝 TO DO | Rekommendera avtalets 24 exempelroller, acceptera egna. (Ersätter EPIC-432) |
 | **EPIC-450.9** | Obligatorisk Uppdragsbeskrivning | 📝 TO DO | `uppdragsbeskrivning` required för steg 1. Blockar progression. (Inkl EPIC-433) |
 
-### 3c-v4. Strategic Input & Fas-förbättringar (v5.15) 📝
-
-| Epic-ID | Titel | Status | Kommentar |
-|:--------|:------|:-------|:----------|
-| **EPIC-460** | Strategic Input från Planner | 📝 TO DO | Planner (PRO-modell) genererar strategiska insikter som Synthesizer kan väva in. |
-| **EPIC-461** | Fas 1: Rollmappning mot Exempelroller | 📝 TO DO | Assistenten föreslår ramavtalets 24 exempelroller vid behovsbeskrivning. Accepterar egna roller men förklarar konsekvens. |
-| **EPIC-462** | Fas 1: Inlyssnande Hållning | 📝 TO DO | Effektiv och professionell. Ställer fördjupande frågor. Ger korta insikter baserat på kontext. Ingen psykologjargong. |
-| **EPIC-463** | Fas 4: Konsekvensanalys | 📝 TO DO | Validerar behov/val från tidigare faser. Noterar konsekvenser av gjorda val baserat på ramavtalskunskap. |
-| **EPIC-464** | Fas 4: Kunskapsbaserade Varningar | 📝 TO DO | Planner flaggar risker/inkonsekvenser. Synthesizer presenterar dem naturligt (ej hårdkodade exempel). |
-| **EPIC-465** | ReasoningPlan.strategic_input | 📝 TO DO | Nytt fält i datamodellen för strategiska insikter. Används i fas 1 och fas 4. |
-| **EPIC-466** | Promptrefaktorering (Positiv) | 📝 TO DO | Endast positiva instruktioner i promptar. Inga "UNDVIK/FÖRBJUDET"-listor. |
-
 ### 3d. Pågående / Övrigt 🚩
 
 | Epic-ID | Titel | Status | Kommentar |
@@ -271,13 +259,13 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 
 ---
 
-*Version: 5.15*  
-*Senast uppdaterad: 7 december 2025*
+*Version: 5.14*  
+*Senast uppdaterad: 5 december 2025*
 
 ---
 
 ## Teknisk Dokumentation
 
-Se även (alla i `documentation/`):
-- `ragpipe_test.md` - Bilaga A: RAG Pipeline principtest och diagnostik
-- `datapipe_test.md` - Bilaga B: Data Pipeline och MASTER-källor
+Se även:
+- `ai-services/docs/ragpipe_test.md` - RAG Pipeline principtest och diagnostik
+- `ai-services/docs/datapipe_test.md` - Data Pipeline och MASTER-källor

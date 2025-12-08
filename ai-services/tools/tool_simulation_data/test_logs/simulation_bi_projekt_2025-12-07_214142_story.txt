@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anna-Karin Holms berättelse
+║  Verksamhetsutvecklare BI på Trafikverket
+║  
+║  Samtal: 7 meddelanden
+║  Datum: 2025-12-07 21:41
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag satt igår och pratade med den här P-Bot på Adda. Tänkte att det kunde vara smidigt att avropa konsulter för det här datalagerprojektet, du vet det som ledningen tjatar om med fast pris. Mitt mål var ju kristallklart: ett fastprisåtagande där leverantören får svettas om det går åt skogen, inte vi på Trafikverket. Jag var väl halvt hoppfull att den här AI-grejen faktiskt kunde spara mig tid, slippa pappersarbete och sånt.
+
+I början kändes det helt okej. Den fattade direkt att jag ville ha fast pris och resultatansvar. "Utmärkt", sa den. Men sen började det. Den började fråga om roller och kompetensnivåer. Jag försökte förklara att jag ville ha ett projektuppdrag, inte en bunt timanställda. Att leverantören skulle ta ansvar för helheten, inte bara vara en siffra i Excelsheets. Men den bara malde på om nivåer. Som om jag vore ute efter att anställa juniorer till ett fast pris! Herregud.
+
+Det som verkligen fick mig att sucka var när den, trots att jag redan hade sagt det TVÅ gånger, frågade om kompetensnivåerna igen. Det kändes som att den inte lyssnade alls, eller snarare inte förstod vad jag menade. Som att den var programmerad att bara följa ett visst flöde oavsett. "Eftersom ni avropar ett fastprisåtagande, är det extra viktigt att vi definierar den förväntade kompetensnivån som ska ingå i priset..." Jaha? Jag vill ju inte *definiera* något annat än *resultatet*! Jag vill inte mikrohantera deras team.
+
+Jag blev faktiskt ganska frustrerad. Jag vill ha folk som kan jobbet, inte pappersexercis. PMP och PRINCE2 är ju bara första steget liksom. Jag ville nästan skrika åt boten att jag ville ha ett datalager som FUNGERAR, inte en massa flådiga rapporter om hur bra det *skulle* fungera. Det kändes som att jag blev fast i samma kvarnhjul som med alla tidigare IT-projekt, med massor av diskussioner om detaljer istället för leverans.
+
+Jag vet inte… jag är tveksam om jag kommer använda P-Bot igen. Den verkar inte fatta att jag vill ha ett FAST PRIS, där någon annan tar smällen om det går fel. Det känns som att den är byggd för att sälja timmar, inte resultat. Jag får nog fortsätta med det vanliga, leta efter leverantörer som verkligen förstår våra behov, och som är beredda att ta risken. Kanske är jag bara gammalmodig, men jag tror fortfarande på att prata med riktiga människor som har erfarenhet och som förstår vad ett misslyckat IT-projekt kostar Trafikverket i både tid och pengar."

@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Johan Erikssons berättelse
+║  Verksamhetsutvecklare på Stockholms läns landsting
+║  
+║  Samtal: 4 meddelanden
+║  Datum: 2025-12-07 21:50
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag snackade med den där P-Bot på Adda igår, du vet den där AI-assistenten som ska hjälpa oss med avropen. Jag var ju lite skeptisk från början, ärligt talat. Alltså, en chattbot som ska hitta en vass dataanalytiker? Men ledningen pushade ju för att testa den, så jag tänkte, okej, vi kör. Jag hoppades väl innerst inne att den skulle kunna göra det lite smidigare, att jag skulle slippa bläddra igenom hundratals konsultprofiler och tråka ut mig med leverantörssamtal. Jag drömde typ om att den skulle spottat ut en topp-3 lista med kvalificerade kandidater direkt.
+
+Det började ju rätt okej. Jag skrev in vad jag behövde – en analytiker för vårddata – och den verkade fatta direkt. Den liksom bekräftade bara ”viktigt behov” eller nåt sånt, det kändes lite som att prata med en terapeut, fast en som inte brydde sig om mina känslor. Sen började det med alla de där basfrågorna: kompetensnivå, timmar, startdatum. Jag fattar ju att den behöver information, men det kändes direkt som att jag fyllde i ett formulär, fast ett interaktivt formulär. Inget fel i det egentligen, bara inte det jag hade hoppats på.
+
+Det som var lite intressant var när vi började prata om prissättning. Den ville veta vårt takpris och hur stor vikt priset skulle ha i utvärderingen. Det är ju en viktig fråga, absolut, men det kändes lite som att den hoppade över det viktigaste: den faktiska kompetensen. Jag menar, visst ska vi vara kostnadseffektiva, men jag vill inte riskera att få en dussinanalytiker bara för att vi sparar några kronor per timme. Det är ju inte värt det om vi inte får vettiga analyser ut av all vår vårddata. Tänk bara på hur mycket bättre beslutsunderlag vi skulle kunna ge ledningen! Det hade ju nästan varit värt att betala lite extra för.
+
+När jag var klar kände jag mig… tja, inte direkt imponerad. Det var inte katastrofalt, men det var inte heller den revolutionerande upplevelsen jag kanske hade naiva förhoppningar om. Jag kommer nog använda den igen, förmodligen. Det sparade ju lite tid i alla fall, och det är ju positivt. Men nästa gång kommer jag nog vara mer förberedd och styra samtalet mer. Jag måste se till att P-Bot verkligen förstår vikten av den tekniska kompetensen och, minst lika viktigt, förmågan att kommunicera resultaten till folk som inte kan ett smack om statistik. Vi behöver ju någon som kan översätta vårddata till konkreta förbättringar i vården, inte bara någon som kan spotta ut snygga grafer."

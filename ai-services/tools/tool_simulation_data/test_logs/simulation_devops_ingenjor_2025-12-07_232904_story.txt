@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Peter Holms berättelse
+║  Systemansvarig på Trafikverket
+║  
+║  Samtal: 10 meddelanden
+║  Datum: 2025-12-07 23:29
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag testade den där nya AI-assistenten på Adda igår, P-Bot. Alltså, tanken är ju god – avrop på IT-konsulter via ramavtal ska ju bli smidigare. Jag hade hoppats på att slippa sitta i eviga möten och fylla i tusen blanketter, att det här skulle vara typ... en snabb och effektiv genväg. Behöver en DevOps-ingenjör ASAP, det är ju inte raketforskning! 
+
+I början var det faktiskt helt okej. Den fattade direkt vad jag var ute efter – en DevOps-ingenjör. Sedan kom alla frågor. Och jag menar ALLA. Kompetensnivå, timmar, startdatum, budget... jag vet, jag vet, det är ju nödvändig information, men det kändes som jag gjorde precis samma sak som jag alltid gör, fast med en chattbot. Det var inte direkt den radikala effektivisering jag hade hoppats på. Det som irriterade mig mest var när den började prata om "kompetensområden" och "avropsområden A till G". Alltså, snälla, jag behöver en person som kan bygga en pipeline, inte en geografisk kartläggning av Sveriges konsultmarknad.
+
+En sak som faktiskt var lite imponerande var när den direkt fattade att det var FKU som gällde. Jag hade väl någonstans hoppats att jag skulle kunna smita undan den processen med ett direktavrop, men den där P-Bot var stenhård på regelverket. Sedan när den började räkna på mitt timpris och konstaterade att det var "strategiskt välformulerat" när jag angav löpande räkning med takpris, då kände jag mig nästan dum. Liksom, jag är systemansvarig, inte någon sorts genialisk inköpsstrateg. Men okej, kanske sparade det mig lite tid i slutändan.
+
+Men ärligt talat, jag vet inte om jag kommer använda den igen. Jo, kanske. Om jag verkligen, verkligen måste. Det tog fortfarande en jävla tid. Och det kändes så... opersonligt. Jag saknar att kunna tjafsa lite med en människa, förklara situationen lite mer ingående. Och dessutom, jag är inte säker på att P-Bot fattar det största problemet: att få mitt team att köpa det här med DevOps över huvud taget. En maskin kan inte ta den fighten. Jag tror jag behöver en konsult, inte en chattbot."

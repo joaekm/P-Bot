@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anna-Karin Holms berättelse
+║  Verksamhetsutvecklare BI på Trafikverket
+║  
+║  Samtal: 12 meddelanden
+║  Datum: 2025-12-07 23:53
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag pratade med den här P-Bot grejen från Adda igår. Först var jag skeptisk, alltså verkligen. En robot som ska fixa avrop på konsulter? Lät ju för bra för att vara sant, särskilt med tanke på hur våra tidigare BI-projekt har slutat. Jag gick in med inställningen att jag ville få ett fastprisavtal på plats, utan massa flum och tidrapportering. Ville att någon äntligen skulle ta ansvar för att leverera, inte bara sälja timmar. Deadline från regeringen och allt, du vet hur det är.
+
+I början kändes det faktiskt ganska bra. Den förstod direkt att jag ville ha fast pris och resultatansvar. Jag fick ange kompetenserna och nivåerna, vilket jag egentligen tycker är skitsnack, men jag förstår att det måste vara med. Det som var bra var att den verkade fatta att det viktigaste för mig var att de hade erfarenhet, inte att de prickade in någon exakt nivå. Men sedan började den tjata om uppskattad timvolym! Alltså, jag höll på att lacka ur. "Jag vill inte betala för timmar, jag vill betala för RESULTAT!" skrek jag nästan åt datorn. Till slut gav jag mig inte och fick igenom mitt takpris utan att behöva specificera timmar. Det var en liten seger.
+
+Sedan kom det som var riktigt bra. Den här P-Bot tvingade mig att tänka igenom godkännandevillkoren för milstolparna. Att få svart på vitt hur IT-arkitekten, UAT och driftsättning skulle spela in. Det var faktiskt riktigt värdefullt, för det är ju där det brukar skita sig, när man inte har tydliga kriterier för vad som är godkänt. Det kändes som att den där roboten faktiskt kunde hjälpa oss att undvika de värsta fallgroparna. Att den dessutom föreslog viten vid förseningar – ja, det gav ju en extra trygghet. Det hade jag nog inte tänkt på annars.
+
+När det var klart kändes det faktiskt... okej. Jag är fortfarande lite misstänksam, jag litar ju inte på att konsulter kommer att leverera bara för att vi har ett fastprisavtal. Men det var faktiskt mer strukturerat än jag trodde. Jag skulle nog kunna använda den igen. Den tvingar en att tänka igenom allting noggrant, och det är ju inte fel. Jag vet inte om jag gillar att en robot gör det, men bättre det än att vi sitter här om ett halvår och undrar var alla pengar tog vägen, igen."

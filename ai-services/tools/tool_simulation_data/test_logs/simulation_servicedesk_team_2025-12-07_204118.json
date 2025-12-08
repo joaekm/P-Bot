@@ -1,0 +1,99 @@
+{
+  "timestamp": "2025-12-07T20:41:18.502320",
+  "scenario": {
+    "filename": "scenario_servicedesk_team.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/HARD/scenario_servicedesk_team.txt"
+  },
+  "persona": {
+    "name": "Oscar Lindén",
+    "title": "IT-driftchef",
+    "organization": "Skatteverket",
+    "personality": "Oscar är en stressad driftchef som står inför en kritisk övergångsperiod. Han är pragmatisk och resultatinriktad, men också frustrerad över att behöva göra ännu ett avrop. Han har inte tid med långdragna processer och vill ha snabba svar.",
+    "knowledge_level": "- Expert på IT-drift och servicedesk - God förståelse för ITIL och ServiceNow - Erfaren beställare via ramavtal - Vet exakt vad han behöver men osäker på om det går att avropa så stort team",
+    "communication_style": "- Rakt på sak, ingen tid för småprat - Ger mycket information på en gång - Kan bli otålig om processen tar tid - Vill ha bekräftelse på att det går att lösa",
+    "hidden_constraints": [
+      "Nuvarande leverantör sade upp avtalet med kort varsel",
+      "Budgeten är pressad - måste hålla under 6 MSEK",
+      "HR kräver att alla konsulter har säkerhetsprövning klar innan start",
+      "VD har sagt att det inte får bli några driftstörningar"
+    ],
+    "goals": [
+      "Få 8 konsulter på plats till 1 februari utan undantag",
+      "Säkerställa att teamet kan hantera volymen (500 ärenden/dag)",
+      "Hålla budgeten inom godkänd ram",
+      "Minimera risk vid övergång från nuvarande leverantör"
+    ],
+    "background": "Oscar har arbetat på Skatteverket i 12 år och ansvarar för en IT-drift som stödjer hela myndighetens verksamhet. Han har aldrig behövt avropa så många konsulter samtidigt. - \"Vi pratar om 8 konsulter som ska vara på plats om 8 veckor\" - \"ServiceNow-erfarenhet är ett absolut krav - ingen diskussion\" - \"Kan vi verkligen avropa så många via samma avrop?\" - \"Vad händer om en konsult blir sjuk - vem backar upp?\" - \"Jourtiden är kritisk - vi måste ha täckning till 22:00\"",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Oscar Lindén och jobbar som IT-driftchef på Skatteverket. Jag behöver hjälp med ett avrop. Vi ska få 8 konsulter på plats till 1 februari utan undantag.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Tack Oscar. Då har jag noterat att Skatteverket behöver 8 konsulter, med ett skarpt startdatum den 1 februari 2026. Det är en tydlig och bra utgångspunkt!\n\nFör att kunna specificera avropet behöver vi nu fylla i detaljerna kring volym och nivå.\n\nVolym och Datum: Hur länge beräknas uppdraget pågå (dvs. slutdatum) och har ni en uppskattad totalvolym i timmar för de här åtta konsulterna?\nNivå och Pris: Vilka kompetensnivåer (1–5) efterfrågas för teamet av IT-driftkonsulter, och har ni satt ett takpris per timme?",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi behöver teamet i sex månader, med start 1 februari och slut 31 juli. Vi har en option på tre månader till. Totalvolym blir 8320 timmar. Vi har två teamledare på nivå 3 och sex tekniker på nivå 2. Takpriserna är 850 kronor per timme för nivå 3 och 650 kronor för nivå 2.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Det var en utmärkt genomgång, Oscar. Då har vi en komplett bild av volym, nivå och pris:\n\nProtokollsammanfattning (Steg 3):\n\nPeriod: Start 2026-02-01 till 2026-07-31 (6 månader).\nVolym: Totalt 8320 timmar (plus option på 3 månader).\nResurser & Nivåer: 2 Teamledare (Nivå 3) och 6 Tekniker (Nivå 2).\nTakpris: 850 SEK/timme för Nivå 3 och 650 SEK/timme för Nivå 2.\n\nDå har vi all data för prissättningen. Nu går vi vidare till nästa strategiska steg, vilket handlar om själva avropsformen och riskhanteringen (Step 4).\n\nMed tanke på den stora totalvolymen (8320 timmar) och att ni har satt specifika takpriser för rollerna:\n\nAvropsform: Vill ni fortsätta med ett Direkt Avrop (DR) givet volymen, eller ska vi rekommendera en Förnyad Konkurrensutsättning (FKU) för att säkerställa bästa möjliga pris och kvalitet?\nOptionen: Ska optionen på tre månader avtalas in redan nu, eller hanteras den som ett separat, framtida avrop?\nPlats: Vilken geografisk ort ska uppdraget utföras i?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi behöver få in det här snabbt, så jag vill köra på ett direkt avrop. Option på tre månader ska vara med från början. Arbetsplatsen är i Solna.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt. Jag noterar att ni väljer Direkt Avrop (DR) för att prioritera snabb implementering, vilket är ett lämpligt val när uppdraget är väl definierat och tid är en kritisk faktor. DR bygger på en dynamisk rangordning och eliminerar behovet av en fullständig, tidskrävande utvärdering.\n\nJag bekräftar även att:\n\nOptionen på tre månader läggs in i det initiala avropet för att säkerställa möjligheten till förlängning (enligt Ramavtalets villkor).\nArbetsplatsen är Solna, vilket tillhör Anbudsområde A (Stockholm).\n\nUnderlaget är nu komplett gällande rollfördelning, volym, pris, tidsperiod, avropsform och plats.\n\nInnan vi initierar det formella avropet, vill du att jag sammanfattar alla valda parametrar (Roll, Nivå, Volym, Pris och Strategi) för en sista avstämning?",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Utmärkt. Jag noterar att ni väljer Direkt Avrop (DR) för att prioritera snabb implementering, vilket är ett lämpligt val när uppdraget är väl definierat och tid är en kritisk faktor. DR bygger på en dynamisk rangordning och eliminerar behovet av en fullständig, tidskrävande utvärdering.\n\nJag bekräftar även att:\n\nOptionen på tre månader läggs in i det initiala avropet för att säkerställa möjligheten till förlängning (enligt Ramavtalets villkor).\nArbetsplatsen är Solna, vilket tillhör Anbudsområde A (Stockholm).\n\nUnderlaget är nu komplett gällande rollfördelning, volym, pris, tidsperiod, avropsform och plats.\n\nInnan vi initierar det formella avropet, vill du att jag sammanfattar alla valda parametrar (Roll, Nivå, Volym, Pris och Strategi) för en sista avstämning?",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 3,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

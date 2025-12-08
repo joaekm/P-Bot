@@ -1,0 +1,233 @@
+{
+  "timestamp": "2025-12-08T00:39:28.034531",
+  "scenario": {
+    "filename": "scenario_dataanalytiker.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_dataanalytiker.txt"
+  },
+  "persona": {
+    "name": "Johan Eriksson",
+    "title": "Verksamhetsutvecklare",
+    "organization": "Stockholms läns landsting",
+    "personality": "Johan är analytisk och faktadriven. Han tror på datadrivna beslut och vill modernisera hur landstinget arbetar med information. Han kan vara lite teknisk i sin kommunikation.",
+    "knowledge_level": "- Expert på verksamhetsutveckling - God förståelse för dataanalys - Medelhög kunskap om ramavtal",
+    "communication_style": "- Analytisk och detaljerad - Ställer specifika tekniska frågor - Vill förstå metodiken - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Har stora datamängder som ingen analyserar",
+      "Ledningen kräver bättre beslutsunderlag",
+      "Vill bygga upp intern kompetens på sikt"
+    ],
+    "goals": [
+      "Hitta en analytiker som kan hantera vårddata",
+      "Förstå hur man utvärderar teknisk kompetens",
+      "Säkerställa att konsulten kan kommunicera med icke-tekniker"
+    ],
+    "background": "Johan har arbetat med verksamhetsutveckling i 20 år och ser nu möjligheten att använda data på ett helt nytt sätt. Han har fått budget för att starta ett analysprojekt.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Johan Eriksson och jobbar som Verksamhetsutvecklare på Stockholms läns landsting. Jag behöver hjälp med ett avrop. Vi ska hitta en analytiker som kan hantera vårddata.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Det låter som ett intressant uppdrag. Jag förstår att ni söker en Analytiker med specifik kompetens inom vårddata.\n\nFör att jag ska kunna gå vidare och se över alternativen för avropsformen behöver jag få lite mer information.\n\nRegion: Stockholms läns landsting är associerat med Region A. Stämmer det att uppdraget primärt ska utföras inom Region A? (Tänk på eventuella önskemål om distansarbete, vilket bör specificeras i avropsförfrågan.)\nNivå och Volym: Vilken kompetensnivå (1–5) uppskattar ni att Analytikern behöver ligga på, och hur många timmar beräknar ni att uppdraget kommer att omfatta totalt?\n\n(Kom ihåg att om ni behöver Nivå 5, krävs alltid en Förnyad konkurrensutsättning, precis som för uppdrag som överstiger 320 timmar.)",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, uppdraget ska primärt utföras inom Region A. Gällande distansarbete får vi se över möjligheterna, men det är inget vi har specificerat ännu.\n\nNivån vi behöver är nivå 4. Vi räknar med en heltidstjänst under tio månader, det motsvarar ett kontraktsvärde på 1 400 000 kronor.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, då har jag en tydlig bild av behoven: Analytiker på Nivå 4 i Region A.\n\nEn heltidstjänst under tio månader motsvarar en betydande volym, uppskattningsvis runt 1680–1730 timmar.\n\nJag noterar också det uppskattade kontraktsvärdet på 1 400 000 kronor. För att kunna specificera detta korrekt i avropet behöver vi nu de sista nyckelparametrarna:\n\nVilket takpris per timme gäller för denna resurs?\nNär är det tänkt att uppdraget ska starta och när beräknas det sluta?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Takpriset är 1150 kronor per timme. Uppdraget ska starta 2026-02-01 och sluta 2026-11-30.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Johan. Då har jag all den nödvändiga grundinformationen samlad:\n\nRoll: Analytiker (Nivå 4)\nVolym: Cirka 1700 timmar (Heltid under 10 månader)\nPeriod: Start 2026-02-01 till Slut 2026-11-30\nTakpris: 1150 kronor per timme\n\nEftersom den totala volymen på cirka 1700 timmar vida överstiger gränsen på 320 timmar, måste avropet göras genom en Förnyad Konkurrensutsättning (FKU).\n\nInnan vi går vidare med att förbereda underlaget för FKU:n behöver jag bara klargöra den exakta avropsformen:\n\nSka Analytikern arbeta under er ledning (FKU Resursuppdrag)?\nEller söker ni en leverantör som ska ta helhetsansvar för att leverera ett specifikt resultat (FKU Projektuppdrag)?\n\nDetta är avgörande för hur vi utformar kriterierna i förfrågan.",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi behöver en resurs som arbetar under vår ledning, alltså ett resursuppdrag.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Johan. Då är det fastställt att vi utformar detta som ett FKU Resursuppdrag, där Analytikern arbetar under er ledning.\n\nSom vi diskuterade tidigare var valet av Förnyad Konkurrensutsättning (FKU) nödvändigt på grund av uppdragets omfattande volym.\n\nDetta strategiska val är viktigt då det styr valet av mall och de formella kraven för avropsförfrågan. Vi har nu en tydlig ram för vad ni söker.\n\nInnan vi går vidare till nästa fas – att definiera utvärderingskriterier och affärsregler – behöver jag bara få den exakta totala volymen för uppdraget i timmar. Vi har använt den uppskattade siffran cirka 1700 timmar (10 månader heltid). Vilken är den exakta volym ni vill specificera i avtalet?",
+      "turn": 4,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, vi kan specificera den exakta volymen till 1700 timmar. Det är en bra utgångspunkt för avtalet.",
+      "turn": 5
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Johan. Då fastställer vi volymen till exakt 1700 timmar för Analytiker, Nivå 4, i Region A.\n\nEftersom alla grundläggande uppgifter (Roll, Nivå, Volym, Period, Takpris och Avropsform FKU Resursuppdrag) nu är insamlade, kan vi påbörja arbetet med att skapa det formella underlaget för den Förnyade Konkurrensutsättningen.\n\nNästa viktiga steg är att definiera utvärderingskriterierna för FKU:n, det vill säga hur vi ska bedöma leverantörernas anbud.\n\nViktning av Pris/Kvalitet: Hur stor vikt i procent (%) ska priset ha i den totala utvärderingen jämfört med kvalitet och kompetens?\nPrismodell: Eftersom det är ett Resursuppdrag med takpris på 1150 kr/h, bekräftar jag att den ekonomiska utvärderingen ska baseras på ett anbudat timpris (Tid och Material), stämmer det?",
+      "turn": 5,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, vi kommer utvärdera anbuden baserat på timpris. Gällande viktning, hur brukar ni rekommendera att man fördelar mellan pris och kvalitet? Vi behöver ju säkerställa både kostnadseffektivitet och rätt kompetens.",
+      "turn": 6
+    },
+    {
+      "role": "assistant",
+      "content": "Jag förstår helt din tanke, Johan. Det är precis i det här steget vi säkerställer att vi hittar rätt ekonomiskt mest fördelaktiga anbud, där kompetens och pris vägs mot varandra.\n\nDu bekräftar att utvärderingen ska baseras på ett anbudat Timpris, vilket är standard och mest lämpligt för ett FKU Resursuppdrag.\n\nGällande viktningen mellan Pris och Kvalitet/Kompetens, kan jag erbjuda lite vägledning baserat på omfattningen och Nivå 4-kravet:\n\nFör roller där kompetens (erfarenhet av vårddata, analysförmåga, etc.) är avgörande för resultatet, rekommenderas det att Kvalitet får en högre vikt än Priset. En ensidig fokus på pris (t.ex. 80% pris, 20% kvalitet) tenderar att ge billigare men ofta mindre lämpliga konsulter, vilket sällan är kostnadseffektivt i längden för komplexa uppdrag.\n\nVanliga och välbalanserade viktningar för kvalificerade resursuppdrag brukar vara:\n\n60% Kvalitet / 40% Pris (Om ni prioriterar balans mellan kostnad och kompetens)\n70% Kvalitet / 30% Pris (Om ni prioriterar specialistkompetens och erfarenhet högt)\n\nVilken viktning, i procent, föredrar ni att använda för Kvalitet kontra Pris?\n\nOch om du väljer Kvalitet, behöver vi redan nu börja tänka på hur vi ska utvärdera kvaliteten. Vilka aspekter av kvalitet är viktigast för er? Till exempel:\n\nCV och formell kompetens?\nSpecifik erfarenhet av liknande uppdrag (styrkt med referenser)?\nLämplighet och kommunikationsförmåga (via intervju)?\n\nDet kan hjälpa oss att landa rätt i viktningen.",
+      "turn": 6,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag förstår, tack för den informationen. Vi vill ha en balans mellan kostnad och kompetens. Jag tror att 60% kvalitet och 40% pris är en bra utgångspunkt.\n\nNär det gäller utvärdering av kvalitet är det viktigt att vi tittar på både CV och formell kompetens, men även specifik erfarenhet av liknande uppdrag. Lämplighet och kommunikationsförmåga är också viktiga, så intervju är ett måste. Vi behöver ju en analytiker som kan förklara komplexa saker på ett begripligt sätt.",
+      "turn": 7
+    },
+    {
+      "role": "assistant",
+      "content": "Det var en utmärkt och välbalanserad strategi, Johan.\n\nJag bekräftar att vi nu har de kompletta affärsreglerna för utvärderingen:\n\nViktning: 60% Kvalitet och 40% Pris.\nPrismodell: Utvärdering baseras på anbudat Timpris.\nKvalitetskriterier (60%): Kvaliteten kommer att bedömas utifrån CV och formell kompetens, specifik erfarenhet, samt genom en intervju för att bedöma lämplighet och kommunikationsförmåga.\n\nAtt inkludera intervju är ett smart drag, särskilt för en komplex analytikerroll, då det säkerställer att ni får en konsult som både har rätt erfarenhet och passar in i teamet.\n\nEftersom vi nu har samlat in all nödvändig information – från rollbeskrivning, volym, takpris till den exakta utvärderingsmodellen – kan vi nu formalisera avropsförfrågan och skapa de mätbara kraven för de fyra kvalitetskriterierna.\n\nVi går nu in i nästa fas: Formalisering av utvärderingskriterier.\n\nFör att formalisera de 60% som rör kvaliteten, hur vill ni vikta de fyra kriterierna internt? Ett exempel skulle kunna vara:\n\nCV och formell kompetens: 15%\nSpecifik erfarenhet av vårddata: 30%\nIntervju (Lämplighet/Kommunikation): 15%\n\nHur vill ni fördela de 60 procenten mellan dessa tre kvalitetsområden? Och har ni funderat på om ni behöver referenser utöver CV och intervju för att styrka den specifika erfarenheten?",
+      "turn": 7,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag tycker att din fördelning låter rimlig. Vi kan använda den som grund.\n\nCV och formell kompetens: 10%\nSpecifik erfarenhet av vårddata: 35%\nIntervju (Lämplighet/Kommunikation): 15%\n\nReferenser är ett bra tillägg för att styrka erfarenheten, så ja, vi behöver referenser.",
+      "turn": 8
+    },
+    {
+      "role": "assistant",
+      "content": "Det låter utmärkt, Johan. Att ha en tydlig uppdelning där 60% av utvärderingen fokuserar på kvalitet är helt rätt för denna specialistroll.\n\nJag noterar att ni har specificerat följande interna viktning för de 60% som rör kvalitet:\n\nCV och formell kompetens: 10%\nSpecifik erfarenhet av vårddata: 35%\nIntervju (Lämplighet/Kommunikation): 15%\nReferenser: Nytt tillägg\n\nObservera att dessa tre ursprungliga kriterier redan summerar till 60% (10 + 35 + 15 = 60).\n\nEftersom ni nu, helt korrekt, har lagt till Referenser som ett obligatoriskt utvärderingsmoment, behöver vi omfördela de totala 60 procenten så att de inkluderar alla fyra kriterier.\n\nHur vill ni omfördela de totala 60% som rör kvalitet, nu när 'Referenser' är ett separat utvärderingskriterium?\n\nTill exempel, ska vi minska vikten på Specifik erfarenhet och ge den delen till Referenser (som ju ska styrka erfarenheten)?\n\nVilken vikt (i procent) vill ni ge till Referenser?\nHur ska de totala 60 procenten fördelas mellan de fyra posterna (CV, Erfarenhet, Intervju och Referenser)?\n\nNär vi har dessa fyra procentsatser klara kan vi gå vidare och skriva ut de exakta kraven för varje del.",
+      "turn": 8,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag förstår. Vi kan omfördela vikterna. Jag tycker att referenser är viktiga för att validera den specifika erfarenheten.\n\nLåt oss fördela så här: CV och formell kompetens 10%, Specifik erfarenhet av vårddata 30%, Intervju (Lämplighet/Kommunikation) 15%, och Referenser 5%. Det blir totalt 60%.",
+      "turn": 9
+    },
+    {
+      "role": "assistant",
+      "content": "Jag tackar för ett mycket tydligt svar, Johan.\n\nJag bekräftar att den interna viktningen för de totalt 60% kvalitet nu är fastställd, och den känns välbalanserad för en analytikerroll:\n\n| Kvalitetskriterium | Viktning (%) | | :--- | :--- | | CV och formell kompetens | 10% | | Specifik erfarenhet av vårddata | 30% | | Intervju (Lämplighet/Kommunikation) | 15% | | Referenser (För att styrka erfarenheten) | 5% | | SUMMA KVALITET | 60% |\n\nDå har vi alla planeringsparametrar på plats för avropet:\n\nRoll & Nivå: Analytiker, Nivå 4 (med vårddata-fokus)\nVolym & Period: 1700 timmar, start 2026-02-01\nAvropsform: FKU Resursuppdrag\nUtvärdering: 40% Pris (Timpris) / 60% Kvalitet (enligt ovanstående 4 kriterier)\n\nNästa steg blir att formalisera dessa parametrar och formulera de exakta och mätbara kraven för den Förnyade Konkurrensutsättningen.\n\nBehöver vi specificera några ytterligare krav på referenser redan nu (utöver att de ska styrka den specifika erfarenheten)? Till exempel, måste referensuppdragen vara av en viss storlek, eller får de inte vara äldre än X antal år?",
+      "turn": 9,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag tycker att referensuppdragen bör vara högst tre år gamla för att vara relevanta. Vi behöver också specificera att referenserna ska vara från liknande uppdrag inom hälso- och sjukvården.",
+      "turn": 10
+    },
+    {
+      "role": "assistant",
+      "content": "Det är en mycket viktig specifikation, Johan. Att referenserna är högst tre år gamla och specifikt kopplade till hälso- och sjukvården gör att de 5% för Referenser blir mätbara och säkerställer relevansen för er verksamhet.\n\nVi har nu låst fast samtliga parametrar för avropet:\n\nResurs och region: Analytiker Nivå 4 i Region A.\nOmfattning: 1700 timmar, start 2026-02-01, Takpris 1150 kr/h.\nUtvärdering: 40% Pris (Timpris) / 60% Kvalitet, där kvaliteten är internt viktad enligt de fyra kriterier vi nyss fastställde.\n\nDå alla planeringsparametrar nu är detaljerade – från uppdragets innehåll till de exakta kraven på referenserna – behöver jag bara ett sista formellt godkännande.\n\nÄr du helt nöjd med alla dessa fastställda parametrar, inklusive prismodellen (Timpris), så att vi kan låsa dokumentet och påbörja genereringen av den formella Förfrågan om Konsulttjänster (FKU)?",
+      "turn": 10,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, jag är helt nöjd.",
+      "turn": 11
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Johan. Jag uppskattar att du har varit så tydlig i specifikationen av alla kriterier.\n\nJag bekräftar att alla parametrar är låsta och att vi kan påbörja genereringen av det formella underlaget för den Förnyade Konkurrensutsättningen (FKU).\n\nHär är en slutgiltig sammanfattning av det avrop vi nu formaliserar:\n\n📋 SAMMANFATTNING AV AVROPET (FKU Resursuppdrag)\n\n| Parameter | Specifikation | | :--- | :--- | | Roll & Kompetens | Analytiker, Nivå 4 (Med fokus på Vårddata) | | Volym & Omfattning | 1700 timmar | | Period | Start 2026-02-01 till Slut 2026-11-30 | | Takpris & Prismodell | 1150 kr/h (Utvärdering baseras på Timpris) | | Plats | Stockholms läns landsting (Region A) | | Avropsform | FKU Resursuppdrag (Konsulten arbetar under er ledning) | | Utvärdering (40/60) | 40% Pris / 60% Kvalitet | | Kvalitetskrav | Referensuppdrag måste vara högst 3 år gamla och från hälso- och sjukvården. |\n\nVi går nu in i nästa fas, som innebär att vi genererar det kompletta Förfrågningsunderlaget. Detta dokument kommer att inkludera alla obligatoriska krav från ramavtalet, såsom villkor för eventuellt byte av konsult och standardkrav på säkerhetskontroll.\n\nJag återkommer med det färdiga underlaget strax.",
+      "turn": 11,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Tack, Johan. Jag uppskattar att du har varit så tydlig i specifikationen av alla kriterier.\n\nJag bekräftar att alla parametrar är låsta och att vi kan påbörja genereringen av det formella underlaget för den Förnyade Konkurrensutsättningen (FKU).\n\nHär är en slutgiltig sammanfattning av det avrop vi nu formaliserar:\n\n📋 SAMMANFATTNING AV AVROPET (FKU Resursuppdrag)\n\n| Parameter | Specifikation | | :--- | :--- | | Roll & Kompetens | Analytiker, Nivå 4 (Med fokus på Vårddata) | | Volym & Omfattning | 1700 timmar | | Period | Start 2026-02-01 till Slut 2026-11-30 | | Takpris & Prismodell | 1150 kr/h (Utvärdering baseras på Timpris) | | Plats | Stockholms läns landsting (Region A) | | Avropsform | FKU Resursuppdrag (Konsulten arbetar under er ledning) | | Utvärdering (40/60) | 40% Pris / 60% Kvalitet | | Kvalitetskrav | Referensuppdrag måste vara högst 3 år gamla och från hälso- och sjukvården. |\n\nVi går nu in i nästa fas, som innebär att vi genererar det kompletta Förfrågningsunderlaget. Detta dokument kommer att inkludera alla obligatoriska krav från ramavtalet, såsom villkor för eventuellt byte av konsult och standardkrav på säkerhetskontroll.\n\nJag återkommer med det färdiga underlaget strax.",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 11,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

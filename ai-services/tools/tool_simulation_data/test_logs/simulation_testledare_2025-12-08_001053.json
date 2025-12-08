@@ -1,0 +1,97 @@
+{
+  "timestamp": "2025-12-08T00:10:53.113814",
+  "scenario": {
+    "filename": "scenario_testledare.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_testledare.txt"
+  },
+  "persona": {
+    "name": "Anna Nilsson",
+    "title": "Projektledare",
+    "organization": "Region Skåne",
+    "personality": "Anna är strukturerad och kvalitetsmedveten. Hon har lett många projekt men detta är det största hittills. Hon är lite stressad över tidsplanen och vill säkerställa att testningen inte blir en flaskhals.",
+    "knowledge_level": "- Expert på projektledning - Grundläggande förståelse för test - Medelhög kunskap om ramavtal",
+    "communication_style": "- Professionell och strukturerad - Ställer frågor om process och tidplan - Vill ha tydliga leveranser - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Projektet är redan försenat",
+      "Tidigare testledare slutade mitt i projektet",
+      "Budget är begränsad"
+    ],
+    "goals": [
+      "Hitta en erfaren testledare snabbt",
+      "Förstå hur nivåkraven fungerar",
+      "Säkerställa att konsulten har rätt erfarenhet"
+    ],
+    "background": "Anna har arbetat i Region Skåne i 15 år och leder nu implementationen av ett nytt journalsystem. Projektet är kritiskt för regionens digitalisering.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Anna Nilsson och jobbar som Projektledare på Region Skåne. Jag behöver hjälp med ett avrop. Vi ska hitta en erfaren testledare snabbt.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Tack Anna, jag har förstått att ni på Region Skåne söker en Testledare för ett snabbt avrop. Testledare är en roll som faller under kompetensområdet Systemutveckling/Systemförvaltning och infrastruktur i vårt ramavtal.\n\nFör att kunna specificera kravet korrekt behöver vi fastställa lite mer detaljer.\n\nNär du säger erfaren testledare, vilken kompetensnivå (1–5) tänker ni er för uppdraget?\nUngefär hur många timmar uppskattar ni att uppdraget kommer att omfatta, och när är det tidigaste ni önskar att resursen kan starta?",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi behöver en testledare på nivå 4. Uppdraget är på 80% och vi vill att konsulten ska börja 2026-02-01.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Perfekt, tack Anna.\n\nDå har vi fastställt:\n\nRoll: Testledare\nNivå: 4\nStartdatum: 2026-02-01\nVolym: Cirka 80%\n\nFör att kunna slutföra specifikationen och starta avropet behöver vi fastställa ramarna.\n\nHur länge beräknas uppdraget pågå (slutdatum), och har ni satt ett takpris per timme för konsulten på nivå 4?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Uppdraget beräknas pågå i 12 månader, alltså till 2027-01-31. Vi har ett takpris på 1100 kr per timme.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Anna. Det var tydliga besked! Då har vi satt slutdatum till 2027-01-31 och ett takpris på 1100 kr per timme för testledaren på nivå 4.\n\nMed den informationen har vi nu fastställt alla grundläggande parametrar som krävs för att starta avropet.\n\nLåt mig sammanfatta det fullständiga underlaget för att säkerställa att allting stämmer innan vi går vidare:\n\n📋 SAMMANFATTNING AV AVROPET:\n\n| Fält | Värde | | :--- | :--- | | Roll/Nivå | Testledare, Nivå 4 | | Volym | 80 timmar (uppskattad initial volym) | | Takpris | 1100 kr/h | | Startdatum | 2026-02-01 | | Slutdatum | 2027-01-31 | | Region | Anbudsområde G | | Avropsform | Dynamisk Rangordning (snabbspåret) |\n\nSer detta korrekt ut, och ska vi gå vidare med detta underlag?",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Tack, Anna. Det var tydliga besked! Då har vi satt slutdatum till 2027-01-31 och ett takpris på 1100 kr per timme för testledaren på nivå 4.\n\nMed den informationen har vi nu fastställt alla grundläggande parametrar som krävs för att starta avropet.\n\nLåt mig sammanfatta det fullständiga underlaget för att säkerställa att allting stämmer innan vi går vidare:\n\n📋 SAMMANFATTNING AV AVROPET:\n\n| Fält | Värde | | :--- | :--- | | Roll/Nivå | Testledare, Nivå 4 | | Volym | 80 timmar (uppskattad initial volym) | | Takpris | 1100 kr/h | | Startdatum | 2026-02-01 | | Slutdatum | 2027-01-31 | | Region | Anbudsområde G | | Avropsform | Dynamisk Rangordning (snabbspåret) |\n\nSer detta korrekt ut, och ska vi gå vidare med detta underlag?",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 3,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "timestamp": "2025-12-08T00:11:42.423442",
+  "scenario": {
+    "filename": "scenario_ux_designer.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_ux_designer.txt"
+  },
+  "persona": {
+    "name": "Sofia Berg",
+    "title": "Digital strateg",
+    "organization": "Göteborgs stad",
+    "personality": "Sofia är kreativ och användarfokuserad. Hon brinner för tillgänglighet och vill att stadens tjänster ska fungera för alla. Hon är entusiastisk men ibland otålig.",
+    "knowledge_level": "- Expert på digital strategi - God förståelse för UX - Begränsad erfarenhet av ramavtal",
+    "communication_style": "- Engagerad och entusiastisk - Fokuserar på användarbehov - Ställer frågor om kvalitet - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Har fått kritik för dålig tillgänglighet i nuvarande tjänster",
+      "Politiskt tryck att förbättra snabbt",
+      "Vill ha någon som kan utbilda teamet"
+    ],
+    "goals": [
+      "Hitta en UX-designer med fokus på tillgänglighet",
+      "Förstå hur man specificerar mjuka krav",
+      "Säkerställa att konsulten kan samarbeta med teamet"
+    ],
+    "background": "Sofia har arbetat med digitalisering i Göteborgs stad i 5 år. Hon har fått i uppdrag att förbättra användarupplevelsen efter negativ feedback från medborgare.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Sofia Berg och jobbar som Digital strateg på Göteborgs stad. Jag behöver hjälp med ett avrop. Vi ska hitta en ux-designer med fokus på tillgänglighet.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Det är noterat, Sofia. En UX-designer med tydligt fokus på tillgänglighet är noterat, vilket matchar våra exempelroller inom interaktionsdesign och tillgänglighetsexpertis.\n\nFör att kunna starta avropet behöver vi fastställa några grundläggande parametrar.\n\nVilken kompetensnivå (1-5) söker ni, och uppskattar ni att uppdraget ska vara på heltid eller deltid? Dessutom, när önskar ni att konsulten ska påbörja uppdraget?",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi söker en UX-designer på nivå 4. Uppdraget är tänkt att vara på heltid. Vi vill att konsulten börjar 2026-02-01.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, tack! Då har vi fastställt både kompetensnivå (Nivå 4) och ett tydligt startdatum (2026-02-01).\n\nHeltid är noterat, men för att kunna beräkna den totala volymen – hur länge uppskattar ni att uppdraget ska pågå? Har ni ett preliminärt slutdatum, och finns det ett takpris per timme som vi ska förhålla oss till i upphandlingen?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Uppdraget beräknas pågå till och med 2026-09-30, alltså åtta månader. Vi har ett takpris på 1050 kr per timme.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, då har vi en tydlig ekonomisk ram och ett takpris på 1050 kr/h är noterat!\n\nUppdragets varaktighet är satt till åtta månader (2026-02-01 till 2026-09-30). Detta takpris skyddar oss mot kostnadsöverskridanden, vilket är bra.\n\nÅtta månaders heltid motsvarar grovt räknat cirka 1344 timmar. För att kunna slutföra registreringen: Har ni en fastställd total volym i timmar som vi ska ange som övre tak för uppdraget? Och när vi har det, kan vi då gå vidare med att definiera avropsstrategin?\n\nTack för samarbetet!",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Utmärkt, då har vi en tydlig ekonomisk ram och ett takpris på 1050 kr/h är noterat!\n\nUppdragets varaktighet är satt till åtta månader (2026-02-01 till 2026-09-30). Detta takpris skyddar oss mot kostnadsöverskridanden, vilket är bra.\n\nÅtta månaders heltid motsvarar grovt räknat cirka 1344 timmar. För att kunna slutföra registreringen: Har ni en fastställd total volym i timmar som vi ska ange som övre tak för uppdraget? Och när vi har det, kan vi då gå vidare med att definiera avropsstrategin?\n\nTack för samarbetet!",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 3,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "timestamp": "2025-12-07T20:31:19.268072",
+  "scenario": {
+    "filename": "scenario_dataanalytiker.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_dataanalytiker.txt"
+  },
+  "persona": {
+    "name": "Johan Eriksson",
+    "title": "Verksamhetsutvecklare",
+    "organization": "Stockholms läns landsting",
+    "personality": "Johan är analytisk och faktadriven. Han tror på datadrivna beslut och vill modernisera hur landstinget arbetar med information. Han kan vara lite teknisk i sin kommunikation.",
+    "knowledge_level": "- Expert på verksamhetsutveckling - God förståelse för dataanalys - Medelhög kunskap om ramavtal",
+    "communication_style": "- Analytisk och detaljerad - Ställer specifika tekniska frågor - Vill förstå metodiken - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Har stora datamängder som ingen analyserar",
+      "Ledningen kräver bättre beslutsunderlag",
+      "Vill bygga upp intern kompetens på sikt"
+    ],
+    "goals": [
+      "Hitta en analytiker som kan hantera vårddata",
+      "Förstå hur man utvärderar teknisk kompetens",
+      "Säkerställa att konsulten kan kommunicera med icke-tekniker"
+    ],
+    "background": "Johan har arbetat med verksamhetsutveckling i 20 år och ser nu möjligheten att använda data på ett helt nytt sätt. Han har fått budget för att starta ett analysprojekt.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Johan Eriksson och jobbar som Verksamhetsutvecklare på Stockholms läns landsting. Jag behöver hjälp med ett avrop. Vi ska hitta en analytiker som kan hantera vårddata.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Johan. Analytiker inom vårddata är ett tydligt behov.\n\nJag har noterat att ni avropar från Stockholms Län, vilket tillhör Anbudsområde A (Stockholm).\n\nFör att kunna specificera avropet enligt FAS-protokollet behöver jag lite mer information om omfattningen.\n\nHur många totala timmar uppskattar ni att uppdraget kommer att kräva, och vilket är det planerade start- respektive slutdatumet för Analytikern?",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi räknar med en heltidstjänst under tio månader. Startdatum är 2026-02-01 och slutdatum 2026-11-30.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Johan. Då har jag noterat varaktigheten: start 2026-02-01 och slut 2026-11-30, vilket är en tydlig ram för uppdraget.\n\nDenna varaktighet (tio månaders heltid) innebär en uppskattad volym på omkring 1600 konsulttimmar.\n\nFör att jag ska kunna gå vidare och få fram en prissättning behöver jag få in de sista pusselbitarna gällande volym och ekonomi.\n\nVolym/Budget: Har ni satt ett totalt takpris eller en budget för hela uppdraget (dessa ca 1600 timmar)?\nNivå: Vilken kompetensnivå (KN1 till KN5) krävs av analytikern?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi har en budget på 1 400 000 SEK för hela uppdraget. Konsulten ska vara på nivå 4.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Johan. Det var tydliga specifikationer för både volym och ekonomisk ram.\n\nVi har nu en tydlig bild: 1600 timmar till en budget på 1 400 000 SEK, vilket motsvarar ett genomsnittligt timpris på 875 SEK/timme. Konsulten ska ha Kompetensnivå 4 (KN4).\n\nStrategi & Avropsform\n\nAvropsform: Eftersom uppdragsvolymen ligger på 1600 timmar krävs Förnyad Konkurrensutsättning (FKU). Direktavrop (DR) är inte tillämpligt vid denna omfattning. FKU säkerställer att ni får marknadsmässiga anbud och bästa värde, samtidigt som det är förenligt med ramavtalets regler för stora volymer.\n\nPrismodell: Innan vi går vidare med FKU-utvärderingen, behöver vi klargöra prismodellen. Då vi har en fastställd budget på 1,4 miljoner SEK, är min fråga:\n\nÄr 1 400 000 SEK ett strikt Takpris (Löpande räkning med tak), eller är ni öppna för att specificera uppdraget till ett Fast pris baserat på denna volym?\n\nNästa steg: När prismodellen är bekräftad, behöver vi fastställa Utvärderingskriterierna för FKU: Hur ska ni vikta anbudet mellan pris och kvalitet?\n\nVilken prismodell väljer ni – Fast pris, eller Löpande räkning med 1 400 000 SEK som Takpris?",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi väljer löpande räkning med 1 400 000 SEK som takpris.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Johan. Valet av Löpande räkning med Takpris (1 400 000 SEK) är nu fastställt.\n\nDenna prismodell är strategiskt stark då den ger er flexibilitet under uppdragets gång (Löpande räkning), samtidigt som takpriset ger fullständig kostnadskontroll och sätter en tydlig ekonomisk ram för den Förnyade Konkurrensutsättningen (FKU).\n\nNu har vi alla ekonomiska parametrar på plats. Nästa kritiska steg i FAS-protokollet är att definiera utvärderingskriterierna för att säkerställa att ni får in det bästa anbudet inom ramen för KN4-kraven.\n\nFör att slutföra underlaget och kunna publicera FKU-förfrågan återstår nu två pusselbitar:\n\nUtvärderingskriterier (Viktning): Hur ska ni vikta anbuden mellan Pris och Kvalitet i utvärderingen? (Exempel: 70% Pris / 30% Kvalitet).\nKompetensområde: Analytiker är en bred roll. Vilket Kompetensområde inom ramavtalet tillhör uppdraget primärt? (T.ex. Arkitektur, Verksamhetsutveckling, Systemutveckling, eller liknande).",
+      "turn": 4,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag förstår. Låt oss börja med utvärderingskriterierna. Vi behöver en bra balans. Jag föreslår 60% pris och 40% kvalitet.\n\nOch vad gäller kompetensområde, skulle jag säga att det primärt är Verksamhetsutveckling, med fokus på dataanalys.",
+      "turn": 5
+    },
+    {
+      "role": "assistant",
+      "content": "Jag förstår. Då har vi fastställt både viktningen och kompetensområdet.\n\nDet låter som ett mycket lämpligt val att placera er Analytiker under Kompetensområde 1 – Verksamhetsutveckling och strategi (KO1), givet ert fokus på vårddata och strategisk analys. Detta område täcker just den typen av utredningar, förstudier och strategiutveckling ni beskriver.\n\nViktningen med 60% Pris och 40% Kvalitet är också nu spikad för utvärderingen i den Förnyade Konkurrensutsättningen (FKU). Detta är en vanlig och välbalanserad viktning för att säkerställa hög kompetens utan att offra kostnadseffektivitet.\n\nSammanfattning av FKU-underlaget\n\nMed dessa sista pusselbitar på plats har vi nu alla nödvändiga specifikationer för att formalisera avropet:\n\nRoll: Analytiker (KN4)\nKompetensområde: KO1 – Verksamhetsutveckling och strategi\nVolym: Ca 1600 timmar\nPrismodell: Löpande räkning med Takpris (1 400 000 SEK)\nUtvärdering: 60% Pris / 40% Kvalitet\nAvropsform: Förnyad Konkurrensutsättning (FKU)\n\nJag kan nu färdigställa FKU-underlaget och förbereda det för utskick till ramavtalsleverantörerna.",
+      "turn": 5,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Bra, då är vi klara.",
+      "turn": 6
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Johan. Tack för ett effektivt intag.\n\nJag kan nu bekräfta att vi har alla de nödvändiga parametrarna på plats för att formellt utlysa uppdraget via Förnyad Konkurrensutsättning (FKU).\n\nSammanfattning av de fastställda specifikationerna:\n\nRoll: Analytiker (Kompetensnivå 4)\nKompetensområde: KO1 – Verksamhetsutveckling och strategi\nVolym: Cirka 1600 timmar (tio månaders heltid)\nPrismodell: Löpande räkning med Takpris (1 400 000 SEK)\nUtvärdering: 60% Pris / 40% Kvalitet\nTidsram: Start 2026-02-01 till Slut 2026-11-30\n\nJag påbörjar nu arbetet med att färdigställa och driftsätta det formella underlaget för FKU. Vi återkommer med en bekräftelse när förfrågan har gått ut till ramavtalsleverantörerna.\n\nTack för samarbetet!",
+      "turn": 6,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Utmärkt, Johan. Tack för ett effektivt intag.\n\nJag kan nu bekräfta att vi har alla de nödvändiga parametrarna på plats för att formellt utlysa uppdraget via Förnyad Konkurrensutsättning (FKU).\n\nSammanfattning av de fastställda specifikationerna:\n\nRoll: Analytiker (Kompetensnivå 4)\nKompetensområde: KO1 – Verksamhetsutveckling och strategi\nVolym: Cirka 1600 timmar (tio månaders heltid)\nPrismodell: Löpande räkning med Takpris (1 400 000 SEK)\nUtvärdering: 60% Pris / 40% Kvalitet\nTidsram: Start 2026-02-01 till Slut 2026-11-30\n\nJag påbörjar nu arbetet med att färdigställa och driftsätta det formella underlaget för FKU. Vi återkommer med en bekräftelse när förfrågan har gått ut till ramavtalsleverantörerna.\n\nTack för samarbetet!",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 6,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

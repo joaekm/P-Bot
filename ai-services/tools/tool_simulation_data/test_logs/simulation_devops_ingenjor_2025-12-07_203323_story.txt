@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Peter Holms berättelse
+║  Systemansvarig på Trafikverket
+║  
+║  Samtal: 10 meddelanden
+║  Datum: 2025-12-07 20:33
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade ett samtal med den där P-Bot på Adda igår. Hela grejen känns fortfarande lite… surrealistisk. Jag var ju tvungen att testa det här nya AI-verktyget för avrop. Jag menar, Trafikverket måste ju modernisera sig någon gång, även om det känns som att vi släpar efter ibland. Jag hoppades att det skulle vara smidigt, du vet, ett snabbt sätt att få tag på en DevOps-ingenjör. Behovet är skriande! Vårt team behöver verkligen hjälp att lyfta blicken, inte bara släcka bränder hela tiden.
+
+I början var jag skeptisk. Det kändes lite som att prata med en chatbot från kundtjänst – du vet, man repeterar sig och får standardsvar. Men sen, när jag började mata in kraven, så fattade den faktiskt grejen ganska snabbt. Att den direkt identifierade att det handlade om kompetensområde 3 var en positiv överraskning. Det sparade lite tid i alla fall. Dock kände jag mig lite stressad över alla frågor. Det är som att man måste tänka igenom allt i minsta detalj innan man ens kan börja. Är det verkligen snabbare än att bara ringa en säljare på ett konsultbolag?
+
+Det som faktiskt imponerade mig var hur P-Bot snappade upp att jag var ute efter någon som kunde bygga från grunden. Den förstod implicit att det innebar att vi inte hade någon färdig molnmiljö, utan behövde någon som kunde hjälpa oss att sätta upp allt från början. Det var ett ögonblick där jag tänkte "Okej, den här prylen är kanske inte helt värdelös ändå." Sen när den började prata om prismodeller och viktningsfaktorer kände jag mig däremot lite irriterad. Det är ju samma gamla vanliga byråkrati, bara paketerad i ett nytt, glänsigt AI-skal. Behöver vi verkligen den här detaljerade utvärderingen? Vi behöver ju bara någon som kan hjälpa oss, inte vinna ett pris för bästa upphandling.
+
+När den sen sammanfattade allt på slutet kändes det faktiskt ganska bra. All information var tydlig och strukturerad. Jag fick en känsla av att jag hade något konkret att gå vidare med. Men samtidigt… jag är fortfarande inte helt övertygad. Jag är rädd att vi kommer att få in en massa CV:n som ser bra ut på papperet, men som inte alls lever upp till förväntningarna i verkligheten. Och hur ska vi få teamet att acceptera en ny konsult, speciellt om den kommer remote? De är redan så skeptiska till förändringar. Jag känner mig lite som att jag måste hålla deras händer hela vägen. Trots allt så kommer jag troligtvis använda tjänsten igen. Jag hoppas att det blir lättare när man lärt sig hur den funkar. Kanske blir den till och med bättre med tiden. Men just nu känns det lite som att jag bara har flyttat problemet från ett ställe till ett annat."

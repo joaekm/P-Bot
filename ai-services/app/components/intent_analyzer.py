@@ -75,10 +75,10 @@ class IntentAnalyzerComponent:
         last_topic = ""
         
         if history:
-            # v5.11: Full history - no truncation (Gemini has 1M token context)
-            for msg in history:
+            # Get last 6 messages for better context
+            for msg in history[-6:]:
                 role = msg.get('role', 'unknown')
-                content = msg.get('content', '')  # Full content
+                content = msg.get('content', '')[:300]  # More content for context
                 history_text += f"{role.upper()}: {content}\n"
                 
                 # Track last bot message for reference resolution

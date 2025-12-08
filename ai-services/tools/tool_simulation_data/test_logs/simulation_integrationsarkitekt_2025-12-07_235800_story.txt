@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Erik Johanssons berättelse
+║  Arkitektledare på Inera AB
+║  
+║  Samtal: 12 meddelanden
+║  Datum: 2025-12-07 23:58
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag satt ju med den där P-Bot igår, Addas AI-assistent för avrop. Hade väl hoppats på att det skulle vara en smidig lösning, att jag bara skulle mata in kraven och vips så hade jag en shortlist med kandidater. Med tanke på hur bråttom det är att få in en ersättare för Kalle, som stack utan förvarning, så behövde jag verkligen något snabbt.
+
+Det började väl okej. Den ställde de vanliga frågorna om roll, nivå och sånt. Kändes lite som ett formulär, men det är ju sånt man får ta. Det var när vi kom till prisvikten i utvärderingen som jag började fundera. 30% pris och 70% kvalitet – ja, det låter bra i teorin, men jag var tvungen att dubbelkolla volymen på timmar och slutdatumet, som P-Bot räknade ut. Jag tänkte direkt, "räknar den verkligen rätt?" Jag menar, vi snackar en nivå 5 arkitekt, jag vill inte att vi snålar här. Det är ju en investering, men man vill ju inte bli blåst heller. Jag gillar inte att lämna sånt åt slumpen. 1680 timmar… det får jag kolla upp ordentligt sen.
+
+Det som verkligen kändes som en vändpunkt var när den började tjata om uppdragsbeskrivningen och godkännandevillkor. Alltså, jag fattar ju att det behövs, men jag hade väl hoppats att den skulle ha lite mer kött på benen där. Lite mer "här är exempel på vad andra har gjort i liknande situationer" eller nåt. Nu blev det mest "mata in allting själv", vilket är exakt det jag försöker slippa göra genom att använda en AI-assistent! Och jag ville ju helst ha någon med erfarenhet från just hälso- och sjukvård också, det var inget den snappade upp. Kändes lite som att jag lika gärna kunde ringa ett vanligt bemanningsföretag.
+
+När den sen avslutade med den där länken till en förifylld PDF- eller Word-fil… det kändes som en klen tröst. Jag vet inte, jag hade nog förväntat mig mer. Jag är inte säker på om jag kommer använda den igen. Jag behövde ju spara tid, men istället kändes det som att jag bara skapade mer jobb åt mig själv. Kanske är det bra för de som inte har koll, men för mig som är van vid det här kändes det bara som ett extra lager av administration."

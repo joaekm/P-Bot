@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Johan Erikssons berättelse
+║  Verksamhetsutvecklare på Stockholms läns landsting
+║  
+║  Samtal: 6 meddelanden
+║  Datum: 2025-12-07 23:54
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag var inne på Adda igår och snackade med den där P-Bot:en, du vet den där AI-assistenten för att avropa IT-konsulter. Jag var faktiskt lite nervös innan. Vi sitter ju på en guldgruva av vårddata här på landstinget, men ingen har ju riktigt kompetensen att gräva fram guldet. Ledningen tjatar om bättre beslutsunderlag, så jag tänkte att det här var chansen att faktiskt få in någon som kan hjälpa oss med det. Jag hoppades väl mest på att det skulle vara smidigt och att jag snabbt skulle kunna komma vidare med ett bra avrop.
+
+Det började ju bra, den fattade direkt vad jag behövde. Frågade om kompetensnivå och hur länge vi behövde analytikern. Lite standardfrågor, men ändå. Men sen blev det lite mer...trixit. Den började ju mala på om volym och avtalstid, och jag tänkte "Härregud, det är ju sånt här jag hatar!". Alltså, jag fattar ju att det måste vara rätt, men jag vill ju bara hitta någon som kan analysera skiten och ge oss lite insikter. Men jag ska ge den att den faktiskt uppmärksammade att ramavtalet löpte ut mitt i potentiella uppdraget. Det hade jag faktiskt missat! Så det var ju bra att den plockade upp det, annars hade vi ju kunnat stå där med skägget i brevlådan.
+
+Sen kom det ju till det där med ekonomin. Takpris och viktning mellan pris och kvalitet. Alltså, jag förstår ju att vi måste ha en budget, men det känns ju lite som att den fokuserar på fel saker. Jag vill ju ha någon som *kan* det här, inte någon som är billigast. Men jag förstår ju att man måste spela spelet.
+
+Jag vet inte, det var lite... stelt. Som att prata med en robot, vilket jag ju gjorde, men ändå. Jag saknade lite mer proaktivitet. Typ "Har ni tänkt på det här med GDPR när ni hanterar patientdata?" eller "Vilka specifika analysmetoder är ni intresserade av?". Det var liksom bara en checklista som tickades av.
+
+Men, allt som allt, så sparade den ju tid och hjälpte mig få ihop en tydlig avropsförfrågan. Så ja, jag skulle nog använda den igen, om jag måste. Men jag hoppas att de kan utveckla den så den blir lite mer... mänsklig. För i slutändan handlar det ju om att hitta rätt person, och det kan inte en algoritm göra helt själv."

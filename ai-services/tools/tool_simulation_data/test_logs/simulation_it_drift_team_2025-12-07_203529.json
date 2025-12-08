@@ -1,0 +1,114 @@
+{
+  "timestamp": "2025-12-07T20:35:29.298076",
+  "scenario": {
+    "filename": "scenario_it_drift_team.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_it_drift_team.txt"
+  },
+  "persona": {
+    "name": "Magnus Ek",
+    "title": "IT-driftchef",
+    "organization": "Inera AB",
+    "personality": "Magnus är pragmatisk och handlingskraftig. Han har mycket på sitt bord och behöver snabbt få in rätt kompetens. Han är van vid att fatta beslut under press men vill ändå följa regelverket.",
+    "knowledge_level": "- Expert på IT-drift och infrastruktur - God kunskap om ramavtal - Erfaren beställare",
+    "communication_style": "- Rakt på sak - Vill ha snabba svar - Fokuserar på det praktiska - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Projektet är tidskritiskt - deadline om 4 månader",
+      "Nuvarande driftleverantör har sagt upp avtalet",
+      "Behöver konsulterna på plats inom 3 arbetsdagar"
+    ],
+    "goals": [
+      "Snabbt få in två kompetenta konsulter",
+      "Förstå hur man hanterar team-avrop",
+      "Säkerställa att timfördelningen kan justeras"
+    ],
+    "background": "Magnus har ansvarat för IT-driften på Inera i 10 år. Nu står han inför den största omställningen - att gå från en gammal driftmiljö till en modern hybrid-lösning. Han har fått grönt ljus från ledningen men tiden är knapp.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Magnus Ek och jobbar som IT-driftchef på Inera AB. Jag behöver hjälp med ett avrop. Vi ska snabbt få in två kompetenta konsulter.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Jag förstår, Magnus. Ni behöver snabbt stärka upp organisationen med två konsulter.\n\nFör att jag ska kunna matcha ert behov mot ramavtalets definierade kompetensområden (KO1–KO7), behöver jag lite mer information om typen av uppdrag. Eftersom du är IT-driftchef, misstänker jag att det handlar om roller inom Systemförvaltning och infrastruktur (KO3), men det kan även vara Testare eller Arkitekter.\n\nVad är huvuduppgiften för dessa två konsulter?\n\nNär vi vet rollen, behöver jag även få en uppfattning om uppdragets omfattning. Kan du också svara på följande frågor:\n\nVilken kompetensnivå (1–5) söker ni för konsulterna?\nUngefär hur länge uppskattar ni att uppdraget sträcker sig (månader eller totalt antal timmar)?\nOch när är tidigaste startdatum ni ser framför er?",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Det stämmer, vi behöver konsulter för IT-drift. Huvuduppgiften är att bistå med en förstudie. Vi behöver en Senior Nätverksarkitekt och en Senior IT-arkitekt Infrastruktur. Kompetensnivå 5 på båda. Uppdraget är på cirka 500 timmar totalt. Vi vill att de ska börja så fort som möjligt, men 2026-02-01 är ett bra startdatum.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Magnus. Då har vi specificerat rollerna, att det är Senior Nätverksarkitekt och Senior IT-arkitekt Infrastruktur, att båda har Kompetensnivå 5 och en total volym på 500 timmar med start 2026-02-01.\n\nDet är viktigt att notera att när ni efterfrågar Kompetensnivå 5, kräver ramavtalet enligt reglerna att vi tillämpar Förnyad Konkurrensutsättning (FKU).\n\nDet innebär att vi måste säkerställa att alla villkor för uppdraget är fastställda innan vi kan skicka ut det.\n\nFör att kunna slutföra underlaget och starta FKU-processen behöver jag veta:\n\nNär beräknas uppdraget vara helt avslutat (Slutdatum)?\nHar ni satt ett takpris per timme för dessa seniora roller?\nVar är uppdraget geografiskt placerat? (Ort/Region)",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Slutdatum är 2026-09-30. Takpriset är 1300 kronor per timme. Uppdraget är i Stockholmsområdet, avropsområde D.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Magnus. Då har vi all den grundläggande informationen på plats för att starta Förnyad Konkurrensutsättning (FKU).\n\nVi har nu fastställt:\n\nVolym: Cirka 500 timmar (fördelat på två Nivå 5-roller)\nTidsram: Start 2026-02-01 och slut 2026-09-30 (8 månader)\nKostnadskontroll: Takpris på 1300 SEK per timme\nGeografi: Stockholmsområdet, Avropsområde D\n\nEftersom ni har angivit ett takpris (1300 SEK/h) innebär det att vi kommer att använda prismodellen Löpande räkning med tak. Därmed är den finansiella ramen komplett.\n\nNästa steg i FKU-processen är att fastställa utvärderingskriterierna för att välja den bästa leverantören.\n\nBekräftar du att vi ska använda Löpande räkning med tak?\nHur ska vi vikta Pris mot Kvalitet i utvärderingen? (Till exempel 60% pris och 40% kvalitet).",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, vi kör på löpande räkning med tak. Jag vill ha 60% vikt på pris och 40% på kvalitet.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Magnus.\n\nVi har nu fastställt att vi går vidare med Löpande räkning med tak som prismodell, samt att vi använder utvärderingsvikterna 60% Pris och 40% Kvalitet.\n\nDenna viktning (60/40) är väl avvägd för ett komplext uppdrag med krav på Kompetensnivå 5 och säkerställer att ni får en balans mellan kostnadseffektivitet och den bästa tillgängliga kompetensen på marknaden. När det gäller eventuella avtalsbrott eller sanktioner regleras dessa fullt ut i ramavtalet, vilket ger en tydlig juridisk grund oavsett vilka leverantörer som svarar på FKU:n.\n\nMed den finansiella strategin (prismodell och viktning) bekräftad, är underlaget för FKU-utlysningen nu komplett.\n\nVill du att jag sammanfattar alla fastställda villkor (roller, volym, tidsram och utvärderingsstrategi) innan vi skickar ut förfrågan till leverantörerna?",
+      "turn": 4,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Utmärkt, Magnus.\n\nVi har nu fastställt att vi går vidare med Löpande räkning med tak som prismodell, samt att vi använder utvärderingsvikterna 60% Pris och 40% Kvalitet.\n\nDenna viktning (60/40) är väl avvägd för ett komplext uppdrag med krav på Kompetensnivå 5 och säkerställer att ni får en balans mellan kostnadseffektivitet och den bästa tillgängliga kompetensen på marknaden. När det gäller eventuella avtalsbrott eller sanktioner regleras dessa fullt ut i ramavtalet, vilket ger en tydlig juridisk grund oavsett vilka leverantörer som svarar på FKU:n.\n\nMed den finansiella strategin (prismodell och viktning) bekräftad, är underlaget för FKU-utlysningen nu komplett.\n\nVill du att jag sammanfattar alla fastställda villkor (roller, volym, tidsram och utvärderingsstrategi) innan vi skickar ut förfrågan till leverantörerna?",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 4,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

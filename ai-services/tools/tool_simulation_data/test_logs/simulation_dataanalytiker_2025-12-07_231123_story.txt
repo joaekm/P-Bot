@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Johan Erikssons berättelse
+║  Verksamhetsutvecklare på Stockholms läns landsting
+║  
+║  Samtal: 10 meddelanden
+║  Datum: 2025-12-07 23:11
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade ett samtal med den där P-Bot på Adda igår. Tanken var ju att det skulle effektivisera hela avropsprocessen, slippa massa mail och tjafs. Jag var väl både skeptisk och hoppfull. Skeptisk för att jag har ju kört de här rundorna förut, och det brukar alltid vara något som strular. Men också hoppfull för att om det här funkar, så skulle det ju spara en massa tid och huvudvärk. Vi har ju ett skriande behov av en vettig analytiker som kan ta hand om all vårddata som bara ligger och dammar. Det är ju ett underlag för att fatta vettiga beslut, men ingen orkar gräva i det!
+
+Först var det rätt smidigt. P-Bot verkade fatta direkt vad jag var ute efter, att jag behövde en dataanalytiker på nivå 4. Vi gick igenom timmar och startdatum utan problem. Men sedan började det bli lite...ryckigt. Som att den bara spottade ur sig frågor utan att riktigt lyssna. Det var ju bra att den räknade ut totala timvolymen, men när den började prata om takpris och budget kände jag mig lite pressad. Jag vet ju att budgeten är tajt, ledningen har ju suttit och gnällt om besparingar sen i julas. Det var bra att P-Bot direkt såg att budgeten var lägre än maxpriset med takpris, det visar ju att den faktiskt räknar och tänker.
+
+Det var ju när vi kom till avropsformen som jag faktiskt kände mig lugnare. Jag blev lite imponerad faktiskt. Att den föreslog Förnyad Konkurrensutsättning direkt, det var ju smart. Och att den sa att budgeten kunde användas som en "skarp utvärderingsfaktor", det var ju klockrent! Sedan när jag föreslog fast pris kändes det som att den verkligen var med på noterna. Jag kände att jag hade kontroll, att det inte skulle skena iväg. 
+
+När det var klart kändes det...förvånansvärt bra. Jag var faktiskt rätt nöjd. Det gick snabbt, och P-Bot verkade förstå precis vad jag ville och varför. Jag hade fortfarande lite vibbar av en automatisk kundtjänst, men samtidigt kändes det mycket mer genomtänkt och målinriktat. Jag kommer absolut att använda P-Bot igen. Om det kan fortsätta att vara så här effektivt och hjälpa mig att få fram bra underlag till avtal, så är det ju en game changer för oss. Nu får vi bara se om resultatet blir lika bra, dvs om vi hittar en konsult som kan leverera."

@@ -1,0 +1,114 @@
+{
+  "timestamp": "2025-12-07T22:52:59.596281",
+  "scenario": {
+    "filename": "scenario_dataanalytiker.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_dataanalytiker.txt"
+  },
+  "persona": {
+    "name": "Johan Eriksson",
+    "title": "Verksamhetsutvecklare",
+    "organization": "Stockholms läns landsting",
+    "personality": "Johan är analytisk och faktadriven. Han tror på datadrivna beslut och vill modernisera hur landstinget arbetar med information. Han kan vara lite teknisk i sin kommunikation.",
+    "knowledge_level": "- Expert på verksamhetsutveckling - God förståelse för dataanalys - Medelhög kunskap om ramavtal",
+    "communication_style": "- Analytisk och detaljerad - Ställer specifika tekniska frågor - Vill förstå metodiken - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Har stora datamängder som ingen analyserar",
+      "Ledningen kräver bättre beslutsunderlag",
+      "Vill bygga upp intern kompetens på sikt"
+    ],
+    "goals": [
+      "Hitta en analytiker som kan hantera vårddata",
+      "Förstå hur man utvärderar teknisk kompetens",
+      "Säkerställa att konsulten kan kommunicera med icke-tekniker"
+    ],
+    "background": "Johan har arbetat med verksamhetsutveckling i 20 år och ser nu möjligheten att använda data på ett helt nytt sätt. Han har fått budget för att starta ett analysprojekt.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Johan Eriksson och jobbar som Verksamhetsutvecklare på Stockholms läns landsting. Jag behöver hjälp med ett avrop. Vi ska hitta en analytiker som kan hantera vårddata.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Tack Johan, jag förstår. Ni söker alltså en Analytiker med specifik inriktning mot hantering av vårddata för Stockholms läns landsting.\n\nEn analytiker faller ofta under kompetensområdena Verksamhetsutveckling eller Systemutveckling i ramavtalet. För att hitta rätt matchning och avropsform:\n\nVilken typ av analytiker är det i huvudsak ni söker – en Kravanalytiker eller en Verksamhetsanalytiker?\nVilken kompetensnivå (1-5) uppskattar ni att konsulten ska ha?\nHur många totala timmar beräknas uppdraget omfatta, och när önskar ni att uppdraget ska starta?\n\nVi noterar att nivå 5 alltid kräver förnyad konkurrensutsättning, och om ni behöver mer än 320 timmar påverkar det också valet av avropsförfarande.",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi behöver en Dataanalytiker/Business Intelligence. Kompetensnivå 4 är lämplig. Uppdraget beräknas pågå i 10 månader, heltid, med start 2026-02-01. Vi har budget för hela avtalet.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Johan. Då har vi noterat att ni söker en Dataanalytiker/Business Intelligence på Kompetensnivå 4, med planerad start 2026-02-01 och en uppskattad varaktighet på 10 månader (cirka till 2026-11-30).\n\nDetta ger oss en tydlig bild av rollen och tidplanen. För att färdigställa underlaget och gå vidare med prissättning och avropsform, behöver jag nu de sista finansiella detaljerna:\n\nBaserat på 10 månader heltid, hur många totala konsulttimmar (volym) räknar ni med att uppdraget kommer att omfatta?\nHar ni ett takpris per timme ni arbetar utifrån för en konsult på Nivå 4?\nBehöver konsulten arbeta på plats hos er i Stockholm, eller tillåts distansarbete?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi räknar med att uppdraget omfattar totalt cirka 1400 timmar. Vårt takpris är 1150 kr per timme. Konsulten behöver vara på plats i Stockholm.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Johan. Tack för de detaljerade siffrorna.\n\nDå har jag sammanställt grundprotokollet för uppdraget:\n\n| Fält | Värde | | :--- | :--- | | Roll/Nivå | Dataanalytiker/BI (KN4) | | Volym | 1400 timmar | | Takpris | 1150 kr/timme | | Startdatum | 2026-02-01 | | Slutdatum | 2026-11-30 (cirka) | | Plats | Stockholm (På plats) |\n\nBra, då har jag det jag behöver för att ta fram en komplett avropsstrategi. För att vi ska kunna slutföra underlaget och hantera utvärderingen korrekt, behöver jag veta:\n\nVilken prismodell föredrar ni att använda i uppdraget? (Är det Lösande Räkning med det angivna takpriset, eller föredrar ni en Fast Pris-lösning för hela uppdraget?)\nOm vi behöver gå ut med en förnyad konkurrensutsättning (FKU), hur stor vikt ska priset ha i utvärderingen gentemot kvalitet/kompetens? (T.ex. 40% Pris / 60% Kvalitet)\nHar ni redan identifierat ett specifikt ramavtal ni vill avropa från? (T.ex. IT-konsulttjänster 2021)",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi kommer använda Lösande Räkning med takpriset. Priset ska väga 30% och kompetens 70%. Vi avropar från IT-konsulttjänster 2021.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Johan. Att ni väljer Lösande Räkning och en utvärderingsmodell med 30% vikt på pris och 70% på kompetens/kvalitet är en utmärkt strategisk start.\n\nBaserat på den volym och kompetensnivå vi tidigare diskuterat, kommer avropet att ske genom en Förnyad Konkurrensutsättning (FKU) inom ramavtalet IT-konsulttjänster 2021.\n\nStrategi och Avropsform\n\nAvropsform (FKU) På grund av uppdragets omfattning och kravet på en konsult på Kompetensnivå 4, ligger detta avrop över de direktavropsgränser som stipuleras i ramavtalet. Därför är en Förnyad Konkurrensutsättning (FKU) nödvändig. Detta säkerställer att ni får en transparent process och möjlighet att jämföra anbud från flera leverantörer innan kontrakt tecknas.\n\nUtvärderingsstrategi Vi kommer att utforma FKU:n så att utvärderingen baseras på den viktning ni angivit:\n\nPris: 30%\nKvalitet/Kompetens: 70%\n\nDetta är en robust strategi som starkt gynnar kompetensen, vilket är lämpligt när ni söker en specialist på KN4 med specifika kunskaper inom vårddata.\n\nUnderlaget för strategifasen är nu komplett.\n\nVi har fastställt både de finansiella villkoren (Lösande Räkning med takpris) och den formella avropsmetoden (FKU).\n\nVill du att jag sammanfattar alla de beslut vi har fattat hittills, eller ska vi gå direkt vidare till att generera utkastet för Förnyad Konkurrensutsättning?",
+      "turn": 4,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Tack, Johan. Att ni väljer Lösande Räkning och en utvärderingsmodell med 30% vikt på pris och 70% på kompetens/kvalitet är en utmärkt strategisk start.\n\nBaserat på den volym och kompetensnivå vi tidigare diskuterat, kommer avropet att ske genom en Förnyad Konkurrensutsättning (FKU) inom ramavtalet IT-konsulttjänster 2021.\n\nStrategi och Avropsform\n\nAvropsform (FKU) På grund av uppdragets omfattning och kravet på en konsult på Kompetensnivå 4, ligger detta avrop över de direktavropsgränser som stipuleras i ramavtalet. Därför är en Förnyad Konkurrensutsättning (FKU) nödvändig. Detta säkerställer att ni får en transparent process och möjlighet att jämföra anbud från flera leverantörer innan kontrakt tecknas.\n\nUtvärderingsstrategi Vi kommer att utforma FKU:n så att utvärderingen baseras på den viktning ni angivit:\n\nPris: 30%\nKvalitet/Kompetens: 70%\n\nDetta är en robust strategi som starkt gynnar kompetensen, vilket är lämpligt när ni söker en specialist på KN4 med specifika kunskaper inom vårddata.\n\nUnderlaget för strategifasen är nu komplett.\n\nVi har fastställt både de finansiella villkoren (Lösande Räkning med takpris) och den formella avropsmetoden (FKU).\n\nVill du att jag sammanfattar alla de beslut vi har fattat hittills, eller ska vi gå direkt vidare till att generera utkastet för Förnyad Konkurrensutsättning?",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 4,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

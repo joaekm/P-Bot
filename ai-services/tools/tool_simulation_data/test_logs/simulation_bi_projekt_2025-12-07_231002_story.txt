@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anna-Karin Holms berättelse
+║  Verksamhetsutvecklare BI på Trafikverket
+║  
+║  Samtal: 16 meddelanden
+║  Datum: 2025-12-07 23:10
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade ju det där samtalet med Addas AI-assistent P-Bot igår, det om avropet. Jag var väl ganska skeptisk från början, jag ska vara ärlig. Har haft så många dåliga erfarenheter av IT-konsulter som bara vill mjölka timmar ur oss, så jag var inställd på att det här skulle bli ännu en frustration. Jag hoppades väl innerst inne att det skulle kunna underlätta processen, men förväntade mig mest en massa onödiga frågor och pappersarbete. Ville ju bara få det här datalagret på plats, ett som faktiskt *fungerar* och inte bara är en hög med dokumentation som ingen förstår. Dessutom hänger ju hela regeringsuppdraget på det här, så stressen var rätt hög.
+
+Det började ju som förväntat, P-Bot ville veta allt om roller, kompetenser och timmar. Jag tänkte direkt: "Här kommer det, ännu en som inte fattar att vi vill ha fast pris!". Jag var ganska tydlig med att jag inte ville ha ett resursuppdrag, utan att leverantören skulle ta ansvar för leveransen. Jag kände mig lite irriterad när den fortsatte tjata om timmar, trots att jag hade sagt att det skulle vara ett fast pris. Men sen, när jag satte ner foten och sa att jag inte ville styra hur arbetet utfördes, utan bara godkänna slutresultatet, så kändes det som att den fattade.
+
+Det var när den faktiskt accepterade att jag inte hade någon uppskattad timvolym och att fokus låg på resultatet som jag började bli lite mer positivt överraskad. Att den inte insisterade på timmar, utan fattade att vi har ett fast pris och att *leverantören* tar risken, det var faktiskt riktigt bra. Det där med kompetensnivåerna kändes först lite onödigt, men när den sa att det behövdes för att motivera budgeten, så fattade jag poängen. Men jag vägrade gräva fram en massa timmar någon räknat på en gång.
+
+Det bästa var ändå när P-Bot bekräftade att vi skulle inkludera tydliga avtalsvillkor om resultatansvar och möjligheten till vite. Det känns som att det är den enda chansen att faktiskt få leverantörerna att ta det här på allvar. Annars är det ju lätt att de bara levererar en massa dokumentation och sen drar. Jag ska inte sticka under stolen med att jag fortfarande är lite nervös inför själva utförandet, men P-Bot gav mig åtminstone känslan av att vi har täckt upp oss så gott det går. Om vi får ett bra pris, förstås.
+
+Allt som allt var det faktiskt bättre än jag hade förväntat mig. Om jag skulle använda tjänsten igen? Ja, kanske det. Jag vill se hur det här faktiskt går först, men om det här leder till ett lyckat avrop med ett datalager som faktiskt funkar, då kan jag absolut tänka mig att använda P-Bot igen. Men det är resultatet som räknas i slutändan, inte hur smidigt det är att prata med en AI."

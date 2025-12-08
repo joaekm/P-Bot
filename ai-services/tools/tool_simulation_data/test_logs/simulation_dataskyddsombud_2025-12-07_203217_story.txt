@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Henrik Wallins berättelse
+║  Stadsjurist på Malmö Stad
+║  
+║  Samtal: 8 meddelanden
+║  Datum: 2025-12-07 20:32
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+”Du, jag har haft ett… intressant samtal med Addas nya AI-bot, P-Bot, igår. Du vet, den där som ska underlätta avropen på IT-konsulter. Herregud, vilket företag. Jag var ju tvungen att testa, eftersom vi sitter i skiten med den här IMY-tillsynen och bristen på ett dataskyddsombud. Jag tänkte att det kunde vara ett snabbt sätt att få igång processen. Förväntningarna var väl att jag skulle kunna spara tid, slippa sitta och ringa och maila en massa utan att komma någon vart.
+
+Först var jag rätt positiv, den var ju snabb på att svara, det ska den ha. Och den verkade förstått direkt vad jag behövde, det där med DPO och IMY. Men sen började det. Alla de där frågorna! Jag förstår ju att den behöver information, men det kändes som att jag satt och gjorde hela jobbet själv. Och hela tiden den där påminnelsen om Förnyad Konkurrensutsättning, som om jag inte visste det! Tack, P-Bot, jag är ju bara stadsjurist liksom.
+
+Det jobbigaste var nog när den började fråga om kvalitetskriterierna. Jag är ju inte IT-expert! Det är ju därför vi behöver en konsult! Jag vill ju att de ska ha koll på GDPR, molntjänster och helst veta hur det funkar i en kommun, men hur jag ska formulera det som ett utvärderingskriterium… det är ju inte mitt bord. Jag blev riktigt irriterad när jag insåg att jag fortfarande måste lägga en massa tid på att tänka ut det själv. Visst, P-Bot sparade mig kanske lite tid med att fylla i ett formulär, men det känns inte som att jag är närmare en lösning. Det positiva var väl att den direkt räknade ut totala volymen av uppdraget, och höll koll på takpriset på ett bra sätt.
+
+När det var över var jag bara trött. Och fortfarande utan en DPO! Jag vet inte om jag kommer att använda den där P-Bot igen. Den är snabb, det är sant, men det känns som att den bara flyttar runt problemet. Jag måste fortfarande göra allt det tunga jobbet själv. Jag behöver någon som kan ta hand om detta, inte bara ställa massa frågor. Jag får väl ringa Adda direkt istället. Man kanske ska satsa på den mänskliga kontakten ändå, även om det tar längre tid. Det känns som att den där boten bara är en snygg fasad, men det är fortfarande jag som måste förstå IT-djungeln.”

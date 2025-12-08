@@ -1,0 +1,45 @@
+{
+  "timestamp": "2025-12-07T23:16:37.677537",
+  "scenario": {
+    "filename": "scenario_it_drift_team.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_it_drift_team.txt"
+  },
+  "persona": {
+    "name": "Magnus Ek",
+    "title": "IT-driftchef",
+    "organization": "Inera AB",
+    "personality": "Magnus är pragmatisk och handlingskraftig. Han har mycket på sitt bord och behöver snabbt få in rätt kompetens. Han är van vid att fatta beslut under press men vill ändå följa regelverket.",
+    "knowledge_level": "- Expert på IT-drift och infrastruktur - God kunskap om ramavtal - Erfaren beställare",
+    "communication_style": "- Rakt på sak - Vill ha snabba svar - Fokuserar på det praktiska - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Projektet är tidskritiskt - deadline om 4 månader",
+      "Nuvarande driftleverantör har sagt upp avtalet",
+      "Behöver konsulterna på plats inom 3 arbetsdagar"
+    ],
+    "goals": [
+      "Snabbt få in två kompetenta konsulter",
+      "Förstå hur man hanterar team-avrop",
+      "Säkerställa att timfördelningen kan justeras"
+    ],
+    "background": "Magnus har ansvarat för IT-driften på Inera i 10 år. Nu står han inför den största omställningen - att gå från en gammal driftmiljö till en modern hybrid-lösning. Han har fått grönt ljus från ledningen men tiden är knapp.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Magnus Ek och jobbar som IT-driftchef på Inera AB. Jag behöver hjälp med ett avrop. Vi ska snabbt få in två kompetenta konsulter.",
+      "turn": 1
+    }
+  ],
+  "final_state": {
+    "ui_directives": {},
+    "current_state": {},
+    "message": "Konversation avbruten"
+  },
+  "summary": {
+    "total_turns": 1,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "unknown"
+  }
+}

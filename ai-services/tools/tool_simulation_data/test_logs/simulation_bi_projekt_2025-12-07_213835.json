@@ -1,0 +1,47 @@
+{
+  "timestamp": "2025-12-07T21:38:35.943066",
+  "scenario": {
+    "filename": "scenario_bi_projekt.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/HARD/scenario_bi_projekt.txt"
+  },
+  "persona": {
+    "name": "Anna-Karin Holm",
+    "title": "Verksamhetsutvecklare BI",
+    "organization": "Trafikverket",
+    "personality": "Anna-Karin är en erfaren verksamhetsutvecklare som är trött på misslyckade IT-projekt. Hon vill ha ett fastprisuppdrag där leverantören tar ansvar för resultatet. Hon är skeptisk till konsulter som bara vill sälja timmar och kräver tydliga leverabler.",
+    "knowledge_level": "- Expert på BI och dataanalys - God förståelse för Azure-plattformen - Medelmåttig upphandlingskunskap - Vet skillnaden mellan resurs- och projektuppdrag men osäker på hur det fungerar i ramavtalet",
+    "communication_style": "- Tydlig och målinriktad - Fokuserar på resultat, inte aktiviteter - Ställer frågor om garantier och ansvar - Vill ha allt i skrift",
+    "hidden_constraints": [
+      "Tidigare BI-projekt överskred budget med 40%",
+      "Ledningen har krav på fast pris - inga överraskningar",
+      "Intern IT-avdelning är skeptisk till externa konsulter",
+      "Projektet är kopplat till regeringsuppdrag med hård deadline"
+    ],
+    "goals": [
+      "Avropa ett projektuppdrag med fast pris och tydligt resultatansvar",
+      "Förstå hur godkännandevillkor och milstolpar fungerar",
+      "Säkerställa att leverantören tar risken, inte Trafikverket",
+      "Få ett datalager som verkligen fungerar - inte bara dokumentation"
+    ],
+    "background": "Anna-Karin har arbetat med BI i 15 år och sett många projekt misslyckas på grund av oklara krav och bristande leverantörsansvar. Hon tror starkt på projektuppdrag framför resursuppdrag. - \"Jag vill ha ett fastprisuppdrag - inte betala för timmar\" - \"Leverantören ska ha resultatansvar, inte vi\" - \"Vad händer om de inte levererar i tid?\" - \"Hur fungerar godkännandevillkor i ramavtalet?\" - \"Kan vi verkligen göra projektuppdrag via IT-konsulttjänster?\" - \"Jag vill ha milstolpar med delleveranser - inte big bang\"",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Anna-Karin Holm och jobbar som Verksamhetsutvecklare BI på Trafikverket. Jag behöver hjälp med ett avrop. Vi ska avropa ett projektuppdrag med fast pris och tydligt resultatansvar.",
+      "turn": 1
+    }
+  ],
+  "final_state": {
+    "ui_directives": {},
+    "current_state": {},
+    "message": "Konversation avbruten"
+  },
+  "summary": {
+    "total_turns": 1,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "unknown"
+  }
+}

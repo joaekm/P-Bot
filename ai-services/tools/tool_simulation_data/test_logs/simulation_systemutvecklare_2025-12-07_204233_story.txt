@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Lisa Anderssons berättelse
+║  Utvecklingsledare på Inera AB
+║  
+║  Samtal: 12 meddelanden
+║  Datum: 2025-12-07 20:42
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag måste berätta om det här avropet jag drog igång igår. Du vet, det första helt själv sedan jag blev utvecklingsledare. Jag var skitnervös innan jag snackade med den där P-Bot på Adda. Alltså, jag har ju hjälpt till med sånt här förut, men alltid med inköpsavdelningen i ryggen. Nu var det liksom *jag* som skulle ro det i land. Hoppades mest att jag inte skulle glömma något superviktigt eller formulera mig helt galet så att vi får in en helt fel person. Ville ju verkligen fatta allt från grunden, för en gångs skull.
+
+Jag började chatta med P-Bot, och det var faktiskt bättre än jag trodde. Den var ganska rak och tydlig, frågade direkt om vilken typ av konsult vi behövde och sånt. Jag svarade så gott jag kunde, men kände mig lite pressad när den började snacka om kompetensnivåer och timvolym. Jag menar, jag kan ju systemutveckling, men budget och avtal är inte min starka sida. Jag fick lite panik när P-Bot räknade ut någon gigantisk summa baserat på våra önskemål – över två och en halv mille! Trodde jag skulle svimma! Men sen lugnade den ner mig och vi justerade timmarna baserat på vår riktiga budget. Puh.
+
+En riktig vändpunkt var när vi kom till viktningen av pris och kvalitet. Jag hade verkligen ingen aning om vad som var rimligt. P-Bot var faktiskt jättebra där, den rekommenderade 60% kvalitet och 40% pris med tanke på att det var en senior utvecklare vi sökte. Den sa något om att vi inte ville riskera att få någon som bara precis klarade baskraven, och det var ju precis det jag var rädd för! Kändes som att den fattade mitt dolda bekymmer, att jag inte ville göra ett dåligt val bara för att spara pengar. Det fick mig att känna mig mer trygg.
+
+Efter att vi gått igenom allt en sista gång och jag fått bekräftat att allt stämde så kändes det som en stor lättnad. P-Bot skickade en länk till ett förifylld dokument och jag kände bara "äntligen". Jag kommer absolut använda den där P-Bot igen. Den var bra på att leda mig genom processen och ställa rätt frågor, och framför allt, den lugnade mig när jag blev stressad. Visst, det är en AI, men ibland behöver man bara någon som är systematisk och pedagogisk. Nu hoppas jag bara att vi får bra anbud!"

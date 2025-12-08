@@ -1,4 +1,4 @@
-# P-Bot Konceptlogg (v5.15)
+# P-Bot Konceptlogg (v5.11)
 
 Detta dokument spårar "Varför" – resonemanget och de designbeslut som lett fram till prototypen.
 
@@ -531,68 +531,6 @@ Batch-körning av 10 scenarion visade:
 
 ---
 
-## Fas 15: Strategic Input & Fas-specifik UX (v5.15)
-
-### 15.1 Insikt: Minnesförlust och Kontextbegränsning
-
-**Problem identifierat 2025-12-06:** Simuleringar visade att P-Bot hade "minnesförlust" i fas 4. Grundorsak var en hårdkodad begränsning till 6 meddelanden i historiken.
-
-**Lösning (v5.14):** Tog bort `[-6:]` slicing i `synthesizer.py`, `planner.py` och `intent_analyzer.py`. Full historik skickas nu till LLM.
-
-### 15.2 Insikt: Begränsade viktningsval
-
-**Problem:** Användare ville ha 60/40 prisviktning men `Utvarderingsmodell` enum stödde bara 100/0, 70/30, 50/50.
-
-**Lösning (v5.14):** Ersatte enum med numeriska fält `pris_vikt` och `kvalitet_vikt` (0-100). Validator säkerställer summa = 100.
-
-### 15.3 Designbeslut: Rollmappning i Fas 1
-
-**Insikt:** Användare beskriver behov med fritext ("någon som testar") men ramavtalet har 24 definierade exempelroller.
-
-**Beslut (EPIC-461):** Fas 1 ska mjukt guida mot ramavtalets exempelroller:
-- Vid behovsbeskrivning → föreslå matchande exempelroll
-- Acceptera egna roller men förklara konsekvens (kan kräva FKU)
-- Använd indexerade rollbeskrivningar från Bilaga A (24 Smart Blocks i lake_v2)
-
-**Princip:** Guidning, inte tvång. Användaren har sista ordet.
-
-### 15.4 Designbeslut: Konsekvensanalys i Fas 4
-
-**Insikt:** Fas 4 (Strategi) ska inte bara bekräfta val – den ska validera och notera konsekvenser.
-
-**Beslut (EPIC-463, EPIC-464):**
-- Planner genererar `strategic_input` baserat på kunskapen
-- Synthesizer väver in strategiska insikter naturligt i svaret
-- Inga hårdkodade exempel i promptar – all kunskap hämtas från data lake
-
-### 15.5 Designbeslut: Strategic Input från Planner
-
-**Insikt:** PRO-modellen i Planner har djupare resoneringsförmåga som inte utnyttjas.
-
-**Beslut (EPIC-460, EPIC-465):**
-- Nytt fält `ReasoningPlan.strategic_input` (Optional[str])
-- Planner-prompten ber om strategiska insikter för fas 1 och 4
-- Synthesizer väver in `strategic_input` där det tillför värde
-
-### 15.6 Designbeslut: Positiva Promptar
-
-**Insikt:** Negationsregler ("UNDVIK", "FÖRBJUDET") kan slå tillbaka – ibland behöver assistenten göra just det.
-
-**Beslut (EPIC-466):**
-- Endast positiva instruktioner i promptar
-- Beskriv VAD assistenten ska göra, inte vad den ska undvika
-- Bättre för LLM:ens förmåga att följa instruktioner
-
-### 15.7 Data Lake-förbättringar (2025-12-07)
-
-**Genomfört:**
-- Kopierade FULL_DOCUMENT (Bilaga A) till lake_v2
-- Skapade 24 Smart Blocks – ett per exempelroll med rollbeskrivning, efterfrågad kompetens, exempel på uppdrag
-- Uppdaterade taxonomin (v2.1) med 7 korrekta kompetensområden och alla exempelroller
-- Omindexerade vektor- och graf-databasen (368 block, 1867 topics)
-
----
-
 ## Lärdomar & Insikter
 
 1. **Separation of Concerns:** Motor/Manus-separation löste render-buggar
@@ -619,13 +557,8 @@ Batch-körning av 10 scenarion visade:
 22. **Proaktiv guidning:** Användare uppskattar förslag på befintliga roller framför fritext (minskar admin)
 23. **Sticky context:** Takpris och andra "globala" värden måste bevaras i session state
 24. **Visual feedback:** UI-uppdateringar måste ske synkront med AI:s tolkning
-25. **Full historik:** Begränsa ALDRIG konversationshistorik godtyckligt – LLM:er klarar långa kontexter
-26. **Flexibla datatyper:** Använd numeriska fält istället för enum för viktningar/procent – möjliggör alla kombinationer
-27. **Rollmappning:** Guida mot ramavtalets exempelroller men acceptera egna – förklara konsekvenser
-28. **Strategic Input:** Utnyttja PRO-modellens resoneringsförmåga för strategiska insikter
-29. **Positiva promptar:** Beskriv vad assistenten SKA göra, inte vad den ska undvika
 
 ---
 
-*Version: 5.15*  
-*Senast uppdaterad: 7 december 2025*
+*Version: 5.11*  
+*Senast uppdaterad: 4 december 2025*

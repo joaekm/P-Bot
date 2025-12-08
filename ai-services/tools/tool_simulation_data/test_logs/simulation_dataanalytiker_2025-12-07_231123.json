@@ -1,0 +1,131 @@
+{
+  "timestamp": "2025-12-07T23:11:23.024578",
+  "scenario": {
+    "filename": "scenario_dataanalytiker.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_dataanalytiker.txt"
+  },
+  "persona": {
+    "name": "Johan Eriksson",
+    "title": "Verksamhetsutvecklare",
+    "organization": "Stockholms läns landsting",
+    "personality": "Johan är analytisk och faktadriven. Han tror på datadrivna beslut och vill modernisera hur landstinget arbetar med information. Han kan vara lite teknisk i sin kommunikation.",
+    "knowledge_level": "- Expert på verksamhetsutveckling - God förståelse för dataanalys - Medelhög kunskap om ramavtal",
+    "communication_style": "- Analytisk och detaljerad - Ställer specifika tekniska frågor - Vill förstå metodiken - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Har stora datamängder som ingen analyserar",
+      "Ledningen kräver bättre beslutsunderlag",
+      "Vill bygga upp intern kompetens på sikt"
+    ],
+    "goals": [
+      "Hitta en analytiker som kan hantera vårddata",
+      "Förstå hur man utvärderar teknisk kompetens",
+      "Säkerställa att konsulten kan kommunicera med icke-tekniker"
+    ],
+    "background": "Johan har arbetat med verksamhetsutveckling i 20 år och ser nu möjligheten att använda data på ett helt nytt sätt. Han har fått budget för att starta ett analysprojekt.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Johan Eriksson och jobbar som Verksamhetsutvecklare på Stockholms läns landsting. Jag behöver hjälp med ett avrop. Vi ska hitta en analytiker som kan hantera vårddata.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Hej Johan, tack för den informationen. Jag förstår att ni behöver en Analytiker som kan arbeta specifikt med vårddata. Det är en tydlig utgångspunkt.\n\nFör att jag ska kunna matcha behovet mot ramavtalet behöver vi specificera ett par saker.\n\nVilken kompetensnivå (1-5) ser ni framför er för denna analytiker, och hur många timmar i veckan uppskattar ni att uppdraget kommer att omfatta?",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi söker en Dataanalytiker/Business Intelligence på nivå 4. Uppdraget är på heltid, vilket innebär 100%.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Tack Johan, då har vi specificerat rollen till en Dataanalytiker/Business Intelligence på Nivå 4, med en volym på heltid (100%), vilket är tydligt.\n\nFör att jag ska kunna gå vidare och få fram den totala timvolymen samt förbereda för prissättningen, behöver jag veta den planerade tidsramen.\n\nNär är det tänkt att uppdraget ska starta, och hur länge uppskattar ni att det kommer att pågå? Har ni också satt ett takpris per timme för den här typen av senior kompetens?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi planerar att uppdraget ska starta 2026-02-01 och pågå i tio månader. Vi har ett takpris på 1150 kr per timme.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, Johan. Det var mycket bra och konkret information.\n\nDå har vi alla nyckeluppgifter på plats för att beräkna den totala volymen och budgeten: En Dataanalytiker/BI, Nivå 4, med start 2026-02-01 och beräknat slut i slutet av november 2026, till ett takpris om 1150 kr/timme.\n\nBaserat på tio månader heltid (100%) innebär det en uppskattad total volym på cirka 1680 timmar.\n\nFör att säkerställa att vi matchar detta mot ramavtalets prislista och rätt leverantörsgrupp, behöver jag veta två saker:\n\nHar ni en fast totalbudget för hela uppdraget, utöver takpriset per timme?\nVilket geografiskt område (A–G) ska vi utgå ifrån vid sökningen?",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi har en fast budget på 1 400 000 kronor för hela uppdraget. Avropsområdet är D, alltså Stockholm, Uppsala och Gotland.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Tack Johan, då har vi alla ekonomiska och geografiska ramar på plats: Total Budget 1 400 000 SEK och avropsområde D (Stockholm).\n\nVi går nu in i fasen för Strategi och Avropsform där vi fastställer hur upphandlingen ska genomföras.\n\n1. Avropsform och Strategisk Analys\n\nBaserat på den höga volymen och den seniora kompetensnivån (Nivå 4) systemet har registrerat, kommer detta avrop att kräva en Förnyad Konkurrensutsättning (FKU).\n\nDetta innebär att ni bjuder in alla kvalificerade leverantörer inom det relevanta kompetensområdet och det geografiska området D att lämna anbud, vilket garanterar en konkurrensutsatt process.\n\nKonsekvensanalys (Budget vs. Volym): Det är viktigt att notera att er fasta budget på 1 400 000 SEK är lägre än den maximala kostnaden baserat på ert takpris (1680 timmar * 1150 kr/timme). Denna diskrepans är strategiskt viktig. Genom FKU kan ni använda budgeten som en skarp utvärderingsfaktor för att säkerställa att ni får ett konkurrenskraftigt anbud som ryms inom er ekonomiska ram.\n\n2. Nästa Steg: Prismodell\n\nFör att färdigställa FKU-underlaget behöver vi bestämma hur leverantörerna ska prissätta sitt anbud.\n\nVilken prismodell passar bäst för detta uppdrag: Löpande Räkning med ert takpris (1150 kr/h) eller Fast Pris (där leverantören offererar ett totalpris baserat på er budget på 1 400 000 SEK)?",
+      "turn": 4,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Jag tror att vi ska köra på fast pris, baserat på vår budget. Det ger oss bättre kontroll över kostnaderna.",
+      "turn": 5
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Johan. Att välja Fast Pris är ett mycket strategiskt beslut i detta fall, vilket du korrekt konstaterar ger er maximal kontroll över kostnaderna.\n\nDetta val innebär att leverantören offererar ett totalpris baserat på er budget på 1 400 000 SEK, och de tar därmed risken för eventuella tidsöverskridanden – en bra metod för att garantera att uppdraget genomförs inom den ekonomiska ramen.\n\nSlutlig Strategisk Bekräftelse\n\nUnderlaget för er upphandling är nu komplett. Vi har fastställt att avropsformen blir Förnyad Konkurrensutsättning (FKU) och att prismodellen är Fast Pris.\n\nInnan jag genererar det formella förfrågningsunderlaget: Vill du att jag gör en snabb sammanfattning av alla kriterier vi har satt upp, eller är du nöjd med strategin så att vi kan gå direkt till att skapa dokumentationen?",
+      "turn": 5,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Utmärkt, Johan. Att välja Fast Pris är ett mycket strategiskt beslut i detta fall, vilket du korrekt konstaterar ger er maximal kontroll över kostnaderna.\n\nDetta val innebär att leverantören offererar ett totalpris baserat på er budget på 1 400 000 SEK, och de tar därmed risken för eventuella tidsöverskridanden – en bra metod för att garantera att uppdraget genomförs inom den ekonomiska ramen.\n\nSlutlig Strategisk Bekräftelse\n\nUnderlaget för er upphandling är nu komplett. Vi har fastställt att avropsformen blir Förnyad Konkurrensutsättning (FKU) och att prismodellen är Fast Pris.\n\nInnan jag genererar det formella förfrågningsunderlaget: Vill du att jag gör en snabb sammanfattning av alla kriterier vi har satt upp, eller är du nöjd med strategin så att vi kan gå direkt till att skapa dokumentationen?",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 5,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

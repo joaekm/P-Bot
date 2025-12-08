@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Lisa Anderssons berättelse
+║  Utvecklingsledare på Inera AB
+║  
+║  Samtal: 28 meddelanden
+║  Datum: 2025-12-08 00:10
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+”Du, jag måste bara berätta om det här avropet jag höll på med igår! Alltså, P-Bot på Adda, du vet. Det var första gången jag gjorde det helt själv, utan hjälp från inköp. Jag var ju lite nervös innan, måste jag erkänna. Jag hoppades mest att jag inte skulle göra något jättefel och sabba hela grejen. Vi behöver verkligen den här seniora .Net-utvecklaren till E-klienten. Jag tänkte typ att P-Bot skulle bara lotsa mig igenom formulären, men det blev mycket mer än så.”
+
+”Det började bra, P-Bot var superstrukturerad. Frågade direkt om roll, nivå, timmar och sånt. Sen kom det ju upp att det måste vara FKU, för att det var en nivå 5 konsult. Det fattade jag ju, men det kändes ändå lite läskigt. Mer jobb liksom. Sen började det snurra med anbudsområden och prisviktning. Just det där med prisviktningen, det var en riktig vändpunkt. Jag ville ju ha en bra utvecklare, inte bara den billigaste. Så jag vågade faktiskt säga att jag ville ha 60/40, pris/kompetens, trots att det kanske är lite ovanligt. Det kändes bra, att jag kunde påverka det.”
+
+”Sen kom det massa frågor om prismodeller och uppdragsbeskrivning. Jag måste erkänna att jag kände mig lite dum när P-Bot började prata om fast pris och sånt. Jag hade ju inte tänkt på det över huvud taget! Men P-Bot var bra, lugn och förklarande. Det kändes ok att säga att jag inte riktigt fattade, att löpande räkning nog var bäst. Det var skönt att P-Bot liksom bekräftade att det var en ”agil ansats”. Det kändes som att jag hade koll, fast jag inte riktigt hade det. Det bästa var nog när P-Bot kom med konkreta exempel på .Net-certifieringar. Jag hade ju ingen aning om vilka som var relevanta. Sen att P-Bot föreslog att vi skulle ha certifieringarna som meriterande, inte obligatoriska, det var smart. Det gav mig precis den flexibilitet jag behövde.”
+
+”Det var en ganska lång process, det måste jag säga. Jag var lite trött på slutet, jag bara ville få det gjort. Men P-Bot var konsekvent och hjälpsam hela tiden. Alltså, jag var ju rädd att jag skulle missa något viktigt, men P-Bot ledde mig igenom allt steg för steg. Det kändes som att jag hade kontroll, även om jag inte visste exakt vad jag gjorde hela tiden. På slutet kom det ju en sammanfattningstabell, det var bra att få en överblick. Då kändes det som "okej, nu är det verkligen klart!"”
+
+”Ja, alltså jag skulle absolut använda P-Bot igen! Det var mycket bättre än att sitta med en massa papper och leta efter information på nätet. Och bättre än att alltid behöva ringa inköp. Jag kände mig mycket mer delaktig och jag lärde mig faktiskt en hel del om avropsprocessen. Visst, jag var lite stressad ibland, men det var mest för att jag ville att det skulle bli rätt. Nu känns det som att jag har koll på läget och att vi kommer få en riktigt bra utvecklare till E-klienten!”

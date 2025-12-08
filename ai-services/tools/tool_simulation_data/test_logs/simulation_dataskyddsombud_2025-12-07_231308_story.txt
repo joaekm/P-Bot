@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Henrik Wallins berättelse
+║  Stadsjurist på Malmö Stad
+║  
+║  Samtal: 12 meddelanden
+║  Datum: 2025-12-07 23:13
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade ett samtal med den här P-Bot från Adda igår, du vet den där AI-assistenten som ska hjälpa oss med avrop. Jag måste säga att jag gick in i det med en rätt stor skepsis. Jag är jurist, inte någon IT-guru, och tanken på att navigera ett ramavtal med en robot för att hitta ett dataskyddsombud kändes... ja, säg löjlig. Men IMY andas oss i nacken och vår tidigare DPO har lämnat ett stort hål efter sig, så jag hade inte mycket val. Jag hoppades i alla fall att den kunde göra processen lite smidigare, men ärligt talat, jag förväntade mig bara fler frågetecken och byråkrati.
+
+Det började ganska formellt, som man kan förvänta sig. P-Bot ställde frågor om kompetensnivå och timmar, vilket var vettigt. Jag var lite orolig över kompetensnivån. Nivå 5 kändes rätt, men jag var rädd att det skulle innebära en massa krångel. Tur att den snappade upp att det var bråttom och att vi behövde någon på plats snabbt. Men så kom det som jag fruktade - den där "förnyade konkurrensutsättningen". Det kändes som ett extra lager av byråkrati. Men P-Bot var ganska bra på att förklara varför det var nödvändigt och det lugnade mig lite.
+
+Det som verkligen fick mig att haja till var när den började prata om budget. Jag fick nästan panik. Fullmäktige har varit jätte tydliga med budgeten på 1,2 miljoner och jag ville inte att något skulle gå fel. Jag var jätte tacksam när P-Bot erbjöd sig att dubbelkolla takpriset. Det var en liten sak, men det visade att den förstod vikten av det för mig. Sen kom vi in på utvärderingskriterierna och där kände jag mig faktiskt ganska bekväm. Jag visste precis vad jag ville ha: erfarenhet av IMY-tillsyn, referenser från andra kommuner och en tydlig presentation av ett GDPR-case. P-Bot verkar ha förstått det också och kunde direkt implementera mina krav. Det var faktiskt riktigt smidigt. Slutligen, att den föreslog ett fast timpris var klockrent. Jag hatar oväntade kostnader.
+
+I slutet av samtalet kände jag mig faktiskt ganska lättad. Visst, det är fortfarande en FKU som ska genomföras, men jag känner mig mycket mer säker på att vi kommer att få in bra kandidater och att vi kommer att hålla oss inom budget. P-Bot var oväntat effektiv och hjälpsam. Den ställde rätt frågor, guidade mig genom processen och tog hänsyn till mina specifika behov och oro.
+
+Skulle jag använda den igen? Ja, faktiskt. Trots min initiala skepsis så tror jag att P-Bot kan vara ett värdefullt verktyg. Men det är viktigt att komma ihåg att det fortfarande är en robot. Den kan inte ersätta mänsklig interaktion och juridisk expertis. Men som ett sätt att snabbt navigera ramavtalet och definiera våra behov så fungerar den faktiskt riktigt bra. Jag är fortfarande lite skeptisk, men jag är också hoppfull. Kanske AI inte är så tokigt ändå."

@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anna-Karin Holms berättelse
+║  Verksamhetsutvecklare BI på Trafikverket
+║  
+║  Samtal: 30 meddelanden
+║  Datum: 2025-12-07 22:51
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Alltså, jag måste berätta om det här samtalet jag hade med den där P-Bot på Adda igår. Du vet, den där AI-assistenten som ska hjälpa en med avrop. Jag gick in i det hela med ganska låga förväntningar, ärligt talat. Efter alla de där misslyckade BI-projekten, och ledningens fixering vid fast pris, var jag mest ute efter att hitta en lösning som inte skulle spräcka budgeten och som faktiskt skulle leverera något användbart, inte bara en massa dokumentation. Jag hoppades få lite ordning på kraven och se till att vi verkligen fick ett datalager som fungerade.
+
+Det började ju rätt bra, P-Bot verkade förstå min önskan om fast pris och resultatansvar. Men sen började det trassla direkt med kompetensnivåer och kompetensområden. Alltså, jag bryr mig inte så mycket om att klassificera folk efter en femgradig skala, jag vill bara att de ska kunna leverera! Jag blev lite irriterad när den hängde upp sig på de där detaljerna istället för att fokusera på att beskriva det slutgiltiga datalagret. Jag menar, det är ju det som är viktigt! Men den tog sig snabbt i kragen och föreslog FKU, Förnyad Konkurrensutsättning, vilket verkade vettigt. Då kändes det som att vi var på rätt spår igen.
+
+Den stora vändpunkten kom när vi började prata om godkännandevillkor och milstolpar. Det var där jag kände att jag kunde faktiskt få någon kontroll över det här projektet. P-Bot var ganska bra på att förklara hur vi kunde koppla betalningen till specifika resultat. Det lugnade mig faktiskt. Och när vi sedan diskuterade garantitiden och reaktionstider vid fel, ja då började jag nästan tro att det här faktiskt kunde fungera. Att få en reaktionstid på 4 timmar vid kritiska fel, det är ju mer än jag någonsin fått från vår interna IT-avdelning!
+
+När samtalet var slut kändes det faktiskt oväntat positivt. Jag var fortfarande skeptisk, jag menar, jag har ju bränt mig förut. Men jag kände att P-Bot hade hjälpt mig att bygga ett avropsunderlag som faktiskt gav oss en chans att få ett lyckat projekt. Jag kände att jag hade fått med mina viktigaste krav och att jag faktiskt kunde lita på att leverantören skulle ta resultatansvaret och inte bara debitera oss för timmar. Skulle jag använda tjänsten igen? Definitivt. Jag tror att P-Bot, trots den där initiala krångligheten med kompetensnivåerna, hjälpte mig att definiera ett avtal som är mycket mer benäget att lyckas än vad jag hade lyckats med på egen hand. Och det är värt guld, speciellt med ledningens fasta krav på fast pris. Nu hoppas jag bara att de leverantörer som svarar på anbudet är lika bra på att leverera som P-Bot var på att specificera behoven."

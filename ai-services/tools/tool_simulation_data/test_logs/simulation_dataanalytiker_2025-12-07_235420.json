@@ -1,0 +1,97 @@
+{
+  "timestamp": "2025-12-07T23:54:20.224802",
+  "scenario": {
+    "filename": "scenario_dataanalytiker.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_dataanalytiker.txt"
+  },
+  "persona": {
+    "name": "Johan Eriksson",
+    "title": "Verksamhetsutvecklare",
+    "organization": "Stockholms läns landsting",
+    "personality": "Johan är analytisk och faktadriven. Han tror på datadrivna beslut och vill modernisera hur landstinget arbetar med information. Han kan vara lite teknisk i sin kommunikation.",
+    "knowledge_level": "- Expert på verksamhetsutveckling - God förståelse för dataanalys - Medelhög kunskap om ramavtal",
+    "communication_style": "- Analytisk och detaljerad - Ställer specifika tekniska frågor - Vill förstå metodiken - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Har stora datamängder som ingen analyserar",
+      "Ledningen kräver bättre beslutsunderlag",
+      "Vill bygga upp intern kompetens på sikt"
+    ],
+    "goals": [
+      "Hitta en analytiker som kan hantera vårddata",
+      "Förstå hur man utvärderar teknisk kompetens",
+      "Säkerställa att konsulten kan kommunicera med icke-tekniker"
+    ],
+    "background": "Johan har arbetat med verksamhetsutveckling i 20 år och ser nu möjligheten att använda data på ett helt nytt sätt. Han har fått budget för att starta ett analysprojekt.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Johan Eriksson och jobbar som Verksamhetsutvecklare på Stockholms läns landsting. Jag behöver hjälp med ett avrop. Vi ska hitta en analytiker som kan hantera vårddata.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Det var bra, Johan. Tack för att du presenterade dig och ert behov.\n\nJag förstår att Stockholms läns landsting behöver avropa en Analytiker med specialistkompetens inom vårddatahantering.\n\nFör att jag ska kunna gå vidare och specificera avropet, skulle jag behöva lite mer information om rollen och volymen.\n\nVilken kompetensnivå (1-5) önskar ni för analytikern?\nUngefär hur många timmar eller hur lång tid (i månader) uppskattar ni att uppdraget kommer att pågå?\nNär är tidigaste startdatum för uppdraget?",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi söker en analytiker på nivå 4. Uppdraget är tänkt att pågå i 10 månader, med start 2026-02-01.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Jag förstår, Johan. En Analytiker på Nivå 4 med start 2026-02-01 och tänkt varaktighet på 10 månader. Nivå 4 indikerar ju att ni söker en resurs med mycket stor självständighet och hög kompetens, vilket är viktigt i komplexa domäner som vårddatahantering.\n\nJag behöver bekräfta några detaljer kring omfattningen, då det är avgörande för avropsformen:\n\nVolym: För att kunna sätta den totala volymen timmar, undrar jag om dessa 10 månader är beräknade på heltid (cirka 160 timmar per månad), eller om ni har en annan beläggningsgrad i åtanke?\nAvtalstid: Jag måste också informera om att ramavtalet IT-konsulttjänster 2021 har sitt slutdatum 2026-09-25. Eftersom ni önskar start 2026-02-01 skulle 10 månader sträcka sig förbi detta datum. Önskar ni justera uppdragslängden till cirka åtta månader för att slutföra innan avtalets utgång, eller hur vill ni hantera den tidsramen?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det är heltid, alltså cirka 160 timmar per månad. Angående avtalstiden så är det bra att du uppmärksammar det. Vi kan justera längden till åtta månader för att avsluta innan ramavtalet löper ut.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Johan. Tack för att du är så tydlig med ramarna.\n\nDå har vi landat i att ni avropar en Analytiker (Nivå 4) på heltid i åtta månader. Det innebär en total volym på cirka 1280 timmar, med start 2026-02-01 och slutdatum 2026-09-25, vilket passar perfekt inom ramavtalet.\n\nNu när vi har volymen och tidsramen klar, behöver vi definiera de ekonomiska ramarna för den förnyade konkurrensutsättningen (FKU).\n\nHar ni ett takpris per timme som vi ska ange i avropsförfrågan för denna Nivå 4-roll?\nFKU kräver att vi bestämmer hur anbuden ska utvärderas. Hur ser er planerade viktning ut mellan Pris och Kvalitet/Kompetens? (Exempelvis 70/30, 60/40 etc.)",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Utmärkt, Johan. Tack för att du är så tydlig med ramarna.\n\nDå har vi landat i att ni avropar en Analytiker (Nivå 4) på heltid i åtta månader. Det innebär en total volym på cirka 1280 timmar, med start 2026-02-01 och slutdatum 2026-09-25, vilket passar perfekt inom ramavtalet.\n\nNu när vi har volymen och tidsramen klar, behöver vi definiera de ekonomiska ramarna för den förnyade konkurrensutsättningen (FKU).\n\nHar ni ett takpris per timme som vi ska ange i avropsförfrågan för denna Nivå 4-roll?\nFKU kräver att vi bestämmer hur anbuden ska utvärderas. Hur ser er planerade viktning ut mellan Pris och Kvalitet/Kompetens? (Exempelvis 70/30, 60/40 etc.)",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 3,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

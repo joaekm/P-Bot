@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Henrik Wallins berättelse
+║  Stadsjurist på Malmö Stad
+║  
+║  Samtal: 8 meddelanden
+║  Datum: 2025-12-07 21:51
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade ett möte med den där AI-assistenten från Adda igår, P-Bot. Hela grejen var ju att snabba upp avropet av en DPO-konsult. Med tanke på IMY-tillsynen hängande över oss, var det verkligen på tiden. Jag var väl måttligt optimistisk, ärligt talat. Jag menar, jag är jurist, inte någon IT-expert, och de här ramavtalen känns ofta som en djungel. Jag hoppades väl mest på att inte göra bort mig fullständigt och få någon slags rimlig kandidat presenterad, helst igår.
+
+I början kändes det okej. P-Bot var snabb och ställde de där inledande frågorna om kompetensnivå och tidsåtgång. Det var ju rakt på sak, men jag blev lite stressad av tempot. Jag kände pressen att inte missa något, att ge korrekta svar, annars skulle hela processen försenas ännu mer. Den delen om att vi måste använda FKU på grund av den höga nivån var lite av en vändpunkt. Jag hade ju hoppats att det skulle vara smidigare. Det kändes som ett hinder direkt, mer administration.
+
+Det som verkligen störde mig var när P-Bot började prata om utvärderingen och 50/50-viktningen. Jag förstår principen, men jag kände mig helt lost. Vilka kvalitetskriterier ska jag välja? Hur ska jag garantera att konsulten har rätt juridisk bakgrund och inte bara kan tekniska detaljer? Jag är rädd för att fastna i IT-snacket och missa det juridiska. Det kändes som om P-Bot förutsatte att jag var mer insatt i processen än jag är. Jag saknade någon form av vägledning, typ "här är några vanliga kriterier som funkar bra för DPO-roller".
+
+Jag vet inte... Jag fick intrycket av att P-Bot är bra på att samla in data, men inte lika bra på att förstå den bakomliggande komplexiteten i vårt behov. Jag känner mig fortfarande osäker på om vi kommer att få en lämplig kandidat. Jag är rädd för att behöva förklara för kommunfullmäktige varför vi överskridit budgeten eller varför DPO:n inte är tillräckligt kvalificerad. Jag kommer nog fortsätta använda P-Bot, men bara för att jag inte har något val. Nästa gång ska jag nog ta med mig någon från IT-avdelningen, så jag slipper sitta där som ett frågetecken."

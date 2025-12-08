@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Maria Lindgrens berättelse
+║  Enhetschef IT-utveckling på Försäkringskassan
+║  
+║  Samtal: 10 meddelanden
+║  Datum: 2025-12-08 00:05
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Alltså, du anar inte vilken soppa det har varit med den här Scrum Mastern. Jag har ju drivit det här med agil transformation stenhårt, och nu måste jag ju visa resultat, du vet? Och vissa av de gamla rävarna här på FK fattar ju ingenting. Så jag tänkte att jag testar Addas P-Bot. Jag hoppades typ på att få en smidig avropningsprocess, slippa massa pappersarbete och framför allt, hitta en riktigt vass Scrum Master som kan få fart på de här teamen.
+
+Först var det ganska smärtfritt. P-Bot fattade snabbt vad jag var ute efter, det var skönt. Jag fick ju lite panik när han började prata om kompetensnivåer, jag hade liksom inte funderat så mycket på det. Men jag chansade på 5, "Mycket erfaren expert", tänkte att det är bättre att satsa högt. Och sen när jag sa att vi ville starta i februari nästa år, alltså 2026, så kändes det som om tiden bara flög iväg. Så långt fram! Men det är ju så verkligheten ser ut.
+
+Det som verkligen var bra var när P-Bot började prata om utvärderingsprocessen och den Förnyade Konkurrensutsättningen. Att han fattade att kvalitet är viktigast och föreslog den högre viktningen på 70% - det kändes som ett kvitto på att jag tänkt rätt. Det var också bra att han betonade hur viktigt det är med en bra uppdragsbeskrivning och tydliga godkännandevillkor. Det triggade mig att tänka till lite extra, för där hade jag faktiskt inte riktigt varit klar. Jag fick ju precis det jag behövde för att gå tillbaka till teamet och fila lite till.
+
+Men det var ändå något... Något opersonligt. Jag menar, det är ju en AI, jag vet. Men jag hade hoppats på någon typ av... jag vet inte... vägledning? Någon som fattar att det här inte bara handlar om att fylla en roll, utan om att faktiskt förändra en hel organisation. Jag hade velat bolla lite mer om hur man utvärderar just den här "mjuka" kompetensen, förändringskompetensen. Hur vet man att någon verkligen kan navigera i en politisk miljö som FK?
+
+I slutändan så kändes det ändå som en bra start. Jag har ett färdigt avropsunderlag och vet vad jag behöver göra härnäst. Men nästa gång kanske jag tar hjälp av en riktig människa också. För att liksom få det där extra, det som en AI inte kan ge. Men, ja, jag skulle nog använda P-Bot igen för att snabbt få ihop grunden till ett avrop. Det sparar ju onekligen tid, och i det här läget är tid pengar, speciellt när jag måste visa att mina agila idéer funkar!"

@@ -1,0 +1,97 @@
+{
+  "timestamp": "2025-12-07T20:40:33.368405",
+  "scenario": {
+    "filename": "scenario_scrum_master.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_scrum_master.txt"
+  },
+  "persona": {
+    "name": "Maria Lindgren",
+    "title": "Enhetschef IT-utveckling",
+    "organization": "Försäkringskassan",
+    "personality": "Maria är förändringsinriktad och tror starkt på agila metoder. Hon har drivit igenom beslutet att göra en agil transformation men möter motstånd internt. Hon är diplomatisk men bestämd.",
+    "knowledge_level": "- God förståelse för agila metoder - Expert på organisationsutveckling - Erfaren beställare av konsulter",
+    "communication_style": "- Strategisk och visionär - Fokuserar på förändring och kultur - Ställer frågor om erfarenhet - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Möter motstånd från traditionella chefer",
+      "Behöver visa snabba resultat",
+      "Vill ha någon som kan hantera politik"
+    ],
+    "goals": [
+      "Hitta en erfaren Scrum Master som kan navigera i en stor organisation",
+      "Förstå hur man utvärderar förändringskompetens",
+      "Säkerställa att konsulten har erfarenhet av liknande transformationer"
+    ],
+    "background": "Maria har arbetat på Försäkringskassan i 12 år och fått uppdraget att modernisera IT-utvecklingen. Hon tror på agila metoder men vet att förändringen blir svår.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Maria Lindgren och jobbar som Enhetschef IT-utveckling på Försäkringskassan. Jag behöver hjälp med ett avrop. Vi ska hitta en erfaren scrum master som kan navigera i en stor organisation.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Det har jag förstått. Ni behöver en erfaren Scrum Master. Den typen av roll passar väl in under Kompetensområde 2 – Ledning och styrning, där vi har exempelroller som Teknisk projektledare som leder arbete med hjälp av ramverk som SCRUM.\n\nEftersom ni söker en \"erfaren\" resurs, behöver vi fastställa den formella kompetensnivån. Vilken kompetensnivå (1-5) önskar ni på konsulten?\n\nJag behöver också veta hur stort uppdraget är. Ungefär hur många timmar uppskattar ni totalt, och i vilken region ska uppdraget utföras?",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi behöver en konsult på nivå 5. Uppdraget är på heltid, 100%, och ska utföras i Stockholmsområdet. Jag uppskattar att det blir cirka ett år, med möjlighet till förlängning.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Tack, då har jag de viktigaste parametrarna! En Scrum Master på Kompetensnivå 5 i Stockholm (Anbudsområde A), med en uppskattad volym på cirka ett år.\n\nJag måste dock flagga för en viktig detalj: Att avropa en konsult på Kompetensnivå 5 av det slaget ni beskriver kräver en mer omfattande process, nämligen en Förnyad Kund Unik förfrågan (FKU). Detta är nödvändigt för att säkerställa att kraven för den högsta kompetensnivån uppfylls inom ramavtalets regler.\n\nFör att jag ska kunna gå vidare med FKU-underlaget och prissättningen behöver jag nu de sista ekonomiska detaljerna:\n\nHar ni en uppskattad total timvolym för uppdraget (baserat på 100% i ett år)?\nVilket takpris per timme har ni satt i budgeten för en konsult på denna nivå?\nNär exakt önskar ni att uppdraget ska starta och sluta?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi uppskattar timvolymen till cirka 1600 timmar. Vårt takpris är 1200 kr per timme. Uppdraget ska starta 2026-02-01 och avslutas 2027-01-31.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt. Då har vi fastställt de ekonomiska och tidsmässiga ramarna:\n\nVolym: 1600 timmar.\nTakpris: 1200 kr/timme.\nPeriod: Start 2026-02-01 till Slut 2027-01-31.\nRoll: Scrum Master, Kompetensnivå 5 (KN5), Stockholm.\n\nMed dessa parametrar är vi redo att påbörja den Förnyade Kund Unika förfrågan (FKU) som krävs för KN5-nivån.\n\nNästa steg i FKU-processen är att definiera utvärderingskriterierna för leverantörerna.\n\nSka vi bekräfta prismodellen som Löpande räkning med takpris (baserat på er angivna timvolym och takpris)?\nHur ska vi vikta pris jämfört med kvalitet/kompetens i utvärderingen (till exempel 60% pris och 40% kvalitet)? Vilken är er önskade prisviktning i procent?",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Utmärkt. Då har vi fastställt de ekonomiska och tidsmässiga ramarna:\n\nVolym: 1600 timmar.\nTakpris: 1200 kr/timme.\nPeriod: Start 2026-02-01 till Slut 2027-01-31.\nRoll: Scrum Master, Kompetensnivå 5 (KN5), Stockholm.\n\nMed dessa parametrar är vi redo att påbörja den Förnyade Kund Unika förfrågan (FKU) som krävs för KN5-nivån.\n\nNästa steg i FKU-processen är att definiera utvärderingskriterierna för leverantörerna.\n\nSka vi bekräfta prismodellen som Löpande räkning med takpris (baserat på er angivna timvolym och takpris)?\nHur ska vi vikta pris jämfört med kvalitet/kompetens i utvärderingen (till exempel 60% pris och 40% kvalitet)? Vilken är er önskade prisviktning i procent?",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 3,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

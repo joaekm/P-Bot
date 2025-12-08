@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anders Lindqvists berättelse
+║  IT-säkerhetschef på Inera AB
+║  
+║  Samtal: 12 meddelanden
+║  Datum: 2025-12-07 20:39
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade det här samtalet med Addas P-Bot igår, det där de har för att hjälpa oss med avropen. Jag var lite skeptisk från början, ärligt talat. AI, liksom, hur bra kan det vara? Jag var stressad också, IdP-projektet ligger efter schemat och jag behöver verkligen den här säkerhetsstrategen på plats ASAP. Jag hoppades mest på att slippa slösa en massa tid och få fram ett underlag som faktiskt funkar. Jag har ju en kandidat i åtanke, en riktigt bra kille som jag jobbat med förut, och jag ville inte att den här processen skulle sinka det mer än nödvändigt.
+
+Det började ganska bra, P-Bot var snabb på att konstatera att vi var på nivå 5, vilket är bra, då slipper man tjafsa om det. Sen kom frågorna haglande om volym, datum och sånt. Det mesta hade jag ju koll på, men det där med takpriset… jag vet att budgeten är lite snävare än vi först trodde, och jag hade inte riktigt hunnit sätta mig ner och räkna ordentligt på vad ett rimligt timpris skulle vara. Lite pinsamt, men jag var tvungen att erkänna att jag behövde återkomma med det.
+
+Det som var lite frustrerande var att P-Bot envisades med att prata om den där "mervärdesavdrag"-grejen. Jag fattade inte riktigt hur det funkar, och jag fick en lång förklaring som mest gjorde mig ännu mer förvirrad. Jag förstår fortfarande inte riktigt hur man kan få ett mervärdesavdrag när man använder "Löpande räkning med takpris". Jag tror att det bara är något som finns där för att förvirra en. Dessutom kändes det som att boten försökte sälja in det lite väl mycket, som om det var någon magisk lösning på alla problem. Det är ju en upphandling vi pratar om, inte någon mirakelkur! Det blev lite jobbigt då, kände att jag var på väg att tappa tålamodet.
+
+Men det fanns en sak som var riktigt bra: När jag bad boten att repetera de viktigaste kompetenskraven. Det fick mig att tänka efter lite extra. Jag behöver ju faktiskt vara säker på att kravspecifikationen är tillräcklig, så det var bra att jag fick en chans att tänka om. Fast jag vet ju redan vilken konsult jag vill ha... men jag måste vara noggrann.
+
+I slutändan är jag fortfarande lite osäker. Jag fick ju ett underlag, men jag känner mig inte helt trygg med det. Och jag måste ju sätta mig ner och räkna på det där takpriset. Skulle jag använda tjänsten igen? Kanske. Det gick snabbare än att sitta och knåpa ihop allt själv, och det är bra att få en strukturerad genomgång. Men jag hade nog föredragit att prata med en riktig person som kunde svara på mina frågor på ett lite mer flexibelt sätt. Jag tror att det är det som gör att jag inte känner mig helt säker."

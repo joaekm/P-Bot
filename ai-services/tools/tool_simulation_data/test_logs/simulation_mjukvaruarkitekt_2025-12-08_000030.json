@@ -1,0 +1,148 @@
+{
+  "timestamp": "2025-12-08T00:00:30.506995",
+  "scenario": {
+    "filename": "scenario_mjukvaruarkitekt.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_mjukvaruarkitekt.txt"
+  },
+  "persona": {
+    "name": "Karin Svensson",
+    "title": "Produktägare E-klient",
+    "organization": "Inera AB",
+    "personality": "Karin är energisk och resultatorienterad. Hon brinner för E-klient och vill att tjänsten ska bli ännu bättre. Hon är pragmatisk och vill hitta den bästa lösningen snabbt.",
+    "knowledge_level": "- Expert på E-klient-produkten - God teknisk förståelse - Begränsad erfarenhet av ramavtalsupphandlingar",
+    "communication_style": "- Direkt och effektiv - Ställer många följdfrågor - Vill ha konkreta exempel - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Har haft problem med tidigare konsulter som inte levererat",
+      "Teamet är underbemannat just nu",
+      "Deadline för nästa release är tight"
+    ],
+    "goals": [
+      "Hitta en senior utvecklare som kan bidra direkt",
+      "Förstå hur intervjuprocessen fungerar",
+      "Säkerställa att konsulten kan arbeta på plats i Lund"
+    ],
+    "background": "Karin tog över som produktägare för ett år sedan och har ambitiösa planer för E-klient. Hon behöver förstärkning i teamet för att kunna leverera på sina mål.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Karin Svensson och jobbar som Produktägare E-klient på Inera AB. Jag behöver hjälp med ett avrop. Vi ska hitta en senior utvecklare som kan bidra direkt.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Hej Karin, jag förstår. En senior utvecklare som kan bidra direkt är ett tydligt behov.\n\nUtifrån ramavtalets struktur kommer vi att hantera detta som rollen Utvecklare. Din beskrivning av \"senior\" indikerar troligen Kompetensnivå 4 (mycket stor självständighet), vilket vi kan förfina i nästa steg.\n\nFör att starta processen behöver jag fastställa uppdragets ramar. Kan du berätta:\n\nOmfattning: Ungefär hur många timmar uppskattar ni att uppdraget kommer kräva totalt, eller hur länge beräknas det pågå (t.ex. 50%, 6 månader)?\nPlats: Var ska uppdraget utföras primärt (vilken region, samt önskemål om distansarbete/på plats)?\nStart: När önskar ni att konsulten ska vara på plats?",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Hej! Omfattningen är 100% heltid, och kontraktet är tänkt att pågå från 2026-02-01 till 2026-10-31, med en option på 24 månader. Uppdraget ska utföras på vårt kontor i Lund, minst 3 dagar i veckan.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Tack Karin, uppfattat gällande volym och tidplan.\n\nDå har vi 100% heltid (cirka åtta månader), med start 2026-02-01 och slut 2026-10-31, samt krav på plats i Lund. Optionstiden på 24 månader noteras.\n\nMed tanke på att det är en så lång tidsperiod är det viktigt att vi fastställer den ekonomiska ramen tydligt. För att vi ska kunna gå vidare med prissättningen och avropet, behöver jag bekräfta tre saker:\n\nVolym (Timmar): Har ni fastställt den totala uppskattade timvolymen för hela uppdraget (2026-02-01 – 2026-10-31)?\nPris: Har ni ett budgeterat takpris per timme för denna roll?\nRegion: För att kunna applicera rätt prislista – vilken geografisk region (A, B, C...) ska Lund prissättas inom enligt ramavtalet?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi har inget fastställt timantal, men vi har ett takpris på 1300 kr per timme. Lund ska prissättas inom avropsområde G, det är Skåne, Blekinge och Kronoberg.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Tack för den informationen, Karin. Det är mycket tydligt.\n\nDå har vi fastställt Takpriset på 1300 kr/timme och att uppdraget tillhör Region G (Skåne, Blekinge och Kronoberg).\n\nEftersom ni specificerade 100% heltid under perioden 2026-02-01 till 2026-10-31 (cirka nio månader), behöver vi omvandla den omfattningen till en formell uppskattad timvolym för avropet.\n\nBaserat på nio månaders heltid motsvarar det ungefär 1400–1500 timmar totalt.\n\nFör att låsa prissättningen behöver jag bekräfta följande:\n\nTotal Volym: Kan vi fastställa den uppskattade totala timvolymen till 1400 timmar för uppdraget fram till oktober 2026?\nPrismodell: Stämmer det att vi ska tillämpa modellen Löpande räkning med Takpris (där 1300 kr/h är taket) för dessa 1400 timmar?\nNivå: För rollen Utvecklare, är Kompetensnivå 4 (Senior/Mycket stor självständighet) fortfarande den nivå ni söker?",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, jag bekräftar att den uppskattade totala timvolymen är 1400 timmar. Vi ska tillämpa löpande räkning med takpris på 1300 kr/h. Och ja, Kompetensnivå 4 stämmer bra.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Karin. Tack för att du bekräftar dessa kritiska parametrar.\n\nMed de här tydliga ramarna – Kompetensnivå 4, den uppskattade volymen på 1400 timmar och modellen Löpande med Takpris – är det finansiella underlaget för uppdraget nu låst.\n\nSteg 4: Strategi och avropsform\n\nBaserat på den volym ni har specificerat krävs en Förnyad Konkurrensutsättning (FKU). Detta är standardproceduren inom ramavtalet för uppdrag som överskrider en viss omfattning, och säkerställer att ni får det mest konkurrenskraftiga anbudet för er Utvecklare Nivå 4 i Region G.\n\nVi noterar även er specificerade option på 24 månader efter det initiala uppdraget, vilket vi måste inkludera i FKU-dokumentationen.\n\nNästa kritiska steg i en FKU är att fastställa utvärderingsmodellen. För att förbereda förfrågan behöver vi veta hur stor vikt ni ska lägga på pris jämfört med kvalitet/kompetens.\n\nVilken viktning av Pris jämfört med Kvalitet önskar ni tillämpa i utvärderingen? (Exempelvis Pris 60% / Kvalitet 40%).",
+      "turn": 4,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi vill ha Pris 40% och Kvalitet 60%.",
+      "turn": 5
+    },
+    {
+      "role": "assistant",
+      "content": "Tack Karin, det är noterat. Pris 40% och Kvalitet 60% är en tydlig och vanlig viktning för denna typ av specialistroll, vilket säkerställer att kompetensen prioriteras.\n\nJag kan nu bekräfta att vi har samlat in alla nödvändiga parametrar för att upprätta och skicka ut er förnyade konkurrensutsättning (FKU) för Utvecklare, Nivå 4, i Region G.\n\nVi går därmed vidare till slutfasen, där vi förbereder själva avropsunderlaget.\n\n📋 Sammanfattning av uppdragets ramar för FKU\n\nHär är en sammanställning av all information vi har samlat in, för din slutgiltiga bekräftelse:\n\n| Parameter | Specifikation | | :--- | :--- | | Roll & Nivå | Utvecklare, Kompetensnivå 4 (Senior) | | Volym | 1400 timmar (uppskattat) | | Tidsperiod | Start: 2026-02-01 | | | Slut: 2026-10-31 | | Plats | Lund (Region G) | | Prismodell | Löpande Räkning med Takpris | | Takpris | 1300 kr/h | | Utvärdering | Pris 40% / Kvalitet 60% | | Avropsform | Förnyad Konkurrensutsättning (FKU) |\n\nStämmer detta underlag för den Utvecklare Nivå 4 ni söker, så att vi kan färdigställa FKU-dokumentationen och skicka ut den till ramavtalsleverantörerna?",
+      "turn": 5,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, det stämmer bra.\n\nAVSLUTA",
+      "turn": 6
+    },
+    {
+      "role": "assistant",
+      "content": "Tack för samarbetet! Jag har nu alla uppgifter som behövs för attskapa ett komplett avropsunderlag. Du kan ladda ner den som en förifylld PDF- eller Word-fil via -- DENNA LÄNK --",
+      "turn": 6,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Tack för samarbetet! Jag har nu alla uppgifter som behövs för attskapa ett komplett avropsunderlag. Du kan ladda ner den som en förifylld PDF- eller Word-fil via -- DENNA LÄNK --",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 6,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

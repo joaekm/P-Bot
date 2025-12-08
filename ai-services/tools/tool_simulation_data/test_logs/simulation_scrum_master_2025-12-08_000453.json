@@ -1,0 +1,131 @@
+{
+  "timestamp": "2025-12-08T00:04:53.054283",
+  "scenario": {
+    "filename": "scenario_scrum_master.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_scrum_master.txt"
+  },
+  "persona": {
+    "name": "Maria Lindgren",
+    "title": "Enhetschef IT-utveckling",
+    "organization": "Försäkringskassan",
+    "personality": "Maria är förändringsinriktad och tror starkt på agila metoder. Hon har drivit igenom beslutet att göra en agil transformation men möter motstånd internt. Hon är diplomatisk men bestämd.",
+    "knowledge_level": "- God förståelse för agila metoder - Expert på organisationsutveckling - Erfaren beställare av konsulter",
+    "communication_style": "- Strategisk och visionär - Fokuserar på förändring och kultur - Ställer frågor om erfarenhet - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Möter motstånd från traditionella chefer",
+      "Behöver visa snabba resultat",
+      "Vill ha någon som kan hantera politik"
+    ],
+    "goals": [
+      "Hitta en erfaren Scrum Master som kan navigera i en stor organisation",
+      "Förstå hur man utvärderar förändringskompetens",
+      "Säkerställa att konsulten har erfarenhet av liknande transformationer"
+    ],
+    "background": "Maria har arbetat på Försäkringskassan i 12 år och fått uppdraget att modernisera IT-utvecklingen. Hon tror på agila metoder men vet att förändringen blir svår.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Maria Lindgren och jobbar som Enhetschef IT-utveckling på Försäkringskassan. Jag behöver hjälp med ett avrop. Vi ska hitta en erfaren scrum master som kan navigera i en stor organisation.",
+      "turn": 1
+    },
+    {
+      "role": "assistant",
+      "content": "Tack Maria. En erfaren Scrum Master som kan navigera i en stor organisation, uppfattat. Den rollen faller under Kompetensområde 2 – Ledning och styrning, där rollen Scrum Master/Agil Coach är relevant.\n\nFör att jag ska kunna fortsätta processen, behöver vi specificera uppdraget närmare.\n\nVilken kompetensnivå (1-5) söker ni för Scrum Mastern, och hur stor volym (ungefärligt antal timmar) uppskattar ni att uppdraget kommer att omfatta? Och slutligen, när önskar ni starta uppdraget?",
+      "turn": 1,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Vi söker en Scrum Master på nivå 5. Uppdraget är på heltid, 100%, och vi tänker att det blir ett år initialt, med möjlighet till förlängning. Vi vill starta 1 februari 2026.",
+      "turn": 2
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt! Då har jag de viktigaste parametrarna:\n\nRoll & Nivå: Scrum Master, Nivå 5 (Mycket erfaren expert).\nStart & Volym: Heltid (100%), start 2026-02-01, med ett initialt slutdatum satt till 2027-01-31 (ett år framåt).\n\nMed en så pass senior roll som Nivå 5, är det viktigt att vi säkerställer rätt utvärderingsprocess. Detta innebär att vi automatiskt kommer att använda Förnyad Konkurrensutsättning (FKU), vilket ger oss störst möjlighet att utvärdera den specifika kompetens ni söker.\n\nFör att färdigställa grunden för avropet saknas nu prissättningen och utvärderingsstrategin.\n\nHar ni satt ett takpris per timme för denna kompetens?\nHur ser ni på viktningen mellan pris och kvalitet i utvärderingen (t.ex. 70% kvalitet och 30% pris)?\nÄr prismodellen tänkt som Löpande räkning eller överväger ni en Fast pris-lösning för någon del av uppdraget?",
+      "turn": 2,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, vi har ett takpris på 1200 kr per timme. Vi vill att kvalitet ska väga tyngst, så vi tänker oss 70% kvalitet och 30% pris. Jag tror att löpande räkning är lämpligast i det här fallet.",
+      "turn": 3
+    },
+    {
+      "role": "assistant",
+      "content": "Utmärkt, Maria. Tack för den tydliga informationen.\n\nDå har vi en solid grund för den Förnyade Konkurrensutsättningen (FKU):\n\nEkonomi & Prismodell: Takpris satt till 1200 kr/timme, och prismodellen är Löpande Räkning.\nUtvärdering: En tydlig viktning där kvalitet premieras (70% kvalitet / 30% pris).\n\nFör att formellt kunna påbörja avropet baserat på dessa parametrar behöver jag nu bekräfta den sista administrativa detaljen samt gå vidare med uppdragsbeskrivningen, som blir kritisk med en så hög kvalitetsvikt.\n\nJag utgick ifrån att ett års heltid (ca 2080 timmar) skulle sträcka sig till 2027-01-31. Stämmer det slutdatumet för det initiala uppdraget?\nEftersom vi nu har ett stort fokus på utvärdering av kvalitet (70%), behöver vi en robust grund. Har ni en färdig Uppdragsbeskrivning som tydligt definierar rollens ansvar, och vilka specifika acceptanskriterier eller resultat (deliverables) ska ligga till grund för bedömningen?",
+      "turn": 3,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Ja, slutdatumet stämmer. Vi har en uppdragsbeskrivning, men jag vill också säkerställa att konsulten har erfarenhet av liknande transformationer. Det är viktigt att de förstår de utmaningar vi står inför.",
+      "turn": 4
+    },
+    {
+      "role": "assistant",
+      "content": "Absolut, slutdatumet 2027-01-31 är bekräftat.\n\nDitt krav på specifik erfarenhet av liknande transformationer och förmåga att navigera i en stor organisation är ett mycket viktigt kvalitetskrav. Med er viktning på 70% kvalitet kommer dessa faktorer vara helt avgörande i utvärderingen.\n\nSom nämnt tidigare kräver denna kombination av hög nivå och volym att vi använder Förnyad Konkurrensutsättning (FKU). Den processen är utformad för att ge er de verktyg ni behöver (intervjuer och referenstagning) för att just bedöma den transformationskompetens ni efterfrågar, utöver enbart CV.\n\nFör att formalisera uppdraget och skapa en bedömningsgrund som matchar era höga kvalitetskrav, saknas nu två kritiska fält:\n\nUppdragsbeskrivning (Detaljerad): Vad är de primära arbetsuppgifterna och ansvarsområdena för Scrum Mastern under uppdragets gång, utöver att hantera agila processer?\nResultatbeskrivning och Godkännandevillkor (Acceptanskriterier): Vilka mätbara resultat (deliverables) eller specifika mål ska konsulten uppnå för att uppdraget ska anses vara godkänt, och hur ska framgången mätas? Dessa kriterier blir utvärderingsgrunden.\n\nNär vi har dessa detaljer kan jag sammanfatta hela ert avropsunderlag och bekräfta att vi är redo för avrop.\n\nVilka är de viktigaste delarna av uppdragsbeskrivningen och de specifika godkännandevillkoren?",
+      "turn": 4,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    },
+    {
+      "role": "user",
+      "content": "Uppdragsbeskrivningen är att coacha 2-3 team, facilitera alla agila ceremonier, identifiera och hantera hinder samt stödja vår agila transformation. Godkännandevillkoren är att teamen levererar enligt sprintmålen, att vi ser en ökad samarbetsförmåga och att konsulten aktivt bidrar till en positiv förändringskultur.",
+      "turn": 5
+    },
+    {
+      "role": "assistant",
+      "content": "Detta var mycket tydligt, Maria – tack!\n\nJag förstår att ni har definierat en detaljerad uppdragsbeskrivning, samt satt mätbara godkännandevillkor som fokuserar på både teamleverans (sprintmålen) och, kanske viktigast, på den önskade kulturförändringen (ökad samarbetsförmåga och positiv förändringskultur).\n\nDessa villkor är helt avgörande, särskilt med er viktning på 70% kvalitet. De kommer att utgöra grunden för hur vi utvärderar anbuden och utformar de specifika intervjufrågorna under den Förnyade Konkurrensutsättningen (FKU), vilket säkerställer att ni får en konsult med rätt transformationskompetens.\n\nVi har nu samlat in alla nödvändiga parametrar för att formellt förbereda avropet.\n\n📋 SAMMANFATTNING AV AVROPET\n\n| Parameter | Värde | | :--- | :--- | | Roll (Exempelroll) | Scrum Master (Kompetensområde 2 – Ledning och styrning) | | Nivå | 5 (Mycket erfaren expert) | | Startdatum | 2026-02-01 | | Slutdatum | 2027-01-31 | | Volym | 2080 timmar (Heltid, 100%) | | Takpris | 1200 kr/h (Löpande räkning) | | Utvärderingsvikt | 70% Kvalitet / 30% Pris | | Avropsform | Förnyad Konkurrensutsättning (FKU) | | Fokusområden | Teamleverans, organisationsutmaningar och kulturförändring. |\n\nStämmer denna sammanfattning överens med ert uppdrag? Om du bekräftar detta underlag, kan vi gå vidare med att färdigställa avropsdokumentationen.",
+      "turn": 5,
+      "reasoning": {},
+      "ui_directives": {
+        "entity_summary": {
+          "resources": []
+        },
+        "current_intent": "BROWSER_MODE"
+      }
+    }
+  ],
+  "final_state": {
+    "message": "Detta var mycket tydligt, Maria – tack!\n\nJag förstår att ni har definierat en detaljerad uppdragsbeskrivning, samt satt mätbara godkännandevillkor som fokuserar på både teamleverans (sprintmålen) och, kanske viktigast, på den önskade kulturförändringen (ökad samarbetsförmåga och positiv förändringskultur).\n\nDessa villkor är helt avgörande, särskilt med er viktning på 70% kvalitet. De kommer att utgöra grunden för hur vi utvärderar anbuden och utformar de specifika intervjufrågorna under den Förnyade Konkurrensutsättningen (FKU), vilket säkerställer att ni får en konsult med rätt transformationskompetens.\n\nVi har nu samlat in alla nödvändiga parametrar för att formellt förbereda avropet.\n\n📋 SAMMANFATTNING AV AVROPET\n\n| Parameter | Värde | | :--- | :--- | | Roll (Exempelroll) | Scrum Master (Kompetensområde 2 – Ledning och styrning) | | Nivå | 5 (Mycket erfaren expert) | | Startdatum | 2026-02-01 | | Slutdatum | 2027-01-31 | | Volym | 2080 timmar (Heltid, 100%) | | Takpris | 1200 kr/h (Löpande räkning) | | Utvärderingsvikt | 70% Kvalitet / 30% Pris | | Avropsform | Förnyad Konkurrensutsättning (FKU) | | Fokusområden | Teamleverans, organisationsutmaningar och kulturförändring. |\n\nStämmer denna sammanfattning överens med ert uppdrag? Om du bekräftar detta underlag, kan vi gå vidare med att färdigställa avropsdokumentationen.",
+    "ui_directives": {
+      "entity_summary": {
+        "resources": []
+      },
+      "current_intent": "BROWSER_MODE"
+    },
+    "current_state": {},
+    "reasoning": {}
+  },
+  "summary": {
+    "total_turns": 5,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "BROWSER_MODE"
+  }
+}

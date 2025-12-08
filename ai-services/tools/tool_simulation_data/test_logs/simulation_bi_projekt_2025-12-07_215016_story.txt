@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Anna-Karin Holms berättelse
+║  Verksamhetsutvecklare BI på Trafikverket
+║  
+║  Samtal: 12 meddelanden
+║  Datum: 2025-12-07 21:50
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag satt och pratade med den där P-Bot på Adda igår... Jag var sjukt stressad, vi har ju den här deadline på oss från regeringen och ledningen andas mig i nacken om att det inte får bli några fler budgetspräckningar. Jag hade typ förlikat mig med tanken att jag skulle tvingas dras med ännu ett konsultgäng som bara ville mjölka oss på timmar. Det är ju alltid så, eller hur? Man vill ha fast pris, men det slutar ändå med en massa tillägg och ändringar. Mitt mål var solklart: ett fastprisuppdrag där någon *annan* tar smällen om det går åt skogen, inte Trafikverket. Och ett datalager som faktiskt funkar, inte bara en massa snygga rapporter.
+
+I början var jag skeptisk, såklart. En chatbot, liksom? Men den där P-Bot var faktiskt mer effektiv än många av de säljare jag pratat med. Den fattade direkt att jag ville ha fast pris och resultatansvar. Det var bra. Och den var ganska bra på att ställa rätt frågor, så vi kom snabbt fram till vad jag behövde. Jag fick lite panik när den började prata om kompetensområden och sånt, jag hade ju inte riktigt förberett mig på det. Jag fick gissa lite, men det verkade inte vara så noga.
+
+Den stora vändpunkten var när den nämnde Förnyad Konkurrensutsättning, FKU. Då förstod jag att den faktiskt kunde hjälpa mig att få till ett uppdrag som leverantörerna verkligen måste prestera på. Jag blev lite nervös när den betonade att vi måste vara tydliga med kraven, för jag är rädd att vi inte har detaljerat nog. Men samtidigt är det ju det jag vill, att någon ska ta ansvar. Det kändes lite som att den där boten pushade mig i rätt riktning, mot det där fastprisuppdraget jag så gärna vill ha.
+
+Men ärligt talat, jag blev sjukt trött på all formalia. Jag orkar inte med det där ramavtals-snacket. "Volym, uppskattad total volym i timmar..." Herregud, jag vet ju inte! Det känns som att man måste fylla i en massa onödig information bara för att systemet ska vara nöjt. Och hela tiden tänkte jag: 'Vad händer om de där 1000 timmarna inte räcker? Har jag köpt grisen i säcken då?'. Men den där sammanfattningen i slutet var bra, det gav mig lite lugn. Det var tydligt och konkret, så jag kunde dubbelkolla att allt stämde.
+
+Jag vet inte, det är fortfarande lite läskigt. Men jag skulle nog använda P-Bot igen. Den verkade ju fatta vad jag var ute efter, och att den styrde mig mot FKU kändes som ett bra steg. Men nästa gång ska jag vara bättre förberedd och ha koll på de där kompetensområdena och uppskattade timmarna. Och jag ska verkligen, verkligen vara stenhård med utvärderingskriterierna. För det är där det kommer att avgöras om det här blir en succé, eller ännu ett misslyckat IT-projekt."

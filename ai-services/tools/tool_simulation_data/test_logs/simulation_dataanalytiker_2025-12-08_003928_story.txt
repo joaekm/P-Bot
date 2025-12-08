@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Johan Erikssons berättelse
+║  Verksamhetsutvecklare på Stockholms läns landsting
+║  
+║  Samtal: 22 meddelanden
+║  Datum: 2025-12-08 00:39
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag snackade med den här P-Bot på Adda igår. Hela grejen var att den skulle hjälpa mig med ett avrop på en dataanalytiker. Vi drunknar ju i data här på landstinget, men ingen fattar ju hur vi ska analysera skiten. Cheferna gnäller om bättre beslutsunderlag, och jag tänker att vi måste få in någon som kan guida oss innan vi bygger upp intern kompetens. Jag var lite skeptisk i början, ska jag vara ärlig. En robot som ska fatta vad vi behöver? Lät ju nästan för bra för att vara sant. Hade hoppats att det skulle vara smidigt och snabbt, typ mata in lite info och vips, ett avrop klart.
+
+Det började okej, P-Bot ställde relevanta frågor om region, nivå och volym. Jag försökte vara så exakt som möjligt med siffrorna, du vet, 1700 timmar, 1150 kronor i timmen. Inga konstigheter. Men sen började det bli lite mer komplicerat. Det där med Förnyad Konkurrensutsättning och att välja mellan resursuppdrag eller projektuppdrag... Jag fattade ju att vi behövde en resurs som jobbar under vår ledning, men själva processen kändes onödigt krånglig. Jag började undra om det här verkligen skulle spara tid.
+
+En vändpunkt var när P-Bot började prata om viktningen mellan pris och kvalitet. "Vanliga och välbalanserade viktningar..." blablabla. Där kände jag att den faktiskt hjälpte mig. Jag är ju analytisk och vill ha datadrivna beslut, men just där och då hade jag ingen aning om var jag skulle börja. Hennes förslag på 60% kvalitet och 40% pris lät vettigt, och jag uppskattade att hon förklarade varför man inte bara ska gå på billigaste alternativet. Sen när vi började bryta ner kvalitetskriterierna och sätta procentsatser på CV, erfarenhet, intervju och referenser... Då insåg jag att det här faktiskt kunde funka. Jag pressade henne på detaljerna, som det där med referenserna som skulle vara max tre år gamla och inom hälso- och sjukvården. Det var bra att hon fångade upp det, för det hade jag nog glömt annars.
+
+I slutet kände jag mig faktiskt ganska nöjd. Vi hade fått ihop ett komplett avrop, med alla parametrar låsta och klara. P-Bot avslutade snyggt med en sammanfattning, vilket var bra för mitt kontrollbehov. Men under hela samtalet hade jag en känsla av att det var lite... stelt? Som att jag pratade med en väldigt organiserad, men samtidigt väldigt opersonlig, kollega. Jag saknade någon att bolla idéer med, att verkligen diskutera de potentiella utmaningarna med att hitta rätt analytiker. Så, skulle jag använda tjänsten igen? Jo, det tror jag faktiskt. Den sparar säkert tid i långa loppet, särskilt när man vet hur processen funkar. Men nästa gång ska jag vara beredd på att det inte är en ersättning för ett riktigt samtal, utan mer ett verktyg för att strukturera tankarna och få allt på pränt."

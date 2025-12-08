@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Henrik Wallins berättelse
+║  Stadsjurist på Malmö Stad
+║  
+║  Samtal: 10 meddelanden
+║  Datum: 2025-12-07 23:27
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du, jag hade ett... intressant samtal igår. Adda har ju den här P-Bot, en AI-assistent för att göra avrop på IT-konsulter. Jag var ju tvungen att testa. Vi behöver en ny DPO, helst igår, med tanke på IMY som andas oss i nacken. Mitt hopp var väl att det skulle gå smidigt, snabbt liksom. Jag är ju jurist, inte IT-expert, och den här avropsprocessen via ramavtal... jag har alltid tyckt den är krånglig. Speciellt nu när jag måste trycka in en juridisk profil i ett fack som mer verkar vara anpassat för systemutvecklare.
+
+Det började väl okej. P-Bot verkade fatta allvaret direkt, det med IMY-tillsynen. Och den snappade upp att det var bråttom. Men sen började det med kompetensnivåer och timmar, och direkt kände jag mig lite lost. Nivå 5 skulle det vara, enligt HR, och 20 timmar i veckan. Jag fattar ju att de behöver sånt för att hitta rätt person, men jag tänkte mest på om det skulle skena iväg med kostnaderna. Kommunfullmäktige har ju sina åsikter om budgeten, och 1,2 mille får det absolut inte kosta.
+
+Vändpunkten var nog när P-Bot började prata om "Förnyad Konkurrensutsättning". Det lät ju bara ännu mer byråkratiskt. Jag suckade högt tror jag. Men P-Bot förklarade ganska tydligt varför just den formen krävdes, och det var väl logiskt. Och att den sen räknade ut timmarna och takpriset… det var faktiskt rätt bra. Hela samtalet kändes mer som en intervju än en vanlig chat. Ibland kändes det dock lite stelt och onaturligt. Som att den höll sig strikt till ett manus. Och det kändes lite konstigt när den liksom "berömde" mitt val av 50/50-viktning mellan pris och kvalitet. Som om jag gjort något exceptionellt. Det var ju liksom bara ett förslag från HR.
+
+I slutändan kändes det… tja, okej. Jag är inte överväldigad, men inte heller totalt avskräckt. P-Bot fick ihop ett underlag för avropet, vilket sparar mig tid. Men jag är fortfarande osäker på om det verkligen kommer att resultera i en DPO som kan hantera IT-chefens åsikter – det är en helt annan femma. Skulle jag använda det igen? Jo, troligtvis. Speciellt om det kan snabba upp processen och få fram ett vettigt underlag. Men jag kommer nog vara mer förberedd nästa gång och kanske ha någon IT-kunnig person med mig. För det känns lite som att prata med en jurist-assistent som bara kan prata om lagparagrafer och inte har någon känsla för det faktiska fallet och dess komplikationer."

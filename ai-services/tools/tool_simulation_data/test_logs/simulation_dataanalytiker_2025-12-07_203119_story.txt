@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Johan Erikssons berättelse
+║  Verksamhetsutvecklare på Stockholms läns landsting
+║  
+║  Samtal: 12 meddelanden
+║  Datum: 2025-12-07 20:31
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+"Du vet, jag hade det här samtalet med P-Bot på Adda igår, du vet den här AI-assistenten som ska hjälpa oss med avropen. Alltså, jag var väl lagom skeptisk från början. Vi har ju så stora datamängder här på landstinget som bara ligger och samlar damm, ingen orkar analysera skiten. Och ledningen, de tjatar om bättre beslutsunderlag. Jag hoppades väl att P-Bot kunde snabba upp processen lite, slippa sitta i eviga möten och fylla i blanketter manuellt. Men jag var rädd att det skulle bli ännu en teknisk mardröm.
+
+Först var det väl som väntat. Frågor om timmar, startdatum, slutdatum... Jag fattar ju att de måste ha koll på omfattningen, men det känns alltid som att man slösar bort sin tid på sånt. Sen kom budgetfrågan och konsultnivån. Jag drog i alla fall nytta av att ha förberett mig och kunde ge snabba svar. 1,4 miljoner och KN4, boom! Det som var lite intressant var att P-Bot räknade ut timpriset direkt, 875 spänn. Det gav en bra indikation på att vi låg rätt i budget. Men sedan började det snackas om Förnyad Konkurrensutsättning, FKU. Alltså, ytterligare en förkortning att hålla reda på. Kändes som byråkrati på steroider, men jag förstår väl att det krävs när det är så pass stora summor.
+
+Det var när P-Bot började fråga om prismodell som jag blev lite irriterad. Varför måste man välja mellan löpande räkning med takpris och fast pris? Det känns som att de vill styra oss i ett hörn. Men jag valde löpande räkning med takpris, det ger oss ju lite flexibilitet om det skulle dyka upp något oväntat. Sen kom frågan om utvärderingskriterier, pris kontra kvalitet. Jag tänkte att 60/40 är en rimlig balans, vi vill ju inte bara ha den billigaste konsulten, utan någon som faktiskt kan något. Och kompetensområde, det var bra att de styrde in mig på Verksamhetsutveckling. Jag började faktiskt få en känsla av att det här kanske inte var så illa trots allt.
+
+På slutet blev jag faktiskt lite imponerad. P-Bot sammanfattade allt vi hade kommit fram till, alla detaljer om rollen, kompetensområdet, volymen, prismodellen, utvärderingen. Det kändes som att jag hade fått en tydlig bild av vad som skulle hända härnäst. Visst, det var fortfarande en del byråkrati, men P-Bot guidade mig genom det på ett ganska smidigt sätt. Jag måste erkänna att jag blev lite positivt överraskad. Jag är inte helt såld ännu, men jag skulle nog använda tjänsten igen. Om inte annat så sparade det mig en massa tid jämfört med att göra allt manuellt. Och kanske, bara kanske, kan vi faktiskt få tag på en analytiker som kan få ordning på all vår vårddata."

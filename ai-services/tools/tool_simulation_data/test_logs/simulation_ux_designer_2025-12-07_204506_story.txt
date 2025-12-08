@@ -1,0 +1,15 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  Sofia Bergs berättelse
+║  Digital strateg på Göteborgs stad
+║  
+║  Samtal: 10 meddelanden
+║  Datum: 2025-12-07 20:45
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+”Du, jag snackade med den där P-Bot igår. Addas AI-assistent för avrop, du vet. Jag var lite nervös innan, faktiskt. Vi har ju haft sådana problem med tillgängligheten i det här projektet, och nu är det politiskt tryck från alla håll. Jag hoppades verkligen att P-Bot kunde göra det här smidigt och framför allt hitta någon som verkligen fattar grejen med tillgänglighet. Någon som inte bara tickar boxar, utan som verkligen kan hjälpa oss att bygga något som funkar för alla. Och kanske, bara kanske, utbilda teamet lite på vägen.
+
+Det började ju bra. P-Bot var snabb och fattade direkt vad jag var ute efter, att det var UX-designer med tillgänglighetsfokus. Men sen kom alla detaljerna. Timmar, kompetensnivå, startdatum… Det kändes som att jag satt i en tråkig Excel-övning igen. Och den där takpriset! Jag var rädd att vi skulle tappa fokus på kvaliteten. Men det kändes som att P-Bot hängde med där, för när vi kom till utvärderingskriterierna och viktningen mellan pris och kvalitet, då fattade den att jag ville prioritera rätt person. Det var bra att jag fick välja 70/30, så att det inte bara handlade om billigast.
+
+Det jobbigaste var när P-Bot påpekade att vi måste kapa optionen för att ramavtalet går ut. Det kändes som en snopen kompromiss. Vi hade ju hoppats på att ha personen längre. Jag blev lite stressad, men P-Bot var väldigt tydlig med varför och vad som behövde göras. Det var bra att den kollade upp saker som jag själv inte tänkte på. Men jag känner mig fortfarande lite orolig för om det verkligen räcker med den här korta perioden. Det är ju ett stort projekt.
+
+På det hela taget så var det en lite frustrerande upplevelse, men också produktiv. P-Bot var definitivt effektiv och jag uppskattade att den höll koll på alla detaljer kring ramavtalet. Jag känner mig lite mer trygg nu, att vi faktiskt är på rätt väg med avropet. Skulle jag använda den igen? Förmodligen. Den sparade ju definitivt tid, även om det var lite stelt och opersonligt. Kanske att jag skulle önska mig en mer mänsklig touch nästa gång, att den förstod min frustration lite bättre och inte bara spottade ur sig fakta.”

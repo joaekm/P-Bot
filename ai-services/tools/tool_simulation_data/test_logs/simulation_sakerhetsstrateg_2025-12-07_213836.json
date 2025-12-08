@@ -1,0 +1,45 @@
+{
+  "timestamp": "2025-12-07T21:38:36.009848",
+  "scenario": {
+    "filename": "scenario_sakerhetsstrateg.txt",
+    "path": "/Users/jekman/Projects/Adda P Bot/ai-services/tools/tool_simulation_data/scenarios/NORMAL/scenario_sakerhetsstrateg.txt"
+  },
+  "persona": {
+    "name": "Anders Lindqvist",
+    "title": "IT-säkerhetschef",
+    "organization": "Inera AB",
+    "personality": "Anders är metodisk och noggrann. Han har en teknisk bakgrund men har de senaste åren arbetat mer strategiskt. Han är van vid upphandlingsprocesser men vill ändå få bekräftelse på att han gör rätt. Han är lite stressad över tidsplanen för IdP-projektet.",
+    "knowledge_level": "- Expert på IAM och säkerhetsfrågor - Medelhög kunskap om ramavtalet - Osäker på detaljerna kring FKU vs Direktavrop",
+    "communication_style": "- Formell men vänlig - Ställer specifika tekniska frågor - Vill ha tydliga svar med hänvisningar till regler - P-Bot har INTE tillgång till dina bakgrundsdokument - Du måste ange all information muntligt i chatten - Det är normalt att P-Bot ställer grundläggande frågor - Förvänta dig inte att P-Bot \"redan vet\" detaljer från ditt underlag",
+    "hidden_constraints": [
+      "Har redan en kandidat i åtanke (från tidigare samarbete)",
+      "Budget är egentligen lite snävare än det uppskattat värdet",
+      "Behöver konsulten på plats i Stockholm minst 3 dagar/vecka"
+    ],
+    "goals": [
+      "Förstå hur man gör ett korrekt avrop på nivå 5",
+      "Få klarhet i utvärderingsmodellen",
+      "Säkerställa att kravspecifikationen är tillräcklig"
+    ],
+    "background": "Anders har arbetat på Inera i 8 år och lett flera framgångsrika säkerhetsprojekt. Nu står han inför den största utmaningen - att uppgradera hela IAM-infrastrukturen. Han har fått mandat från ledningen men känner pressen att leverera.",
+    "typical_phrases": []
+  },
+  "conversation": [
+    {
+      "role": "user",
+      "content": "Hej! Jag heter Anders Lindqvist och jobbar som IT-säkerhetschef på Inera AB. Jag behöver hjälp med ett avrop. Vi ska förstå hur man gör ett korrekt avrop på nivå 5.",
+      "turn": 1
+    }
+  ],
+  "final_state": {
+    "ui_directives": {},
+    "current_state": {},
+    "message": "Konversation avbruten"
+  },
+  "summary": {
+    "total_turns": 1,
+    "final_resources": 0,
+    "final_step": "unknown",
+    "final_intent": "unknown"
+  }
+}
