@@ -165,11 +165,10 @@ export default function ResursWorkstation() {
       
     } catch (error) {
       console.error('Failed to initialize:', error);
-      // Fallback message
+      // Error message - no fallback greeting
       setChatMessages([{
-        type: 'ai',
-        text: 'Hej! Beskriv vilka konsulter du behöver, eller ladda upp ett underlag.',
-        streamWidget: null,
+        type: 'error',
+        text: 'Ingen kontakt med servern. Kontrollera att backend körs och försök igen.',
         id: Date.now()
       }]);
     }

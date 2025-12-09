@@ -7,7 +7,6 @@ import {
   ListItem,
   tokens
 } from '../../design-system';
-import heroImage from '../../assets/Gemini_Generated_Image_j5vd3sj5vd3sj5vd.png';
 import { Calendar, Users, FileText } from 'lucide-react';
 
 /**
@@ -16,45 +15,25 @@ import { Calendar, Users, FileText } from 'lucide-react';
  */
 export default function Dashboard({ onNavigate }) {
   const heroContent = (
-    <div style={{
-      position: 'relative',
-      width: '100%',
-      minHeight: '400px',
-      backgroundImage: `url(${heroImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '60px 24px'
-    }}>
-      <div style={{
-        backgroundColor: tokens.colors.brand.bgHero,
-        borderRadius: '30px',
-        padding: '48px',
-        maxWidth: '700px',
-        textAlign: 'center',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.15)'
-      }}>
-        <H1 style={{ marginBottom: '24px', color: tokens.colors.brand.primary, fontSize: '28px' }}>
-          Välkommen till Adda stödverktyg för IT-konsulttjänster 2021
-        </H1>
-        <BodyText size="lg" style={{ marginBottom: '32px', lineHeight: '1.6' }}>
-          Ramavtalet erbjuder ett brett och kvalitativt utbud av IT-och verksamhetsutvecklingskonsulter. Det ska fungera som ett stöd i er digitaliseringsresa och hjälpa er att uppnå de nyttor ni eftersträvar.
-        </BodyText>
-        <BodyText size="lg" style={{ marginBottom: '24px', fontWeight: 'bold' }}>
-          Välj vad du vill upphandla:
-        </BodyText>
-        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <AddaButton variant="secondary" onClick={() => onNavigate && onNavigate('workstation')}>
-            Resurser/Konsulter
-          </AddaButton>
-          <AddaButton variant="secondary" onClick={() => onNavigate && onNavigate('uppdrag')}>
-            Uppdrag/Projekt
-          </AddaButton>
-        </div>
+    <>
+      <H1 style={{ marginBottom: '24px', fontSize: '28px', color: 'inherit' }}>
+        Välkommen till Adda stödverktyg för IT-konsulttjänster 2021
+      </H1>
+      <BodyText size="lg" style={{ marginBottom: '32px', lineHeight: '1.6', color: 'inherit' }}>
+        Ramavtalet erbjuder ett brett och kvalitativt utbud av IT-och verksamhetsutvecklingskonsulter. Det ska fungera som ett stöd i er digitaliseringsresa och hjälpa er att uppnå de nyttor ni eftersträvar.
+      </BodyText>
+      <BodyText size="lg" style={{ marginBottom: '24px', fontWeight: 'bold', color: 'inherit' }}>
+        Välj vad du vill upphandla:
+      </BodyText>
+      <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <AddaButton variant="secondary" onClick={() => onNavigate && onNavigate('workstation')}>
+          Resurser/Konsulter
+        </AddaButton>
+        <AddaButton variant="secondary" onClick={() => onNavigate && onNavigate('uppdrag')}>
+          Uppdrag/Projekt
+        </AddaButton>
       </div>
-    </div>
+    </>
   );
 
   return (

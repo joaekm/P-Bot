@@ -64,10 +64,12 @@ def conversation():
         # Log the incoming request
         logger.info(f"Received message: {user_message}")
         
-        # If no user message (initial load), provide a welcome message
+        # If no user message (initial load), provide a welcome message from prompts
         if not user_message:
+            chat_start_message = engine.prompts.get('static_messages', {}).get('chat_start', '').strip()
+            
             return jsonify({
-                "message": "Hej! Jag är din AI-assistent för resursupphandling. Vad behöver du hjälp med idag?",
+                "message": chat_start_message,
                 "input_placeholder": "T.ex. 'Jag behöver en projektledare'",
                 "show_upload_button": True,
                 "avrop_data": {"resources": [], "avrop_typ": None},

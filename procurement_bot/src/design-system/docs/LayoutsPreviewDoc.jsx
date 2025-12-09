@@ -20,47 +20,23 @@ import { Calendar, Users, FileText } from 'lucide-react';
 const LayoutsPreviewDoc = () => {
   
   // --- Dashboard Example Content ---
+  // Hero-innehållet - bara rubrik, text och knappar (LayoutLanding hanterar bakgrundsfärg och textfärg)
   const dashboardHero = (
-    <div style={{
-      position: 'relative',
-      width: '100%',
-      minHeight: '400px',
-      backgroundColor: '#E6E6E6', // Fallback/Placeholder for image
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '60px 24px'
-    }}>
-       {/* Mock background pattern/image text */}
-       <div style={{ position: 'absolute', opacity: 0.1, fontSize: '100px', fontWeight: 'bold', userSelect: 'none' }}>HERO IMAGE</div>
-       
-      <div style={{
-        backgroundColor: tokens.colors.brand.bgHero,
-        borderRadius: '30px',
-        padding: '48px',
-        maxWidth: '700px',
-        textAlign: 'center',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
-        position: 'relative',
-        zIndex: 1
-      }}>
-        <H1 style={{ marginBottom: '24px', color: tokens.colors.brand.primary, fontSize: '28px' }}>
-          Välkommen till Adda stödverktyg
-        </H1>
-        <BodyText size="lg" style={{ marginBottom: '32px', lineHeight: '1.6' }}>
-          Ramavtalet erbjuder ett brett och kvalitativt utbud av IT-och verksamhetsutvecklingskonsulter.
-        </BodyText>
-        <BodyText size="lg" style={{ marginBottom: '24px', fontWeight: 'bold' }}>
-          Välj vad du vill upphandla:
-        </BodyText>
-        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <AddaButton variant="secondary">Resurser/Konsulter</AddaButton>
-          <AddaButton variant="secondary">Uppdrag/Projekt</AddaButton>
-        </div>
+    <>
+      <H1 style={{ marginBottom: '24px', fontSize: '28px', color: 'inherit' }}>
+        Välkommen till Adda stödverktyg
+      </H1>
+      <BodyText size="lg" style={{ marginBottom: '32px', lineHeight: '1.6', color: 'inherit' }}>
+        Ramavtalet erbjuder ett brett och kvalitativt utbud av IT-och verksamhetsutvecklingskonsulter.
+      </BodyText>
+      <BodyText size="lg" style={{ marginBottom: '24px', fontWeight: 'bold', color: 'inherit' }}>
+        Välj vad du vill upphandla:
+      </BodyText>
+      <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <AddaButton variant="secondary">Resurser/Konsulter</AddaButton>
+        <AddaButton variant="secondary">Uppdrag/Projekt</AddaButton>
       </div>
-    </div>
+    </>
   );
 
   const dashboardContent = (

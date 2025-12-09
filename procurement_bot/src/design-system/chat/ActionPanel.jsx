@@ -2,8 +2,8 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { tokens } from '../tokens';
 import { AddaButton } from '../components/AddaButton';
-import { AddaInput } from '../components/AddaInput';
-import { Send, UploadCloud, Loader, ArrowUp } from 'lucide-react';
+import ChatInput from './ChatInput';
+import { UploadCloud, Loader, ArrowUp } from 'lucide-react';
 
 /**
  * ActionPanel Component
@@ -46,9 +46,16 @@ const ActionPanel = ({
   const fileInputRef = useRef(null);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     if (message.trim() && !disabled && onTextSubmit) {
       onTextSubmit(message);
+      setMessage('');
+    }
+  };
+
+  const handleChatInputSubmit = (text) => {
+    if (text.trim() && !disabled && onTextSubmit) {
+      onTextSubmit(text);
       setMessage('');
     }
   };
@@ -75,28 +82,29 @@ const ActionPanel = ({
     >
       {/* Text Input Mode */}
       {(mode === 'text_input' || mode === 'file_upload') && (
-        <form onSubmit={handleSubmit} style={{ display: 'flex', gap: tokens.spacing.md }}>
-          <AddaInput
-            type="text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            disabled={isLocked}
-            placeholder={placeholder || 'Skriv här...'}
-            style={{ flex: 1, marginBottom: 0 }}
-            inputStyle={{ borderRadius: '16px' }}
-          />
+        <div style={{ display: 'flex', gap: tokens.spacing.md, alignItems: 'flex-end' }}>
+          <div style={{ flex: 1 }}>
+            <ChatInput
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              onSubmit={handleChatInputSubmit}
+              disabled={isLocked}
+              placeholder={placeholder || 'Skriv här...'}
+            />
+          </div>
           <AddaButton 
-            type="submit" 
+            type="button"
+            onClick={handleSubmit}
             variant="sendButton"
             disabled={!message.trim() || isLocked}
           >
             {isLoading ? (
               <Loader size={20} className="animate-spin" color={tokens.colors.brand.lightTint} />
             ) : (
-              <ArrowUp size={24} color={tokens.colors.brand.lightTint} /> // Ice Teal
+              <ArrowUp size={24} color={tokens.colors.brand.lightTint} />
             )}
           </AddaButton>
-        </form>
+        </div>
       )}
 
       {/* Binary Choice Mode - Only buttons */}
@@ -122,8 +130,8 @@ const ActionPanel = ({
         </div>
       )}
 
-      {/* File Upload Button */}
-      {(mode === 'file_upload' || mode === 'text_input') && onFileUpload && (
+      {/* File Upload Button - Only in file_upload mode */}
+      {mode === 'file_upload' && onFileUpload && (
         <div style={{ marginTop: tokens.spacing.lg, textAlign: 'center' }}>
           <input
             type="file"

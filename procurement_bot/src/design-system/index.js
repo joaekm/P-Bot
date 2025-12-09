@@ -11,6 +11,7 @@ export {
   AddaCard,
   AddaInput,
   AddaSelect,
+  AddaTextarea,
   H1, H2, H3, BodyText, Caption,
   SystemNotice,
   ProcessProgressBar,

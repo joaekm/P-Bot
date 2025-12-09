@@ -3,7 +3,7 @@ import { FileText, GraduationCap, ShoppingCart, Leaf, ArrowUp } from 'lucide-rea
 import { tokens } from '../tokens';
 import { AddaButton } from '../components/AddaButton';
 import { AddaCard } from '../components/AddaCard';
-import { AddaInput, AddaSelect } from '../components/AddaInput';
+import { AddaInput, AddaSelect, AddaTextarea } from '../components/AddaInput';
 import { default as SystemNotice } from '../components/SystemNotice';
 import { PageTitle } from '../components/PageTitle';
 import { default as ResourceSummaryCard } from '../components/ResourceSummaryCard';
@@ -130,6 +130,13 @@ const ComponentsDoc = () => {
               <AddaSelect 
                 label="Select Dropdown" 
                 options={[{ label: 'Alternativ 1', value: '1' }, { label: 'Alternativ 2', value: '2' }]} 
+              />
+            </div>
+            <div>
+              <AddaTextarea 
+                label="Textarea" 
+                placeholder="Skriv längre text här..."
+                rows={3}
               />
             </div>
           </div>

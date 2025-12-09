@@ -4,16 +4,29 @@ import { tokens } from '../tokens';
 const LayoutLanding = ({ hero, children }) => {
   return (
     <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-      {/* Hero Section - Full Width */}
+      {/* Hero Section - Mörkröd bakgrundsfärg, vit text, centrerat innehåll */}
       {hero && (
         <div style={{ 
-          width: '100%', 
+          width: '100%',
+          backgroundColor: tokens.colors.accent.darkRed,
+          color: '#FFFFFF',
           marginBottom: tokens.spacing['6xl'],
+          paddingTop: tokens.spacing['6xl'],
+          paddingBottom: tokens.spacing['6xl'],
           paddingLeft: '24px',
           paddingRight: '24px',
-          boxSizing: 'border-box'
+          boxSizing: 'border-box',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
         }}>
-          {hero}
+          <div style={{
+            maxWidth: '700px',
+            width: '100%',
+            textAlign: 'center'
+          }}>
+            {hero}
+          </div>
         </div>
       )}
 
