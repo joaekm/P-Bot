@@ -16,6 +16,7 @@ import {
   SummaryCard
 } from '../../design-system';
 import { getWidgetComponent } from '../../utils/componentRegistry';
+import { apiFetch, apiFetchFormData } from '../../utils/api';
 
 // =============================================================================
 // SERVER-DRIVEN UI ARCHITECTURE (v3.1)
@@ -147,9 +148,8 @@ export default function ResursWorkstation() {
   const initializeConversation = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('/api/conversation', {
+      const response = await apiFetch('/api/conversation', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           user_message: null,
           conversation_history: [],
@@ -192,9 +192,8 @@ export default function ResursWorkstation() {
     setActionPanel(prev => ({ ...prev, mode: 'locked' }));
     
     try {
-      const response = await fetch('/api/conversation', {
+      const response = await apiFetch('/api/conversation', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           user_message: message,
           conversation_history: history,
@@ -322,10 +321,7 @@ export default function ResursWorkstation() {
       const formData = new FormData();
       formData.append('file', file);
       
-      const response = await fetch('/api/analyze-document', {
-        method: 'POST',
-        body: formData
-      });
+      const response = await apiFetchFormData('/api/analyze-document', formData);
       
       if (!response.ok) throw new Error('Upload failed');
       
@@ -395,9 +391,8 @@ export default function ResursWorkstation() {
         }]);
         
         // Call AI with the updated session state (including source_documents)
-        const aiResponse = await fetch('/api/conversation', {
+        const aiResponse = await apiFetch('/api/conversation', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             user_message: `Jag har laddat upp ett dokument. Hittade: ${summary}`,
             conversation_history: history,
@@ -428,9 +423,8 @@ export default function ResursWorkstation() {
           id: Date.now() 
         }]);
         
-        const aiResponse = await fetch('/api/conversation', {
+        const aiResponse = await apiFetch('/api/conversation', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             user_message: 'Jag har laddat upp ett dokument men inga roller kunde extraheras automatiskt.',
             conversation_history: history,
