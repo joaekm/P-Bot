@@ -9,6 +9,7 @@ v5.24 Changes:
 """
 import os
 import sys
+import atexit
 import logging
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -25,6 +26,7 @@ CORS(app)  # Enable CORS for all routes
 # Initialize the Search Engine
 try:
     engine = AddaSearchEngine()
+    atexit.register(engine.cleanup)
     logger.info("AddaSearchEngine v5.24 initialized successfully")
 except Exception as e:
     logger.critical(f"Failed to initialize AddaSearchEngine: {e}")

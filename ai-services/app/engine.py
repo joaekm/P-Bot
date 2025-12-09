@@ -132,6 +132,16 @@ class AddaSearchEngine:
         
         logger.info("AddaSearchEngine v5.24 initialized")
 
+    def cleanup(self):
+        """Stäng Kuzu-anslutning och frigör resurser."""
+        if self.conn:
+            try:
+                del self.conn
+                del self.db
+                logger.info("✅ Kuzu closed")
+            except Exception as e:
+                logger.warning(f"Kuzu cleanup warning: {e}")
+
     def _load_prompts(self):
         try:
             with open(PATHS['prompts'], 'r', encoding='utf-8') as f:
