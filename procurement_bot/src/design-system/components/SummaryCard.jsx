@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { tokens } from '../tokens';
-import { Check, Clock, MapPin, Calendar, Banknote, Users, AlertCircle } from 'lucide-react';
+import { Check, Clock, MapPin, Calendar, Banknote, Users } from 'lucide-react';
 
 /**
  * SummaryCard Component ("Varukorgen") v5.24
@@ -214,7 +214,7 @@ const SummaryCard = ({
                                             borderRadius: tokens.borderRadius.sm
                                         }}
                                     >
-                                        {resource.level ? `Kompetensnivå ${resource.level}` : 'Nivå?'}
+                                        {resource.level ? `KN ${resource.level}` : 'Nivå?'}
                                     </span>
                                 </div>
                             );
@@ -312,23 +312,6 @@ const SummaryCard = ({
                 </div>
             </div>
 
-            {/* Footer - Pending Resources Hint */}
-            {resources.some(r => !r.is_complete && r.status !== 'DONE') && (
-                <div 
-                    style={{
-                        backgroundColor: tokens.colors.status.warningBg,
-                        padding: `${tokens.spacing.md} ${tokens.spacing['2xl']}`,
-                        fontSize: tokens.typography.sizes.xs,
-                        color: tokens.colors.status.warningDark,
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: tokens.spacing.md
-                    }}
-                >
-                    <AlertCircle size={14} />
-                    <span>Ange kompetensnivå för markerade resurser</span>
-                </div>
-            )}
         </div>
     );
 };

@@ -251,7 +251,7 @@ AKTUELL VARUKORG:
 - Slutdatum: {avrop.get('end_date', '-')}
 """
         for res in avrop.get('resources', []):
-            avrop_summary += f"  • {res.get('roll', '?')} (nivå {res.get('level', '?')}) x{res.get('antal', 1)}\n"
+            avrop_summary += f"  • [{res.get('id', '?')}] {res.get('roll', '?')} (nivå {res.get('level', '?')}) x{res.get('antal', 1)}\n"
         
         # Step constraints
         try:

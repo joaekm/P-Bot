@@ -166,7 +166,7 @@ const ActionPanel = ({
           }}
         >
           <Loader size={20} className="animate-spin" />
-          <span>Bearbetar...</span>
+          <span>Tänker... (Demo - Längre svarstid)</span>
         </div>
       )}
     </div>

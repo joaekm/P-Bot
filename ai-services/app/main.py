@@ -76,7 +76,7 @@ def conversation():
                 "avrop_progress": {"completion_percent": 0, "is_complete": False, "missing_fields": ["resources"]},
                 "ui_directives": {
                     "entity_summary": {},
-                    "update_sticky_header": "Steg 1: Beskriv Behov",
+                    "update_sticky_header": "Beskriv Behov",
                     "set_active_process_step": "step_1_needs",
                     "missing_info": ["resources"],
                     "current_intent": "INSPIRATION",
@@ -101,11 +101,11 @@ def conversation():
         # Map target_step to human-readable header
         target_step = engine_ui_directives.get('target_step', 'step_1_intake')
         step_titles = {
-            'step_1_intake': 'Steg 1: Beskriv Behov',
-            'step_1_needs': 'Steg 1: Beskriv Behov',
-            'step_2_level': 'Steg 2: Kompetensnivå',
-            'step_3_volume': 'Steg 3: Volym & Pris',
-            'step_4_strategy': 'Steg 4: Avropsform',
+            'step_1_intake': 'Beskriv Behov',
+            'step_1_needs': 'Beskriv Behov',
+            'step_2_level': 'Kompetensnivå',
+            'step_3_volume': 'Volym & Pris',
+            'step_4_strategy': 'Avropsform',
             'general': 'Allmänt'
         }
         
