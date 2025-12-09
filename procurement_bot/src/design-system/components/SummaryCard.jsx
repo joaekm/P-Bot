@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { tokens } from '../tokens';
-import { Check, Clock, MapPin, Calendar, Banknote, Users } from 'lucide-react';
+import { Check, Clock, MapPin, Calendar, Banknote, Users, FileText } from 'lucide-react';
 
 /**
  * SummaryCard Component ("Varukorgen") v5.24
@@ -35,15 +35,33 @@ const SummaryCard = ({
 }) => {
     // Extract resources array and global fields (v5.24 kanoniska fältnamn)
     const resources = data.resources || [];
+    
+    // Determine labels based on pricing model
+    const isFastPris = data.prismodell === 'FAST_PRIS';
+    const moneyLabel = isFastPris ? 'Budget' : 'Takpris';
+    const showVolume = !isFastPris || data.volume; // Hide volume for FastPris unless explicitly set
+
     const globalFields = [
         { key: 'anbudsomrade', label: 'Anbudsområde', icon: MapPin },
         { key: 'location_text', label: 'Plats', icon: MapPin },
-        { key: 'volume', label: 'Volym', icon: Users, format: (v) => v ? `${v} timmar` : null },
+        ...(showVolume ? [{ key: 'volume', label: 'Volym', icon: Users, format: (v) => v ? `${v} timmar` : null }] : []),
         { key: 'start_date', label: 'Startdatum', icon: Calendar, format: formatDate },
         { key: 'end_date', label: 'Slutdatum', icon: Calendar, format: formatDate },
-        { key: 'takpris', label: 'Takpris', icon: Banknote, format: (v) => v ? `${v.toLocaleString('sv-SE')} kr` : null },
-        { key: 'prismodell', label: 'Prismodell', icon: Banknote }
+        { key: 'takpris', label: moneyLabel, icon: Banknote, format: (v) => v ? `${v.toLocaleString('sv-SE')} kr` : null },
+        { key: 'prismodell', label: 'Prismodell', icon: Banknote },
+        // New: Show description status
+        { 
+            key: 'behovsbeskrivning', // Or uppdragsbeskrivning if that's what we use
+            label: 'Beskrivning', 
+            icon: FileText, 
+            format: (v) => v ? '✓ Ifylld' : null 
+        }
     ];
+
+    // Check both potential description fields
+    const descriptionValue = data.behovsbeskrivning || data.uppdragsbeskrivning;
+    // Inject the description value into data for the loop below if not present
+    const displayData = { ...data, behovsbeskrivning: descriptionValue };
 
     // Format date from YYYY-MM-DD to readable format
     function formatDate(dateStr) {
@@ -251,7 +269,7 @@ const SummaryCard = ({
                 {/* Global Fields */}
                 <div>
                     {globalFields.map((field, index) => {
-                        const rawValue = data[field.key];
+                        const rawValue = displayData[field.key];
                         const value = field.format ? field.format(rawValue) : rawValue;
                         const isFilled = value !== null && value !== undefined;
                         const Icon = field.icon;

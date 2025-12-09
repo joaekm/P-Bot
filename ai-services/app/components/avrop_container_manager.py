@@ -170,6 +170,14 @@ class AvropsContainerManager:
             logger.warning("No field specified for global update")
             return False
             
+        # Allow behovsbeskrivning even if it's not in the strict validation set yet
+        # (It should be added to valid_global_fields when reloading taxonomy, 
+        # but to be safe for hot-reloads/partial updates)
+        if field == 'behovsbeskrivning':
+            avrop[field] = str(value) if value else None
+            logger.info(f"Updated global: {field}={value}")
+            return True
+
         if field not in self.valid_global_fields:
             logger.warning(f"Invalid global field '{field}' - skipping")
             return False
@@ -266,13 +274,17 @@ class AvropsContainerManager:
     
     def calculate_progress(self, avrop: Dict) -> Dict:
         """
-        Calculate completion progress for avrop.
+        Calculate completion progress for avrop based on current step requirements.
         
-        Returns:
-            Dict with completion_percent, is_complete, missing_fields
+        Requirements per step (from assistant_prompts.yaml):
+        - step_1_needs: Resources, Location/Anbudsomrade, Description
+        - step_2_level: Level for all resources
+        - step_3_volume: Volume/Budget, Dates
+        - step_4_strategy: Pricing model, Evaluation criteria
         """
-        required_global = ['resources', 'volume', 'start_date']
-        optional_global = ['location_text', 'region', 'end_date', 'takpris', 'prismodell']
+        # Determine active phase based on what is filled
+        # For simple progress bar calculation, we stick to general completeness
+        required_global = ['resources', 'volume', 'start_date', 'prismodell']
         
         missing = []
         filled = 0
@@ -305,8 +317,96 @@ class AvropsContainerManager:
             'completion_percent': completion_percent,
             'is_complete': len(missing) == 0 and len(incomplete_resources) == 0,
             'missing_fields': missing,
-            'constraint_violations': []  # Could add validation here
+            'constraint_violations': []
         }
+
+    def check_step_requirements(self, avrop: Dict, current_step: str) -> Dict:
+        """
+        Check if requirements for advancing FROM current_step are met.
+        
+        Returns:
+            {
+                'can_advance': bool,
+                'missing': List[str],
+                'next_step': str (suggestion)
+            }
+        """
+        # Map step names (both legacy and new) to canonical internal names
+        step_map = {
+            'step_1_intake': 'step_1_intake',
+            'step_1_needs': 'step_1_intake',
+            'step_2_level': 'step_2_level',
+            'step_3_volume': 'step_3_volume',
+            'step_4_strategy': 'step_4_strategy'
+        }
+        
+        step = step_map.get(current_step, 'step_1_intake')
+        missing = []
+        
+        if step == 'step_1_intake':
+            # Requirements to go to Step 2
+            if not avrop.get('resources') or len(avrop.get('resources')) == 0:
+                missing.append('minst en resurs (roll)')
+            
+            if not avrop.get('location_text') and not avrop.get('anbudsomrade'):
+                missing.append('plats eller anbudsområde')
+                
+            # Note: behovsbeskrivning check is qualitative (LLM), 
+            # here we only check if it exists if we strictly require it.
+            # For now, we trust the LLM/Planner to hold back if description is poor.
+            
+            return {
+                'can_advance': len(missing) == 0,
+                'missing': missing,
+                'next_step': 'step_2_level'
+            }
+            
+        elif step == 'step_2_level':
+            # Requirements to go to Step 3
+            # All resources must have a level
+            incomplete = [r.get('roll', 'okänd') for r in avrop.get('resources', []) if not r.get('level')]
+            if incomplete:
+                missing.append(f"kompetensnivå för {', '.join(incomplete)}")
+                
+            return {
+                'can_advance': len(missing) == 0,
+                'missing': missing,
+                'next_step': 'step_3_volume'
+            }
+            
+        elif step == 'step_3_volume':
+            # Requirements to go to Step 4
+            # Either Volume+Takpris OR Budget (Takpris used as budget holder if fastpris)
+            has_volume = bool(avrop.get('volume'))
+            has_money = bool(avrop.get('takpris'))
+            
+            if not (has_volume or has_money):
+                missing.append('volym (timmar) eller budget')
+                
+            if not avrop.get('start_date'):
+                missing.append('startdatum')
+                
+            if not avrop.get('end_date'):
+                missing.append('slutdatum')
+                
+            return {
+                'can_advance': len(missing) == 0,
+                'missing': missing,
+                'next_step': 'step_4_strategy'
+            }
+            
+        elif step == 'step_4_strategy':
+            # Requirements to finish
+            if not avrop.get('prismodell'):
+                missing.append('prismodell')
+                
+            return {
+                'can_advance': len(missing) == 0,
+                'missing': missing,
+                'next_step': 'complete'
+            }
+            
+        return {'can_advance': True, 'missing': [], 'next_step': 'general'}
     
     def create_empty_avrop(self) -> Dict:
         """Create an empty avrop dict with proper structure."""
@@ -323,6 +423,7 @@ class AvropsContainerManager:
             'pris_vikt': None,
             'kvalitet_vikt': None,
             'avrop_typ': None,
+            'behovsbeskrivning': None,
             'uppdragsbeskrivning': None,
             'resultatbeskrivning': None,
             'godkannandevillkor': None,

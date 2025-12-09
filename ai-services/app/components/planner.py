@@ -293,7 +293,7 @@ Analysera och returnera JSON med:
         return prompt
     
     def _validate_step_transition(self, current_step: str, proposed_step: str) -> str:
-        """Validate step transition (forward-only)."""
+        """Validate step transition."""
         if proposed_step == 'general':
             return proposed_step
         
@@ -307,10 +307,13 @@ Analysera och returnera JSON med:
         except ValueError:
             return current_step
         
+        # Allow backward movement (previously blocked)
         if proposed_idx < current_idx:
-            logger.warning(f"Blocked backward: {proposed_step} <- {current_step}")
-            return current_step
-        elif proposed_idx > current_idx + 1:
+            logger.info(f"Allowing backward: {proposed_step} <- {current_step}")
+            return proposed_step
+            
+        # Block skipping multiple steps forward
+        if proposed_idx > current_idx + 1:
             logger.warning(f"Blocked skip: {current_step} -> {proposed_step}")
             return current_step
         

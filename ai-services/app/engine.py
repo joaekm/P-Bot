@@ -227,7 +227,7 @@ class AddaSearchEngine:
         
         # Calculate progress
         progress = self.avrop_container.calculate_progress(updated_avrop)
-        
+
         # =====================================================================
         # STEP 6: SYNTHESIS (Generate Response)
         # =====================================================================

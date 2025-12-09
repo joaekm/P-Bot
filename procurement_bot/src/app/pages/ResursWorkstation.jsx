@@ -123,27 +123,6 @@ export default function ResursWorkstation() {
     initializeConversation();
   }, []);
 
-  // --- Track step transitions ---
-  useEffect(() => {
-    const currentStep = sessionState.current_step;
-    if (currentStep !== previousStep) {
-      const fromMeta = STEP_METADATA[previousStep];
-      const toMeta = STEP_METADATA[currentStep];
-      
-      if (fromMeta && toMeta && fromMeta.process_step < toMeta.process_step) {
-        setChatMessages(prev => [...prev, {
-          type: 'transition',
-          fromStep: fromMeta.process_step,
-          fromStepTitle: fromMeta.title,
-          toStep: toMeta.process_step,
-          toStepTitle: toMeta.title,
-          id: Date.now()
-        }]);
-      }
-      setPreviousStep(currentStep);
-    }
-  }, [sessionState.current_step, previousStep]);
-
   // --- API Functions ---
   const initializeConversation = async () => {
     setIsLoading(true);
@@ -224,13 +203,32 @@ export default function ResursWorkstation() {
   };
 
   const handleAIResponse = (data) => {
+    // Check for step transition FIRST, before adding AI message
+    // This ensures the "Transition Step X" bubble appears BEFORE the AI's first message in the new step
+    if (data.session_state && data.session_state.current_step !== previousStep) {
+      const fromMeta = STEP_METADATA[previousStep];
+      const toMeta = STEP_METADATA[data.session_state.current_step];
+      
+      if (fromMeta && toMeta && fromMeta.process_step < toMeta.process_step) {
+        setChatMessages(prev => [...prev, {
+          type: 'transition',
+          fromStep: fromMeta.process_step,
+          fromStepTitle: fromMeta.title,
+          toStep: toMeta.process_step,
+          toStepTitle: toMeta.title,
+          id: Date.now()
+        }]);
+      }
+      setPreviousStep(data.session_state.current_step);
+    }
+    
     // Add AI message (backend sends 'message', not 'text_content')
     if (data.message) {
       setChatMessages(prev => [...prev, {
         type: 'ai',
         text: data.message,
         streamWidget: data.stream_widget || null,
-        id: Date.now()
+        id: Date.now() + 1 // Ensure timestamp is slightly later
       }]);
     }
     
