@@ -110,11 +110,18 @@ class AvropsContainerManager:
                         
                 elif action == 'UPDATE' and change_type == 'resource':
                     resource_id = change.get('id')
-                    field = change.get('field')
-                    value = change.get('value')
-                    if self._update_resource(result, resource_id, field, value):
-                        applied_count += 1
+                    data = change.get('data', {})
+                    if data:
+                        success = False
+                        for field, value in data.items():
+                            if self._update_resource(result, resource_id, field, value):
+                                success = True
+                        if success:
+                            applied_count += 1
+                        else:
+                            skipped_count += 1
                     else:
+                        logger.warning(f"UPDATE resource missing 'data': {change}")
                         skipped_count += 1
                         
                 elif action == 'DELETE' and change_type == 'resource':

@@ -218,6 +218,11 @@ class AddaSearchEngine:
         # STEP 5: APPLY ENTITY CHANGES (Deterministic)
         # =====================================================================
         entity_changes = plan.get('entity_changes', [])
+        
+        # Log full entity_changes for debugging
+        if entity_changes:
+            logger.info(f"Entity changes from Planner: {entity_changes}")
+        
         updated_avrop = self.avrop_container.apply(avrop, entity_changes)
         
         # Calculate progress

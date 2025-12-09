@@ -132,8 +132,7 @@ class PlannerComponent:
         self.system_prompt = prompts.get('planner', {}).get('system_prompt', '')
         
         if not self.system_prompt:
-            logger.warning("No planner.system_prompt found in config")
-            self.system_prompt = self._default_system_prompt()
+            raise ValueError("KRITISKT: planner.system_prompt saknas i assistant_prompts.yaml")
     
     def create_plan(
         self, 
@@ -341,39 +340,3 @@ Analysera och returnera JSON med:
             "secondary_sources": []
         }
     
-    def _default_system_prompt(self) -> str:
-        """Default system prompt."""
-        return """Du är Planner för Addas upphandlingssystem.
-
-Din uppgift är att:
-1. Analysera kontexten och användarens fråga
-2. Identifiera vilka entiteter som ska extraheras eller uppdateras
-3. Skapa en plan för hur Synthesizer ska svara
-4. Generera strategic_input (insikter för fas 1 och 4)
-
-ENTITY_CHANGES FORMAT:
-[
-  {"action": "ADD", "type": "resource", "data": {"roll": "Projektledare", "level": 4, "antal": 1}},
-  {"action": "UPDATE", "type": "global", "field": "location_text", "value": "Stockholm"},
-  {"action": "UPDATE", "type": "global", "field": "volume", "value": 160},
-  {"action": "DELETE", "type": "resource", "id": "res_xxx"}
-]
-
-FÄLTNAMN (använd exakt dessa):
-Global: location_text, region, anbudsomrade, volume, start_date, end_date, takpris, prismodell, pris_vikt, kvalitet_vikt
-Resurs: roll, level, antal, kompetensomrade
-
-STRATEGIC_INPUT:
-- Generera alltid för fas 1 (behov) och fas 4 (strategi)
-- Inkludera relevanta insikter från kontexten
-- Ingen specifik text, anpassa efter situationen
-
-OUTPUT JSON:
-{
-  "primary_conclusion": "Kärnsvaret",
-  "tone_instruction": "Helpful/Guiding" | "Strict/Warning" | "Informative",
-  "target_step": "step_1_intake",
-  "missing_info": ["field1", "field2"],
-  "entity_changes": [...],
-  "strategic_input": "Relevant insikt..."
-}"""
