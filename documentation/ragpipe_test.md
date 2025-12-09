@@ -3,7 +3,8 @@
 ## Syfte
 Dokumentera hur RAG-pipelinen fungerar så att felsökning kan ske snabbt utan att läsa all kod.
 
-**Version:** 5.25 (Dict-baserad pipeline)
+**Version:** 5.27 (Dict-baserad pipeline + Fas-specifika prompts)  
+**🧪 ANVÄNDARTEST: 10 december 2025, kl 09:00**
 
 ---
 
@@ -90,14 +91,22 @@ User Query + History + Avrop (dict)
 - **Ansvar:** Applicera ADD/UPDATE/DELETE på varukorg
 - **Loggar:** `📦 AvropsContainer State: ...`
 
-### 5. Synthesizer (v5.25)
+### 5. Synthesizer (v5.27)
 - **Fil:** `app/components/synthesizer.py`
 - **Input:** Query, plan dict, context dict, avrop dict, history
 - **Output:** dict med:
   - `response`: Textsvar
-  - `avrop`: Oförändrad avrop (ändringar gjordes av Container)
 - **Modell:** gemini-pro
 - **Ansvar:** ENDAST svargenerering (ej entity extraction)
+- **Fas-specifika prompts (NY i v5.27):**
+
+| target_step | Prompt | Fokus |
+|-------------|--------|-------|
+| step_1_intake | `synthesizer_step1_behov` | Roller, plats, behovsbeskrivning |
+| step_2_level | `synthesizer_step2_niva` | Nivåval, svårighet vs pris |
+| step_3_volume | `synthesizer_step3_volym` | Datum, volym, rimlighetsanalys |
+| step_4_strategy | `synthesizer_step4_avslut` | Prismodell, sammanfattning |
+| general | `synthesizer` | Allmänna frågor |
 
 ---
 
@@ -423,6 +432,9 @@ Result: level: 5 ✓
 | 2025-12-05 | CONF: Lagt till static_messages i assistant_prompts.yaml (chat_start, chat_complete) |
 | 2025-12-05 | FIX: Session trace saknade prismodell, utvarderingsmodell, location_text, anbudsomrade |
 | 2025-12-08 | Lagt till kanonisk fältlista (börläge) |
+| 2025-12-09 | v5.27: Fas-specifika synthesizer-prompts |
+| 2025-12-09 | v5.27: Stegprogression fixad (STEP_ORDER) |
+| 2025-12-09 | v5.27: Synthesizer återställd från v5.6-regression |
 
 ---
 

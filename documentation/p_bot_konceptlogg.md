@@ -1,4 +1,4 @@
-# P-Bot Konceptlogg (v5.11)
+# P-Bot Konceptlogg (v5.27)
 
 Detta dokument spårar "Varför" – resonemanget och de designbeslut som lett fram till prototypen.
 
@@ -632,5 +632,91 @@ if "LOCATIONS" in branches:
 
 ---
 
-*Version: 5.25*  
-*Senast uppdaterad: 8 december 2025*
+*Version: 5.27*  
+*Senast uppdaterad: 9 december 2025*  
+*🧪 ANVÄNDARTEST: 10 december 2025, kl 09:00*
+
+---
+
+## Fas 16: Stegkrav & Determinism (v5.27)
+
+### 16.1 Insikt: Stegprogression blockerades
+
+**Problem:** Efter synthesizer-refaktorering slutade stegövergångar fungera:
+- `WARNING - Blocked skip: step_1_intake -> step_2_level`
+- Planner föreslog rätt steg men validering blockerade
+
+**Rotorsak:** `STEP_ORDER` i planner.py innehöll både `step_1_intake` OCH `step_1_needs`:
+```python
+STEP_ORDER = ['step_1_intake', 'step_1_needs', 'step_2_level', ...]
+```
+
+När current_step=`step_1_intake` (index 0) och proposed_step=`step_2_level` (index 2):
+- Check: `2 > 0 + 1` = True → **BLOCKERAT** (hoppade över step_1_needs)
+
+**Lösning:** Borttagen duplicerad `step_1_needs` från STEP_ORDER.
+
+### 16.2 Insikt: Frontend step transition notice saknades
+
+**Problem:** Notis för "Steg 1 slutfört → Steg 2" visades inte, men "Steg 2 → Steg 3" fungerade.
+
+**Rotorsak:** Frontend hade bara `step_1_needs` i STEP_METADATA, backend skickade `step_1_intake`:
+```javascript
+const STEP_METADATA = {
+  step_1_needs: {...},  // ← Backend skickar step_1_intake!
+  step_2_level: {...},
+  ...
+}
+```
+
+**Lösning:** Lade till `step_1_intake` i frontend STEP_METADATA.
+
+### 16.3 Insikt: Synthesizer regredierade till v5.6
+
+**Problem:** Server kraschade med `ModuleNotFoundError: No module named 'app.models'`.
+
+**Rotorsak:** Commit 227b7c8 ("Update RAG pipeline components...") ersatte av misstag synthesizer.py v5.24 med en äldre v5.6-version som fortfarande importerade Pydantic-modeller.
+
+**Förklaring:** Troligen AI-assistenten (Cursor) hade fel kontext och genererade gammal kod.
+
+**Lösning:** Återställde synthesizer.py från commit 3897156 (före regressionen).
+
+### 16.4 Fas-specifika Synthesizer-prompts
+
+**Insikt:** En generisk synthesizer-prompt räckte inte för olika processteg.
+
+**Beslut:** Fyra fas-specifika prompts i `assistant_prompts.yaml`:
+
+| Prompt | Steg | Fokus |
+|--------|------|-------|
+| `synthesizer_step1_behov` | step_1_intake | Roller, plats, behovsbeskrivning |
+| `synthesizer_step2_niva` | step_2_level | Kompetensnivå, svårighet vs pris |
+| `synthesizer_step3_volym` | step_3_volume | Datum, volym, rimlighetsanalys |
+| `synthesizer_step4_avslut` | step_4_strategy | Prismodell, sammanfattning |
+
+### 16.5 SummaryCard UX-förbättringar
+
+**Ändringar:**
+- Titel: "Din Förfrågan" → "Ditt avrop"
+- Fältordning: Matchar nu processens steg (beskrivning först)
+- Borttagna: Räknare i header, "(X)" efter resurser
+
+### 16.6 Start Script
+
+**Syfte:** Förenkla uppstart av testmiljö.
+
+**Funktioner (`start_pbot.sh`):**
+1. Tar bort Kuzu-lås (`.lock`)
+2. Rensar Python-cache (`__pycache__`)
+3. Startar Cloudflare-tunnel (bakgrund)
+4. Startar backend-server (förgrund)
+
+---
+
+## Lärdomar & Insikter (tillägg v5.27)
+
+31. **Duplicerade steg-aliases:** Om samma steg har flera namn (step_1_intake/step_1_needs), välj ETT och använd konsekvent överallt.
+32. **Frontend/Backend step-sync:** STEP_METADATA i frontend måste matcha backend STEP_ORDER exakt.
+33. **AI-regressioner:** Vid stora ändringar, verifiera att AI-assistenten inte ersatt filer med äldre versioner.
+34. **Python-cache:** `__pycache__` kan orsaka "ghost imports" efter refaktorering – rensa regelbundet.
+35. **Fas-specifika prompts:** Olika processteg kräver olika ton och fokus – generiska prompts räcker inte.

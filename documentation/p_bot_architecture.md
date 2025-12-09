@@ -1,4 +1,4 @@
-# P-Bot Arkitektur (v5.11)
+# P-Bot Arkitektur (v5.27)
 
 Detta dokument beskriver "Hur" – den tekniska implementationen av prototypen och målbilden, nu mappad mot Addas strategi.
 
@@ -43,12 +43,9 @@ Adda P Bot/
 │   │   ├── components/       # Pipeline-komponenter
 │   │   │   ├── intent_analyzer.py  # Steg 1: Query → IntentTarget
 │   │   │   ├── context_builder.py  # Steg 2: Dual Retrieval
-│   │   │   ├── planner.py          # Steg 3: Logik & ReasoningPlan
-│   │   │   ├── synthesizer.py      # Steg 4: Response generation
-│   │   │   └── extractor.py        # Legacy (state merge)
-│   │   ├── models/           # Datamodeller
-│   │   │   ├── domain.py     # Enums & IntentTarget
-│   │   │   └── reasoning.py  # ReasoningPlan
+│   │   │   ├── planner.py          # Steg 3: Logik & entity extraction
+│   │   │   ├── synthesizer.py      # Steg 4: Response generation (v5.24)
+│   │   │   └── avrop_container_manager.py  # Deterministisk avrop-hantering
 │   │   ├── services/         # Tjänster
 │   │   │   └── vocabulary_service.py  # Taxonomy lookup
 │   │   └── validators/       # Business rules
@@ -134,19 +131,25 @@ tokens = {
 - **Grafdatabas:** Kuzu (relationer mellan dokument)
 - **Embeddings:** SentenceTransformer (`all-MiniLM-L6-v2`)
 
-### 4.2 Pipeline Architecture (7-Stegs Reasoning Engine v2)
+### 4.2 Pipeline Architecture (v5.24 - Pure Dicts)
 
-Motorn är **fas-lös** och **kontext-medveten**. Pipelinen följer flödet: **Intent → Context → Plan → Synthesize**.
+Motorn är **fas-lös** och **kontext-medveten**. Pipelinen följer flödet: **Intent → Context → Plan → Container → Synthesize**.
 
 | Steg | Komponent | Modell | Ansvar |
 |------|-----------|--------|--------|
-| 1 | **IntentAnalyzer** | gemini-flash-lite | Query → IntentTarget (taxonomy mapping) |
+| 1 | **IntentAnalyzer** | gemini-flash-lite | Query → taxonomy branches + search terms |
 | 2 | **ContextBuilder** | – | Dual Retrieval (keyword + vector + graph) |
-| 3 | **Planner** | gemini-flash-lite | Logik, konfliktlösning → ReasoningPlan |
-| 4 | **Synthesizer** | gemini-pro | Genererar svar med persona |
-| 5 | **Validator** | – | Constraint checking (data-driven) |
+| 3 | **Planner** | gemini-pro | Logik, entity extraction → plan dict |
+| 4 | **AvropsContainerManager** | – | Applicera entity_changes (deterministisk) |
+| 5 | **Synthesizer** | gemini-pro | Genererar svar med fas-specifik persona |
 | 6 | **UIDirectives** | – | Backend → Frontend state updates |
 | 7 | **BlackBox** | – | Session trace logging |
+
+**v5.24 Förenklingar:**
+- Alla komponenter använder pure dicts (inga Pydantic-modeller)
+- Planner extraherar entiteter (entity_changes)
+- AvropsContainerManager applicerar ändringar deterministiskt
+- Synthesizer genererar endast svar (ingen entity extraction)
 
 #### Step 1: IntentAnalyzer (Query → Taxonomy)
 
@@ -771,5 +774,26 @@ För detaljerade test-scenarion och diagnostik, se:
 
 ---
 
-*Version: 5.14*  
-*Senast uppdaterad: 5 december 2025*
+*Version: 5.27*  
+*Senast uppdaterad: 9 december 2025*  
+*🧪 ANVÄNDARTEST: 10 december 2025, kl 09:00*
+
+---
+
+## 13. Changelog (v5.27)
+
+### v5.27 (2025-12-09)
+- **Fix:** Återställd synthesizer.py till v5.24 (regression från v5.6 i commit 227b7c8)
+- **Fix:** Step progression fungerar nu (borttagen duplicerad step_1_needs från STEP_ORDER)
+- **Fix:** Frontend step transition notice för steg 1→2 (lagt till step_1_intake i STEP_METADATA)
+- **Feat:** Fas-specifika synthesizer-prompts (synthesizer_step1_behov, _step2_niva, _step3_volym, _step4_avslut)
+- **Feat:** start_pbot.sh - Startscript för testmiljö (Kuzu-lås, cache-rensning, tunnel)
+- **UX:** SummaryCard titel ändrad till "Ditt avrop"
+- **UX:** SummaryCard fältordning matchar nu processens steg
+- **UX:** Borttagna entity-räknare från SummaryCard header
+
+### v5.24-v5.26
+- Pure dict-arkitektur (inga Pydantic-modeller)
+- AvropsContainerManager för deterministisk entity-hantering
+- Planner ansvarar för entity extraction
+- Synthesizer förenklad (endast response generation)

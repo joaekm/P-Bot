@@ -1,4 +1,4 @@
-# P-Bot Summary (v5.11)
+# P-Bot Summary (v5.27)
 
 Detta dokument beskriver "Vad" – den slutgiltiga processen, designen och arkitekturstrategin.
 
@@ -83,10 +83,11 @@ procurement_bot/src/
 
 **Nyckelkomponenter:**
 - `ChatWindow` - Självständig chattcontainer med dynamisk header
-- `SummaryCard` - "Varukorgen" för multi-resource beställningar
+- `SummaryCard` - "Ditt avrop" för multi-resource beställningar (v5.27: ny titel, omordnade fält)
 - `ProcessProgressBar` - Vertikal tidslinje (4 steg), driven av backend
 - `ActionPanel` - Server-driven inputzon
 - `SystemNotice` - Info/Success/Warning-notiser
+- `StepTransitionNotice` - Notis vid stegbyte (v5.27: fixad för steg 1→2)
 - `AIAnswerContainer` / `UserAnswerContainer` - Pratbubblor med Markdown
 
 ### 3.3 Adda Intelligence Engine (Backend v5.2)
@@ -145,18 +146,25 @@ ai-services/
 | `/api/conversation` | POST | Huvudendpoint för chat |
 | `/api/analyze-document` | POST | Dokumentuppladdning (stub) |
 
-### 3.4 Pipeline Architecture (7-Stegs Retrieval)
+### 3.4 Pipeline Architecture (v5.24 - Pure Dicts)
 
 Motorn är **fas-lös**, **kontext-medveten** och **taxonomy-aware**:
 
 | Steg | Komponent | Modell | Ansvar |
 |------|-----------|--------|--------|
-| 0 | **Extractor** | gemini-flash-lite | Entity extraction + state merge |
-| 1 | **IntentAnalyzer** | gemini-flash-lite | Query → IntentTarget (taxonomy, scope, topics) |
+| 1 | **IntentAnalyzer** | gemini-flash-lite | Query → taxonomy branches + search terms |
 | 2 | **ContextBuilder** | – | Dual Retrieval (keyword + vector + graph) |
-| 3 | **Planner** | gemini-flash-lite | Reasoning → ReasoningPlan |
-| 4 | **Validator** | – | Constraint check (BLOCK/WARN/STRATEGY_FORCE) |
-| 5 | **Synthesizer** | gemini-2.0-flash | Genererar svar med ReasoningPlan + personas |
+| 3 | **Planner** | gemini-pro | Logik + entity extraction → plan dict |
+| 4 | **AvropsContainerManager** | – | Applicera entity_changes (deterministisk) |
+| 5 | **Synthesizer** | gemini-pro | Genererar svar med fas-specifik persona |
+
+**Fas-specifika Synthesizer-personas (v5.27):**
+| Steg | Prompt | Fokus |
+|------|--------|-------|
+| step_1_intake | synthesizer_step1_behov | Roller, plats, behovsbeskrivning |
+| step_2_level | synthesizer_step2_niva | Kompetensnivå 1-5, svårighet vs pris |
+| step_3_volume | synthesizer_step3_volym | Datum, volym, takpris, rimlighetsanalys |
+| step_4_strategy | synthesizer_step4_avslut | Prismodell, utvärdering, sammanfattning |
 
 **IntentTarget (output från steg 1):**
 ```python
@@ -317,7 +325,7 @@ Integreras i Addas Optimizely-miljö som React-komponent.
 | **ReasoningPlan** | Output från Planner: conclusion, policy, tone, validation |
 | **Killswitch (Ghost Mode)** | FACT-intent blockerar SECONDARY-källor |
 | **UI Directives** | Backend-driven UI-uppdatering (entity_summary, header, step) |
-| **SummaryCard** | "Varukorgen" – multi-resource beställningssammanfattning |
+| **SummaryCard** | "Ditt avrop" – multi-resource beställningssammanfattning (v5.27) |
 | **VocabularyService** | Singleton för taxonomy-vocabulary access vid runtime |
 | **Topic-to-Branch Inference** | Automatisk mappning av topics till taxonomy branches |
 | **Dual Retrieval** | ContextBuilder: keyword + vector + graph sökning |
@@ -402,6 +410,25 @@ Separat bulk-ingest processor för dokumentkonvertering:
 
 ---
 
-*Version: 5.11*  
-*Status: Demo-validerad + Nya UX-förbättringar identifierade*  
-*Senast uppdaterad: 4 december 2025*
+*Version: 5.27*  
+*Status: Deterministisk stegprogression implementerad*  
+*Senast uppdaterad: 9 december 2025*  
+*🧪 ANVÄNDARTEST: 10 december 2025, kl 09:00*
+
+---
+
+## 10. Utvecklingsmiljö
+
+### 10.1 Startscript (start_pbot.sh)
+
+```bash
+./start_pbot.sh
+```
+
+Scriptet:
+1. Tar bort Kuzu-lås (om det finns)
+2. Rensar Python-cache (__pycache__)
+3. Startar Cloudflare-tunnel (bakgrund)
+4. Startar backend-server (förgrund)
+
+**Ctrl+C** stoppar allt.

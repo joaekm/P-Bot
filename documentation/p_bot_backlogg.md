@@ -1,4 +1,4 @@
-# P-Bot Backlog (v5.13)
+# P-Bot Backlog (v5.27)
 
 Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade på projektets faser.
 
@@ -159,7 +159,19 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 | **EPIC-467** | Kuzu Lock Fix | ✅ DONE | `use_reloader=False` i Flask. Startup-check för låsfil. |
 | **EPIC-468** | Legacy Cleanup | ✅ DONE | Borttagna: `learnings.json`, `vocabulary.json`, `VocabularyService`. |
 
-### 3c-v4. Behovsinsamling & Coachande UX (v5.26) 📝
+### 3c-v4. Stegkrav & Determinism (v5.27) ✅
+
+| Epic-ID | Titel | Status | Kommentar |
+|:--------|:------|:-------|:----------|
+| **EPIC-470** | Deterministisk Stegprogression | ✅ DONE | check_step_requirements() i AvropsContainerManager. Blockerar framåt om krav ej uppfyllda. |
+| **EPIC-471** | Fas-specifika Synthesizer-prompts | ✅ DONE | 4 nya prompts: synthesizer_step1_behov, _step2_niva, _step3_volym, _step4_avslut. |
+| **EPIC-472** | Step Transition Notice Fix | ✅ DONE | Lagt till step_1_intake i frontend STEP_METADATA. Notis visas nu för steg 1→2. |
+| **EPIC-473** | SummaryCard UX-förbättringar | ✅ DONE | Ny titel "Ditt avrop", omordnade fält enligt process, borttagna räknare. |
+| **EPIC-474** | Start Script | ✅ DONE | `start_pbot.sh` - Kuzu-lås, cache-rensning, Cloudflare-tunnel, backend. |
+| **EPIC-475** | Synthesizer v5.24 Restore | ✅ DONE | Återställd från v5.6-regression (commit 227b7c8). Pydantic-beroende borttaget. |
+| **EPIC-476** | STEP_ORDER Fix | ✅ DONE | Borttagen duplicerad step_1_needs som blockerade stegprogression. |
+
+### 3c-v5. Behovsinsamling & Coachande UX (v5.28) 📝
 
 | Epic-ID | Titel | Status | Kommentar |
 |:--------|:------|:-------|:----------|
@@ -273,8 +285,9 @@ Detta dokument spårar "Vad" och "När" – de konkreta uppgifterna fördelade p
 
 ---
 
-*Version: 5.25*  
-*Senast uppdaterad: 8 december 2025*
+*Version: 5.27*  
+*Senast uppdaterad: 9 december 2025*  
+*🧪 ANVÄNDARTEST: 10 december 2025, kl 09:00*
 
 ---
 

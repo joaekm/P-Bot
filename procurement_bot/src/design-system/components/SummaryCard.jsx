@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { tokens } from '../tokens';
-import { Check, Clock, MapPin, Calendar, Banknote, Users, FileText } from 'lucide-react';
+import { Check, Clock, MapPin, Calendar, Banknote, Users, FileText, ChevronDown, ChevronUp } from 'lucide-react';
 
 /**
  * SummaryCard Component ("Varukorgen") v5.24
@@ -33,6 +33,9 @@ const SummaryCard = ({
     title = "Din Förfrågan",
     style = {} 
 }) => {
+    // State for expandable description
+    const [descriptionExpanded, setDescriptionExpanded] = useState(false);
+    
     // Extract resources array and global fields (v5.24 kanoniska fältnamn)
     const resources = data.resources || [];
     
@@ -42,7 +45,7 @@ const SummaryCard = ({
     const showVolume = !isFastPris || data.volume; // Hide volume for FastPris unless explicitly set
 
     const globalFields = [
-        { key: 'behovsbeskrivning', label: 'Beskrivning', icon: FileText, format: (v) => v ? '✓ Ifylld' : null },
+        { key: 'behovsbeskrivning', label: 'Beskrivning', icon: FileText, expandable: true, format: (v) => v ? '✓ Ifylld' : null },
         { key: 'anbudsomrade', label: 'Anbudsområde', icon: MapPin },
         { key: 'location_text', label: 'Plats', icon: MapPin },
         ...(showVolume ? [{ key: 'volume', label: 'Volym', icon: Users, format: (v) => v ? `${v} timmar` : null }] : []),
@@ -255,57 +258,89 @@ const SummaryCard = ({
                         const value = field.format ? field.format(rawValue) : rawValue;
                         const isFilled = value !== null && value !== undefined;
                         const Icon = field.icon;
+                        
+                        // Special handling for expandable fields (description)
+                        const isExpandable = field.expandable && isFilled;
+                        const isExpanded = field.key === 'behovsbeskrivning' && descriptionExpanded;
 
                         return (
-                            <div 
-                                key={field.key}
-                                style={{
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center',
-                                    padding: `${tokens.spacing.sm} 0`
-                                }}
-                            >
-                                {/* Label with Icon */}
+                            <div key={field.key}>
                                 <div 
                                     style={{
                                         display: 'flex',
+                                        justifyContent: 'space-between',
                                         alignItems: 'center',
-                                        gap: tokens.spacing.md
+                                        padding: `${tokens.spacing.sm} 0`,
+                                        cursor: isExpandable ? 'pointer' : 'default'
                                     }}
+                                    onClick={isExpandable ? () => setDescriptionExpanded(!descriptionExpanded) : undefined}
                                 >
-                                    <Icon 
-                                        size={14} 
-                                        color={isFilled 
-                                            ? tokens.colors.brand.secondary 
-                                            : tokens.colors.neutral.lightGrey
-                                        }
-                                    />
-                                    <span 
+                                    {/* Label with Icon */}
+                                    <div 
                                         style={{
-                                            fontSize: tokens.typography.sizes.xs,
-                                            color: tokens.colors.neutral.lightGrey
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: tokens.spacing.md
                                         }}
                                     >
-                                        {field.label}
-                                    </span>
-                                </div>
+                                        <Icon 
+                                            size={14} 
+                                            color={isFilled 
+                                                ? tokens.colors.brand.secondary 
+                                                : tokens.colors.neutral.lightGrey
+                                            }
+                                        />
+                                        <span 
+                                            style={{
+                                                fontSize: tokens.typography.sizes.xs,
+                                                color: tokens.colors.neutral.lightGrey
+                                            }}
+                                        >
+                                            {field.label}
+                                        </span>
+                                    </div>
 
-                                {/* Value */}
-                                <span 
-                                    style={{
-                                        fontSize: tokens.typography.sizes.xs,
-                                        fontWeight: isFilled 
-                                            ? tokens.typography.weights.medium 
-                                            : tokens.typography.weights.regular,
-                                        color: isFilled 
-                                            ? tokens.colors.neutral.text 
-                                            : tokens.colors.neutral.lightGrey,
-                                        fontStyle: isFilled ? 'normal' : 'italic'
-                                    }}
-                                >
-                                    {isFilled ? value : '—'}
-                                </span>
+                                    {/* Value + Chevron */}
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: tokens.spacing.sm }}>
+                                        <span 
+                                            style={{
+                                                fontSize: tokens.typography.sizes.xs,
+                                                fontWeight: isFilled 
+                                                    ? tokens.typography.weights.medium 
+                                                    : tokens.typography.weights.regular,
+                                                color: isFilled 
+                                                    ? tokens.colors.neutral.text 
+                                                    : tokens.colors.neutral.lightGrey,
+                                                fontStyle: isFilled ? 'normal' : 'italic'
+                                            }}
+                                        >
+                                            {isFilled ? value : '—'}
+                                        </span>
+                                        {isExpandable && (
+                                            isExpanded 
+                                                ? <ChevronUp size={14} color={tokens.colors.neutral.lightGrey} />
+                                                : <ChevronDown size={14} color={tokens.colors.neutral.lightGrey} />
+                                        )}
+                                    </div>
+                                </div>
+                                
+                                {/* Expanded description content */}
+                                {isExpanded && (
+                                    <div 
+                                        style={{
+                                            padding: `${tokens.spacing.sm} ${tokens.spacing.md}`,
+                                            marginBottom: tokens.spacing.sm,
+                                            backgroundColor: tokens.colors.neutral.bg,
+                                            borderRadius: tokens.borderRadius.sm,
+                                            fontSize: tokens.typography.sizes.xs,
+                                            color: tokens.colors.neutral.text,
+                                            lineHeight: '1.5',
+                                            whiteSpace: 'pre-wrap'
+                                        }}
+                                    >
+                                        {rawValue}
+                                    </div>
+                                )}
                             </div>
                         );
                     })}
