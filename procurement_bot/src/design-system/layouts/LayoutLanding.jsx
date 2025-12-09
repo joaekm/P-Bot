@@ -6,7 +6,13 @@ const LayoutLanding = ({ hero, children }) => {
     <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
       {/* Hero Section - Full Width */}
       {hero && (
-        <div style={{ width: '100%', marginBottom: tokens.spacing['6xl'] }}>
+        <div style={{ 
+          width: '100%', 
+          marginBottom: tokens.spacing['6xl'],
+          paddingLeft: '24px',
+          paddingRight: '24px',
+          boxSizing: 'border-box'
+        }}>
           {hero}
         </div>
       )}
