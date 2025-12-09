@@ -123,7 +123,7 @@ class PlannerComponent:
     v5.24: Returns pure dict, handles entity extraction.
     """
     
-    STEP_ORDER = ['step_1_intake', 'step_1_needs', 'step_2_level', 'step_3_volume', 'step_4_strategy', 'complete']
+    STEP_ORDER = ['step_1_intake', 'step_2_level', 'step_3_volume', 'step_4_strategy', 'complete']
     
     def __init__(self, client, model: str, prompts: Dict):
         self.client = client
