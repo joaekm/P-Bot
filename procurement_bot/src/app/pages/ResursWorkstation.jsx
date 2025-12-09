@@ -31,6 +31,7 @@ import { apiFetch, apiFetchFormData } from '../../utils/api';
 
 // --- Step Metadata ---
 const STEP_METADATA = {
+  step_1_intake: { title: 'Beskriv Behov', process_step: 1 },
   step_1_needs: { title: 'Beskriv Behov', process_step: 1 },
   step_2_level: { title: 'Bedöm Kompetensnivå', process_step: 2 },
   step_3_volume: { title: 'Volym & Pris', process_step: 3 },
@@ -104,7 +105,7 @@ export default function ResursWorkstation() {
   });
   
   // Track step transitions
-  const [previousStep, setPreviousStep] = useState('step_1_needs');
+  const [previousStep, setPreviousStep] = useState('step_1_intake');
   
   // UI Directives from backend (Chunk 3: Data Layer)
   const [summaryData, setSummaryData] = useState({});           // entity_summary
@@ -486,7 +487,7 @@ export default function ResursWorkstation() {
       {/* Summary Card (Varukorgen) - uses avropData for persistence */}
       <SummaryCard 
         data={avropData} 
-        title="Din Förfrågan"
+        title="Ditt avrop"
         style={{ marginBottom: tokens.spacing['2xl'] }}
       />
       

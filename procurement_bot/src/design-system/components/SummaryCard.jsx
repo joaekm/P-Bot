@@ -42,6 +42,7 @@ const SummaryCard = ({
     const showVolume = !isFastPris || data.volume; // Hide volume for FastPris unless explicitly set
 
     const globalFields = [
+        { key: 'behovsbeskrivning', label: 'Beskrivning', icon: FileText, format: (v) => v ? '✓ Ifylld' : null },
         { key: 'anbudsomrade', label: 'Anbudsområde', icon: MapPin },
         { key: 'location_text', label: 'Plats', icon: MapPin },
         ...(showVolume ? [{ key: 'volume', label: 'Volym', icon: Users, format: (v) => v ? `${v} timmar` : null }] : []),
@@ -49,13 +50,6 @@ const SummaryCard = ({
         { key: 'end_date', label: 'Slutdatum', icon: Calendar, format: formatDate },
         { key: 'takpris', label: moneyLabel, icon: Banknote, format: (v) => v ? `${v.toLocaleString('sv-SE')} kr` : null },
         { key: 'prismodell', label: 'Prismodell', icon: Banknote },
-        // New: Show description status
-        { 
-            key: 'behovsbeskrivning', // Or uppdragsbeskrivning if that's what we use
-            label: 'Beskrivning', 
-            icon: FileText, 
-            format: (v) => v ? '✓ Ifylld' : null 
-        }
     ];
 
     // Check both potential description fields
@@ -113,18 +107,6 @@ const SummaryCard = ({
                 }}
             >
                 <span>{title}</span>
-                {hasData && (
-                    <span 
-                        style={{
-                            backgroundColor: 'rgba(255,255,255,0.2)',
-                            padding: `${tokens.spacing.xs} ${tokens.spacing.md}`,
-                            borderRadius: tokens.borderRadius.pill,
-                            fontSize: tokens.typography.sizes.xs
-                        }}
-                    >
-                        {completedItems}/{totalItems}
-                    </span>
-                )}
             </div>
 
             <div style={{ padding: tokens.spacing['2xl'] }}>
@@ -141,7 +123,7 @@ const SummaryCard = ({
                                 marginBottom: tokens.spacing.md
                             }}
                         >
-                            Resurser ({resources.length})
+                            Resurser
                         </div>
                         
                         {resources.map((resource, index) => {
